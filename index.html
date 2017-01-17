@@ -51,25 +51,35 @@
             </ul>
         </section>
         <section data-background="#E5F3F9">
-            <h2>Source Code</h2>
+            <h2>Organisatorisches</h2>
+            <ul>
+                <li>Start: 9:00 Uhr</li>
+                <li>Ende: ca. 17:30 Uhr</li>
+                <li>Pause: 10:45 - 11:00</li>
+                <li>Mittag: 12:30 - 13:30</li>
+                <li>Pause: 15:30 - 15:45</li>
+                <li>Fragen: Jederzeit ;-)</li>
+            </ul>
+        </section>
+        <section class="img-slide" data-background="img/hello-world-banner.png">
+        </section>
+        <section data-background="#E5F3F9">
+            <h2>Unsere erste Komponente</h2>
             <pre>
                 <code class="hljs" data-trim contenteditable>
-                class MyClass {
-                  public static myValue: string;
-                  constructor(init: string) {
-                    this.myValue = init;
-                  }
-                }
-                import fs = require("fs");
-                module MyModule {
-                  export interface MyInterface extends Other {
-                    myProperty: any;
-                  }
-                }
-                declare magicNumber number;
-                myArray.forEach(() => { }); // fat arrow syntax}
+                    import {Component} from '@angular/core';
+
+                    @Component({
+                      selector: 'my-app',
+                      template: `<h1>Hello {{name}}</h1>`
+                    })
+                    export class AppComponent {
+                        name = 'Joachim';
+                    }
 					</code>
             </pre>
+        </section>
+        <section class="img-slide" data-background="img/questions.jpg">
         </section>
     </div>
 </div>

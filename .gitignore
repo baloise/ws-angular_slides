@@ -18,3 +18,4 @@ js/reveal.min.js
 /.idea/uiDesigner.xml
 .idea/libraries/
 .idea/artifacts/
+*.log
