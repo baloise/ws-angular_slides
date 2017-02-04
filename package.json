@@ -1,7 +1,7 @@
 {
-  "name": "Reveal Template",
+  "name": "ws-angular_01_Intro",
   "version": "0.1.0",
-  "description": "Template for presentations",
+  "description": "Angular Workshop - 01 Intro",
   "scripts": {
     "start": "grunt serve"
   },
