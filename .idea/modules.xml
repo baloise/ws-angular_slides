@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ws-angular_01_Intro.iml" filepath="$PROJECT_DIR$/ws-angular_01_Intro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ws-angular_slides.iml" filepath="$PROJECT_DIR$/ws-angular_slides.iml" />
     </modules>
   </component>
 </project>

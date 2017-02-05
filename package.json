@@ -1,7 +1,7 @@
 {
-  "name": "ws-angular_01_Intro",
+  "name": "ws-angular_slides",
   "version": "0.1.0",
-  "description": "Angular Workshop - 01 Intro",
+  "description": "Angular Workshop - Slides",
   "scripts": {
     "start": "grunt serve"
   },
