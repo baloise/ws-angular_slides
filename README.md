@@ -1,9 +1,7 @@
 # Angular Workshop - Slides
 
-The Presentation is built with [reveal.js](http://lab.hakim.se/reveal-js/).
-
-
-You can navigate with your keys. 
+Die Präsentation wurde mit [reveal.js](http://lab.hakim.se/reveal-js/) erstellt.
+Durch die Folien kann mit den Pfeiltasten navigiert werden.
 
 ## Inhalt
 - [01 Intro](https://baloise.github.io/ws-angular_slides/)
