@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/baloise.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/androidstudio.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section class="deck-slide" data-background="#E5F3F9">
+            <h1>Projekt Setup</h1>
+        </section>
+        <section>
+            <section>
+                <h2>tslint.json</h2>
+                <ul>
+                    <li>
+                        zur Konfiguration der statischen Code Analyse
+                    </li>
+                    <li>
+                        Enthält Codelyzer - ein Linting Plugin für Angular
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>Wichtige Links</h2>
+                <p><a href="https://palantir.github.io/tslint/">TS Lint</a></p>
+                <p><a href="http://codelyzer.com/">Codelyzer</a></p>
+            </section>
+        </section>
+        <section>
+            <h2>README.md</h2>
+            <ul>
+                <li>
+                    generelle Informationen zum Setup
+                </li>
+                <li>
+                    Mit Markdown Syntax geschrieben
+                </li>
+                <li>
+                    <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Cheatsheet für Syntax</a>
+                </li>
+                <li>
+                    <a href="http://dillinger.io/">Sehr guter Online Editor</a>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <section>
+                <h2>protractor.conf.js</h2>
+                <ul>
+                    <li>
+                        Konfiguration für E2E-Testing
+                    </li>
+                    <li>
+                        Enthält package der E2E Test files
+                    </li>
+                    <li>
+                        Konfiguriert Browser, Timeouts und URL
+                    </li>
+                    <li>
+                        Für Angular Applikationen entwickelt
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>Unterschied zu Selenium</h2>
+                <ul>
+                    <li>
+                        Eigens für Angular enwickelt
+                    </li>
+                    <li>
+                        Angular spezifische Selektoren
+                    </li>
+                    <li>
+                        Wrapper um die Webdriver-API
+                    </li>
+                    <li>
+                        Nur eine JavaScript-API verfügbar
+                    </li>
+                    <li>
+                        <a href="http://www.protractortest.org/#/">Protractor Webseite</a>
+                    </li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <h2>package.json</h2>
+            <ul>
+                <li>
+                    Ähnlich einer pom.xml
+                </li>
+                <li>
+                    definiert Projekt-Version und Abhängigkeiten
+                </li>
+                <li>
+                    eigene Skripte können hinzugefügt werden
+                </li>
+            </ul>
+            <pre>
+                <code class="hljs" data-trim contenteditable>
+                      "scripts": {
+                          "clean": "npm run rimraf dist",
+                          "build": "npm run clean && npm run ng build"
+                      }
+                </code>
+            </pre>
+        </section>
+    </div>
+</div>
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            {src: 'plugin/markdown/marked.js'},
+            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/notes/notes.js', async: true},
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            }
+        ]
+    });
+</script>
+</body>
+</html>
