@@ -145,11 +145,11 @@
                     <li>
                         *: alle Versionen
                     </li>
-
                 </ul>
             </section>
             <section>
-                <p><a href="https://bytearcher.com/goodies/semantic-versioning-cheatsheet/">Semantic Versioning Cheatsheet</a></p>
+                <p><a href="https://bytearcher.com/goodies/semantic-versioning-cheatsheet/">Semantic Versioning
+                    Cheatsheet</a></p>
                 <img src="img/semantic.jpg">
             </section>
             <section>
@@ -157,8 +157,63 @@
                 <ul>
                     <li>betrifft nur direkte Abhängigkeiten</li>
                     <li>indirekte Abhängigkeiten oft ungenau</li>
-                    <li>Abhilfe schaffen Tools wie <a href="https://yarnpkg.com/lang/en/">Yarn</a> oder <a href="https://docs.npmjs.com/cli/shrinkwrap">NPM Shrinkwrap</a></li>
+                    <li>Abhilfe schaffen Tools wie <a href="https://yarnpkg.com/lang/en/">Yarn</a> oder <a
+                            href="https://docs.npmjs.com/cli/shrinkwrap">NPM Shrinkwrap</a></li>
                 </ul>
+            </section>
+            <section>
+                <h2>Installation von Dependencies</h2>
+                <ul>
+                    <li>Installation über Konsole: npm install jquery --save-exact</li>
+                    <li>Zeile in package.json einfügen</li>
+                </ul>
+                <pre>
+                    <code class="hljs" data-trim contenteditable>
+                        "jquery": "2.4.6",
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Kurzformen</h2>
+                <ul>
+                    <li>npm install: npm i</li>
+                    <li>--save-dev: -D</li>
+                    <li>--save-exact: -E</li>
+                    <li>--save-dev-exact: -D -E</li>
+                </ul>
+                <pre>
+                    <code class="hljs" data-trim contenteditable>
+                        "npm i -E @angular/http"
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Globale Installation</h2>
+                <h3>NICHTS global installieren!</h3>
+                <ul>
+                    <li>
+                        Zugriff auf lokale Pakete einfach möglich
+                    </li>
+                    <li>
+                        in der "scripts" section ist "node_modules/bin" verfügbar
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>Lokale Module</h2>
+                <pre>
+                    <code class="hljs" data-trim contenteditable>
+                        "devDependencies": {
+                            "webpack": "2.2.1",
+                            "karma": "0.12.1"
+                        },
+                        "scripts": {
+                            "build": "webpack",
+                            "test": "npm run build && npm run karma start"
+                        }
+                    </code>
+                </pre>
+                <p>Zugriff auf der Konsole per "npm run build"</p>
             </section>
         </section>
     </div>
