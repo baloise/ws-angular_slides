@@ -102,26 +102,64 @@
             </section>
         </section>
         <section>
-            <h2>package.json</h2>
-            <ul>
-                <li>
-                    Ähnlich einer pom.xml
-                </li>
-                <li>
-                    definiert Projekt-Version und Abhängigkeiten
-                </li>
-                <li>
-                    eigene Skripte können hinzugefügt werden
-                </li>
-            </ul>
-            <pre>
-                <code class="hljs" data-trim contenteditable>
-                      "scripts": {
-                          "clean": "npm run rimraf dist",
-                          "build": "npm run clean && npm run ng build"
-                      }
-                </code>
-            </pre>
+            <section>
+                <h2>package.json</h2>
+                <ul>
+                    <li>
+                        Ähnlich einer pom.xml
+                    </li>
+                    <li>
+                        definiert Projekt-Version und Abhängigkeiten
+                    </li>
+                    <li>
+                        eigene Skripte können hinzugefügt werden
+                    </li>
+                </ul>
+                <pre>
+                    <code class="hljs" data-trim contenteditable>
+                          "scripts": {
+                              "clean": "npm run rimraf dist",
+                              "build": "npm run clean && npm run ng build"
+                          }
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Versionen</h2>
+                <ul>
+                    <li>
+                        Viele Libraries nutzen <a href="http://semver.org/">Semantic Versioning</a>
+                    </li>
+                    <li>
+                        1.2.3: Nur diese Exakte Version
+                    </li>
+                    <li>
+                        ~1.2.3: Nur Bugfixes (1.2.X)
+                    </li>
+                    <li>
+                        ^1.2.3: Nur Minor changes (1.X.Y)
+                    </li>
+                    <li>
+                        1.2.x: Wie ~ (Bugfixes)
+                    </li>
+                    <li>
+                        *: alle Versionen
+                    </li>
+
+                </ul>
+            </section>
+            <section>
+                <p><a href="https://bytearcher.com/goodies/semantic-versioning-cheatsheet/">Semantic Versioning Cheatsheet</a></p>
+                <img src="img/semantic.jpg">
+            </section>
+            <section>
+                <h2>Versionen in Dependencies</h2>
+                <ul>
+                    <li>betrifft nur direkte Abhängigkeiten</li>
+                    <li>indirekte Abhängigkeiten oft ungenau</li>
+                    <li>Abhilfe schaffen Tools wie <a href="https://yarnpkg.com/lang/en/">Yarn</a> oder <a href="https://docs.npmjs.com/cli/shrinkwrap">NPM Shrinkwrap</a></li>
+                </ul>
+            </section>
         </section>
     </div>
 </div>
