@@ -25,10 +25,121 @@
 <div class="reveal">
     <div class="slides">
         <section class="deck-slide" data-background="#E5F3F9">
-            <h1>Grundlagen - Ökosystem, TypeScript & RxJS</h1>
+            <h1>Grundlagen - Ökosystem</h1>
+        </section>
+        <section class="deck-slide" data-background="#E5F3F9">
+            <h1>ES2015 & TypeScript</h1>
         </section>
         <section>
-            <h2>Placeholder</h2>
+            <section>
+                <h2>ES5 / ES6 / TS</h2>
+                <img src="img/js_history.png">
+            </section>
+            <section>
+                <h2>ES5</h2>
+                <ul>
+                    <li>JavaScript das alle modernen Browser unterstüzen</li>
+                    <li>neuere Versionen werden meist nach ES5 kompiliert / transpiliert</li>
+                </ul>
+            </section>
+            <section>
+                <h2>ES6 / ES2015</h2>
+                <ul>
+                    <li>Neuere Version aus dem Jahr 2015</li>
+                    <li>Wird meist mit Babel oder dem Google Closure Compiler zu ES5 transpiliert</li>
+                    <li>Klassen, Arrow Funktionen, Block scoped let und const, Module, Multiline Strings...</li>
+                </ul>
+            </section>
+            <section>
+                <h2>TypeScript</h2>
+                <ul>
+                    <li>Von Microsoft entwickelte Erweiterung</li>
+                    <li>Wird mit dem TypeScript Compiler zu JavaScript kompiliert</li>
+                    <li>Typisierung, Annotationen / Decorator, Interfaces, Generics</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <h2>ES6 Neuerungen</h2>
+            <h3>Fat arrow functions</h3>
+            <pre>
+                <code class="hljs" data-trim contenteditable>
+                    // old way
+                    [1, 2, 3].map(function (number) {
+                       return number * 2;
+                    });
+                    // [2, 4, 6]
+                     <span class="fragment">
+                    // ES6 way
+                    [1, 2, 3].map(number => number * 2);
+                    // [2, 4, 6]
+                     </span>
+				</code>
+            </pre>
+        </section>
+        <section>
+            <section>
+                <h3>Block scoped let</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                         // old way
+                         for (var i = 0; i < 2; i++) {
+                            // mach etwas
+                         }
+                         console.log(i);  <span class="fragment"> // 1</span>
+
+                         <span class="fragment">
+                         // ES6 way
+                         for (let i = 0; i < 2; i++) {
+                            // mach etwas
+                         }
+                         console.log(i); <span class="fragment">  // i is not defined </span>
+                        </span>
+                    </code>
+            </pre>
+            </section>
+            <section>
+                <h3>var vs let vs const</h3>
+                <ul>
+                    <li>var ist function scoped</li>
+                    <li>let und const sind block scoped</li>
+                    <li>var ist the new let ;-)</li>
+                    <li>const ist ähnlich wie das final in Javan</li>
+                    <li>Achtung! Objekte oder Arrays können durchaus mutiert werden! (siehe final)</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <h3>Objekt Literale</h3>
+            <pre>
+                 <code class="hljs javascript" data-trim contenteditable>
+                     let obj = {
+                        firstName: "Hans",
+                        lastName: "Muster",
+                        hobbies: ['Tennis', 'Lesen']
+                     };
+
+                     let obj = {};
+                     obj.firstName = "Hans";
+                     obj.lastName = "Muster";
+                     obj.hobbies = ['Tennis', 'Lesen'];
+				 </code>
+            </pre>
+        </section>
+        <section>
+            <h3>Template Strings</h3>
+            <h4>Werden mit dem Backtick ` erzeugt</h4>
+            <pre>
+                 <code class="hljs javascript" data-trim contenteditable>
+                     let name = 'Hans';
+                     let templString = `Hallo
+                        ${name},
+                        wie geht es dir?`
+                     console.log(templString); // Hallo
+                                               // Hans,
+                                               // wie geht es dir?
+				 </code>
+            </pre>
         </section>
     </div>
 </div>
