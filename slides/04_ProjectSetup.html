@@ -6,11 +6,11 @@
 
     <title>reveal.js</title>
 
-    <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/baloise.css">
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/baloise.css">
 
     <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="lib/css/atom-one-dark.css">
+    <link rel="stylesheet" href="../lib/css/atom-one-dark.css">
 
     <!-- Printing and PDF exports -->
     <script>
@@ -111,7 +111,7 @@
             <section>
                 <p><a href="https://bytearcher.com/goodies/semantic-versioning-cheatsheet/">Semantic Versioning
                     Cheatsheet</a></p>
-                <img src="img/semantic.jpg">
+                <img src="../img/semantic.jpg">
             </section>
             <section>
                 <h2>Versionen in Dependencies</h2>
@@ -198,8 +198,8 @@
         </section>
     </div>
 </div>
-<script src="lib/js/head.min.js"></script>
-<script src="js/reveal.js"></script>
+<script src="../lib/js/head.min.js"></script>
+<script src="../js/reveal.js"></script>
 
 <script>
     // More info https://github.com/hakimel/reveal.js#configuration
@@ -208,11 +208,11 @@
 
         // More info https://github.com/hakimel/reveal.js#dependencies
         dependencies: [
-            {src: 'plugin/markdown/marked.js'},
-            {src: 'plugin/markdown/markdown.js'},
-            {src: 'plugin/notes/notes.js', async: true},
+            {src: '../plugin/markdown/marked.js'},
+            {src: '../plugin/markdown/markdown.js'},
+            {src: '../plugin/notes/notes.js', async: true},
             {
-                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                src: '../plugin/highlight/highlight.js', async: true, callback: function () {
                 hljs.initHighlightingOnLoad();
             }
             }

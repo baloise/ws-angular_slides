@@ -6,11 +6,11 @@
 
     <title>reveal.js</title>
 
-    <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/baloise.css">
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/baloise.css">
 
     <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="lib/css/atom-one-dark.css">
+    <link rel="stylesheet" href="../lib/css/atom-one-dark.css">
 
     <!-- Printing and PDF exports -->
     <script>
@@ -29,18 +29,18 @@
         </section>
         <section>
             <h2>Components!</h2>
-            <img src="img/components.png">
+            <img src="../img/components.png">
             <p>Navigation, Search, Logo, Board-List, Board...</p>
             <p>Board-Page (umfassende Komponente)</p>
         </section>
         <section>
             <h2>Die App - ein Baum von Komponenten</h2>
-            <img src="img/component_tree.png">
+            <img src="../img/component_tree.png">
         </section>
     </div>
 </div>
-<script src="lib/js/head.min.js"></script>
-<script src="js/reveal.js"></script>
+<script src="../lib/js/head.min.js"></script>
+<script src="../js/reveal.js"></script>
 
 <script>
     // More info https://github.com/hakimel/reveal.js#configuration
@@ -49,11 +49,11 @@
 
         // More info https://github.com/hakimel/reveal.js#dependencies
         dependencies: [
-            {src: 'plugin/markdown/marked.js'},
-            {src: 'plugin/markdown/markdown.js'},
-            {src: 'plugin/notes/notes.js', async: true},
+            {src: '../plugin/markdown/marked.js'},
+            {src: '../plugin/markdown/markdown.js'},
+            {src: '../plugin/notes/notes.js', async: true},
             {
-                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                src: '../plugin/highlight/highlight.js', async: true, callback: function () {
                 hljs.initHighlightingOnLoad();
             }
             }

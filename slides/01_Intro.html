@@ -6,18 +6,18 @@
 
     <title>reveal.js</title>
 
-    <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/baloise.css">
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/baloise.css">
 
     <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="lib/css/atom-one-dark.css">
+    <link rel="stylesheet" href="../lib/css/atom-one-dark.css">
 
     <!-- Printing and PDF exports -->
     <script>
         var link = document.createElement('link');
         link.rel = 'stylesheet';
         link.type = 'text/css';
-        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../css/print/pdf.css' : '../css/print/paper.css';
         document.getElementsByTagName('head')[0].appendChild(link);
     </script>
 </head>
@@ -71,7 +71,7 @@
                 <li>Typisierung, Build Prozess</li>
             </ul>
         </section>
-        <section class="img-slide" data-background="img/hello-world-banner.png">
+        <section class="img-slide" data-background="../img/hello-world-banner.png">
         </section>
         <section data-background="#E5F3F9">
             <h2>Unsere erste Komponente</h2>
@@ -90,13 +90,13 @@
 					</code>
             </pre>
         </section>
-        <section class="img-slide" data-background="img/questions.jpg">
+        <section class="img-slide" data-background="/questions.jpg">
         </section>
     </div>
 </div>
 
-<script src="lib/js/head.min.js"></script>
-<script src="js/reveal.js"></script>
+<script src="../lib/js/head.min.js"></script>
+<script src="../js/reveal.js"></script>
 
 <script>
     // More info https://github.com/hakimel/reveal.js#configuration
@@ -105,11 +105,11 @@
 
         // More info https://github.com/hakimel/reveal.js#dependencies
         dependencies: [
-            {src: 'plugin/markdown/marked.js'},
-            {src: 'plugin/markdown/markdown.js'},
-            {src: 'plugin/notes/notes.js', async: true},
+            {src: '../plugin/markdown/marked.js'},
+            {src: '../plugin/markdown/markdown.js'},
+            {src: '../plugin/notes/notes.js', async: true},
             {
-                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                src: '../plugin/highlight/highlight.js', async: true, callback: function () {
                 hljs.initHighlightingOnLoad();
             }
             }
