@@ -151,7 +151,9 @@
                             hobbies.forEach(hobby => console.log(hobby));
                          }
                          info("Hans", "Tennis", "Squash", "Schach");
-
+                         <span class="fragment">
+                         // ["Tennis", "Squash", "Schach"]
+                         </span>
                          function multiply(multi, ...numbers) {
                             return numbers.map(num => multi * num);
                          }
@@ -213,9 +215,8 @@
                          <span class="fragment">
                          let arr, a, b, rest;
                          arr = [1, 2, 3, 4, 5];
-                         [a, b, ...rest] = arr;
+                         [a, , ...rest] = arr;
                          console.log(a); // 1
-                         console.log(b); // 2
                          console.log(rest); // [3, 4, 5]
                          </span>
                      </code>
