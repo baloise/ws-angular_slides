@@ -116,13 +116,13 @@
                      let obj = {
                         firstName: "Hans",
                         lastName: "Muster",
-                        hobbies: ['Tennis', 'Lesen']
+                        hobbies: ["Tennis", "Lesen"]
                      };
 
                      let obj = {};
                      obj.firstName = "Hans";
                      obj.lastName = "Muster";
-                     obj.hobbies = ['Tennis', 'Lesen'];
+                     obj.hobbies = ["Tennis", "Lesen"];
 				 </code>
             </pre>
         </section>
@@ -140,6 +140,182 @@
                                                // wie geht es dir?
 				 </code>
             </pre>
+        </section>
+        <section>
+            <section>
+                <h3>Rest & Spreading</h3>
+                <h4>Rest Parameter</h4>
+                <pre>
+                     <code class="hljs javascript" data-trim contenteditable data-noescape>
+                         function info(name, ...hobbies) {
+                            hobbies.forEach(hobby => console.log(hobby));
+                         }
+                         info("Hans", "Tennis", "Squash", "Schach");
+
+                         function multiply(multi, ...numbers) {
+                            return numbers.map(num => multi * num);
+                         }
+                         console.log(multiply(2, 3, 4, 5, 6));
+                         <span class="fragment">
+                         // [6, 8 , 10, 12]
+                         </span>
+                     </code>
+                </pre>
+            </section>
+            <section>
+                <h4>Spread Operator</h4>
+                <pre>
+                     <code class="hljs javascript" data-trim contenteditable data-noescape>
+                         // Arrays kopieren
+                         let arr = [1, 2]
+                         let newArr = [...arr]
+                         <span class="fragment">
+                         // Arrays zusammenführen
+                         let devs = ["Hans", "Reto"];
+                         let testers = ["Peter", "Nicole"];
+                         let employees = ["El jefe", ...devs, ...testers];
+                         console.log(employees);
+                         // ["El jefe", "Hans", "Reto", "Peter", "Nicole"]
+                         </span><span class="fragment">
+
+                         let today = [2017, 2, 29];
+                         console.log(new Date(...today).toDateString());
+                         // Wed Mar 29 2017
+                        </span>
+                     </code>
+                </pre>
+            </section>
+        </section>
+        <section>
+            <h3>Default Parameter</h3>
+            <h4>Wenn Paramter nicht übergeben werden oder undefined sind</h4>
+            <pre>
+                 <code class="hljs javascript" data-trim contenteditable>
+                     function fullName(first = "Hans", last = "Muster") {
+                        return first + ' ' + last;
+                     }
+                     console.log(fullName("Peter")); // "Peter Muster"
+				 </code>
+            </pre>
+        </section>
+        <section>
+            <section>
+                <h3>Destructuring</h3>
+                <h4>Daten aus Arrays extrahieren</h4>
+                <pre>
+                     <code class="hljs javascript" data-trim contenteditable data-noescape>
+                         let arr, a, b;
+                         arr = [1, 2, 3];
+                         [a, b] = arr;
+                         console.log(a); // 1
+                         console.log(b); // 2
+
+                         <span class="fragment">
+                         let arr, a, b, rest;
+                         arr = [1, 2, 3, 4, 5];
+                         [a, b, ...rest] = arr;
+                         console.log(a); // 1
+                         console.log(b); // 2
+                         console.log(rest); // [3, 4, 5]
+                         </span>
+                     </code>
+                 </pre>
+            </section>
+            <section>
+                <h4>Daten aus Objekten extrahieren</h4>
+                <pre>
+                     <code class="hljs javascript" data-trim contenteditable data-noescape>
+                         let obj = {
+                            firstName: "Hans",
+                            lastName: "Muster",
+                            hobbies: ["Tennis", "Lesen"]
+                         };
+
+                         let {firstName, hobbies} = obj;
+                         console.log(firstName); // "Hans"
+                         console.log(hobbies); // ["Tennis", "Lesen"]
+
+                         let {firstName: vorname} = obj;
+                         console.log(vorname); // "Hans"
+                         </span>
+                     </code>
+                 </pre>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h3>Funtionen als First Class Objekte</h3>
+                <h4>Zuweisung</h4>
+                <pre>
+                     <code class="hljs javascript" data-trim contenteditable data-noescape>
+                         let func = function() {
+                            // mach etwas
+                         }
+                         // nicht anonym - praktisch beim debuggen
+                         let func = function funcName() {
+                            // mach etwas
+                         }
+                        <span class="fragment">
+                        // seit ES6
+                        let es6Func = () => console.log("Hello");
+                        es6Func(); // "Hello"
+                        let add = (a, b) => a + b;
+                        console.log(add(3, 4)); // 7
+                        </span>
+                     </code>
+                 </pre>
+            </section>
+            <section>
+                <h4>Zuweisung (2)</h4>
+                <pre>
+                     <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        // Bei einem Parameter ohne Klammern möglich
+                        let potenz = n => n * n;
+                        console.log(potenz(4)); // 16
+                     </code>
+                 </pre>
+            </section>
+            <section>
+                <h4>Funktionen als Return value</h4>
+                <pre>
+                     <code class="hljs javascript" data-trim contenteditable data-noescape>
+                         let addThree = (a) => (b) => (c) => a + b + c;
+                         console.log(addThree(1)(4)(3)); // 8
+
+                         // oder in ES5
+                         var addThreeOld = function addThreeOld(a) {
+                            return function(b) {
+                                return function (c) {
+                                    return a + b + c;
+                                }
+                            };
+                         };
+                         console.log(addThreeOld(1)(4)(3)); // 5
+                     </code>
+                 </pre>
+            </section>
+            <section>
+                <h4>Funktionen als Parameter</h4>
+                <pre>
+                     <code class="hljs javascript" data-trim contenteditable data-noescape>
+                         function renderCustomer(c) {
+                           console.log(c); // "Hans Muster"
+                         }
+
+                         function getFullName(name, callback) {
+                           let lastName = 'Muster';
+                           callback(name + ' ' + lastName);
+                         }
+
+                         getFullName("Hans", function(result) {
+                            return renderCustomer(result);
+                         });
+                         <span class="fragment">
+                         getFullName("Hans", renderCustomer);
+                         </span>
+                     </code>
+                 </pre>
+            </section>
         </section>
     </div>
 </div>
