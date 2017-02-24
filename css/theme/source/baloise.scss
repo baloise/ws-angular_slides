@@ -14,6 +14,10 @@ $mainFont: 'Open Sans', sans-serif;
 $mainColor: #444444;
 $headingFont: 'Open Sans', sans-serif;
 $headingColor: #008AC9;
+$heading1Size: 3.77em;
+$heading2Size: 2.03em;
+$heading3Size: 1.25em;
+$heading4Size: 0.85em;
 $headingTextShadow: none;
 $headingTextTransform: none;
 $backgroundColor: #fff;
@@ -110,7 +114,7 @@ img {
     font-size: 0.7em!important;
     word-wrap: normal!important;
     code {
-      padding: 0.8em!important;
+      padding: 0.4em!important;
       max-height: none!important;
     }
 
@@ -171,7 +175,7 @@ img {
     }
 
     h1 {
-      font-size: 2.2em;
+      font-size: 2.1em;
       position: relative;
       margin-top: 4em;
 
@@ -190,7 +194,7 @@ img {
 
     h3 {
       margin-top: 0.5em;
-      font-size: 1.2em;
+      font-size: 1.1em;
       text-indent: 0.1em;
       // text-transform: uppercase;
       line-height: 1.3em;
@@ -217,38 +221,6 @@ img {
     }
   }
 
-  .about {
-    display: inline-block;
-    width: 450px;
-
-    img {
-      width: 250px;
-      max-width: none;
-      max-height: none;
-      border-radius: 50%;
-      margin: 0;
-      margin-bottom: 1em;
-    }
-
-    h3 {
-      font-size: 1em;
-    }
-
-    a {
-      font-size: 0.8em;
-    }
-
-    &:first-child {
-      margin-left: 0;
-    }
-  }
-
-  .about-slide {
-    img {
-      width: 500px;
-    }
-  }
-
   .img-slide {
     h2 {
       display: inline-block;
@@ -257,43 +229,6 @@ img {
       background: rgba(255, 255, 255, 0.5);
       padding: 0.5em;
     }
-  }
-
-  .statement-slide {
-    h3 {
-      color: #fff;
-      text-align: left;
-      margin-left: -2em;
-      margin-top: 3em;
-      opacity: 0;
-      transition: opacity 1s ease;
-    }
-
-    &.present {
-      h3, p {
-        opacity: 1;
-        transition-delay: 1s;
-      }
-    }
-
-    p {
-      color: #fff;
-      text-align: left;
-      margin-left: -3em;
-      opacity: 0;
-      transition: opacity 1s ease;
-    }
-  }
-
-  .quotes-slide {
-    small {
-      text-align: left;
-      display: block;
-      width: 70%;
-      margin: 1.5em auto;
-      font-size: .6em;
-    }
-
   }
 
   .progress {
@@ -306,13 +241,6 @@ img {
   .sub-section-slide {
     h2 {
       opacity: 1;
-    }
-  }
-
-  .statement-slide {
-    h3 {
-      opacity: 1;
-      text-align: center;
     }
   }
 
