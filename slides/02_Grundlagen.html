@@ -318,6 +318,63 @@
                  </pre>
             </section>
         </section>
+        <section class="deck-slide" data-background="#E5F3F9">
+            <h1>TypeScript Features</h1>
+        </section>
+        <section>
+            <section>
+                <h3>Klassen</h3>
+                <h4>Constructor / shorthand</h4>
+                <pre>
+                     <code class="hljs typescript" data-trim contenteditable data-noescape>
+                         class CustomerComponent {
+                            constructor(private service: Service) {
+                            }
+
+                            findAll() {
+                                return this.service.findAll();
+                            }
+                         }
+                     </code>
+                 </pre>
+            </section>
+            <section>
+                <h4>Getter / Setter Syntax</h4>
+                <pre>
+                     <code class="hljs typescript" data-trim contenteditable data-noescape>
+                         class CustomerService {
+                            private customers: Customer[];
+
+                            get customers() {
+                                return this.customers;
+                            }
+
+                            set customers(customers: Customer[]) {
+                                this.customers = customers;
+                            }
+                         }
+                     </code>
+                 </pre>
+            </section>
+            <section>
+                <h4>Interfaces</h4>
+                <pre>
+                     <code class="hljs typescript" data-trim contenteditable data-noescape>
+                         class CustomerService {
+                            private customers: Customer[];
+
+                            get customers() {
+                                return this.customers;
+                            }
+
+                            set customers(customers: Customer[]) {
+                                this.customers = customers;
+                            }
+                         }
+                     </code>
+                 </pre>
+            </section>
+        </section>
     </div>
 </div>
 <script src="../lib/js/head.min.js"></script>
