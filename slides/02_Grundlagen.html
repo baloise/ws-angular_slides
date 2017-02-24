@@ -323,23 +323,23 @@
         </section>
         <section>
             <section>
-                <h3>Klassen</h3>
-                <h4>Constructor / shorthand</h4>
-                <pre>
-                     <code class="hljs typescript" data-trim contenteditable data-noescape>
-                         class CustomerComponent {
-                            constructor(private service: Service) {
-                            }
+            <h2>Klassen</h2>
+            <h3>Constructor / shorthand</h3>
+            <pre>
+                 <code class="hljs typescript" data-trim contenteditable data-noescape>
+                     class CustomerComponent {
+                        constructor(private service: Service) {
+                        }
 
-                            findAll() {
-                                return this.service.findAll();
-                            }
-                         }
-                     </code>
-                 </pre>
+                        findAll() {
+                            return this.service.findAll();
+                        }
+                     }
+                 </code>
+             </pre>
             </section>
             <section>
-                <h4>Getter / Setter Syntax</h4>
+                <h3>Getter / Setter Syntax</h3>
                 <pre>
                      <code class="hljs typescript" data-trim contenteditable data-noescape>
                          class CustomerService {
@@ -362,113 +362,116 @@
                      </code>
                  </pre>
             </section>
-            <section>
-                <h4>Typen: Java vs. TypeScript</h4>
-                <table>
-                    <tr>
-                        <th>Typ Java</th>
-                        <th>Typ TypeScript</th>
-                    </tr>
-                    <tr>
-                        <td>Object</td>
-                        <td>any</td>
-                    </tr>
-                    <tr>
-                        <td>void</td>
-                        <td>void</td>
-                    </tr>
-                    <tr>
-                        <td>boolean</td>
-                        <td>boolean</td>
-                    </tr>
-                    <tr>
-                        <td>integer, long, short...</td>
-                        <td>number</td>
-                    </tr>
-                    <tr>
-                        <td>String, char</td>
-                        <td>string</td>
-                    </tr>
-                    <tr>
-                        <td>Type[]</td>
-                        <td>type[]</td>
-                    </tr>
-                </table>
-            </section>
-            <section>
-                <h4>Typisierung und Compiler</h4>
-                <pre>
-                     <code class="hljs typescript" data-trim contenteditable data-noescape>
-                         interface Customer {
-                            hobbies: string[]
-                         }
+        </section>
+        <section>
+            <h2>Typen</h2>
+            <h3>Java vs. TypeScript</h3>
+            <table>
+                <tr>
+                    <th>Typ Java</th>
+                    <th>Typ TypeScript</th>
+                </tr>
+                <tr>
+                    <td>Object</td>
+                    <td>any</td>
+                </tr>
+                <tr>
+                    <td>void</td>
+                    <td>void</td>
+                </tr>
+                <tr>
+                    <td>boolean</td>
+                    <td>boolean</td>
+                </tr>
+                <tr>
+                    <td>integer, long, short...</td>
+                    <td>number</td>
+                </tr>
+                <tr>
+                    <td>String, char</td>
+                    <td>string</td>
+                </tr>
+                <tr>
+                    <td>Type[]</td>
+                    <td>type[]</td>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <h3>Typisierung und Compiler</h3>
+            <pre>
+                 <code class="hljs typescript" data-trim contenteditable data-noescape>
+                     interface Customer {
+                        hobbies: string[]
+                     }
 
-                         let validCus: Customer = {
-                            hobbies: ["Tennis", "Squash"]
-                         }
+                     let validCus: Customer = {
+                        hobbies: ["Tennis", "Squash"]
+                     }
 
-                         // Type '{ hobbies: string; }' is not assignable to
-                         // type 'Customer'. Types of property 'hobbies' are
-                         // incompatible. Type 'string' is not assignable
-                         // to type 'string[]'.
-                         let compileError: Customer = {
-                            hobbies: "Tennis"
-                         }
-                     </code>
-                 </pre>
-            </section>
-            <section>
-                <h4>Type Inference</h4>
-                <pre>
-                     <code class="hljs typescript" data-trim contenteditable data-noescape>
-                         class Service {
-                            private url = "/api";
+                     // Type '{ hobbies: string; }' is not assignable to
+                     // type 'Customer'. Types of property 'hobbies' are
+                     // incompatible. Type 'string' is not assignable
+                     // to type 'string[]'.
+                     let compileError: Customer = {
+                        hobbies: "Tennis"
+                     }
+                 </code>
+             </pre>
+        </section>
+        <section>
+            <h3>Type Inference</h3>
+            <pre>
+                 <code class="hljs typescript" data-trim contenteditable data-noescape>
+                     class Service {
+                        private url = "/api";
 
-                            createFullUrl(endpoint: number) {
-                            //Type 'number' is not assignable to type 'string'
-                                this.url = endpoint;
-                                return 'localhost' + this.url;
-                            }
-
-                            getCustomerUrl() {
-                                // Argument of type '"customer"' is not
-                                // assignable to parameter of type 'number'.
-                                return this.createFullUrl('customer');
-                            }
+                        createFullUrl(endpoint: number) {
+                        //Type 'number' is not assignable to type 'string'
+                            this.url = endpoint;
+                            return 'localhost' + this.url;
                         }
-                     </code>
-                 </pre>
-            </section>
-            <section>
-                <h4>Interfaces - optimal für "POJO"s</h4>
-                <pre>
-                     <code class="hljs typescript" data-trim contenteditable data-noescape>
-                         interface Customer {
-                            mandatory: string;
-                            optional?: string[]
-                         }
 
-                         let validCus: Customer = {
-                            mandatory: "Mandatory"
-                         }
+                        getCustomerUrl() {
+                            // Argument of type '"customer"' is not
+                            // assignable to parameter of type 'number'.
+                            return this.createFullUrl('customer');
+                        }
+                    }
+                 </code>
+             </pre>
+        </section>
+        <section>
+            <h3>Interfaces - optimal für "POJO"s</h3>
+            <pre>
+                 <code class="hljs typescript" data-trim contenteditable data-noescape>
+                     interface Customer {
+                        mandatory: string;
+                        optional?: string[]
+                     }
 
-                         // type '{ optional: string; }' is not assignable to
-                         // type 'Customer'. Property 'mandatory' is missing
-                         // in type '{ optional: string; }'.
-                         let compileError: Customer = {
-                            optional: ["Optional", "Prop"]
-                         }
-                     </code>
-                 </pre>
-            </section>
-            <section>
-                <h3>Nützliche Links</h3>
-                <ul>
-                    <li><a href="http://www.typescriptlang.org/play/index.html">TypeScript Playground</a></li>
-                    <li><a href="http://www.typescriptlang.org/docs/handbook/basic-types.html">TypeScript Handbook</a></li>
-                    <li><a href="https://basarat.gitbooks.io/typescript/content/">TypeScript Deep Dive Buch</a></li>
-                </ul>
-            </section>
+                     let validCus: Customer = {
+                        mandatory: "Mandatory"
+                     }
+
+                     // type '{ optional: string; }' is not assignable to
+                     // type 'Customer'. Property 'mandatory' is missing
+                     // in type '{ optional: string; }'.
+                     let compileError: Customer = {
+                        optional: ["Optional", "Prop"]
+                     }
+                 </code>
+             </pre>
+        </section>
+        <section>
+            <h2>Nützliche Links</h2>
+            <ul>
+                <li><a href="http://www.typescriptlang.org/play/index.html">TypeScript Playground - Online Editor</a>
+                </li>
+                <li><a href="http://www.typescriptlang.org/docs/handbook/basic-types.html">TypeScript Handbook -
+                    Doku</a></li>
+                <li><a href="https://basarat.gitbooks.io/typescript/content/">TypeScript Deep Dive - Buch</a></li>
+            </ul>
         </section>
         <section>
             <h2>Question Time!</h2>
