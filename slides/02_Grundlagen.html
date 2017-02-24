@@ -343,36 +343,131 @@
                 <pre>
                      <code class="hljs typescript" data-trim contenteditable data-noescape>
                          class CustomerService {
-                            private customers: Customer[];
-
+                            private _customers: Customer[] = [{name: "Hans"}];
                             get customers() {
-                                return this.customers;
+                                return this._customers;
+                            }
+                            set customers(customers: Customer[]) {
+                                this._customers = customers;
                             }
 
-                            set customers(customers: Customer[]) {
-                                this.customers = customers;
+                            extractName(customer: Customer) {
+                                return customer.name;
+                            }
+
+                            getCustomerNames() {
+                                return this.customers.map(extractName);
                             }
                          }
                      </code>
                  </pre>
             </section>
             <section>
-                <h4>Interfaces</h4>
+                <h4>Typen: Java vs. TypeScript</h4>
+                <table>
+                    <tr>
+                        <th>Typ Java</th>
+                        <th>Typ TypeScript</th>
+                    </tr>
+                    <tr>
+                        <td>Object</td>
+                        <td>any</td>
+                    </tr>
+                    <tr>
+                        <td>void</td>
+                        <td>void</td>
+                    </tr>
+                    <tr>
+                        <td>boolean</td>
+                        <td>boolean</td>
+                    </tr>
+                    <tr>
+                        <td>integer, long, short...</td>
+                        <td>number</td>
+                    </tr>
+                    <tr>
+                        <td>String, char</td>
+                        <td>string</td>
+                    </tr>
+                    <tr>
+                        <td>Type[]</td>
+                        <td>type[]</td>
+                    </tr>
+                </table>
+            </section>
+            <section>
+                <h4>Typisierung und Compiler</h4>
                 <pre>
                      <code class="hljs typescript" data-trim contenteditable data-noescape>
-                         class CustomerService {
-                            private customers: Customer[];
+                         interface Customer {
+                            hobbies: string[]
+                         }
 
-                            get customers() {
-                                return this.customers;
-                            }
+                         let validCus: Customer = {
+                            hobbies: ["Tennis", "Squash"]
+                         }
 
-                            set customers(customers: Customer[]) {
-                                this.customers = customers;
-                            }
+                         // Type '{ hobbies: string; }' is not assignable to
+                         // type 'Customer'. Types of property 'hobbies' are
+                         // incompatible. Type 'string' is not assignable
+                         // to type 'string[]'.
+                         let compileError: Customer = {
+                            hobbies: "Tennis"
                          }
                      </code>
                  </pre>
+            </section>
+            <section>
+                <h4>Type Inference</h4>
+                <pre>
+                     <code class="hljs typescript" data-trim contenteditable data-noescape>
+                         class Service {
+                            private url = "/api";
+
+                            createFullUrl(endpoint: number) {
+                            //Type 'number' is not assignable to type 'string'
+                                this.url = endpoint;
+                                return 'localhost' + this.url;
+                            }
+
+                            getCustomerUrl() {
+                                // Argument of type '"customer"' is not
+                                // assignable to parameter of type 'number'.
+                                return this.createFullUrl('customer');
+                            }
+                        }
+                     </code>
+                 </pre>
+            </section>
+            <section>
+                <h4>Interfaces - optimal für "POJO"s</h4>
+                <pre>
+                     <code class="hljs typescript" data-trim contenteditable data-noescape>
+                         interface Customer {
+                            mandatory: string;
+                            optional?: string[]
+                         }
+
+                         let validCus: Customer = {
+                            mandatory: "Mandatory"
+                         }
+
+                         // type '{ optional: string; }' is not assignable to
+                         // type 'Customer'. Property 'mandatory' is missing
+                         // in type '{ optional: string; }'.
+                         let compileError: Customer = {
+                            optional: ["Optional", "Prop"]
+                         }
+                     </code>
+                 </pre>
+            </section>
+            <section>
+                <h3>Nützliche Links</h3>
+                <ul>
+                    <li><a href="http://www.typescriptlang.org/play/index.html">TypeScript Playground</a></li>
+                    <li><a href="http://www.typescriptlang.org/docs/handbook/basic-types.html">TypeScript Handbook</a></li>
+                    <li><a href="https://basarat.gitbooks.io/typescript/content/">TypeScript Deep Dive Buch</a></li>
+                </ul>
             </section>
         </section>
         <section>
