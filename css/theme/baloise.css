@@ -80,7 +80,7 @@ img {
   font-size: 0.7em !important;
   word-wrap: normal !important; }
   .reveal pre code {
-    padding: 0.8em !important;
+    padding: 0.4em !important;
     max-height: none !important; }
   .reveal pre .keyword {
     color: #B38335; }
@@ -120,7 +120,7 @@ img {
   .reveal .deck-slide h1, .reveal .deck-slide h3 {
     letter-spacing: 0; }
   .reveal .deck-slide h1 {
-    font-size: 2.2em;
+    font-size: 2.1em;
     position: relative;
     margin-top: 4em; }
     .reveal .deck-slide h1:before {
@@ -135,7 +135,7 @@ img {
       left: -1.2em; }
   .reveal .deck-slide h3 {
     margin-top: 0.5em;
-    font-size: 1.2em;
+    font-size: 1.1em;
     text-indent: 0.1em;
     line-height: 1.3em; }
 
@@ -152,68 +152,18 @@ img {
 .reveal .image-slide h2 {
   margin-bottom: 0 !important; }
 
-.reveal .about {
-  display: inline-block;
-  width: 450px; }
-  .reveal .about img {
-    width: 250px;
-    max-width: none;
-    max-height: none;
-    border-radius: 50%;
-    margin: 0;
-    margin-bottom: 1em; }
-  .reveal .about h3 {
-    font-size: 1em; }
-  .reveal .about a {
-    font-size: 0.8em; }
-  .reveal .about:first-child {
-    margin-left: 0; }
-
-.reveal .about-slide img {
-  width: 500px; }
-
-.reveal .drinks-and-food-slide h2 {
+.reveal .img-slide h2 {
   display: inline-block;
   margin-top: 5em;
   margin-left: -4em;
   background: rgba(255, 255, 255, 0.5);
   padding: 0.5em; }
 
-.reveal .statement-slide h3 {
-  color: #fff;
-  text-align: left;
-  margin-left: -2em;
-  margin-top: 3em;
-  opacity: 0;
-  transition: opacity 1s ease; }
-
-.reveal .statement-slide.present h3, .reveal .statement-slide.present p {
-  opacity: 1;
-  transition-delay: 1s; }
-
-.reveal .statement-slide p {
-  color: #fff;
-  text-align: left;
-  margin-left: -3em;
-  opacity: 0;
-  transition: opacity 1s ease; }
-
-.reveal .quotes-slide small {
-  text-align: left;
-  display: block;
-  width: 70%;
-  margin: 1.5em auto;
-  font-size: .6em; }
-
 .reveal .progress {
   height: 0.25em; }
 
 .print-pdf .sub-section-slide h2 {
   opacity: 1; }
-
-.print-pdf .statement-slide h3 {
-  opacity: 1;
-  text-align: center; }
 
 .print-pdf .reveal.none .slides section.sub-section-slide {
   padding-top: 350px !important; }
@@ -297,13 +247,13 @@ body {
   font-size: 3.77em; }
 
 .reveal h2 {
-  font-size: 2.11em; }
+  font-size: 2.03em; }
 
 .reveal h3 {
-  font-size: 1.55em; }
+  font-size: 1.25em; }
 
 .reveal h4 {
-  font-size: 1em; }
+  font-size: 0.85em; }
 
 .reveal h1 {
   text-shadow: none; }
