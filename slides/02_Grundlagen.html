@@ -152,7 +152,7 @@
                          }
                          info("Hans", "Tennis", "Squash", "Schach");
                          <span class="fragment">
-                         // ["Tennis", "Squash", "Schach"]
+                         // "Tennis" "Squash" "Schach"
                          </span>
                          function multiply(multi, ...numbers) {
                             return numbers.map(num => multi * num);
@@ -190,7 +190,7 @@
         </section>
         <section>
             <h3>Default Parameter</h3>
-            <h4>Wenn Paramter nicht übergeben werden oder undefined sind</h4>
+            <h4>Wenn Parameter nicht übergeben werden oder undefined sind</h4>
             <pre>
                  <code class="hljs javascript" data-trim contenteditable>
                      function fullName(first = "Hans", last = "Muster") {
@@ -434,7 +434,6 @@
                          interface Customer {
                             hobbies: string[]
                          }
-
                          let validCus: Customer = {
                             hobbies: ["Tennis", "Squash"]
                          }
