@@ -28,6 +28,42 @@
             <h1>Architektur</h1>
         </section>
         <section>
+            <h2>Überblick</h2>
+            <img src="../img/architecture.png">
+        </section>
+        <section>
+            <section>
+                <h2>Module</h2>
+                <h3>Jede Applikation besitzt min. 1 Modul</h3>
+                <pre>
+                     <code class="hljs typescript" data-trim contenteditable data-noescape>
+                        import {NgModule} from "@angular/core";
+                        import {AppComponent} from "./app.component";
+                        import {HttpModule} from "@angular/http";
+                        import {CustomerService} from "./customer.service";
+                        @NgModule({
+                            declarations: [AppComponent],
+                            imports: [HttpModule],
+                            providers: [CustomerService],
+                            bootstrap: [AppComponent]
+                        })
+                        export class AppModule {}
+
+                     </code>
+                 </pre>
+            </section>
+            <section>
+                <h3>NgModule Decorator</h3>
+                <h4>Eine Funktion die ein Objekt als Argument erwartet</h4>
+                <ul>
+                    <li><span class="code">declarations</span> - ALLE Komponenten, Direktiven und Pipes dieses Moduls</li>
+                    <li><span class="code">exports</span> - ein Subset der declarations, das von anderen Modulen benutzt werden darf</li>
+                    <li><span class="code">imports</span> - andere Module die wir benötigen</li>
+                    <li><span class="code">providers</span> - global verfügbare Services die das Modul der Dependency Injection bereitstellt</li>
+                </ul>
+            </section>
+        </section>
+        <section>
             <h2>Aufwachen bitte!</h2>
             <img src="../img/trump_questions.jpg" width="60%">
         </section>
