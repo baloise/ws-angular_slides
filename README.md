@@ -2,6 +2,7 @@
 
 - Die Präsentation wurde mit [reveal.js](http://lab.hakim.se/reveal-js/) erstellt.
 - Durch die Folien kann mit den Pfeiltasten navigiert werden.
+- Die beste User Experience erreicht man mit Google Chrome
 - "F" springt in den FullScreen Modus, mit ESC verlassen
 - "O" zeigt einen Overview über alle Slides, mit ESC verlassen
 - Bei Fehlern oder Fragen: Issue oder Pull Request erstellen
