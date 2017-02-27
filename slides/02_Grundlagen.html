@@ -318,6 +318,35 @@
                  </pre>
             </section>
         </section>
+        <section>
+            <section>
+                <h2>JS Besonderheiten</h2>
+                <h3>Truthy und Falsy</h3>
+                <ul>
+                    <li>false</li>
+                    <li>0</li>
+                    <li>"" (empty string)</li>
+                    <li>null</li>
+                    <li>undefined</li>
+                    <li>NaN</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Null checks & Triple equals</h3>
+                <pre>
+                 <code class="hljs typescript" data-trim contenteditable data-noescape>
+                     let customer = getCustomer();
+                     if(customer === null || customer === undefined) {
+                        // do sth.
+                     }
+
+                     if(!customer) {
+                        // do sth.
+                     }
+                 </code>
+             </pre>
+            </section>
+        </section>
         <section class="deck-slide" data-background="#E5F3F9">
             <h1>TypeScript Features</h1>
         </section>
@@ -393,34 +422,94 @@
                 </tr>
                 <tr>
                     <td>Type[]</td>
-                    <td>type[]</td>
+                    <td>Type[]</td>
                 </tr>
             </table>
         </section>
         <section>
-            <h3>Typisierung und Compiler</h3>
-            <pre>
-                 <code class="hljs typescript" data-trim contenteditable data-noescape>
-                     interface Customer {
-                        hobbies: string[]
-                     }
+            <section>
+                <h2>Typisierung - Interfaces</h2>
+                <pre>
+                     <code class="hljs typescript" data-trim contenteditable data-noescape>
+                         interface Customer {
+                            hobbies: string[]
+                         }
 
-                     let validCus: Customer = {
-                        hobbies: ["Tennis", "Squash"]
-                     }
+                         let validCus: Customer = {
+                            hobbies: ["Tennis", "Squash"]
+                         }
 
-                     // Type '{ hobbies: string; }' is not assignable to
-                     // type 'Customer'. Types of property 'hobbies' are
-                     // incompatible. Type 'string' is not assignable
-                     // to type 'string[]'.
-                     let compileError: Customer = {
-                        hobbies: "Tennis"
-                     }
-                 </code>
-             </pre>
+                         // Type '{ hobbies: string; }' is not assignable to
+                         // type 'Customer'. Types of property 'hobbies' are
+                         // incompatible. Type 'string' is not assignable
+                         // to type 'string[]'.
+                         let compileError: Customer = {
+                            hobbies: "Tennis"
+                         }
+                     </code>
+                 </pre>
+            </section>
+            <section>
+                <h3>optional properties</h3>
+                <pre>
+                     <code class="hljs typescript" data-trim contenteditable data-noescape>
+                         interface Customer {
+                            mandatory: string;
+                            optional?: string[]
+                         }
+
+                         let validCus: Customer = {
+                            mandatory: "Mandatory"
+                         }
+
+                         // type '{ optional: string; }' is not assignable to
+                         // type 'Customer'. Property 'mandatory' is missing
+                         // in type '{ optional: string; }'.
+                         let compileError: Customer = {
+                            optional: ["Optional", "Prop"]
+                         }
+                     </code>
+                 </pre>
+            </section>
+            <section>
+                <h3>Funktionen in Interfaces</h3>
+                <pre>
+                     <code class="hljs typescript" data-trim contenteditable data-noescape>
+                         interface Customer {
+                            mandatory: string;
+                            optional?: string[];
+                            fullName: (first: string, last: string) => string;
+                         }
+
+                         let customer: Customer = {
+                             mandatory: "Hans",
+                             fullName(first, last) {
+                                 return first + " " + last;
+                             }
+                         }
+                     </code>
+                 </pre>
+            </section>
+            <section>
+                <h3>Union Types</h3>
+                <pre>
+                     <code class="hljs typescript" data-trim contenteditable data-noescape>
+                         function printAge(age: number | string) {
+                            console.log(age);
+                         }
+
+                         printAge(1); // 1
+                         printAge("1"); // 1
+
+                         // Argument of type 'number[]' is not assignable
+                         // to parameter of type 'string | number'.
+                         printAge([1, 2, 3])
+                     </code>
+                 </pre>
+            </section>
         </section>
         <section>
-            <h3>Type Inference</h3>
+            <h2>Type Inference</h2>
             <pre>
                  <code class="hljs typescript" data-trim contenteditable data-noescape>
                      class Service {
@@ -442,26 +531,46 @@
              </pre>
         </section>
         <section>
-            <h3>Interfaces - optimal für "POJO"s</h3>
-            <pre>
-                 <code class="hljs typescript" data-trim contenteditable data-noescape>
-                     interface Customer {
-                        mandatory: string;
-                        optional?: string[]
-                     }
+            <section>
+                <h2>Module</h2>
+                <h3>Export</h3>
+                <pre>
+                     <code class="hljs typescript" data-trim contenteditable data-noescape>
+                         export const API_URL = '/api';
+                         export interface Person = {
+                            name: string;
+                         }
+                         export function add(a: number, b: number) {
+                            return a + b;
+                         }
+                         export const addFive(a: number) => a + 5;
+                         export class Customer {
+                            name: string;
+                            constructor() {}
+                         }
+                     </code>
+                 </pre>
+            </section>
+            <section>
+                <h3>Import</h3>
+                <pre>
+                     <code class="hljs typescript" data-trim contenteditable data-noescape>
+                         // Destructuring ;-)
+                         import {Customer, Person} from "./customer";
+                         import {Component} from "@angular/core";
 
-                     let validCus: Customer = {
-                        mandatory: "Mandatory"
-                     }
+                         let customer = new Customer();
+                         let person: Person = {
+                            name: "Hans"
+                         }
 
-                     // type '{ optional: string; }' is not assignable to
-                     // type 'Customer'. Property 'mandatory' is missing
-                     // in type '{ optional: string; }'.
-                     let compileError: Customer = {
-                        optional: ["Optional", "Prop"]
-                     }
-                 </code>
-             </pre>
+
+                         import * as alias from "./exports";
+
+                         let addFunc = alias.addFive;
+                     </code>
+                 </pre>
+            </section>
         </section>
         <section>
             <h2>Nützliche Links</h2>
