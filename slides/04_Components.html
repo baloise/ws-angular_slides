@@ -58,15 +58,13 @@
                  </pre>
             </section>
             <section>
-                <h3>Die Annotation @Component</h3>
+                <h2>@Component</h2>
                 <ul>
                     <li>muss zwingend vorhanden sein</li>
                     <li>statt einer templateUrl kann auch ein Template Inline mit Backtips ` verwendet werden</li>
                 </ul>
                 <pre>
                      <code class="hljs typescript" data-trim contenteditable>
-                        import {Component} from "@angular/core";
-
                         @Component({
                             selector: 'bv-app',
                             styles: [`.h1 {
@@ -75,6 +73,32 @@
                             template: `<h1>Ich bin ein Titel</h1>`
                         })
                         export class AppComponent {}
+                     </code>
+                 </pre>
+            </section>
+            <section>
+                <h2>Aufgabe 1</h2>
+                <ul>
+                    <li>Baue die bestehende Komponente auf Inline um</li>
+                    <li>Nutze ein inline Template mit einer H1-Überschrift</li>
+                    <li>Style die Überschrift in einer <span style="color: #FF00FF;">schönen Farbe #FF00FF</span></li>
+                    <li>Denke an die Backticks und die Propertynamen</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Mögliche Lösung</h2>
+                <pre>
+                     <code class="hljs typescript" data-trim contenteditable>
+                        import {Component} from '@angular/core';
+
+                        @Component({
+                            selector: 'app-root',
+                            template: `<h1>Schöne Farbe</h1>`,
+                            styles: [`h1 {color: #FF00FF;}`]
+                        })
+                        export class AppComponent {
+                            title = 'app works!';
+                        }
                      </code>
                  </pre>
             </section>
