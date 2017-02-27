@@ -27,23 +27,26 @@
         <section class="deck-slide" data-background="#E5F3F9">
             <h1>Projekt Setup</h1>
         </section>
+        <section class="deck-slide" data-background="#E5F3F9">
+            <h1>Root Folder</h1>
+            <h3>Von unten nach oben ;-)</h3>
+        </section>
         <section>
-            <section>
-                <h2>tslint.json</h2>
-                <ul>
-                    <li>
-                        zur Konfiguration der statischen Code Analyse
-                    </li>
-                    <li>
-                        Enthält Codelyzer - ein Linting Plugin für Angular
-                    </li>
-                </ul>
-            </section>
-            <section>
-                <h2>Wichtige Links</h2>
-                <p><a href="https://palantir.github.io/tslint/">TS Lint</a></p>
-                <p><a href="http://codelyzer.com/">Codelyzer</a></p>
-            </section>
+            <h2>tslint.json</h2>
+            <ul>
+                <li>
+                    zur Konfiguration der statischen Code Analyse
+                </li>
+                <li>
+                    Enthält Codelyzer - ein Linting Plugin für Angular
+                </li>
+                <li>
+                    <a href="https://palantir.github.io/tslint/">TS Lint</a>
+                </li>
+                <li>
+                    <a href="http://codelyzer.com/">Codelyzer</a>
+                </li>
+            </ul>
         </section>
         <section>
             <h2>README.md</h2>
@@ -58,7 +61,7 @@
                     <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Cheatsheet für Syntax</a>
                 </li>
                 <li>
-                    <a href="http://dillinger.io/">Sehr guter Online Editor</a>
+                    <a href="http://dillinger.io/">Dillinger - Sehr guter Online Editor</a>
                 </li>
             </ul>
         </section>
@@ -86,7 +89,7 @@
                 </pre>
             </section>
             <section>
-                <h2>Versionen</h2>
+                <h3>Versionen</h3>
                 <ul>
                     <li>
                         Viele Libraries nutzen <a href="http://semver.org/">Semantic Versioning</a>
@@ -114,7 +117,7 @@
                 <img src="../img/semantic.jpg">
             </section>
             <section>
-                <h2>Versionen in Dependencies</h2>
+                <h3>Versionen in Dependencies</h3>
                 <ul>
                     <li>betrifft nur direkte Abhängigkeiten</li>
                     <li>indirekte Abhängigkeiten oft ungenau</li>
@@ -123,7 +126,7 @@
                 </ul>
             </section>
             <section>
-                <h2>Installation von Dependencies</h2>
+                <h3>Installation von Dependencies</h3>
                 <ul>
                     <li>Installation über Konsole: npm install jquery --save-exact</li>
                     <li>Zeile in package.json einfügen</li>
@@ -135,7 +138,7 @@
                 </pre>
             </section>
             <section>
-                <h2>Kurzformen</h2>
+                <h3>Kurzformen</h3>
                 <ul>
                     <li>npm install: npm i</li>
                     <li>--save-dev: -D</li>
@@ -149,8 +152,16 @@
                 </pre>
             </section>
             <section>
-                <h2>Globale Installation</h2>
-                <h3>NICHTS global installieren!</h3>
+                <h3>Lokales Repository</h3>
+                <ul>
+                    <li>das lokale Projekt-Repo ist im "node_modules" Ordner</li>
+                    <li>Bei Problemen: Ordner löschen und neu installieren hilft oftmals</li>
+                    <li>Sämtliche Abhängigkeiten befinden sich im "node_modules" Ordner</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Globale Installation</h3>
+                <h4>NICHTS global installieren!</h4>
                 <ul>
                     <li>
                         Zugriff auf lokale Pakete einfach möglich
@@ -161,7 +172,7 @@
                 </ul>
             </section>
             <section>
-                <h2>Lokale Module</h2>
+                <h3>Lokale Module</h3>
                 <pre>
                     <code class="hljs json" data-trim contenteditable>
                         "devDependencies": {
@@ -190,10 +201,85 @@
         <section>
             <h2>angular-cli.json</h2>
             <ul>
-                <li>Konfiguration für Unit-Tests</li>
-                <li>Welcher Browser: Chrome, Firefox, PhantomJS</li>
-                <li>Welcher Port</li>
-                <li>Automatischer Re-Run wenn Dateien sich ändern</li>
+                <li>Konfiguration für das Angular CLI</li>
+                <li>Links zu wichtigen Einstiegsdateien</li>
+                <li>Konfiguration für Build, Test, statische Codeanalyse</li>
+                <li>Wrapper um die Standardtools Karma, Webpack, TSLint</li>
+            </ul>
+        </section>
+        <section class="deck-slide" data-background="#E5F3F9">
+            <h1>src Folder</h1>
+            <h3>Von unten nach oben ;-)</h3>
+        </section>
+        <section>
+            <h2>tsconfig.json</h2>
+            <ul>
+                <li>Konfiguration für den TypeScript compiler</li>
+                <li>Wo liegen Typ-Definitionen</li>
+                <li>Welche JavaScript Version soll als Kompilatsoutput verwendet werden?</li>
+                <li><a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html">tsconfig.json Doku</a></li>
+                <li><a href="https://www.typescriptlang.org/docs/handbook/compiler-options.html">List möglicher Optionen</a></li>
+            </ul>
+        </section>
+        <section>
+            <h2>test.ts</h2>
+            <ul>
+                <li>Konfiguration für das angular Testing</li>
+                <li>Einstiegspunkt für karma</li>
+                <li>Welche Files sind Test files?</li>
+                <li>Angular spezifische Test Umgebung starten</li>
+                <li>Startet Karma zum Ausführen der Tests</li>
+            </ul>
+        </section>
+        <section>
+            <h2>styles.scss</h2>
+            <ul>
+                <li><a href="http://www.sass-lang.com/">Sass</a> Datei für globale Styles</li>
+                <li>Sass ist ein CSS Präprozessor  </li>
+                <li>Erweiterung von CSS, CSS wird dann im Build Prozess aus den Sass-Dateien generiert</li>
+                <li>Erlaubt die Definition von Variablen</li>
+                <li>Verschachtelung ist möglich</li>
+                <li>Imports, Exports, Operanden u.v.m.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>polyfills.ts</h2>
+            <ul>
+                <li>Browserspezifische Implementationen werden ausgeglichen</li>
+                <li>Je nach Browser der unterstützt werden soll, sind zusätzliche Helper-Bibliotheken nötig</li>
+                <li>Bibliotheken werden hier geladen, werden als Abhängigkeit zuvor installiert</li>
+            </ul>
+        </section>
+        <section>
+            <h2>main.ts</h2>
+            <ul>
+                <li>Haupteinstiegspunkt der Angular App</li>
+                <li>"Platform Browser Dynamic" enthält den Code für das Verarbeiten von Angular spezifischem Code (Komponenten, Bindings etc.)</li>
+                <li>Nutzt Just-in-Time (JIT) Compiler</li>
+                <li>Fährt unser Einstiegsmodul hoch</li>
+            </ul>
+        </section>
+        <section>
+            <h2>index.html</h2>
+            <ul>
+                <li>Einstiegs HTML Seite</li>
+                <li>JavaScript und CSS-Dateien werdem im Build Prozess automatisch hinzugefügt</li>
+                <li>Keine JS oder CSS-Dateien selbst hinzufügen!</li>
+                <li>Unsere App-Komponente wird hier inkludiert</li>
+            </ul>
+        </section>
+        <section>
+            <h2>environments</h2>
+            <ul>
+                <li>Variablen für unterschiedliche Umgebungen</li>
+                <li>Angular ist im Produktiv-Modus bspw. sehr viel weniger verbos auf der Konsole</li>
+            </ul>
+        </section>
+        <section>
+            <h2>app</h2>
+            <ul>
+                <li>Der Ordner in dem wir uns bewegen werden</li>
+                <li>Hier lebt <strike>und stirbt</strike> unsere Applikation</li>
             </ul>
         </section>
     </div>
