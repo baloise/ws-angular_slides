@@ -2,12 +2,10 @@
  * Baloise theme for reveal.js.
  *
  */
-
 // Default mixins and settings -----------------
 @import "../template/mixins";
 @import "../template/settings";
 // ---------------------------------------------
-
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,800,700,600);
 
 $mainFont: 'Open Sans', sans-serif;
@@ -22,29 +20,45 @@ $headingTextShadow: none;
 $headingTextTransform: none;
 $backgroundColor: #fff;
 $linkColor: #FF8304;
-$linkColorHover: lighten( $linkColor, 20% );
+$linkColorHover: lighten($linkColor, 20%);
 $selectionBackgroundColor: rgba(0, 0, 0, 0.99);
 
 img {
-  border: none!important;
-  box-shadow: none!important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 @-webkit-keyframes pulse_animation {
-  0% { -webkit-transform: scale(1); }
-  30% { -webkit-transform: scale(1); }
-  40% { -webkit-transform: scale(1.05); }
-  50% { -webkit-transform: scale(1); }
-  60% { -webkit-transform: scale(1); }
-  70% { -webkit-transform: scale(1.03); }
-  80% { -webkit-transform: scale(1); }
-  100% { -webkit-transform: scale(1); }
+  0% {
+    -webkit-transform: scale(1);
+  }
+  30% {
+    -webkit-transform: scale(1);
+  }
+  40% {
+    -webkit-transform: scale(1.05);
+  }
+  50% {
+    -webkit-transform: scale(1);
+  }
+  60% {
+    -webkit-transform: scale(1);
+  }
+  70% {
+    -webkit-transform: scale(1.03);
+  }
+  80% {
+    -webkit-transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+  }
 }
 
 .pulse {
   -webkit-animation-name: 'pulse_animation';
   -webkit-animation-duration: 2300ms;
-  -webkit-transform-origin:70% 70%;
+  -webkit-transform-origin: 70% 70%;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear;
 }
@@ -60,7 +74,7 @@ img {
   }
 
   h1, h2 {
-    font-weight: 800!important;
+    font-weight: 800 !important;
   }
 
   h1 small {
@@ -76,8 +90,8 @@ img {
   }
 
   h2 {
-    margin-bottom: 0.8em!important;
-    line-height: 1em!important;
+    margin-bottom: 0.8em !important;
+    line-height: 1em !important;
 
     code {
       font-weight: normal;
@@ -87,7 +101,7 @@ img {
 
   section {
     img {
-      background: none!important;
+      background: none !important;
     }
   }
 
@@ -97,7 +111,7 @@ img {
   }
 
   ul, ol {
-    margin-top: 0.5em!important;
+    margin-top: 0.5em !important;
     margin-bottom: 1em;
   }
 
@@ -107,15 +121,22 @@ img {
     &:first-child {
       margin-top: 0;
     }
+    .code {
+      background: rgba(236, 239, 241, 0.56);
+      border-radius: 2px;
+      color: #00796B !important;
+      padding: 0 4px;
+      font-size: 90%;
+    }
   }
 
   pre {
-    box-shadow: none!important;
-    font-size: 0.7em!important;
-    word-wrap: normal!important;
+    box-shadow: none !important;
+    font-size: 0.7em !important;
+    word-wrap: normal !important;
     code {
-      padding: 0.4em!important;
-      max-height: none!important;
+      padding: 0.4em !important;
+      max-height: none !important;
     }
 
     .keyword {
@@ -206,7 +227,7 @@ img {
       color: #fff;
       opacity: 0;
       transition: opacity 1s ease;
-      margin-bottom: 0!important;
+      margin-bottom: 0 !important;
     }
 
     &.present h2 {
@@ -217,7 +238,7 @@ img {
 
   .image-slide {
     h2 {
-      margin-bottom: 0!important;
+      margin-bottom: 0 !important;
     }
   }
 
@@ -248,20 +269,20 @@ img {
     // padding-top: 300px!important;
 
     &.sub-section-slide {
-      padding-top: 350px!important;
+      padding-top: 350px !important;
     }
 
     &.deck-slide {
-      padding-top: 0!important;
+      padding-top: 0 !important;
     }
   }
 }
 
 .tabs-list {
 
-  margin: 0!important;
-  padding: 0!important;
-  text-align: right!important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: right !important;
   width: 90%;
 
   > li {
@@ -288,13 +309,12 @@ img {
 
 .tab {
   display: none;
-  margin-top: -0.35em!important;
+  margin-top: -0.35em !important;
 
   &.active {
     display: block;
   }
 }
-
 
 // Theme template ------------------------------
 @import "../template/theme";
