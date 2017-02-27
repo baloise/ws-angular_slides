@@ -37,6 +37,48 @@
             <h2>Die App - ein Baum von Komponenten</h2>
             <img src="../img/component_tree.png">
         </section>
+        <section>
+            <section>
+                <h2>Die Komponente</h2>
+                <h3>Die Klasse</h3>
+                <pre>
+                     <code class="hljs typescript" data-trim contenteditable data-noescape>
+                        import {Component} from "@angular/core";
+
+                        @Component({
+                            selector: 'bv-app',
+                            styleUrls: ['./app.component.scss']
+                            templateUrl: './app.component.html'
+                        })
+                        export class AppComponent {
+                            title = "Hallo Welt";
+                        }
+
+                     </code>
+                 </pre>
+            </section>
+            <section>
+                <h3>Die Annotation @Component</h3>
+                <ul>
+                    <li>muss zwingend vorhanden sein</li>
+                    <li>statt einer templateUrl kann auch ein Template Inline mit Backtips ` verwendet werden</li>
+                </ul>
+                <pre>
+                     <code class="hljs typescript" data-trim contenteditable>
+                        import {Component} from "@angular/core";
+
+                        @Component({
+                            selector: 'bv-app',
+                            styles: [`.h1 {
+                                font-size: 1.2 rem;
+                            }`]
+                            template: `<h1>Ich bin ein Titel</h1>`
+                        })
+                        export class AppComponent {}
+                     </code>
+                 </pre>
+            </section>
+        </section>
     </div>
 </div>
 <script src="../lib/js/head.min.js"></script>
