@@ -13,3 +13,4 @@
 - [03 Projekt Setup](https://baloise.github.io/ws-angular_slides/slides/03_ProjectSetup.html)
 - [04 Components](https://baloise.github.io/ws-angular_slides/slides/04_Components.html)
 - [05 Architecture](https://baloise.github.io/ws-angular_slides/slides/05_Architecture.html)
+- [06 Templates Grundlagen](https://baloise.github.io/ws-angular_slides/slides/06_Templates_Grundlagen.html)
