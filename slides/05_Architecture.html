@@ -56,16 +56,90 @@
                 <h3>NgModule Decorator</h3>
                 <h4>Eine Funktion die ein Objekt als Argument erwartet</h4>
                 <ul>
-                    <li><span class="code">declarations</span> - ALLE Komponenten, Direktiven und Pipes dieses Moduls</li>
-                    <li><span class="code">exports</span> - ein Subset der declarations, das von anderen Modulen benutzt werden darf</li>
+                    <li><span class="code">declarations</span> - ALLE Komponenten, Direktiven und Pipes dieses Moduls
+                    </li>
+                    <li><span class="code">exports</span> - ein Subset der declarations, das von anderen Modulen benutzt
+                        werden darf
+                    </li>
                     <li><span class="code">imports</span> - andere Module die wir benötigen</li>
-                    <li><span class="code">providers</span> - global verfügbare Services die das Modul der Dependency Injection bereitstellt</li>
+                    <li><span class="code">providers</span> - global verfügbare Services die das Modul der Dependency
+                        Injection bereitstellt
+                    </li>
                 </ul>
             </section>
         </section>
         <section>
-            <h2>Aufwachen bitte!</h2>
-            <img src="../img/trump_questions.jpg" width="60%">
+            <h2>Services</h2>
+            <ul>
+                <li>werden mittels Dependency Injection zur Verfügung gestellt</li>
+                <li>Sind einfach TypeScript Klassen</li>
+                <li>werden über den Typ injected</li>
+                <li>Benötigen den Decorator <span class="code">@Injectable()</span></li>
+                <li>Sind im Normalfall Singletons (wenn sie auf dem Modul registriert werden)</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Components</h2>
+            <ul>
+                <li>sind das Grundgerüst unserer Applikation</li>
+                <li>die zentrale "Komponente" in Angular</li>
+                <li>die Logik wird innerhalb einer TypeScript Klasse definiert</li>
+                <li>Services können injected werden</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Templates</h2>
+            <ul>
+                <li>HTML - beschreibt wie Komponenten dargestellt werden</li>
+                <li>Kann Inline oder als eigenes File definiert werden</li>
+                <li>kann weitere Komponenten enthalten</li>
+                <li>enthält Angular spezifische Template Syntax</li>
+            </ul>
+        </section>
+        <section>
+            <section>
+                <h2>Data Binding</h2>
+                <img src="../img/databinding.png">
+            </section>
+            <section>
+                <h3>Binding in Templates</h3>
+                <pre>
+                 <code class="hljs html" data-trim contenteditable>
+                    <li>{{person.name}}</li>
+                    <person [person]="selectedPerson"></person>
+                    <li (click)="selectPerson(person)"></li>
+                 </code>
+               </pre>
+                <ul>
+                    <li>Interpolation: <span class="code">{{person.name}}</span> - zeigt den Wert des person.name properties an</li>
+                    <li>Property Binding: <span class="code">[person]</span> - übergibt den Wert von "selectedPerson" an die Person Komponente</li>
+                    <li>Event Binding: <span class="code">(click)</span> - ruft selectPerson()</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <h2>Direktiven</h2>
+            <ul>
+                <li>3 Arten von Direktiven</li>
+                <li><span class="code">Components</span> - Direktiven mit einem View</li>
+                <li><span class="code">Strukturelle Direktiven</span> - Verändern die Struktur des DOM, z.B. *ngIf</li>
+                <li><span class="code">Attribut Direktiven</span> - Ändern das Verhalten oder Aussehen eines DOM Elements, z.B. ngStyle</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Weitere Features</h2>
+            <ul>
+                <li>Change Detection (wann muss der View neu gerendert werden)</li>
+                <li>Animationen</li>
+                <li>Formular Support & Pipes</li>
+                <li>HTTP Kommunikation</li>
+                <li>Router</li>
+                <li>Testing</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Alles klar?</h2>
+            <img src="../img/asking-questions-during-presentations.jpg" width="60%">
         </section>
     </div>
 </div>
