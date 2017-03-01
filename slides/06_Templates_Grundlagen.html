@@ -177,9 +177,11 @@
                     </tr>
                 </table>
             </section>
+        </section>
+        <section>
             <section>
-                <h3>Property Binding - [property]</h3>
-                <p>Beispiele</p>
+                <h2>Property Binding - [property]</h2>
+                <h3>Beispiele</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
                          <a [href]="url">Klick mich</a>
@@ -210,11 +212,12 @@
                          <input bind-value="adresse.strasse" />
                      </code>
                  </pre>
-                <p>Ich präferiere die obere (kürzere) Variante und werde ausschliessliche diese verwenden.</p>
+                <p>Ich präferiere die obere (kürzere) Variante und werde ausschliesslich diese verwenden.</p>
             </section>
+        </section>
+        <section>
             <section>
-                <h3>"[value]" ist ein HTML Attribut?</h3>
-                <h4>Ein kurzer Ausflug in HTML und DOM</h4>
+                <h2>HTML und DOM</h2>
                 <ul>
                     <li>DOM ist nicht wirklich ein Model, sondern die Schnittstelle zum Zugriff auf HTML</li>
                     <li>HTML kennt Attribute (z. B. <span class="code">value</span>)</li>
@@ -224,12 +227,29 @@
                 </ul>
             </section>
             <section>
-                <h4>DOM vs. HTML</h4>
+                <h3>Attribute vs. Properties</h3>
                 <ul>
                     <li>HTML Attribute initialisieren lediglich DOM Properties</li>
                     <li>DOM Properties können sich ändern, Attribute nicht</li>
                     <li>Die Bindings in Angular arbeiten ausschliesslich mit DOM Properties und Events, NICHT mit HTML Attributen</li>
                 </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Event binding - (event)</h2>
+                <h3>Beispiele</h3>
+                <pre>
+                     <code class="hljs html" data-trim contenteditable>
+                         <button (click)="createPerson()">Neue Person</button>
+                     </code>
+                    <code class="hljs html" data-trim contenteditable>
+                         <address (customEvent)="machWas()"></address>
+                     </code>
+                    <code class="hljs html" data-trim contenteditable>
+                         <people (deletePerson)="delete($event)"></people>
+                     </code>
+                 </pre>
             </section>
         </section>
         <section>
