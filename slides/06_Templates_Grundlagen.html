@@ -28,6 +28,211 @@
             <h1>Templates - Grundlagen</h1>
         </section>
         <section>
+            <section>
+                <h2>Interpolation</h2>
+                <h3>doppelte geschweifte Klammern: {{}}</h3>
+                <pre>
+                     <code class="hljs html" data-trim contenteditable>
+                         <h1>{{title}}</h1>
+                         <h2>Verschachtelt: {{customer.name}}</h2>
+                         <h2>Funktionsaufruf: {{20 + add(2, 5)}}</h2>
+                         <a href="/customer/{{customer.name}}">Hans</a>
+
+                         customer = {
+                            name: "Hans Muster",
+                         };
+
+                         add(a: number, b: number) {
+                            return a + b;
+                         }
+                     </code>
+                 </pre>
+            </section>
+            <section>
+                <h3>Interpolation im Detail</h3>
+                <ul>
+                    <li>nutzt Properties oder Methoden der Komponente</li>
+                    <li>die Interpolation wird durch den Wert ersetzt</li>
+                    <li>wie die add Funktion zeigt: zwischen den Klammern steht eine <span class="code">Template Expression</span></li>
+                    <li>die Expression wird zuerst evaluiert, in einen String konvertiert und mit anderen Strings verbunden. Zuletzt wird der Wert dem Element zugewiesen.</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Aufgabe 6.1 - Interpolation</h3>
+                <ul>
+                    <li>Erzeuge eine Adresse als Objekt-Literal. Nutze Felder wie Strasse, Nr, Ort, PLZ</li>
+                    <li>Zeige die einzelnen Felder in einer Liste an</li>
+                    <li>Schreibe eine Funktion die die komplette Adresse rendert und stelle diese dar</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Aufgabe 6.1 - Mögliche Lösung</h3>
+                <pre>
+                     <code class="hljs html" data-trim contenteditable>
+                         adresse = {
+                            strasse: "Haupstrasse",
+                            nr: "12",
+                            plz: 5001,
+                            ort: "Basel"
+                         };
+                         createAdresse() {
+                            return this.adresse.strasse + " " + this.adresse.nr;
+                         }
+
+                         <ul>
+                             <li>{{adresse.strasse}}</li>
+                         </ul>
+                         <p>{{createAddresse()}}</p>
+                     </code>
+                 </pre>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h3>Template Expressions</h3>
+                <ul>
+                    <li>in den Interpolation-Klammern befindet sich eine Template Expression</li>
+                    <li>ein reduziertes Set von JavaScript</li>
+                    <li>keine Assignents (=, +=, *=, ...)</li>
+                    <li>kein <span class="code">new</span></li>
+                    <li>keine Seiteneffekte! (Idempotenz, pure Functions)</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Template Statements</h3>
+                <ul>
+                    <li>Ausführen von Seiteneffekten</li>
+                    <li>reagieren auf Events (Benutzer Aktionen)</li>
+                </ul>
+                <pre>
+                     <code class="hljs html" data-trim contenteditable>
+                         <button (click)="deleteCustomer()">
+                             Delete Customer
+                         </button>
+                     </code>
+                 </pre>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Bindings</h2>
+                <h3>Übersicht (1)</h3>
+                <table>
+                    <tr>
+                        <th>Richtung</th>
+                        <th>Syntax</th>
+                        <th>Name</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            One-way,
+                            Controller zum View
+                        </td>
+                        <td>
+                            <pre>
+                                 <code class="hljs typescript" data-trim contenteditable>
+                                     {{expression}}
+                                     [property] = "expression"
+                                 </code>
+                             </pre>
+                        </td>
+                        <td>Property, Attribut, Style...</td>
+                    </tr>
+                </table>
+            </section>
+            <section>
+                <h3>Übersicht (2)</h3>
+                <table>
+                    <tr>
+                        <th>Richtung</th>
+                        <th>Syntax</th>
+                        <th>Name</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            One-way,
+                            View zum Controller
+                        </td>
+                        <td>
+                            <pre>
+                                 <code class="hljs typescript" data-trim contenteditable>
+                                     (event) = "statement()"
+                                 </code>
+                             </pre>
+                        </td>
+                        <td>Event</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Two-way
+                        </td>
+                        <td>
+                            <pre>
+                                 <code class="hljs typescript" data-trim contenteditable>
+                                     [(property)] = "expression"
+                                 </code>
+                             </pre>
+                        </td>
+                        <td>Two-way</td>
+                    </tr>
+                </table>
+            </section>
+            <section>
+                <h3>Property Binding - [property]</h3>
+                <p>Beispiele</p>
+                <pre>
+                     <code class="hljs html" data-trim contenteditable>
+                         <a [href]="url">Klick mich</a>
+                     </code>
+                    <code class="hljs html" data-trim contenteditable>
+                         <button [disabled]="bool">Disabled: {{bool}}</button>
+                     </code>
+                    <code class="hljs html" data-trim contenteditable>
+                         <address [street]="address.street"></address>
+                     </code>
+                 </pre>
+            </section>
+            <section>
+                <h3>Aufgabe 6.2 - Property Binding</h3>
+                <ul>
+                    <li>Füge ein <span class="code">input</span> Element hinzu</li>
+                    <li>Binde den Wert der Strasse an das Value-Property des Input Feldes</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Aufgabe 6.2 - Mögliche Lösung</h3>
+                <pre>
+                     <code class="hljs html" data-trim contenteditable>
+                         <input [value]="adresse.strasse" />
+                     </code>
+                    <p>... oder die Canonical Form mit dem bind-Präfix</p>
+                    <code class="hljs html" data-trim contenteditable>
+                         <input bind-value="adresse.strasse" />
+                     </code>
+                 </pre>
+                <p>Ich präferiere die obere (kürzere) Variante und werde ausschliessliche diese verwenden.</p>
+            </section>
+            <section>
+                <h3>"[value]" ist ein HTML Attribut?</h3>
+                <h4>Ein kurzer Ausflug in HTML und DOM</h4>
+                <ul>
+                    <li>DOM ist nicht wirklich ein Model, sondern die Schnittstelle zum Zugriff auf HTML</li>
+                    <li>HTML kennt Attribute (z. B. <span class="code">value</span>)</li>
+                    <li>DOM kennt properties (z. B. <span class="code">value</span>)</li>
+                    <li>HTML <span class="code">value</span> ist der initale Wert</li>
+                    <li>DOM <span class="code">value</span> ist der aktuelle Wert</li>
+                </ul>
+            </section>
+            <section>
+                <h4>DOM vs. HTML</h4>
+                <ul>
+                    <li>HTML Attribute initialisieren lediglich DOM Properties</li>
+                    <li>DOM Properties können sich ändern, Attribute nicht</li>
+                    <li>Die Bindings in Angular arbeiten ausschliesslich mit DOM Properties und Events, NICHT mit HTML Attributen</li>
+                </ul>
+            </section>
+        </section>
+        <section>
             <h2>Das war easy</h2>
             <img src="../img/questions_answered_here.jpg" width="40%">
         </section>
