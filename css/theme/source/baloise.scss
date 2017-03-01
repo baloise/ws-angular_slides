@@ -9,12 +9,13 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,800,700,600);
 
 $mainFont: 'Open Sans', sans-serif;
+$mainFontSize: 38px;
 $mainColor: #444444;
 $headingFont: 'Open Sans', sans-serif;
 $headingColor: #008AC9;
 $heading1Size: 3.5em;
 $heading2Size: 1.9em;
-$heading3Size: 1.3em;
+$heading3Size: 1.4em;
 $heading4Size: 1em;
 $headingTextShadow: none;
 $headingTextTransform: none;
@@ -26,41 +27,6 @@ $selectionBackgroundColor: rgba(0, 0, 0, 0.99);
 img {
   border: none !important;
   box-shadow: none !important;
-}
-
-@-webkit-keyframes pulse_animation {
-  0% {
-    -webkit-transform: scale(1);
-  }
-  30% {
-    -webkit-transform: scale(1);
-  }
-  40% {
-    -webkit-transform: scale(1.05);
-  }
-  50% {
-    -webkit-transform: scale(1);
-  }
-  60% {
-    -webkit-transform: scale(1);
-  }
-  70% {
-    -webkit-transform: scale(1.03);
-  }
-  80% {
-    -webkit-transform: scale(1);
-  }
-  100% {
-    -webkit-transform: scale(1);
-  }
-}
-
-.pulse {
-  -webkit-animation-name: 'pulse_animation';
-  -webkit-animation-duration: 2300ms;
-  -webkit-transform-origin: 70% 70%;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
 }
 
 .window-background .present {
@@ -75,18 +41,6 @@ img {
 
   h1, h2 {
     font-weight: 800 !important;
-  }
-
-  h1 small {
-    display: inline-block;
-    font-size: .6em;
-    line-height: 1.2em;
-    vertical-align: top;
-    position: absolute;
-    right: -2em;
-    top: 0.9em;
-    transform: rotate(-14deg);
-    color: #008AC9;
   }
 
   h2 {
@@ -160,21 +114,6 @@ img {
     }
   }
 
-  blockquote {
-    background: none;
-    box-shadow: none;
-    line-height: 1.4em;
-    width: 80%;
-    font-weight: lighter;
-    font-style: normal;
-  }
-
-  iframe {
-    width: 90%;
-    height: 5em;
-    border: 1px solid #ccc;
-  }
-
   .bv-slide {
     img {
       opacity: 0.4;
@@ -222,26 +161,6 @@ img {
     }
   }
 
-  .sub-section-slide {
-    h2 {
-      color: #fff;
-      opacity: 0;
-      transition: opacity 1s ease;
-      margin-bottom: 0 !important;
-    }
-
-    &.present h2 {
-      opacity: 1;
-      transition-delay: 1s;
-    }
-  }
-
-  .image-slide {
-    h2 {
-      margin-bottom: 0 !important;
-    }
-  }
-
   .img-slide {
     h2 {
       display: inline-block;
@@ -275,35 +194,6 @@ img {
     &.deck-slide {
       padding-top: 0 !important;
     }
-  }
-}
-
-.tabs-list {
-
-  margin: 0 !important;
-  padding: 0 !important;
-  text-align: right !important;
-  width: 90%;
-
-  > li {
-    display: inline-block;
-    list-style: none;
-    margin-left: 0.2em;
-
-    &.active {
-      button {
-        background: #123742;
-      }
-    }
-  }
-
-  button {
-    font-size: 0.6em;
-    background: #4D8799;
-    color: #fff;
-    border: 0;
-    padding: 0.2em 0.5em;
-    display: block;
   }
 }
 
