@@ -251,6 +251,49 @@
                      </code>
                  </pre>
             </section>
+            <section>
+                <h3>Aufgabe 6.3 - Event Binding</h3>
+                <ul>
+                    <li>Fuege einen <span class="code">Button</span> hinzu.</li>
+                    <li>Rufe beim Klick eine Methode auf, die etwas auf der Konsole ausgibt.</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Aufgabe 6.3 - Mögliche Lösung</h3>
+                <pre>
+                     <code class="hljs html" data-trim contenteditable>
+                         <button (click)="hallo()">Klick</button>
+                     </code>
+                     <code class="hljs typescript" data-trim contenteditable>
+                         hallo() {
+                            console.log("Hallo Welt");
+                         }
+                     </code>
+                     <p>... oder die Canonical Form mit dem on-Präfix</p>
+                     <code class="hljs html" data-trim contenteditable>
+                         <button on-click="hallo()">Klick</button>
+                     </code>
+                 </pre>
+            </section>
+            <section>
+                <h3>$event</h3>
+                <h4>Werte per Event übergeben</h4>
+                <pre>
+                     <code class="hljs html" data-trim contenteditable>
+                         <input (input)="print($event.target.value)">
+                         print(value) {
+                            console.log(value);
+                         }
+                     </code>
+                     <p>... oder den Wert in der Methode auslesen</p>
+                      <code class="hljs html" data-trim contenteditable>
+                         <input (input)="printEvent($event)">
+                         printEvent(event) {
+                            console.log(event.target.value);
+                         }
+                     </code>
+                 </pre>
+            </section>
         </section>
         <section>
             <h2>Das war easy</h2>
