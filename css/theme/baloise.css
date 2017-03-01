@@ -196,6 +196,19 @@ img {
     padding: 0.2em 0.5em;
     display: block; }
 
+table tbody th {
+  background: rgba(236, 239, 241, 0.24);
+  border-right: 1px solid #ECEFF1;
+  font-weight: 400;
+  border-bottom: 1px solid #ECEFF1;
+  padding: 16px 32px;
+  text-align: left; }
+
+table tbody td {
+  border-bottom: 1px solid #ECEFF1;
+  padding: 16px 32px;
+  text-align: left; }
+
 .tab {
   display: none;
   margin-top: -0.35em !important; }
@@ -250,13 +263,13 @@ body {
   word-wrap: break-word; }
 
 .reveal h1 {
-  font-size: 3.8em; }
+  font-size: 3.5em; }
 
 .reveal h2 {
   font-size: 1.9em; }
 
 .reveal h3 {
-  font-size: 1.2em; }
+  font-size: 1.3em; }
 
 .reveal h4 {
   font-size: 1em; }
