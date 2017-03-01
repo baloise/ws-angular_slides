@@ -12,9 +12,9 @@ $mainFont: 'Open Sans', sans-serif;
 $mainColor: #444444;
 $headingFont: 'Open Sans', sans-serif;
 $headingColor: #008AC9;
-$heading1Size: 3.8em;
+$heading1Size: 3.5em;
 $heading2Size: 1.9em;
-$heading3Size: 1.2em;
+$heading3Size: 1.3em;
 $heading4Size: 1em;
 $headingTextShadow: none;
 $headingTextTransform: none;
@@ -304,6 +304,22 @@ img {
     border: 0;
     padding: 0.2em 0.5em;
     display: block;
+  }
+}
+
+table tbody {
+  th {
+    background: rgba(236, 239, 241, 0.24);
+    border-right: 1px solid #ECEFF1;
+    font-weight: 400;
+    border-bottom: 1px solid #ECEFF1;
+    padding: 16px 32px;
+    text-align: left;
+  }
+  td {
+    border-bottom: 1px solid #ECEFF1;
+    padding: 16px 32px;
+    text-align: left;
   }
 }
 
