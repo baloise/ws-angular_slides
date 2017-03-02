@@ -1,7 +1,6 @@
 # Angular Workshop - Slides
 
 - Die Präsentation wurde mit [reveal.js](http://lab.hakim.se/reveal-js/) erstellt.
-- Die Dokumentation zur reveal.js findet man direkt auf Github: [Doku](https://github.com/hakimel/reveal.js) 
 - Durch die Folien kann mit den Pfeiltasten navigiert werden.
 - Die beste User Experience erreicht man mit Google Chrome
 - "F" springt in den FullScreen Modus, mit ESC verlassen
@@ -16,3 +15,4 @@
 - [04 Components](https://baloise.github.io/ws-angular_slides/slides/04_Components.html)
 - [05 Architecture](https://baloise.github.io/ws-angular_slides/slides/05_Architecture.html)
 - [06 Templates Grundlagen](https://baloise.github.io/ws-angular_slides/slides/06_Templates_Grundlagen.html)
+- [07 Templates Erweitert](https://baloise.github.io/ws-angular_slides/slides/07_Templates_Erweitert.html)
