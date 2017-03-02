@@ -106,6 +106,9 @@ img {
 .reveal .progress {
   height: 0.25em; }
 
+.reveal .warn {
+  color: #e06c75; }
+
 .print-pdf .sub-section-slide h2 {
   opacity: 1; }
 
