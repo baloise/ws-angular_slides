@@ -249,10 +249,10 @@
                          <button (click)="createPerson()">Neue Person</button>
                      </code>
                     <code class="hljs html" data-trim contenteditable>
-                         <address (customEvent)="machWas()"></address>
+                         &ltaddress (customEvent)="machWas()"></address>
                      </code>
                     <code class="hljs html" data-trim contenteditable>
-                         <people (deletePerson)="delete($event)"></people>
+                         &ltpeople (deletePerson)="delete($event)"></people>
                      </code>
                  </pre>
             </section>
@@ -392,11 +392,9 @@
                 <h3>Two-way Binding mit NgModel</h3>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
-                       <input
-                              [ngModel]="name"
+                       &ltinput [ngModel]="name"
                               (ngModelChange)="handleChange($event)">
-                       <input
-                              [ngModel]="name"
+                       &ltinput [ngModel]="name"
                               (ngModelChange)="name=$event">
                        name: string = "Hans";
                        handleChange(event) {
@@ -404,8 +402,7 @@
                        }
                     </code>
                     <code class="hljs html" data-trim contenteditable>
-                        <input
-                            [(ngModel)]="name">
+                        &ltinput [(ngModel)]="name">
                     </code>
                 </pre>
                 <ul>
@@ -436,7 +433,7 @@
                 <h3>Aufgabe 6.6 - Mögliche Lösung</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
-                         <textarea [(ngModel)]="note"></textarea>
+                         &lttextarea [(ngModel)]="note"></textarea>
                          <p>{{note}}</p>
                          <button (click)="reset()">Reset</button>
                      </code>
@@ -447,7 +444,51 @@
                          }
                      </code>
                 </pre>
-                <p><span style="color: #e06c75;">Wichtig!</span> In den Folien ist im HTML alles Lowercase. Es sollte aber "ngModel", "ngModelChange" etc. sein.</p>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Template Referenz Variable - #variable</h2>
+                <h3>Syntax im HTML - mit #name</h3>
+                <pre>
+                     <code class="hljs html" data-trim contenteditable>
+                         &ltinput #note>
+                         <button (click)="print(note.value)">Print value</button>
+                     </code>
+                     <code class="hljs typescript" data-trim contenteditable>
+                         print(value) {console.log(value);}
+                     </code>
+                </pre>
+            </section>
+            <section>
+                <h3># - behind the scenes</h3>
+                <ul>
+                    <li>Eine Referenz auf ein DOM Element, oder eine Komponente</li>
+                    <li>Im gesamten Template verfügbar</li>
+                    <li>Eine Referenz auf ein Input Element liefert das tatsächliche Element zurück, wie <span class="code">$event.target</span></li>
+                    <li>Alternative syntax: <span class="code">ref-note</span> statt <span class="code">#note</span></li>
+                </ul>
+            </section>
+            <section>
+                <h3>Aufgabe 6.7 - Template Ref Variable</h3>
+                <ul>
+                    <li>Erstelle einen Button und eine Checkbox. Eine Checkbox ist ein <span class="code">Input</span> vom Typ <span class="code">checkbox</span></li>
+                    <li>Die Checkbox soll den Button disablen / enablen</li>
+                    <li>Benutze hierfür eine Template Referenz Variable</li>
+                    <li>Hint: ein Button hat ein disabled Property</li>
+                    <li>Hint: ein Input hat ein <span class="code">(change)</span> Event</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Aufgabe 6.7 - Mögliche Lösung</h3>
+                <pre>
+                     <code class="hljs html" data-trim contenteditable>
+                         &ltinput (change)="btn.disabled=!btn.disabled"
+                            type="checkbox">Disable Button
+
+                         &ltbutton #btn>Button</button>
+                     </code>
+                </pre>
             </section>
         </section>
         <section>
