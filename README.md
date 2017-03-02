@@ -5,7 +5,7 @@
 - Die beste User Experience erreicht man mit Google Chrome
 - "F" springt in den FullScreen Modus, mit ESC verlassen
 - "O" zeigt einen Overview über alle Slides, mit ESC verlassen
-- mit CTRL+P erhält man eine Druckoptimierte Seite. Diese kann auch als PDF gespeichert werden. (Dieses Feature ist nur lokal mit einem Dev Server möglich)
+- mit CTRL+P erhält man eine für den Druck optimierte Seite. Diese kann auch als PDF gespeichert werden. (Dieses Feature ist nur lokal mit einem Dev Server möglich)
 - Bei Fehlern oder Fragen: Issue oder Pull Request erstellen
 
 ## Inhalt
