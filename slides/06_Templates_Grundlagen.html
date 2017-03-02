@@ -53,8 +53,11 @@
                 <ul>
                     <li>nutzt Properties oder Methoden der Komponente</li>
                     <li>die Interpolation wird durch den Wert ersetzt</li>
-                    <li>wie die add Funktion zeigt: zwischen den Klammern steht eine <span class="code">Template Expression</span></li>
-                    <li>die Expression wird zuerst evaluiert, in einen String konvertiert und mit anderen Strings verbunden. Zuletzt wird der Wert dem Element zugewiesen.</li>
+                    <li>wie die add Funktion zeigt: zwischen den Klammern steht eine <span class="code">Template Expression</span>
+                    </li>
+                    <li>die Expression wird zuerst evaluiert, in einen String konvertiert und mit anderen Strings
+                        verbunden. Zuletzt wird der Wert dem Element zugewiesen.
+                    </li>
                 </ul>
             </section>
             <section>
@@ -205,11 +208,11 @@
                 <h3>Aufgabe 6.2 - Mögliche Lösung</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
-                         <input [value]="adresse.strasse" />
+                         <input [value]="adresse.strasse"/>
                      </code>
                     <p>... oder die Canonical Form mit dem bind-Präfix</p>
                     <code class="hljs html" data-trim contenteditable>
-                         <input bind-value="adresse.strasse" />
+                         <input bind-value="adresse.strasse"/>
                      </code>
                  </pre>
                 <p>Ich präferiere die obere (kürzere) Variante und werde ausschliesslich diese verwenden.</p>
@@ -231,7 +234,9 @@
                 <ul>
                     <li>HTML Attribute initialisieren lediglich DOM Properties</li>
                     <li>DOM Properties können sich ändern, Attribute nicht</li>
-                    <li>Die Bindings in Angular arbeiten ausschliesslich mit DOM Properties und Events, NICHT mit HTML Attributen</li>
+                    <li>Die Bindings in Angular arbeiten ausschliesslich mit DOM Properties und Events, NICHT mit HTML
+                        Attributen
+                    </li>
                 </ul>
             </section>
         </section>
@@ -293,6 +298,156 @@
                          }
                      </code>
                  </pre>
+            </section>
+            <section>
+                <h3>Zugriff auf Werte</h3>
+                <pre>
+                     <code class="hljs html" data-trim contenteditable>
+                         <input (input)="print($event.target.value)">
+                     </code>
+                 </pre>
+                <ul>
+                    <li>Events sind vom Typ <span class="code">KeyboardEvent</span>, <span
+                            class="code">MouseEvent</span>, <span class="code">FocusEvent</span>, <span class="code">InputEvent</span>...
+                        oder auch eigene Events
+                    </li>
+                    <li>Das <span class="code">target</span> property ist eine Referenz auf das Element, welches das
+                        Event ausgelöst hat
+                    </li>
+                    <li>mit <span class="code">.value</span> kann auf den Wert zugegriffen werden</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Aufgabe 6.4 - Event mit Wert</h3>
+                <ul>
+                    <li>Fuege ein <span class="code">Input</span> Element hinzu.</li>
+                    <li>Gib jeden Wert, der mit dem Buchstaben "S" oder "s" beginnt auf der Konsole aus.</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Aufgabe 6.4 - Mögliche Lösung</h3>
+                <pre>
+                     <code class="hljs html" data-trim contenteditable>
+                         <input (input)="printSValues($event.target.value)">
+                     </code>
+                     <code class="hljs typescript" data-trim contenteditable>
+                         printSValues(val: string) {
+                            if(val.toLowerCase().startsWith("s")) {
+                                console.log(val);
+                            }
+                         }
+                     </code>
+                 </pre>
+            </section>
+            <section>
+                <h3>Aufgabe 6.5 - Two-way data binding</h3>
+                <ul>
+                    <li>Erstelle ein selbst kreirtes Two-way data binding für ein <span class="code">Input</span> Feld.
+                    </li>
+                    <li>Erstelle ein Input Feld mit einem Binding für einen String, z. B. "name"</li>
+                    <li>Erstelle einen Textblock <span class="code">"p-Tag"</span> der den Wert aus dem Eingabefeld
+                        anzeigt.
+                    </li>
+                    <li>Nutze ein <span class="code">Property</span>-Binding, ein <span class="code">Event</span>-Binding
+                        und eine Variable in der Komponente.
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3>Aufgabe 6.5 - Mögliche Lösung</h3>
+                <pre>
+                     <code class="hljs html" data-trim contenteditable>
+                         <input [value]="name" (input)="name=$event.target.value">
+                         <p>{{name}}</p>
+                     </code>
+                     <code class="hljs typescript" data-trim contenteditable>
+                         name = "Hans";
+                     </code>
+                     <code class="hljs html" data-trim contenteditable>
+                         <input [value]="name" (input)="fun($event.target.value)">
+                         <p>{{name}}</p>
+                     </code>
+                     <code class="hljs typescript" data-trim contenteditable>
+                         name = "Hans";
+                         fun(value: string) { this.name = value;}
+                     </code>
+                 </pre>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Two-way data binding - [()]</h2>
+                <h3>banana-in-a-box | Bananenkiste</h3>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable>
+                        <address [(street)]="street"></address>
+                    </code>
+                </pre>
+                <ul>
+                    <li>schauen wir später für eigene Bindings im Kapitel Formulare genauer an</li>
+                    <li>intern nur ein <span class="code">Property</span> Binding und ein <span class="code">Event</span> Binding</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Two-way Binding mit NgModel</h3>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable>
+                       <input
+                              [ngModel]="name"
+                              (ngModelChange)="handleChange($event)">
+                       <input
+                              [ngModel]="name"
+                              (ngModelChange)="name=$event">
+                       name: string = "Hans";
+                       handleChange(event) {
+                            this.name = event.target.value;
+                       }
+                    </code>
+                    <code class="hljs html" data-trim contenteditable>
+                        <input
+                            [(ngModel)]="name">
+                    </code>
+                </pre>
+                <ul>
+                    <li><span class="code">[property]</span>Binding mit einem <span class="code">(propertyChange)</span> Event</li>
+                </ul>
+            </section>
+            <section>
+                <h3>NgModel in Detail</h3>
+                <ul>
+                    <li>benötigt das Modul <span class="code">FormsModule</span></li>
+                    <li>ist eine Kombination aus <span class="code">[ngModel]</span> und <span class="code">(ngModelChange)</span></li>
+                    <li>Der Wert steht direkt in der <span class="code">$event</span>-Variable</li>
+                    <li>Angular kapselt den Zugriff auf den DOM. Welches Event? Welches Property?</li>
+                    <li>Für eigene Komponenten: <span class="code">ControlValueAccessor</span> Interface implementieren</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Aufgabe 6.6 - NgModel</h3>
+                <ul>
+                    <li>Erstelle ein Two-way data binding mit <span class="code">ngModel</span> für eine <span class="code">Textarea</span> zum Anzeigen einer Notiz <span class="code">note</span>.
+                    </li>
+                    <li>Nutze die kurze "Bananenschachtel" Syntax.</li>
+                    <li>Erstelle ein <span class="code">p-tag</span> und gebe dort den Text der Variablen <span class="code">note</span> aus.</li>
+                    <li>Erstelle einen Button um den Text der Notiz auf "Platzhalter" zurück zu setzen.</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Aufgabe 6.6 - Mögliche Lösung</h3>
+                <pre>
+                     <code class="hljs html" data-trim contenteditable>
+                         <textarea [(ngModel)]="note"></textarea>
+                         <p>{{note}}</p>
+                         <button (click)="reset()">Reset</button>
+                     </code>
+                     <code class="hljs typescript" data-trim contenteditable>
+                         note = "Notiz";
+                         reset() {
+                             this.note = "Platzhalter";
+                         }
+                     </code>
+                </pre>
+                <p><span style="color: #e06c75;">Wichtig!</span> In den Folien ist im HTML alles Lowercase. Es sollte aber "ngModel", "ngModelChange" etc. sein.</p>
             </section>
         </section>
         <section>
