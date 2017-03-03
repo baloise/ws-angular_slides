@@ -206,16 +206,14 @@
                 <h4>Daten aus Arrays extrahieren</h4>
                 <pre>
                      <code class="hljs javascript" data-trim contenteditable data-noescape>
-                         let arr, a, b;
-                         arr = [1, 2, 3];
-                         [a, b] = arr;
+                         let arr = [1, 2, 3];
+                         let [a, b] = arr;
                          console.log(a); // 1
                          console.log(b); // 2
 
                          <span class="fragment">
-                         let arr, a, b, rest;
-                         arr = [1, 2, 3, 4, 5];
-                         [a, , ...rest] = arr;
+                         let arr = [1, 2, 3, 4, 5];
+                         let [a, , ...rest] = arr;
                          console.log(a); // 1
                          console.log(rest); // [3, 4, 5]
                          </span>
