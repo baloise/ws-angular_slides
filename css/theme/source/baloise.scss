@@ -75,13 +75,6 @@ img {
     &:first-child {
       margin-top: 0;
     }
-    .code {
-      background: rgba(236, 239, 241, 0.56);
-      border-radius: 2px;
-      color: #00796B !important;
-      padding: 0 4px;
-      font-size: 90%;
-    }
   }
 
   pre {
@@ -177,6 +170,13 @@ img {
 
   .warn {
     color: #e06c75;
+  }
+  .code {
+    background: rgba(236, 239, 241, 0.56);
+    border-radius: 2px;
+    color: #00796B !important;
+    padding: 0 4px;
+    font-size: 90%;
   }
 }
 

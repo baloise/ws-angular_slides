@@ -38,12 +38,6 @@ img {
   margin-top: 0.8em; }
   .reveal li:first-child {
     margin-top: 0; }
-  .reveal li .code {
-    background: rgba(236, 239, 241, 0.56);
-    border-radius: 2px;
-    color: #00796B !important;
-    padding: 0 4px;
-    font-size: 90%; }
 
 .reveal pre {
   box-shadow: none !important;
@@ -108,6 +102,13 @@ img {
 
 .reveal .warn {
   color: #e06c75; }
+
+.reveal .code {
+  background: rgba(236, 239, 241, 0.56);
+  border-radius: 2px;
+  color: #00796B !important;
+  padding: 0 4px;
+  font-size: 90%; }
 
 .print-pdf .sub-section-slide h2 {
   opacity: 1; }

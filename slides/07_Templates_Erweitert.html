@@ -28,6 +28,47 @@
             <h1>Templates - Erweitert</h1>
         </section>
         <section>
+            <h2>Structural Directives</h2>
+            <h3>Kurze Info zum Asterisk (*)</h3>
+            <ul>
+                <li>ein <span class="code">*</span> signalisiert eine strucural Directive</li>
+                <li>der Stern ersetzt eine kompliziertere Syntax durch die Kurzform</li>
+                <li>dies gilt für <span class="code">*ngIf</span>, <span class="code">*ngFor</span> und <span class="code">*ngSwitch</span></li>
+                <li>Ein Beispiel wird die Unterschiede zeigen</li>
+            </ul>
+        </section>
+        <section>
+            <section>
+                <h2>*ngIf</h2>
+                <h3>zum Ein- und Ausblenden von Inhalten</h3>
+                <h4>Entfernt das Host-Element aus dem DOM</h4>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable>
+                         <input type="text" [value]="search">
+                         &ltdiv *ngIf="search.length > 1"&gt
+                            <result-table></result-table>
+                         &lt/div&gt
+                    </code>
+                </pre>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                         search: string = "";
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>sehr nützlich als Guard für null checks</h3>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable>
+                         &ltdiv *ngIf="person"&gt
+                            <p>{{person.firstName}}</p>
+                         &lt/div&gt
+                    </code>
+                </pre>
+                <span class="warn">Wichtig:</span> Es ist ein grosser Unterschied ob ein Element mit CSS versteckt wird, oder mit <span class="code">*ngIf</span> aus dem DOM entfernt wird. Beim Verstecken bleibt das Element im DOM und benötigt sowohl Speicher als auch weitere Resourcen. <span class="code">*ngIf</span> ist meist die bessere Lösung.</span>
+            </section>
+        </section>
+        <section>
             <h2>Noch etwas offen?</h2>
             <img src="../img/noquestions.jpg">
         </section>
