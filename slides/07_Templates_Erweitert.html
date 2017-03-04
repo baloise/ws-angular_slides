@@ -164,13 +164,36 @@
                  </pre>
             </section>
             <section>
-                <h3>*ngFor Advanced</h3>
-                <ul>
-                    <li>odd, first, last, even</li>
-                    <li>Change Detection</li>
-                    <li>Remove, Add, reorder</li>
-                    <li>trackBy</li>
-                </ul>
+                <h3>*ngFor Advanced - Helper Variablen</h3>
+                <p>Helper boolean Variablen für <span class="code">odd</span>, <span class="code">even</span>, <span class="code">first</span> und <span class="code">last</span> und die Index-Variable <span class="code">index</span></p>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable>
+                        &ltdiv *ngFor="let todo of todos; let idx = index;
+                            let first = first; let last = last;
+                            let even = even; let odd = odd;">
+                            {{idx}} // 0
+                            {{first}} // true
+                            {{last}} // true
+                            {{even}} // true
+                            {{odd}} // false
+                        &lt/div>
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>*ngFor Advanced - Custom trackBy</h3>
+                <p>Object Identity wird für Änderungen an der Liste genutzt um die Anpassungen im DOM verfügbar zu machen. Mit einer eigenen <span class="code">trackBy</span> Funktion kann dies gesteuert werden. Default ist object identity <span class="code">===</span></p>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable>
+                        &ltdiv *ngFor="let todo of todos; trackBy: myTrackFunc">
+                        &lt/div>
+                    </code>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        myTrackFunc(index, todo) {
+                            return todo.id;
+                        }
+                    </code>
+                </pre>
             </section>
         </section>
         <section>
