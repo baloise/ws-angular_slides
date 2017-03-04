@@ -67,6 +67,38 @@
                 </pre>
                 <span class="warn">Wichtig:</span> Es ist ein grosser Unterschied ob ein Element mit CSS versteckt wird, oder mit <span class="code">*ngIf</span> aus dem DOM entfernt wird. Beim Verstecken bleibt das Element im DOM und benötigt sowohl Speicher als auch weitere Resourcen. <span class="code">*ngIf</span> ist meist die bessere Lösung.</span>
             </section>
+            <section>
+                <h3>Aufgabe 7.1 - *ngIf</h3>
+                <ul>
+                    <li>Nutze einen Radio Button mit den Werten "Einfach" und "Erweitert"</li>
+                    <li>Zeige bei Erweitert ein <span class="codeq">Input</span> Feld an</li>
+                    <li>Falls im <span class="code">Input</span> Feld mehr als 2 Zeichen stehen, gebe den Text darunter aus.</li>
+                    <li>Hint: es gibt einen Typ "radio" auf dem <span class="code">Input</span></li>
+                    <li>Hint: Eine Radiogroup erhält man, indem man den <span class="code">Inputs</span> den selben Wert für das name-Property zuweist</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Aufgabe 7.1 - Mögliche Lösung</h3>
+                <pre>
+                     <code class="hljs html" data-trim contenteditable>
+                        &ltinput type="radio" name="set"
+                           [(ngModel)]="setting" value="Einfach">Einfach
+                        &ltinput type="radio" name="set"
+                           [(ngModel)]="setting" value="Erweitert">Erweitert
+                        &ltdiv *ngIf="setting === 'Erweitert'">
+                            &ltinput type="text" [value]="val"
+                                (input)="val=$event.target.value">
+                            &ltdiv *ngIf="val.length >= 2">
+                                &ltp>Wert: {{val}}</p>
+                            &lt/div>
+                        &lt/div>
+                     </code>
+                    <code class="hljs typescript" data-trim contenteditable>
+                         val: string = "";
+                         setting: string = "Einfach";
+                    </code>
+                 </pre>
+            </section>
         </section>
         <section>
             <h2>Noch etwas offen?</h2>
