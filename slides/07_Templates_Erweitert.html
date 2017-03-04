@@ -33,7 +33,8 @@
             <ul>
                 <li>ein <span class="code">*</span> signalisiert eine strucural Directive</li>
                 <li>der Stern ersetzt eine kompliziertere Syntax durch die Kurzform</li>
-                <li>dies gilt für <span class="code">*ngIf</span>, <span class="code">*ngFor</span> und <span class="code">*ngSwitch</span></li>
+                <li>dies gilt für <span class="code">*ngIf</span>, <span class="code">*ngFor</span> und <span
+                        class="code">*ngSwitch</span></li>
                 <li>Ein Beispiel wird die Unterschiede zeigen</li>
             </ul>
         </section>
@@ -65,16 +66,23 @@
                          &lt/div&gt
                     </code>
                 </pre>
-                <span class="warn">Wichtig:</span> Es ist ein grosser Unterschied ob ein Element mit CSS versteckt wird, oder mit <span class="code">*ngIf</span> aus dem DOM entfernt wird. Beim Verstecken bleibt das Element im DOM und benötigt sowohl Speicher als auch weitere Resourcen. <span class="code">*ngIf</span> ist meist die bessere Lösung.</span>
+                <span class="warn">Wichtig:</span> Es ist ein grosser Unterschied ob ein Element mit CSS versteckt wird,
+                oder mit <span class="code">*ngIf</span> aus dem DOM entfernt wird. Beim Verstecken bleibt das Element
+                im DOM und benötigt sowohl Speicher als auch weitere Resourcen. <span class="code">*ngIf</span> ist
+                meist die bessere Lösung.</span>
             </section>
             <section>
                 <h3>Aufgabe 7.1 - *ngIf</h3>
                 <ul>
                     <li>Nutze einen Radio Button mit den Werten "Einfach" und "Erweitert"</li>
                     <li>Zeige bei Erweitert ein <span class="codeq">Input</span> Feld an</li>
-                    <li>Falls im <span class="code">Input</span> Feld mehr als 2 Zeichen stehen, gebe den Text darunter aus.</li>
+                    <li>Falls im <span class="code">Input</span> Feld mehr als 2 Zeichen stehen, gebe den Text darunter
+                        aus.
+                    </li>
                     <li>Hint: es gibt einen Typ "radio" auf dem <span class="code">Input</span></li>
-                    <li>Hint: Eine Radiogroup erhält man, indem man den <span class="code">Inputs</span> den selben Wert für das name-Property zuweist</li>
+                    <li>Hint: Eine Radiogroup erhält man, indem man den <span class="code">Inputs</span> den selben Wert
+                        für das name-Property zuweist
+                    </li>
                 </ul>
             </section>
             <section>
@@ -90,7 +98,7 @@
                                 (input)="val=$event.target.value">
                             &ltdiv *ngIf="val.length >= 2">
                                 &ltp>Wert: {{val}}</p>
-                            &lt/div>
+                         &lt/div>
                         &lt/div>
                      </code>
                     <code class="hljs typescript" data-trim contenteditable>
@@ -98,6 +106,71 @@
                          setting: string = "Einfach";
                     </code>
                  </pre>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>*ngFor</h2>
+                <h3>zum Iterieren über Collections</h3>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable>
+                        <ul>
+                            &ltli *ngFor="let customer of customers">
+                                {{ customer.name}}
+                            &lt/li>
+                        </ul>
+                    </code>
+                    <code class="hljs html" data-trim contenteditable>
+                        &ltdiv *ngFor="let item of items; let idx = index;">
+                            <my-item-view [item]="item"></my-item-view>
+                        &lt/div>
+                    </code>
+            </section>
+            <section>
+                <h3>*ngFor - Syntax</h3>
+                <ul>
+                    <li>eigene Angular Syntax</li>
+                    <li>der mit <span class="code">*ngFor</span> versehene Block wird wiederholt</li>
+                    <li>Nimm jedes Item im Items Array und weiss es der variable item zu. Erzeuge pro Iteration ein <span class="code">li</span> Element.</li>
+                    <li>Die sogenannte <span class="code">Template Input Variable</span> <span class="code">let</span> ist nur im Element und dessen Kindern gültig.</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Aufgabe 7.2 - *ngFor</h3>
+                <ul>
+                    <li>Erstelle ein Array von Todos</li>
+                    <li>Jedes Todo sollte mindestens 2 Properties (Titel, Beschreibung) haben</li>
+                    <li>Rendere jedes Todo mit einer <span class="code">h2</span> - Überschrift für den Titel und normale Paragraphs für weitere Attribute</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Aufgabe 7.2 - Mögliche Lösung</h3>
+                <pre>
+                     <code class="hljs html" data-trim contenteditable>
+                        &ltdiv *ngFor="let todo of todos">
+                            &lth2>{{todo.title}}&lt/h2>
+                            &ltp>{{todo.desc}}&lt/p>
+                        &lt/div>
+                     </code>
+                    <code class="hljs typescript" data-trim contenteditable>
+                            todos: any[]= [{
+                                title: "*ngFor",
+                                desc: "Lösung finden"
+                            }, {
+                                title: "*ngSwitch",
+                                desc: "Folien erstellen"
+                            }];
+                    </code>
+                 </pre>
+            </section>
+            <section>
+                <h3>*ngFor Advanced</h3>
+                <ul>
+                    <li>odd, first, last, even</li>
+                    <li>Change Detection</li>
+                    <li>Remove, Add, reorder</li>
+                    <li>trackBy</li>
+                </ul>
             </section>
         </section>
         <section>
