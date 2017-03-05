@@ -262,6 +262,57 @@
             </section>
         </section>
         <section>
+            <h2>ngClass</h2>
+            <h3>für dynamische CSS Klassen</h3>
+            <p>für einzelne Klassen - ein <span class="code">Class Binding</span> benutzen</p>
+            <pre>
+                <code class="hljs html" data-trim contenteditable>
+                    <div [class.active]="customer.active"></div>
+                </code>
+            </pre>
+            <p>für mehrere Klassen - die <span class="code">ngClass Directive</span></p>
+            <pre>
+                <code class="hljs html" data-trim contenteditable>
+                    &ltdiv [ngClass]="{
+                      'active': customer.active,
+                      'inactive': !customer.active}">
+                    &lt/div>
+                </code>
+            </pre>
+        </section>
+        <section>
+            <section>
+                <h2>ngStyle</h2>
+                <h3>für dynamische Inline Styles</h3>
+                <p>für einzelne Klassen - ein <span class="code">Style Binding</span> benutzen</p>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable>
+                        &ltspan
+                            [style.font-weight]="pers.isVip ? 'bold' : 'normal'">
+                        &lt/span>
+                    </code>
+                </pre>
+                <p>für mehrere Styles - die <span class="code">ngStyle Directive</span></p>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable>
+                        &ltspan [ngStyle]="{
+                          'font-size': pers.isVip ? 'bold' : 'normal'
+                          'color': pers.isVip ? 'red' : 'blue'}">
+                        &lt/span>
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Inline Styles vs. Klassen</h3>
+                <ul>
+                    <li>ich nutze <span class="warn">NIE</span> Inline Styles</li>
+                    <li>Alle Styles gehören aus meiner Sicht in die Stylesheet Dateien</li>
+                    <li>Inline Styles sind nicht wiederverwendbar</li>
+                    <li>Inline Styles verringern die Wartbarkeit - durch das Ersetzen der Stylesheets bspw. bei einem Redesign sind Inline Styles davon nicht betroffen</li>
+                </ul>
+            </section>
+        </section>
+        <section>
             <h2>Noch etwas offen?</h2>
             <img src="../img/noquestions.jpg">
         </section>
