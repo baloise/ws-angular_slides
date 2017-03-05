@@ -313,6 +313,91 @@
             </section>
         </section>
         <section>
+            <section>
+                <h2>Pipes</h2>
+                <h3>für Transformationen von Werten</h3>
+                <ul>
+                    <li>wird mit einem Strich <span class="code">|</span> gestartet, dann folgt die Operation, z.B. <span class="code">| uppercase</span></li>
+                    <li>viele eingebaute Pipes, z. B. <span class="code">lowercase</span>, <span class="code">uppercase</span>, <span class="code">date</span>, <span class="code">currency</span> uvm.</li>
+                    <li>Pipes könnten Parameter erhalten: <span class="code">{{birthday | date:"MM/dd/yy"}}</span></li>
+                    <li>Eigene Pipes müssen das <span class="code">PipeTransform</span> Interface implementieren und mit <span class="code">@Pipe({name: 'name'})</span> annotiert sein</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Beispiele</h3>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable>
+                        {{birthday | date:'MM/dd/yy'}}
+
+                        <!-- mit mehreren Parametern-->
+                        {{kontostand | currency:'CHF':false}}
+
+                        <!-- Chaining, von links nach rechts -->
+                        {{titel | lowercase | uppercase}}
+
+                        <!-- custom pipe -->
+                        {{rechnungsNr | invoiceNr}}
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Custom Pipe</h3>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        import { Pipe, PipeTransform } from '@angular/core';
+
+                        @Pipe({name: 'ellipsis'})
+                        export class EllipsisPipe implements PipeTransform {
+                            transform(word: string, count: number): string {
+                                if(!count) {
+                                    return word;
+                                }
+                                if(word.length <= number) {
+                                    return word
+                                }
+                                return word.substring(0, number) + '...';
+                            }
+                        }
+                    </code>
+                    <code class="hljs html" data-trim contenteditable>
+                        {{Lorem ipsum dolor | ellipsis:10}}
+                        <!-- Lorem ipsu...-->
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Aufgabe 7.3 - Pipes</h3>
+                <ul>
+                    <li>Erstelle eine eigene Pipe <span class="code">phonenumber</span></li>
+                    <li>Formatiere die Nummer 0564410808 (string)</li>
+                    <li>Die Nummer soll folgendermassen formatiert werden können</li>
+                    <li>Default: <span class="code">056 441 08 08</span></li>
+                    <li>mit Parameter 41: <span class="code">+41 56 441 08 08</span></li>
+                </ul>
+            </section>
+            <section>
+                <h3>Aufgabe 7.3 - Mögliche Lösung</h3>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        import { Pipe, PipeTransform } from '@angular/core';
+
+                        @Pipe({name: 'phonenumber'})
+                        export class PhonenumberPipe implements PipeTransform {
+                            transform(phone: string, country: number): string {
+                                if(phone.length != 10) {
+                                    return phone;
+                                }
+                                return '+' +country+ ' ' + phone.substring(1, 3)
+                                    + ' ' + phone.substring(3, 6)
+                                    + ' ' + phone.substring(6, 8)
+                                    + ' ' + phone.substring(8, 10);
+                            }
+                        }
+                    </code>
+                 </pre>
+            </section>
+        </section>
+        <section>
             <h2>Noch etwas offen?</h2>
             <img src="../img/noquestions.jpg">
         </section>
