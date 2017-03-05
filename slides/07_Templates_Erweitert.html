@@ -329,6 +329,9 @@
                     <code class="hljs html" data-trim contenteditable>
                         {{birthday | date:'MM/dd/yy'}}
 
+                        <!-- super zum Debuggen, rendert ein Objekt-->
+                        {{customer | json}}
+
                         <!-- mit mehreren Parametern-->
                         {{kontostand | currency:'CHF':false}}
 
