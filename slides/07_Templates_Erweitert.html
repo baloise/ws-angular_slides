@@ -107,6 +107,25 @@
                     </code>
                  </pre>
             </section>
+            <section>
+                <h3>*ngIf - kurze vs. lange Syntax</h3>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable>
+                         <input type="text" [value]="search">
+                         &ltdiv *ngIf="search.length > 1"&gt
+                            <result-table></result-table>
+                         &lt/div&gt
+                    </code>
+                    <code class="hljs html" data-trim contenteditable>
+                        <input type="text" [value]="search">
+                        &lttemplate [ngIf]="search.length > 1">
+                            <div>
+                              <result-table></result-table>
+                            </div>
+                        &lt/template>
+                    </code>
+                </pre>
+            </section>
         </section>
         <section>
             <section>
@@ -195,6 +214,29 @@
                     </code>
                 </pre>
             </section>
+            <section>
+                <h3>*ngFor - kurze vs. lange Syntax</h3>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable>
+                        &ltdiv *ngFor="let item of items; let idx = index;">
+                            <my-item-view [item]="item"></my-item-view>
+                        &lt/div>
+                    </code>
+                    <code class="hljs html" data-trim contenteditable>
+                        &lttemplate ngFor let--item let-idx="index"
+                            [ngForOf]="items">
+                            &ltdiv>
+                                <my-item-view [item]="item"></my-item-view>
+                            &lt/div>
+                        &lt/template>
+                    </code>
+                </pre>
+            </section>
+            <template ngFor let-passenger let-i="index" [ngForOf]="passengers">
+                <li>
+                    {{ i }}: {{ passenger.fullname }}
+                </li>
+            </template>
         </section>
         <section>
             <h2>Noch etwas offen?</h2>
