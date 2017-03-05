@@ -399,7 +399,18 @@
         </section>
         <section>
             <h2>Safe Navigation Operator</h2>
-            <h3>Zum Vermeiden von NullPointer ;-)</h3>
+            <h3>Zum Vermeiden von NullPointern ;-)</h3>
+            <ul>
+                <li>wird mit <span class="code">?.</span> benutzt</li>
+                <li>Der Wert wird erst gerendert, wenn alle Properties aufgelöst werden können</li>
+                <li>leichtgewichtige Alternative zu chained <span class="code">*ngIf</span> oder chained null checks mit <span class="code">&&</span></li>
+            </ul>
+            <pre>
+                <code class="hljs html" data-trim contenteditable>
+                    <p>Name: {{comp?.ceo?.name}}</p>
+                    <p>Name: {{comp && comp.ceo && comp.ceo.name}}</p>
+                </code>
+            </pre>
         </section>
         <section>
             <h2>Noch etwas offen?</h2>
