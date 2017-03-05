@@ -235,6 +235,33 @@
             </section>
         </section>
         <section>
+            <section>
+                <h2>*ngSwitch</h2>
+                <ul>
+                    <li><span class="code">[ngSwitch]="expression"</span> ist die Direktive mit dem Switch Wert</li>
+                    <li><span class="code">*ngSwitchCase="value"</span> ist die Direktive mit einem Case Wert, ist dieser gleich dem Switch Wert, wird das Element dem DOM hinzugefügt</li>
+                    <li><span class="code">*ngSwitchDefault</span> fügt das Element dem DOM hinzu wenn keiner der Cases greift</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Beispiel</h3>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable>
+                        &ltdiv [ngSwitch]="selectedFruit">
+                            &ltapple-view *ngSwitchCase="Fruit.APPLE">
+                                &lt/apple-view>
+
+                            &ltorange-view *ngSwitchCase="Fruit.ORANGE">
+                                &lt/orange-view>
+
+                            &ltno-fruit-selected *ngSwitchDefault>
+                                &lt/no-fruit-selected>
+                        &lt/div>
+                    </code>
+                </pre>
+            </section>
+        </section>
+        <section>
             <h2>Noch etwas offen?</h2>
             <img src="../img/noquestions.jpg">
         </section>
