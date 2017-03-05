@@ -17,3 +17,4 @@
 - [05 Architecture](https://baloise.github.io/ws-angular_slides/slides/05_Architecture.html)
 - [06 Templates Grundlagen](https://baloise.github.io/ws-angular_slides/slides/06_Templates_Grundlagen.html)
 - [07 Templates Erweitert](https://baloise.github.io/ws-angular_slides/slides/07_Templates_Erweitert.html)
+- [08 Component Architecture](https://baloise.github.io/ws-angular_slides/slides/08_Component_Architecture.html)
