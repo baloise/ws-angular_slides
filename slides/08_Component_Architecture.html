@@ -77,6 +77,83 @@
         <section>
             <section>
                 <h2>@Input - Daten übergeben</h2>
+                <h3>Binding: Quelle vs. Ziel</h3>
+                <ul>
+                    <li>es gibt immer eine Quelle und ein Ziel bei Bindings</li>
+                    <li>das Ziel steht <span class="warn">links</span> vom <span class="code">=</span>, die Quelle <span class="warn">rechts</span></li>
+                    <li>Das Ziel ist ein Property oder ein Event in Klammern: <span class="code">[prop]</span>, <span class="code">(event)</span></li>
+                    <li>Die Quelle steht in <span class="code">"quelle"</span> oder in <span class="code">{{quelle}}</span></li>
+                </ul>
+            </section>
+            <section>
+                <h3>Instanzvariablen vs. Input & Output</h3>
+                <ul>
+                    <li><span class="code">@Input()</span> und <span class="code">@Output()</span> definieren das Interface von Direktiven (und Komponenten)</li>
+                    <li>Sie sind das Ziel der Bindings</li>
+                    <li>Die Quelle von Bindings sind alle <span class="code">Instanzvariablen</span> von Direktiven (und Komponenten)</li>
+                </ul>
+            </section>
+            <section>
+                <h3>@Input() - Beispiel</h3>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        import {Component, Input} from '@angular/core';
+
+                        @Component({
+                            selector: 'pizza'
+                        })
+                        export class PizzaComponent {
+                            @Input()
+                            pizza: Pizza;
+                        }
+                    </code>
+                    <code class="hljs html" data-trim contenteditable>
+                        <!-- Outer component -->
+                        <pizza [pizza]="meinePizza"></pizza>
+                    </code>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        private pizza: Pizza;
+                    </code>
+                 </pre>
+            </section>
+            <section>
+                <h3>@Input() - Beispiel 2</h3>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        @Component({
+                            selector: 'pizza'
+                            inputs: ['pizza', 'zutaten']
+                        )}
+                        export class PizzaComponent {
+                        }
+                    </code>
+                    <code class="hljs html" data-trim contenteditable>
+                        <!-- Outer component -->
+                        <pizza
+                                [pizza]="meinePizza"
+                                [zutaten]="zutaten"
+                        ></pizza>
+                    </code>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        private pizza: Pizza;
+                        private zutaten: Zutat[];
+                    </code>
+                 </pre>
+            </section>
+            <section>
+                <h3>Aufgabe 8.3 - @Input()</h3>
+                <ul>
+                    <li>Branch: <span class="code">08_ComponentArchitecture_2</span></li>
+                    <li>Erstelle eine neue <span class="code">movie</span> Komponente die einen einzelnen Film darstellt.</li>
+                    <li>Übergebe den Film mit einem Binding an die neue Komponente.</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Aufgabe 8.3 - Mögliche Lösung</h3>
+                <ul>
+                    <li>Branch: <span class="code">08_ComponentArchitecture_3</span></li>
+                    <li>Wenn ihr eure Änderungen <span class="warn">verwerfen</span> möchtet und direkt zur Lösung wollt: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_3</span></li>
+                </ul>
             </section>
         </section>
         <section>
