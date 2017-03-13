@@ -40,11 +40,17 @@
                 <h3>Aufgabe 8.1 - weitere Komponente</h3>
                 <ul>
                     <li>Branch: <span class="code">08_ComponentArchitecture_0</span></li>
-                    <li>Erstelle in <span class="code">src/app</span> einen Unterordner <span class="code">cinema</span></li>
-                    <li>Erstelle eine <span class="code">cinema.component.ts</span> mit einem <span class="code">cinema.component.html</span> Template</li>
+                    <li>Erstelle in <span class="code">src/app</span> einen Unterordner <span class="code">cinema</span>
+                    </li>
+                    <li>Erstelle eine <span class="code">cinema.component.ts</span> mit einem <span class="code">cinema.component.html</span>
+                        Template
+                    </li>
                     <li>Das Template enthält eine <span class="code">h1</span> Überschrift "Cinema"</li>
-                    <li>Die <span class="code">app.component</span> soll nur noch unsere Cinema Komponente enthalten</li>
-                    <li>Denke daran, die neue Komponente im <span class="code">app.module.ts</span> in Declarations hinzuzufügen </li>
+                    <li>Die <span class="code">app.component</span> soll nur noch unsere Cinema Komponente enthalten
+                    </li>
+                    <li>Denke daran, die neue Komponente im <span class="code">app.module.ts</span> in Declarations
+                        hinzuzufügen
+                    </li>
                 </ul>
             </section>
             <section>
@@ -54,7 +60,9 @@
                     <li>Die Lösungen bauen nun aufeinander auf</li>
                     <li>Wenn alles funktioniert könnt ihr immer weiter arbeiten ohne den Branch wechseln zu müssen</li>
                     <li>Der Lösungsbranch ist immer die Grundlage für die nächste Aufgabe</li>
-                    <li>Wenn ihr eure Änderungen <span class="warn">verwerfen</span> möchtet und direkt zur Lösung wollt: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_1</span></li>
+                    <li>Wenn ihr eure Änderungen <span class="warn">verwerfen</span> möchtet und direkt zur Lösung
+                        wollt: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_1</span>
+                    </li>
                 </ul>
             </section>
             <section>
@@ -62,15 +70,20 @@
                 <ul>
                     <li>Branch: <span class="code">08_ComponentArchitecture_1</span></li>
                     <li>Erstelle ein Interface <span class="code">movie</span> (siehe db.json)</li>
-                    <li>Erstelle eine neue <span class="code">movies</span> Komponente. Sie hat eine Liste von Movies (aus db.json kopieren)</li>
-                    <li>Rendere die Movies im HTML und gib alle Properties aus - die Bild-URL als <span class="code">img</span></li>
+                    <li>Erstelle eine neue <span class="code">movies</span> Komponente. Sie hat eine Liste von Movies
+                        (aus db.json kopieren)
+                    </li>
+                    <li>Rendere die Movies im HTML und gib alle Properties aus - die Bild-URL als <span
+                            class="code">img</span></li>
                 </ul>
             </section>
             <section>
                 <h3>Aufgabe 8.2 - Mögliche Lösung</h3>
                 <ul>
                     <li>Branch: <span class="code">08_ComponentArchitecture_2</span></li>
-                    <li>Wenn ihr eure Änderungen <span class="warn">verwerfen</span> möchtet und direkt zur Lösung wollt: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_2</span></li>
+                    <li>Wenn ihr eure Änderungen <span class="warn">verwerfen</span> möchtet und direkt zur Lösung
+                        wollt: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_2</span>
+                    </li>
                 </ul>
             </section>
         </section>
@@ -80,17 +93,24 @@
                 <h3>Binding: Quelle vs. Ziel</h3>
                 <ul>
                     <li>es gibt immer eine Quelle und ein Ziel bei Bindings</li>
-                    <li>das Ziel steht <span class="warn">links</span> vom <span class="code">=</span>, die Quelle <span class="warn">rechts</span></li>
-                    <li>Das Ziel ist ein Property oder ein Event in Klammern: <span class="code">[prop]</span>, <span class="code">(event)</span></li>
-                    <li>Die Quelle steht in <span class="code">"quelle"</span> oder in <span class="code">{{quelle}}</span></li>
+                    <li>das Ziel steht <span class="warn">links</span> vom <span class="code">=</span>, die Quelle <span
+                            class="warn">rechts</span></li>
+                    <li>Das Ziel ist ein Property oder ein Event in Klammern: <span class="code">[prop]</span>, <span
+                            class="code">(event)</span></li>
+                    <li>Die Quelle steht in <span class="code">"quelle"</span> oder in <span
+                            class="code">{{quelle}}</span></li>
                 </ul>
             </section>
             <section>
                 <h3>Instanzvariablen vs. Input & Output</h3>
                 <ul>
-                    <li><span class="code">@Input()</span> und <span class="code">@Output()</span> definieren das Interface von Direktiven (und Komponenten)</li>
+                    <li><span class="code">@Input()</span> und <span class="code">@Output()</span> definieren das
+                        Interface von Direktiven (und Komponenten)
+                    </li>
                     <li>Sie sind das Ziel der Bindings</li>
-                    <li>Die Quelle von Bindings sind alle <span class="code">Instanzvariablen</span> von Direktiven (und Komponenten)</li>
+                    <li>Die Quelle von Bindings sind alle <span class="code">Instanzvariablen</span> von Direktiven (und
+                        Komponenten)
+                    </li>
                 </ul>
             </section>
             <section>
@@ -144,7 +164,9 @@
                 <h3>Aufgabe 8.3 - @Input()</h3>
                 <ul>
                     <li>Branch: <span class="code">08_ComponentArchitecture_2</span></li>
-                    <li>Erstelle eine neue <span class="code">movie</span> Komponente die einen einzelnen Film darstellt.</li>
+                    <li>Erstelle eine neue <span class="code">movie</span> Komponente die einen einzelnen Film
+                        darstellt.
+                    </li>
                     <li>Übergebe den Film mit einem Binding an die neue Komponente.</li>
                 </ul>
             </section>
@@ -152,7 +174,9 @@
                 <h3>Aufgabe 8.3 - Mögliche Lösung</h3>
                 <ul>
                     <li>Branch: <span class="code">08_ComponentArchitecture_3</span></li>
-                    <li>Wenn ihr eure Änderungen <span class="warn">verwerfen</span> möchtet und direkt zur Lösung wollt: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_3</span></li>
+                    <li>Wenn ihr eure Änderungen <span class="warn">verwerfen</span> möchtet und direkt zur Lösung
+                        wollt: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_3</span>
+                    </li>
                 </ul>
             </section>
         </section>
@@ -160,9 +184,12 @@
             <section>
                 <h2>@Output - auf Events reagieren</h2>
                 <ul>
-                    <li>Events von Standard-Komponenten wie <span class="code">Buttons</span> oder <span class="code">Inputs</span> kennen wir bereits</li>
+                    <li>Events von Standard-Komponenten wie <span class="code">Buttons</span> oder <span class="code">Inputs</span>
+                        kennen wir bereits
+                    </li>
                     <li>Events für eigene Koponenten verhalten sich genau gleich</li>
-                    <li>sie definieren zusammen mit den <span class="code">Inputs</span> das Interface einer Komponente</li>
+                    <li>sie definieren zusammen mit den <span class="code">Inputs</span> das Interface einer Komponente
+                    </li>
                 </ul>
             </section>
             <section>
@@ -193,14 +220,18 @@
                     <li>Branch: <span class="code">08_ComponentArchitecture_3</span></li>
                     <li>Erstelle einen <span class="code">Button</span> zum Entfernen eines Films</li>
                     <li>Jeder Film soll einen eigenen Button haben</li>
-                    <li>Bei einem Klick soll die Komponente ein Event werfen - die äussere Komponente soll dann darauf reagieren und den Film aus der Liste entfernen</li>
+                    <li>Bei einem Klick soll die Komponente ein Event werfen - die äussere Komponente soll dann darauf
+                        reagieren und den Film aus der Liste entfernen
+                    </li>
                 </ul>
             </section>
             <section>
                 <h3>Aufgabe 8.4 - Mögliche Lösung</h3>
                 <ul>
                     <li>Branch: <span class="code">08_ComponentArchitecture_4</span></li>
-                    <li>Wenn ihr eure Änderungen <span class="warn">verwerfen</span> möchtet und direkt zur Lösung wollt: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_4</span></li>
+                    <li>Wenn ihr eure Änderungen <span class="warn">verwerfen</span> möchtet und direkt zur Lösung
+                        wollt: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_4</span>
+                    </li>
                 </ul>
             </section>
         </section>
@@ -213,9 +244,11 @@
                 <h3>Smart / Container Components</h3>
                 <ul>
                     <li>haben Zugriff auf Services / den Applikations State</li>
-                    <li>Reagieren auf Events ihrer Childs</li>
-                    <li>Geben Daten von Services an die Childs weiter</li>
-                    <li>Besitzen keine Anzeigelogik - sie sind lediglich ein Container für eine Vielzahl dummer Komponenten</li>
+                    <li>reagieren auf Events ihrer Childs</li>
+                    <li>geben Daten von Services an die Childs weiter</li>
+                    <li>besitzen keine Anzeigelogik - sie sind lediglich ein Container für eine Vielzahl dummer
+                        Komponenten
+                    </li>
                 </ul>
             </section>
             <section>
@@ -223,8 +256,93 @@
                 <ul>
                     <li>haben <span class="warn">keinen</span> Zugriff auf Services / den Applikations State</li>
                     <li>bekommen Daten von aussen per <span class="code">@Input</span></li>
-                    <li>Geben Events per <span class="code">@Output</span> nach draussen</li>
-                    <li>Enthalten die Anzeigelogik</li>
+                    <li>geben Events per <span class="code">@Output</span> nach draussen</li>
+                    <li>enthalten die Anzeigelogik</li>
+                    <li>sind sehr einfach reusable</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Wann nutze ich was?</h3>
+                <ul>
+                    <li>generell sollte pro Seite die Komponente, die die gesamte Seite umspannt, smart sein</li>
+                    <li>wenn eine Komponente direkt per Route (URL) erreichbar ist, so muss sie smart sein</li>
+                    <li>falls du dir unsicher bist: versuche die Komponente dumb zu halten</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Wie schneide ich Komponenten</h3>
+                <ul>
+                    <li>ähnlich wie bei Klassen: Single Responsibility</li>
+                    <li>wird eine Komponente zu gross, dann in mehrere kleine aufteilen</li>
+                    <li>wenn deine Komponente 2 Dinge machen muss...</li>
+                    <li>... dann mach 3 Komponenten daraus ;-)</li>
+                    <li>Eine die das Feature wrapped, und für jeden Teil eine weitere Komponente</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Was sind die Vorteile dieses Konzeptes?</h3>
+                <ul>
+                    <li>Testbarkeit</li>
+                    <li>Wiederverwendbarkeit</li>
+                    <li>Keine Seiteneffekte - einfacher Datenfluss</li>
+                    <li>Klares Konzept</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Lify cycle hooks</h2>
+                <img src="../img/hooks-in-sequence.png">
+            </section>
+            <section>
+                <h3>OnInit</h3>
+                <ul>
+                    <li>die Hook-Methode heisst <span class="code">ngOnInit()</span></li>
+                    <li>die Komponente sollte das Interface <span class="code">OnInit</span> implementieren</li>
+                    <li>wird einmalig nach dem Konstruktor aufgerufen</li>
+                    <li>für komplexere Initialisierungen, HTTP Calls etc.</li>
+                    <li><span class="code">Inputs</span> sind bereits initialisiert</li>
+                </ul>
+            </section>
+            <section>
+                <h3>OnInit - Beispiel</h3>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        import {Component, OnInit} from "@angular/core";
+
+                        @Component({
+                            selector: 'pizza',
+                            templateUrl: './pizza.component.html'
+                        })
+                        export class PizzaComponent implements OnInit {
+
+                            pizze: Pizza[];
+
+                            ngOnInit() {
+                                this.pizze = getPizzeFromService();
+                            }
+                        }
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Aufgabe 8.5 - OnInit</h3>
+                <ul>
+                    <li>Branch: <span class="code">08_ComponentArchitecture_4</span></li>
+                    <li>Identifiziere eine Smart und eine Dumb Komponente</li>
+                    <li>Füge in der Smart Komponente einen <span class="code">OnInit</span> Hook hinzu</li>
+                    <li>Führe dort aus, was aus deiner Sicht Sinn ergibt ;-)</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Aufgabe 8.5 - Mögliche Lösung</h3>
+                <ul>
+                    <li>Branch: <span class="code">08_ComponentArchitecture_5</span></li>
+                    <li>Wenn ihr eure Änderungen <span class="warn">verwerfen</span> möchtet und direkt zur Lösung
+                        wollt: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_5</span>
+                    </li>
+                    <li>Smart Component: MoviesComponent</li>
+                    <li>Dumb Component: MovieComponent</li>
                 </ul>
             </section>
         </section>
