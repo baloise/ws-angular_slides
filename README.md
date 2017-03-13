@@ -18,3 +18,4 @@
 - [06 Templates Grundlagen](https://baloise.github.io/ws-angular_slides/slides/06_Templates_Grundlagen.html)
 - [07 Templates Erweitert](https://baloise.github.io/ws-angular_slides/slides/07_Templates_Erweitert.html)
 - [08 Component Architecture](https://baloise.github.io/ws-angular_slides/slides/08_Component_Architecture.html)
+- [09 Services & HTTP](https://baloise.github.io/ws-angular_slides/slides/09_Services_HTTP.html)
