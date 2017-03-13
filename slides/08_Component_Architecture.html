@@ -161,6 +161,46 @@
                 <h2>@Output - auf Events reagieren</h2>
                 <ul>
                     <li>Events von Standard-Komponenten wie <span class="code">Buttons</span> oder <span class="code">Inputs</span> kennen wir bereits</li>
+                    <li>Events für eigene Koponenten verhalten sich genau gleich</li>
+                    <li>sie definieren zusammen mit den <span class="code">Inputs</span> das Interface einer Komponente</li>
+                </ul>
+            </section>
+            <section>
+                <h3>@Output() - Beispiel</h3>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        import {.., Output, EventEmitter} from '@angular/core';
+                        export class PizzaComponent {
+                            @Output()
+                            selecPizza: EventEmitter&ltPizza> = new EventEmitter();
+                        }
+                    </code>
+                    <code class="hljs html" data-trim contenteditable>
+                        <button (click)="selecPizza.emit(pizza)">Kaufen</button>
+                    </code>
+                    <code class="hljs html" data-trim contenteditable>
+                        <!-- Outer component -->
+                        &ltpizza (selecPizza)="onPizzaSelected($event)"></pizza>
+                    </code>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        onPizzaSelected(pizza: Pizza) { console.log(pizza); }
+                    </code>
+                 </pre>
+            </section>
+            <section>
+                <h3>Aufgabe 8.4 - @Output()</h3>
+                <ul>
+                    <li>Branch: <span class="code">08_ComponentArchitecture_3</span></li>
+                    <li>Erstelle einen <span class="code">Button</span> zum Entfernen eines Films</li>
+                    <li>Jeder Film soll einen eigenen Button haben</li>
+                    <li>Bei einem Klick soll die Komponente ein Event werfen - die äussere Komponente soll dann darauf reagieren und den Film aus der Liste entfernen</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Aufgabe 8.4 - Mögliche Lösung</h3>
+                <ul>
+                    <li>Branch: <span class="code">08_ComponentArchitecture_4</span></li>
+                    <li>Wenn ihr eure Änderungen <span class="warn">verwerfen</span> möchtet und direkt zur Lösung wollt: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_4</span></li>
                 </ul>
             </section>
         </section>
