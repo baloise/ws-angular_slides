@@ -205,6 +205,30 @@
             </section>
         </section>
         <section>
+            <section>
+                <h2>Component Architecture</h2>
+                <img src="../img/smart_dumb.png">
+            </section>
+            <section>
+                <h3>Smart / Container Components</h3>
+                <ul>
+                    <li>haben Zugriff auf Services / den Applikations State</li>
+                    <li>Reagieren auf Events ihrer Childs</li>
+                    <li>Geben Daten von Services an die Childs weiter</li>
+                    <li>Besitzen keine Anzeigelogik - sie sind lediglich ein Container für eine Vielzahl dummer Komponenten</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Dumb / Presentation / Stateless Components</h3>
+                <ul>
+                    <li>haben <span class="warn">keinen</span> Zugriff auf Services / den Applikations State</li>
+                    <li>bekommen Daten von aussen per <span class="code">@Input</span></li>
+                    <li>Geben Events per <span class="code">@Output</span> nach draussen</li>
+                    <li>Enthalten die Anzeigelogik</li>
+                </ul>
+            </section>
+        </section>
+        <section>
             <h2>Zeit für Fragen</h2>
             <img src="../img/homer.jpg">
         </section>
