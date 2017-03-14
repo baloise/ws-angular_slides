@@ -27,6 +27,281 @@
         <section class="deck-slide" data-background="#E5F3F9">
             <h1>Services & HTTP</h1>
         </section>
+        <section>
+            <section>
+                <h2>Services & Injection</h2>
+                <ul>
+                    <li>sind simple TypeScript Klassen</li>
+                    <li>sollten mit <span class="code">@Injectable()</span> annotiert werden</li>
+                    <li>sind somit für den Angular Injector als verfügbare Dependencies markiert</li>
+                    <li>kapseln den Zugriff auf das Backend und andere APIs</li>
+                    <li>enthalten Logik die aus Komponenten ausgelagert wird</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Dependency Injection</h3>
+                <ul>
+                    <li><span class="code">Injectables</span> müssen im AppModule unter <span class="code">providers</span> registriert werden</li>
+                    <li>theoretisch können diese auch für eine Component (und deren Kinder) registriert werden - dies ist selten nötig; nur falls man jeweils eine eigene Instanz benötigt</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Providers</h3>
+                <h4>Stellen zur Laufzeit eine konkrete Dep. zur Verfügung</h4>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        // kurze Form
+                        providers: [PizzaService]
+                    </code>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        // lange Form
+                        [{ provide: PizzaService, useClass: PizzaService }]
+                    </code>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        // mit einem Objekt (gut für Tests ;-))
+                        let myService = {
+                            getPizze: () => { return []; }
+                        };
+                        [{ provide: PizzaService, useValue: myService }]
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Zusammenfassung</h3>
+                <h4>in 98% der Fälle gilt...</h4>
+                <ul>
+                    <li>Services mit <span class="code">@Injectable</span> annotieren</li>
+                    <li>Services bei den Providern im AppModule registrieren</li>
+                    <li>die Kurzform für die Registrierung verwenden</li>
+                    <li>Im Test einen Mock / Stub mit <span class="code">useValue</span> benutzen</li>
+                </ul>
+
+            </section>
+            <section>
+                <h3>Aufgabe 9.1 - Services</h3>
+                <ul>
+                    <li>Branch: <span class="code">08_ComponentArchitecture_5</span></li>
+                    <li>Extrahiere die Liste der movies in einen <span class="code">MovieService</span></li>
+                    <li>Stelle eine Methode <span class="code">getAllMovies</span> zur Verfügung, die das Array returned</li>
+                    <li>Nutze den Service in der <span class="code">MoviesComponent</span></li>
+                </ul>
+            </section>
+            <section>
+                <h3>Aufgabe 9.1 - Mögliche Lösung</h3>
+                <ul>
+                    <li>Branch: <span class="code">09_ServicesHTTP_1</span></li>
+                    <li>Wenn ihr eure Änderungen <span class="warn">verwerfen</span> möchtet und direkt zur Lösung
+                        wollt: <span class="code">git reset --hard && git checkout 09_ServicesHTTP_1</span>
+                    </li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>RxJS</h2>
+                <h3>Recap</h3>
+                <ul>
+                    <li>JavaScript ist single threaded</li>
+                    <li>Viele Operationen im Web sind asynchron: Animationen, API Calls, Zeichnen vom UI u.v.m.</li>
+                    <li>Um diese Herausforderung zu meistern gibt es mehrere Konzepte: wir werden einen kurzen Blick auf Callbacks, Promises und dann RxJS und Observables werfen</li>
+                </ul>
+            </section>
+            <section>
+                <h2>RxJS</h2>
+                <h3>Klassische Callbacks</h3>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        fetchCustomerById(id, showCustomerFunc) {
+                          openConnection(function(conn, err) {
+                            if(err) {
+                              // log
+                            } else {
+                              getCollec(conn, 'customers', function(col, err) {
+                                if(err) {
+                                   // log
+                                } else {
+                                   find(col, {'id': id}, function(result, err) {
+                                      showCustomerFunc(result);
+                                    })
+                                }
+                             })
+                            }
+                          })
+                        }
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Klassische Callbacks</h3>
+                <ul>
+                    <li>sind ein Konstrukt um mit Asynchronität umzugehen</li>
+                    <li>eine <span class="code">callback</span> Funktion wird einer Funktion als Parameter übergeben und später dann (vllt.) aufgerufen, bspw. wenn Daten verfügbar sind</li>
+                    <li>ein grosser Nachteil ist die sogenannte Callback-Hell - wie auf der Slide vorher zu sehen</li>
+                    <li>asynchroner Code wird sehr schnell unlesbar</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Promises</h3>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        fetchCustomerById(id, callback) {
+                            return openConnection()
+                                .then(conn => getCollection(conn, 'customers'))
+                                .then(col => find(col, id))
+                                .then(callback)
+                                .catch(err => {
+                                    console.err(err);
+                                    throw err;
+                                });
+                        }
+                    </code>
+            </section>
+            <section>
+                <h3>Promises</h3>
+                <ul>
+                    <li>können gechained werden - ein Promise kann ein weiteres Promise zurückgeben</li>
+                    <li>sind das zukünftige Ergebnis einer asynchronen Operation (*ouch*)</li>
+                    <li>sind oft besser lesbar als Callbacks: <span class="code">api().then(result => api2()).then(handleResult)</span></li>
+                    <li>Ein Promise resolved nur einmal und ist nicht (einfach) retryable</li>
+                </ul>
+            </section>
+            <section>
+                <h4>Promises - im Vergleich im JDK</h4>
+                <ul>
+                    <li>ähnlich wie ein Future</li>
+                    <li>genauer: Seit Java8 ein <span class="code">CompletableFuture&ltT></span></li>
+                </ul>
+                 <pre>
+                    <code class="hljs java" data-trim contenteditable>
+                        supplyAsync(this::api)
+                            .thenApply(this::api2)
+                            .thenAccept(this::handleResult);
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>RxJS & Observables</h3>
+                <h4>Observables sind ein "Array over Time"</h4>
+                <ul>
+                    <li>mehrere Werte können über die Zeit hinweg ankommen</li>
+                    <li>verhalten sich wie <span class="code">Streams</span> => Observer Pattern!</li>
+                    <li>können abgebrochen werden</li>
+                    <li>können wiederholt werden</li>
+                    <li>die API ist die selbe: ob für 0, 1 oder N Werte</li>
+                    <li>bieten mächtige Operatoren: <span class="code">map</span>, <span class="code">filter</span>, <span class="code">reduce</span></li>
+                </ul>
+            </section>
+            <section>
+                <h3>RxJS Beispiel</h3>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        import {Observable} from "rxjs";
+
+                        const source = Observable.of(1, 2, 3);
+                        source.subscribe(x => console.log(x));
+                        // 1
+                        // 2
+                        // 3
+                    </code>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        Observable.of(1, 2, 3)
+                            .map(n => n * n)
+                            .filter(n => n >= 4)
+                            .subscribe(x => console.log(x));
+                        // 4
+                        // 9
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h4>RxJS Cancellation</h4>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        const src: Observable&ltnumber> = Observable.of(1, 2, 3);
+                        const sub: Subscription = src
+                            .subscribe(x => console.log(x));
+                        sub.unsubscribe();
+                    </code>
+                </pre>
+                <h4>Observables sind lazy</h4>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        const src: Observable&ltnumber> = fetchNumbers();
+                        // ... nothing happens ;-)
+
+                        src.subscribe(nr => console.log(nr));
+                        // jetzt wird der Request abgeschickt
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h4>RxJS LiveSearch</h4>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                          searchControl
+                              // wenn sich ein Wert ändert
+                              .valueChanges
+
+                              // 500ms Warten nach letzter Änderung
+                              .debounceTime(800)
+
+                              // nur wenn der neue Wert sich verändert hat
+                              .distinctUntilChanged()
+
+                              // nur der letzte bekannte Wert
+                              // von alten wird unsubscribed
+                              .switchMap(search => this.dataService.find(search))
+
+                              // gib mir Daten!
+                              .subscribe(items => this.items = items);
+                    </code>
+                </pre>
+            </section>
+        </section>
+        <section>
+            <h2>Observables und Angular</h2>
+            <ul>
+                <li>Angular ist intern als reaktives System aufgebaut</li>
+                <li>Um die funktionale reaktive Programmierung zu unterstützen arbeitet Angular intern mit <span class="code">Observables</span></li>
+                <li>das <span class="code">valueChanges</span> Observable property auf einem Control ist von Angular</li>
+                <li>der HTTP Service von Angular returned <span class="code">Observables</span> statt <span class="code">Promises</span></li>
+            </ul>
+        </section>
+        <section>
+            <section>
+                <h2>Angular HTTP Client</h2>
+                <ul>
+                    <li>wird meist im Constructor eines Service injected</li>
+                    <li>bietet alle gängigen HTTP Methoden: <span class="code">get</span>, <span class="code">post</span>, <span class="code">put</span>, <span class="code">delete</span>, <span class="code">patch</span>, <span class="code">head</span> und <span class="code">options</span></li>
+                    <li>jede Methode gibt ein <span class="code">Observable&ltResponse></span> zurück</li>
+                    <li>eine Response hat einige Properties, die wichtigsten: <span class="code">status - der HTTP Status Code</span> und <span class="code">json()</span> zum Auslesen des Bodies</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Erstes Beispiel</h3>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        import {Injectable} from "@angular/core";
+                        import {Http} from "@angular/http";
+                        import {Observable} from "rxjs";
+                        import {Pizza} from "./pizza.model";
+                        import 'rxjs/add/operator/map'
+
+                        @Injectable()
+                        export class PizzaService {
+
+                            constructor(private http: Http) {
+                            }
+
+                            gimmePizza(): Observable&ltPizza[]> {
+                                return this.http.get('api/pizze')
+                                    .map(res => res.json());
+                            }
+                        }
+                    </code>
+                </pre>
+            </section>
+        </section>
     </div>
 </div>
 <script src="../lib/js/head.min.js"></script>
