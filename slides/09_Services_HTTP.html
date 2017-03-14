@@ -301,6 +301,44 @@
                     </code>
                 </pre>
             </section>
+            <section>
+                <h3>Erstes Beispiel (2)</h3>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        export class PizzeComponent implements OnInit {
+
+                            pizze: Pizza[];
+
+                            constructor(private pizzaService: PizzaService) {
+                            }
+
+                            ngOnInit() {
+                                this.pizzaService.gimmePizza()
+                                    .subscribe(pizze => this.pizze = pizze);
+                            }
+                        }
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Aufgabe 9.2 - HTTP GET</h3>
+                <ul>
+                    <li>Branch: <span class="code">09_ServicesHTTP_1</span></li>
+                    <li>Hole die Movies mit einem GET Request vom Backend, anstelle des hardcodierten Arrays</li>
+                    <li>Starte das Backend in einer neuen Konsole: <span class="code">npm run api</span></li>
+                    <li>Der REST-Endpoint für alle movies ist <span class="code">api/movies</span></li>
+                    <li>Test ob die API läuft: <a href="http://localhost:3000/api/movies">Zeige Movies JSON</a></li>
+                </ul>
+            </section>
+            <section>
+                <h3>Aufgabe 9.2 - Mögliche Lösung</h3>
+                <ul>
+                    <li>Branch: <span class="code">09_ServicesHTTP_2</span></li>
+                    <li>Wenn ihr eure Änderungen <span class="warn">verwerfen</span> möchtet und direkt zur Lösung
+                        wollt: <span class="code">git reset --hard && git checkout 09_ServicesHTTP_2</span>
+                    </li>
+                </ul>
+            </section>
         </section>
     </div>
 </div>
