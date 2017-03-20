@@ -342,7 +342,7 @@
         </section>
         <section>
             <section>
-                <h2>Die Async Pipe - | async</h2>
+                <h2>Reaktives System</h2>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
                         movies: Movie[];
@@ -365,7 +365,7 @@
                 </pre>
             </section>
             <section>
-                <h3>Elegantere Subscription mit der Async Pipe</h3>
+                <h3>Die Async Pipe - | async</h3>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
                         movies: Observable&ltMovie[]>;
@@ -398,10 +398,21 @@
                 <img src="../img/redux.png" width="90%" >
             </section>
             <section>
-                <h3>Beispiel im Projekt Pablo</h3>
+                <h3>Zusammenspiel mit anderen Konzepten</h3>
+                <ul>
+                    <li>die reaktive Architektur integriert sich sehr gut mit anderen etablierten Konzepten</li>
+                    <li>Smart Components haben Zugriff auf den Store</li>
+                    <li>Smart Components können Actions dispatchen</li>
+                    <li>Smart Components geben die Daten per async Pipe an ihre Kinder</li>
+                    <li>Dumb Components erhalten lediglich Daten und liefern Events</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Beispiel und Vorteile</h3>
                 <ul>
                     <li>ein Beispiel für die konsequente Umsetzung dieses Patterns findet ihr im Pablo Projekt</li>
                     <li>Geht bei Fragen gerne auf Lennart, Thomas, Roland oder mich zu</li>
+                    <li>vor allem die gute Testbarkeit und der Einsatz der Redux Dev Tools kann sehr gut gezeigt werden</li>
                 </ul>
             </section>
         </section>
