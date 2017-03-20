@@ -340,6 +340,64 @@
                 </ul>
             </section>
         </section>
+        <section>
+            <section>
+                <h2>Die Async Pipe - | async</h2>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        movies: Movie[];
+                        moviesSubscription: Subscription;
+
+                        constructor(private movieService: MovieService) {
+                        }
+
+                        ngOnInit() {
+                            this.moviesSubscription = this.movieService
+                                .getAllMovies()
+                                .subscribe(movies => this.movies = movies);
+                        }
+
+                        ngOnDestroy() {
+                            this.moviesSubscription.unsubscribe();
+                        }
+
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Elegantere Subscription mit der Async Pipe</h3>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        movies: Observable&ltMovie[]>;
+
+                        constructor(private movieService: MovieService) {
+                        }
+
+                        ngOnInit(): void {
+                            this.movies = this.movieService.getAllMovies();
+                        }
+                    </code>
+                    <code class="hljs html" data-trim contenteditable>
+                        &ltmovie *ngFor="let movie of movies | async"
+                               [movie]="movie"
+                               (removeMovie)="onRemoveMovie($event)">
+                        &lt/movie>
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Moderne reaktive Architektur</h3>
+                <ul>
+                    <li>wie eingangs erwähnt unterstützt Angular die reakive Programmierung</li>
+                    <li>diese wird häufig mit einem Uni-Directional Data Flow umgesetzt</li>
+                    <li>hier bietet sich das Redux-Pattern an</li>
+                    <li>eine sehr gute Library ist ngrx/store</li>
+                </ul>
+            </section>
+            <section>
+                <img src="../img/redux.png" width="90%" >
+            </section>
+        </section>
     </div>
 </div>
 <script src="../lib/js/head.min.js"></script>
