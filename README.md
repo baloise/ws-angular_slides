@@ -19,3 +19,7 @@
 - [07 Templates Erweitert](https://baloise.github.io/ws-angular_slides/slides/07_Templates_Erweitert.html)
 - [08 Component Architecture](https://baloise.github.io/ws-angular_slides/slides/08_Component_Architecture.html)
 - [09 Services & HTTP](https://baloise.github.io/ws-angular_slides/slides/09_Services_HTTP.html)
+- [10 Routing](https://baloise.github.io/ws-angular_slides/slides/10_Routing.html)
+- [11 Forms](https://baloise.github.io/ws-angular_slides/slides/11_Forms.html)
+- [12 Testing](https://baloise.github.io/ws-angular_slides/slides/12_Testing.html)
+- [13 Close Out](https://baloise.github.io/ws-angular_slides/slides/13_CloseOut.html)
