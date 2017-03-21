@@ -27,6 +27,140 @@
         <section class="deck-slide" data-background="#E5F3F9">
             <h1>Routing</h1>
         </section>
+        <section>
+            <h2>Generelles zum Routing</h2>
+            <ul>
+                <li>wir befinden uns in einer Single Page Application (SPA)</li>
+                <li>wenn wir verschiedene Seiten darstellen wollen, so können wir entweder einen Page Reload machen oder
+                    den Router benutzen
+                </li>
+                <li>wir schauen uns Variante zwei an ;-)</li>
+            </ul>
+        </section>
+        <section>
+            <section>
+                <h2>Anzeige eines Menüs</h2>
+                <ul>
+                    <li>wir möchten eine kleine Navigation in unserer Applikation nutzen</li>
+                    <li>der Benutzer soll über dem Contentbereich mit Hilfe eines Menüs zu verschiedenen Seiten
+                        navigieren können
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3>das Router Modul</h3>
+                <ul>
+                    <li>ist in einem eigenen Paket: <span class="code">@angular/router</span></li>
+                    <li>wird mit <span class="code">RouterModule.forRoot(routeConfig)</span> konfiguriert</li>
+                    <li>erwartet zur Konfiguration ein <span class="code">Route[]</span></li>
+                    <li>eine <span class="code">Route</span> hat Properties wie <span class="code">path</span> und <span
+                            class="code">component</span> - somit wird für einen bestimmten Pfad eine Komponente geladen
+                    </li>
+                    <li>Die Reihenfolge ist wichtig! Der erste Match gewinnt</li>
+                </ul>
+            </section>
+            <section>
+                <h3>ein einfaches Konfigurationsbeispiel</h3>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        const routeConfig: Routes = [
+                          { path: 'pizze', component: PizzeComponent },
+                          { path: 'order/:id', component: OrderComponent },
+                          { path: '', redirectTo: PizzeComponent,
+                                pathMatch: 'full'},
+                          { path: '**', component: NotFoundComponent }
+                        ];
+
+                        @NgModule({
+                          imports: [
+                            RouterModule.forRoot(routeConfig)
+                          ]
+                        })
+                        export class AppModule { }
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Router Outlet - wo die Komponente angezeigt wird</h3>
+                <ul>
+                    <li>die Komponente wird direkt unter <span class="code">&ltrouter-outlet>&lt/router-outlet></span> angezeigt</li>
+                    <li>Router Outlet ist eine Direktive aus dem Angular Router Modul</li>
+                </ul>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable>
+                        &lth1>Willkommen&lt/h1>
+                        &ltnavigation-bar>&lt/navigation-bar>
+                        &ltrouter-outlet>&lt/router-outlet>
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Router Links - Navigation</h3>
+                <ul>
+                    <li>klickt der User auf einen Link soll navigiert werden</li>
+                    <li>Alternativ kann der User natürlich die URL auch manuell eingeben ;-)</li>
+                    <li>die <span class="code">routerLink</span> Direktive wird mit einem Binding ausgehend vom root versehen</li>
+                </ul>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable>
+                        &ltnav>
+                            &ltul>
+                                &ltli><a routerLink="/pizze">Pizze</a>&lt/li>
+                                &ltli><a routerLink="/order">Bestellungen</a>&lt/li>
+                            &lt/ul>
+                        &lt/nav>
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Aufgabe 10.1 - Routing</h3>
+                <ul>
+                    <li>Branch: <span class="code">09_ServicesHTTP_2</span></li>
+                    <li>Erstelle eine neue Home Komponente die das Cinema Bild aus dem <span class="code">assets</span> Ordner anzeigt</li>
+                    <li>Füge in die Cinema Komponente eine Navigation ein und darunter den Platz für die gewählte Route</li>
+                    <li>Erstelle eine Konfiguration für den Router, er soll die Pfade <span class="code">home</span> und <span class="code">movies</span> kennen</li>
+                    <li>Im Falle des leeren Root Pfades soll zur Home Komponente navigiert werden</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Aufgabe 10.1 - Mögliche Lösung</h3>
+                <ul>
+                    <li>Branch: <span class="code">10_Routing_1</span></li>
+                    <li>Wenn ihr eure Änderungen <span class="warn">verwerfen</span> möchtet und direkt zur Lösung
+                        wollt: <span class="code">git reset --hard && git checkout 10_Routing_1</span>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3>Aufgabe 10.2 - Visitors</h3>
+                <ul>
+                    <li>Branch: <span class="code">10_Routing_1</span></li>
+                    <li>Diese Übung ist eine Wiederholung bestehender Konzepte</li>
+                    <li>Baue analog zu den Movies eine neue Seite für Visitors</li>
+                    <li>die Daten kannst du ebenfalls per REST vom <span class="code">api/visitors</span> Endpoint beziehen</li>
+                    <li>Stelle Besucher und einige Felder tabellarisch dar</li>
+                    <li>Es soll möglich sein zur Seite zu navigieren</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Aufgabe 10.2 - Mögliche Lösung</h3>
+                <ul>
+                    <li>Branch: <span class="code">10_Routing_2</span></li>
+                    <li>Wenn ihr eure Änderungen <span class="warn">verwerfen</span> möchtet und direkt zur Lösung
+                        wollt: <span class="code">git reset --hard && git checkout 10_Routing_2</span>
+                    </li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <h2>Weitere Router Features</h2>
+            <ul>
+                <li>der Router ist sehr mächtig</li>
+                <li>dementsprechend umfangreich ist das API</li>
+                <li>Route Parameter, Animationen, Child Routes, mehrere Routen und named Outlets, secondary Routes, Route Guards, Lazy Loading...</li>
+                <li><a href="https://angular.io/docs/ts/latest/guide/router.html#">Offizielle Router Dokumentation</a></li>
+            </ul>
+        </section>
     </div>
 </div>
 <script src="../lib/js/head.min.js"></script>
