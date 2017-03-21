@@ -113,6 +113,23 @@
                 </pre>
             </section>
             <section>
+                <h3>RouterLinkActive Direktive</h3>
+                <ul>
+                    <li><span class="code">routerLinkActive</span>fügt dem HTML Element eine Klasse hinzu wenn der <span class="code">routerLink</span> aktiv ist</li>
+                    <li>Zum Hervorheben des aktiven Menüpunktes</li>
+                </ul>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable>
+                        &ltnav>
+                            &ltul>
+                                &ltli>&lta routerLink="/pizze"
+                                    routerLinkActive="active">Pizze&lt/a>&lt/li>
+                            &lt/ul>
+                        &lt/nav>
+                    </code>
+                </pre>
+            </section>
+            <section>
                 <h3>Aufgabe 10.1 - Routing</h3>
                 <ul>
                     <li>Branch: <span class="code">09_ServicesHTTP_2</span></li>
