@@ -176,14 +176,41 @@
                     </li>
                 </ul>
             </section>
+        </section>
+        <section>
+            <section>
+                <h2>Form Validation</h2>
+                <ul>
+                    <li>ein wichtiger Punkt in Formularen ist die Validierung</li>
+                    <li>Um die User Experience zu verbessern, sollte man einfach Validierungen zusätzlich zum Backend auch direkt im Frontend implementieren</li>
+                    <li>Wichtige Validierungen sind vor allem bzgl. Mussfeldern, Feldlängen, Reguläre Ausdrücke, oder auch ganz eigene Validierungen</li>
+                </ul>
+            </section>
+            <section>
+                <h3>HTML5 Form Validation</h3>
+                <ul>
+                    <li>Angular interpretiert die HTML5 Validierung</li>
+                    <li>Im <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/Constraint_validation">Standard</a> gibt es eine Vielzahl von Validierungen</li>
+                    <li>Diese können durch eigene Validierungen dann ergänzt werden</li>
+                    <li>Zusätzlich gibt es noch die Input <span class="code">type</span> <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_<input>_types">Eingrenzungen</a>:<span class="code">mail</span>, <span class="code">color</span>, <span class="code">date</span>, <span class="code">range</span>, <span class="code">file</span> und viele weitere</li>
+                </ul>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable>
+                        &ltinput type="text" required minlength="2" maxlength="24">
+                    </code>
+                </pre>
+            </section>
             <section>
                 <h3>Aufgabe 11.3 - Form Validation</h3>
                 <ul>
                     <li>Branch: <span class="code">11_Forms_2</span></li>
+                    <li>Füge eine <span class="code">Mussfeld</span> Validierung für Vorname, Nachname und Land hinzu</li>
+                    <li>Füge eine <span class="code">MaximalZeichen</span> Validierung für Vorname und Nachname hinzu (16 Zeichen)</li>
+                    <li>Ist das Form nicht valid, soll der <span class="code">Submit</span> Button disabled sein (Angular Form Properties ;-))</li>
                 </ul>
             </section>
             <section>
-                <h3>Aufgabe 11.2 - Mögliche Lösung</h3>
+                <h3>Aufgabe 11.3 - Mögliche Lösung</h3>
                 <ul>
                     <li>Branch: <span class="code">11_Forms_3</span></li>
                     <li>Wenn ihr eure Änderungen <span class="warn">verwerfen</span> möchtet und direkt zur Lösung
