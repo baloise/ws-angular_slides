@@ -383,7 +383,6 @@
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
                         import {Pipe, PipeTransform} from '@angular/core';
-
                         @Pipe({name: 'phonenumber'})
                         export class PhonenumberPipe implements PipeTransform {
                             transform(phone: string, country: number): string {
@@ -392,7 +391,7 @@
                                 }
                                 let start;
                                 if (country) {
-                                    start = '+' + country + ' ' + phone.substring(1, 3);
+                                    start = '+' + country+' '+phone.substring(1, 3);
                                 } else {
                                     start = phone.substring(0, 3);
                                 }
