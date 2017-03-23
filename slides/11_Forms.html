@@ -25,7 +25,176 @@
 <div class="reveal">
     <div class="slides">
         <section class="deck-slide" data-background="#E5F3F9">
-            <h1>Forms</h1>
+            <h1>Formulare</h1>
+        </section>
+        <section>
+            <section>
+                <h2>Formulare in Angular</h2>
+                <ul>
+                    <li>es gibt zwei verschiedene Ansätze: <span class="code">Template Driven</span> und <span
+                            class="code">Reactive</span>
+                        Forms
+                    </li>
+                    <li><span class="code">Template Driven</span> Forms sind simpler und werden nahezu ausschliesslich
+                        im
+                        HTML definiert
+                    </li>
+                    <li><span class="code">Reactive</span> oder <span class="code">Model Driven</span> Forms sind zu
+                        Beginn komplexer, werden zu grossen Teilen im
+                        SourceCode definiert und sind viel mächtiger
+                    </li>
+                    <li>Wir beschränken uns für die Schulung auf <span class="code">Template Driven Forms</span>.</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Aufgaben von Formularen</h3>
+                <ul>
+                    <li>Controls / Inputs und Bindings</li>
+                    <li>Änderungen, Dirty State</li>
+                    <li>Input Validierungen</li>
+                    <li>Anzeige von Fehlern, Warnungen</li>
+                    <li>Absenden von eingegebenen Daten</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Form Basics</h2>
+                <ul>
+                    <li>Forms sind innerhalb des HTML <span class="code">&ltform></span> tags</li>
+                    <li>Zugriff auf die Angular Form Properties sind mit einer Referenz Variable möglich</li>
+                    <li>mit <span class="code">formVariable.value</span> kann man sich den Status des Forms zeigen lassen</li>
+                </ul>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable>
+                        &ltform #pizzaForm="ngForm">
+                            {{pizzaForm.value | json}}
+                        &lt/form>
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Form Submit</h3>
+                <ul>
+                    <li>ein Form wird abgeschickt, wenn man den Button des Typs <span class="code">submit</span> klickt</li>
+                    <li>mit dem <span class="code">ngSubmit</span> Event kann man steuern was dann passieren soll</li>
+                </ul>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable>
+                        &ltform (ngSubmit)="machWas()">
+                            &ltinput type="text" class="form-control"
+                               [(ngModel)]="pizza.name" name="pizzaName">
+                            &ltbutton type="submit">Los!&lt/button>
+                        &lt/form>
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Form Properties</h3>
+                <ul>
+                    <li>nützliche Properties zum Formular</li>
+                    <li>Hilfreich um Speichern zu erlauben, Meldungen anzuzeigen etc.</li>
+                </ul>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable>
+                        <!-- Aktuelle Werte als JSON -->
+                        &ltp>Value: {{pizzaForm.value | json}}&lt/p>
+                        <!-- Validity -->
+                        &ltp>Invalid: {{pizzaForm.invalid}}&lt/p>
+                        &ltp>Valid: {{pizzaForm.valid}}&lt/p>
+                        <!-- User has touched -->
+                        &ltp>Touched: {{pizzaForm.touched}}&lt/p>
+                        &ltp>Untouched: {{pizzaForm.untouched}}&lt/p>
+                        <!-- Values have changed -->
+                        &ltp>Pristine: {{pizzaForm.pristine}}&lt/p>
+                        &ltp>Dirty: {{pizzaForm.dirty}}&lt/p>
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Form Bindings</h3>
+                <ul>
+                    <li>eine einfache Möglichkeit sind Two-Way Bindings mit <span class="code">[(ngModel)]</span></li>
+                    <li>Wichtig ist hierbei, dass man auf jeden Fall ein <span class="warn">unique</span> name Attribut vergibt</li>
+                </ul>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable>
+                        &ltform (ngSubmit)="machWas()">
+                            &ltinput type="text" class="form-control"
+                               [(ngModel)]="pizza.name" name="pizzaName">
+                            &ltbutton type="submit">Los!&lt/button>
+                        &lt/form>
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Aufgabe 11.1 - Forms</h3>
+                <ul>
+                    <li>Branch: <span class="code">10_Routing_1</span></li>
+                    <li>Erstelle rechts neben der Tabelle eine <span class="code">Visitor</span> Komponente</li>
+                    <li>die Komponente soll den aktuell selektierten Visitor in einem Formular anzeigen</li>
+                    <li>Beschränke dich auf Vorname und Nachname, sowie einen Submit und einen Delete Button</li>
+                    <li>Führe das Speichern und Löschen mit dem Service und der REST API aus</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Aufgabe 11.1 - Mögliche Lösung</h3>
+                <ul>
+                    <li>Branch: <span class="code">11_Forms_1</span></li>
+                    <li>Wenn ihr eure Änderungen <span class="warn">verwerfen</span> möchtet und direkt zur Lösung
+                        wollt: <span class="code">git reset --hard && git checkout 11_Forms_1</span>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3>Aufgabe 11.2 - Country ComboBox</h3>
+                <ul>
+                    <li>Branch: <span class="code">11_Forms_1</span></li>
+                    <li>Füge das Land dem Formular als ComboBox hinzu</li>
+                    <li>Du kannst alle Länder von der API holen: <span class="code">api/countries</span></li>
+                    <li>eine ComboBox besteht aus einem <span class="code">select</span> mit einer Vielzahl von <span class="code">option</span> Elementen darin</li>
+                </ul>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable>
+                        &ltselect [(ngModel)]="pizza.zutat"
+                                name="zutat" #select>
+                            &ltoption ngFor="let zutat of zutaten"
+                                    [value]="zutat"
+                                    [selected]="zutat === select.value">
+                                {{zutat}}
+                            &lt/option>
+                        &ltselect>
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Aufgabe 11.2 - Mögliche Lösung</h3>
+                <ul>
+                    <li>Branch: <span class="code">11_Forms_2</span></li>
+                    <li>Wenn ihr eure Änderungen <span class="warn">verwerfen</span> möchtet und direkt zur Lösung
+                        wollt: <span class="code">git reset --hard && git checkout 11_Forms_2</span>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3>Aufgabe 11.3 - Form Validation</h3>
+                <ul>
+                    <li>Branch: <span class="code">11_Forms_2</span></li>
+                </ul>
+            </section>
+            <section>
+                <h3>Aufgabe 11.2 - Mögliche Lösung</h3>
+                <ul>
+                    <li>Branch: <span class="code">11_Forms_3</span></li>
+                    <li>Wenn ihr eure Änderungen <span class="warn">verwerfen</span> möchtet und direkt zur Lösung
+                        wollt: <span class="code">git reset --hard && git checkout 11_Forms_3</span>
+                    </li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <h2>Template Driven Forms - alles klar?</h2>
+            <img src="../img/dumb_questions.jpg">
         </section>
     </div>
 </div>
