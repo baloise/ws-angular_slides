@@ -147,7 +147,7 @@ body {
 
 .reveal {
   font-family: "Open Sans", sans-serif;
-  font-size: 38px;
+  font-size: 36px;
   font-weight: normal;
   color: #444444; }
 
@@ -189,10 +189,10 @@ body {
   font-size: 3.5em; }
 
 .reveal h2 {
-  font-size: 1.9em; }
+  font-size: 1.7em; }
 
 .reveal h3 {
-  font-size: 1.4em; }
+  font-size: 1.25em; }
 
 .reveal h4 {
   font-size: 1em; }
