@@ -27,6 +27,116 @@
         <section class="deck-slide" data-background="#E5F3F9">
             <h1>Testing</h1>
         </section>
+        <section>
+            <h2>Recap: Testing Pyramide</h2>
+            <img src="../img/testing_pyramid.png" width="75%">
+        </section>
+        <section>
+            <section>
+                <h2>JavaScript Unit Testing</h2>
+                <ul>
+                    <li>wie eingangs erwähnt nutzt Angular Karma als Test Runner und Jasmine als Testing Framework</li>
+                    <li>Jasmine ist stark an BDD (Behavior Driven Development) angelehnt</li>
+                    <li>mit <span class="code">describe</span> beschreibt man ein Szenario</li>
+                    <li>mit <span class="code">it</span> beschreibt man einen Testfall</li>
+                    <li>die beiden können beliebig verschatelt werden</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Ein erstes Beispiel</h3>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        describe('the pizza service', () => {
+
+                            it('should have getPizze', () => {
+                                let pizzaServie = new PizzaService();
+
+                                expect(service.getPizze).toBeDefined();
+                            });
+
+                            describe('getPizze should return salami pizza', () => {
+                                it('should return some pizza', () => {
+                                    let pizzaServie = new PizzaService();
+                                    let salami = new Pizza('Salami');
+
+                                    let pizze: Pizza[] = service.getPizze();
+
+                                    expect(pizze).toContain(salami);
+                                });
+                            });
+                        });
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Jasmine vs JUnit</h3>
+                <ul>
+                    <li>@Test => it('should ...')</li>
+                    <li>@Ignore => xdescribe, xit</li>
+                    <li>Excecute one test => fdescribe, fit</li>
+                    <li>Assert => expect</li>
+                    <li>@BeforeClass => beforeAll</li>
+                    <li>@AfterClass => afterAll</li>
+                    <li>@Before => beforeEach</li>
+                    <li>@After => afterEach</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Matchers und Doku</h3>
+                <ul>
+                    <li><a href="https://jasmine.github.io/api/edge/global">Dokumentation mit Beispielen</a></li>
+                    <li>Matcher Syntax: <span class="code">expect(object).toBe(expected)</span> => object === expected
+                    </li>
+                    <li><span class="code">toBeDefined()</span>, <span class="code">toBeTruthy()</span>, <span
+                            class="code">toBeUndefined(),</span> <span class="code">toEqual(object)</span>, <span
+                            class="code">toBeNull()</span>, <span class="code">toMatch(regex)</span></li>
+                </ul>
+            </section>
+            <section>
+                <h3>Spys</h3>
+                <ul>
+                    <li><span class="code">spyOn(object, methodName) => Spy</span></li>
+                    <li><span class="code">let pizzaSpy = spyOn(pizzaService, 'getPizze');</span></li>
+                    <li><span class="code">pizzaSpy.returnValue(pizzaArr);</span></li>
+                    <li><span class="code">pizzaSpy.callFake(() => pizzaArr);</span></li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Eine simple Komponente testen</h2>
+                <ul>
+                    <li>Es gibt verschiedene Möglichkeiten Tests in Angular auszuführen</li>
+                    <li>wir starten mit den Komponenten Tests</li>
+                    <li>Wir testen die Logik einer Komponente</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Angular Testing Utils</h3>
+                <ul>
+                    <li><span class="code">TestBed</span> erstellt ein eigenes Angular Modul, nur für diesen Test</li>
+                    <li>die Methode <span class="code">configureTestingModule</span> erwartet eine Modulkonfiguration
+                        mit declarations, providers etc.
+                    </li>
+                    <li>Im Test hängt unsere Komponente nicht am GesamtModul der Applikation, sondern in diesem
+                        Testmodul
+                    </li>
+                    <li>Mindestens die Komponente under Test muss deklariert werden</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Ein erstes Beispiel</h3>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        beforeEach(() => {
+                            TestBed.configureTestingModule({
+                                declarations: [MyComponent]
+                            });
+                        });
+                    </code>
+                </pre>
+            </section>
+        </section>
     </div>
 </div>
 <script src="../lib/js/head.min.js"></script>
