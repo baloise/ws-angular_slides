@@ -97,8 +97,9 @@
                 <ul>
                     <li><span class="code">spyOn(object, methodName) => Spy</span></li>
                     <li><span class="code">let pizzaSpy = spyOn(pizzaService, 'getPizze');</span></li>
-                    <li><span class="code">pizzaSpy.returnValue(pizzaArr);</span></li>
+                    <li><span class="code">pizzaSpy.and.returnValue(pizzaArr);</span></li>
                     <li><span class="code">pizzaSpy.callFake(() => pizzaArr);</span></li>
+                    <li><span class="code">expect(pizzaSpy).toHaveBeenCalled();</span></li>
                 </ul>
             </section>
         </section>
@@ -112,7 +113,7 @@
                 </ul>
             </section>
             <section>
-                <h3>Angular Testing Utils</h3>
+                <h3>Angular Testing Utils: TestBed</h3>
                 <ul>
                     <li><span class="code">TestBed</span> erstellt ein eigenes Angular Modul, nur für diesen Test</li>
                     <li>die Methode <span class="code">configureTestingModule</span> erwartet eine Modulkonfiguration
@@ -125,12 +126,44 @@
                 </ul>
             </section>
             <section>
+                <h3>Angular Testing Utils: createComponent</h3>
+                <ul>
+                    <li><span class="code">TestBed.createComponent</span> instantiiert die Komponente die getestet werden soll</li>
+                    <li>Nach dem Erstellen der Komponente darf die TestBed Konfiguration nicht mehr verändert werden</li>
+                    <li>die Methode gibt eine <span class="code">ComponentFixture</span> zurück</li>
+                    <li>über diese Fixture hat man Zugriff auf die Instanz der Komponente, <span class="code">fixture.componentInstance</span></li>
+                    <li>und auf das <span class="code">DebugElement</span>: <span class="code">fixture.debugElement</span></li>
+                </ul>
+            </section>
+            <section>
+                <h3>Angular Testing Utils: DebugElement</h3>
+                <ul>
+                    <li>Mit dem <span class="code">DebugElement</span> kann auf den DOM zugegriffen werden</li>
+                    <li>mit <span class="code">debugElement.nativeElement</span> auf ein <span class="code">HTMLElement</span></li>
+                    <li>mit <span class="code">debugElement.query(predicate) => DebugElement</span> und <span class="code">queryAll(predicate) => DebugElement[]</span> kann im DOM des Elements nach weiteren Elementen gesucht werden</li>
+                </ul>
+            </section>
+            <section>
                 <h3>Ein erstes Beispiel</h3>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
-                        beforeEach(() => {
-                            TestBed.configureTestingModule({
-                                declarations: [MyComponent]
+                        describe('MyComp', () => {
+                            let component: MyComp;
+                            let fixture: ComponentFixture&ltMyComp>;
+                            beforeEach(() => {
+                                TestBed.configureTestingModule({
+                                    declarations: [MyComp],
+                                });
+                                fixture = TestBed.createComponent(MyComp);
+                                component = fixture.componentInstance;
+                            });
+
+                            it('should work', () => {
+                                let de: DebugElement = fixture.debugElement.query(
+                                    By.css('h3'));
+                                let el: HTMLElement = de.nativeElement;
+                                fixture.detectChanges();
+                                expect(el.textContent).toEqual('my title');
                             });
                         });
                     </code>
