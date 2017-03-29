@@ -140,7 +140,16 @@
                 <ul>
                     <li>Mit dem <span class="code">DebugElement</span> kann auf den DOM zugegriffen werden</li>
                     <li>mit <span class="code">debugElement.nativeElement</span> auf ein <span class="code">HTMLElement</span></li>
+                    <li>auf einem <span class="code">HTMLElement</span> kann mit <span class="code">textContent</span> der Text ausgelesen werden</li>
                     <li>mit <span class="code">debugElement.query(predicate) => DebugElement</span> und <span class="code">queryAll(predicate) => DebugElement[]</span> kann im DOM des Elements nach weiteren Elementen gesucht werden</li>
+                </ul>
+            </section>
+            <section>
+                <h3>ComponentFixture.detectChanges()</h3>
+                <h4>Die Change Detection im Test triggern</h4>
+                <ul>
+                    <li>initial wird mit <span class="code">fixture.detectChanges()</span> das initialisieren der Bindings getriggered</li>
+                    <li>sämtliche Änderungen an der Komponente erfordern einen erneuten Aufruf - somit kann dies im Test explizit getriggert werden</li>
                 </ul>
             </section>
             <section>
@@ -152,22 +161,133 @@
                             let fixture: ComponentFixture&ltMyComp>;
                             beforeEach(() => {
                                 TestBed.configureTestingModule({
-                                    declarations: [MyComp],
+                                    declarations: [MyComp]
                                 });
                                 fixture = TestBed.createComponent(MyComp);
                                 component = fixture.componentInstance;
                             });
-
                             it('should work', () => {
                                 let de: DebugElement = fixture.debugElement.query(
                                     By.css('h3'));
                                 let el: HTMLElement = de.nativeElement;
+                                component.title = 'my title';
                                 fixture.detectChanges();
                                 expect(el.textContent).toEqual('my title');
                             });
                         });
                     </code>
                 </pre>
+            </section>
+            <section>
+                <h3>Aufgabe 12.1 - Component Testing</h3>
+                <ul>
+                    <li>Branch: <span class="code">11_Forms_3</span></li>
+                    <li>Lagere die <span class="code">h1</span> Überschrift in eine eigene Komponente aus</li>
+                    <li>schreibe einen Test der überprüft, dass der Titel den korrekten Text enthält </li>
+                </ul>
+            </section>
+            <section>
+                <h3>Aufgabe 12.1 - Mögliche Lösung</h3>
+                <ul>
+                    <li>Branch: <span class="code">12_Testing_1</span></li>
+                    <li>Wenn ihr eure Änderungen <span class="warn">verwerfen</span> möchtet und direkt zur Lösung
+                        wollt: <span class="code">git reset --hard && git checkout 12_Testing_1</span>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3>Test Host Komponenten verwenden</h3>
+                <ul>
+                    <li>verwendet man <span class="code">@Input()</span> und <span class="code">@Output()</span> so kann man Komponenten sehr gut mit einem Dummy Parent testen</li>
+                    <li>Im Test inline eine Komponente erstellen</li>
+                    <li>diese bindet die zu testende Komponente ein</li>
+                    <li>beide müssen im declarations Array sein</li>
+                    <li>queries wie gewohnt per CSS</li>
+                    <li>die Dummy Host Komponente muss kreiert werden</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Test Host Komponenten verwenden</h3>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        describe('Header Component with a host component', () => {
+
+                            @Component({
+                                template: `&ltcomp [prop]="'dummy value'">&lt/comp>`
+                            })
+                            class HostComponent {
+                            }
+
+                            let fixture: ComponentFixture&ltHostComponent>;
+
+                            beforeEach(() => {
+                                TestBed.configureTestingModule({
+                                    declarations: [HostComponent, MyComponent],
+                                });
+                                fixture = TestBed.createComponent(HostComponent);
+                            });
+                            // ....
+                            // eigentlicher Test Code
+                        });
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Aufgabe 12.2 - Host Component Testing</h3>
+                <ul>
+                    <li>Branch: <span class="code">12_Testing_1</span></li>
+                    <li>Gebe die Überschrift per <span class="code">@Input()</span> in die Header Komponente</li>
+                    <li>schreibe einen Test der eine Dummy Host Komponente nutzt und der Header Komponente eine Überschrift per <span class="code">[propertyBinding]</span> übergibt</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Aufgabe 12.2 - Mögliche Lösung</h3>
+                <ul>
+                    <li>Branch: <span class="code">12_Testing_2</span></li>
+                    <li>Wenn ihr eure Änderungen <span class="warn">verwerfen</span> möchtet und direkt zur Lösung
+                        wollt: <span class="code">git reset --hard && git checkout 12_Testing_2</span>
+                    </li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Testing Pipes</h2>
+                <ul>
+                    <li>... ist so einfach wie es nur geht ;-)</li>
+                    <li>die Pipe im Test mit <span class="code">new</span> instantiieren und die <span class="code">transform</span> Funktion aufrufen</li>
+                </ul>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        import {KebabPipe} from "./kebab.pipe";
+
+                        describe('KebabPipe', () => {
+
+                            let pipe = new MyPipe();
+
+                            it('should make camel to kebab"', () => {
+                                expect(pipe.transform('aBcdE')).toBe('a-bcd-e');
+                            });
+                        });
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Aufgabe 12.3 - Testing Pipes</h3>
+                <ul>
+                    <li>Branch: <span class="code">12_Testing_2</span></li>
+                    <li>Gebe die Überschrift per <span class="code">@Input()</span> in die Header Komponente</li>
+                    <li>schreibe einen Test der eine Dummy Host Komponente nutzt und der Header Komponente eine Überschrift per <span class="code">[propertyBinding]</span> übergibt</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Aufgabe 12.3 - Mögliche Lösung</h3>
+                <ul>
+                    <li>Branch: <span class="code">12_Testing_3</span></li>
+                    <li>Wenn ihr eure Änderungen <span class="warn">verwerfen</span> möchtet und direkt zur Lösung
+                        wollt: <span class="code">git reset --hard && git checkout 12_Testing_3</span>
+                    </li>
+                </ul>
             </section>
         </section>
     </div>
