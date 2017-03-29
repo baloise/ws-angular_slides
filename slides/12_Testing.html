@@ -102,6 +102,12 @@
                     <li><span class="code">expect(pizzaSpy).toHaveBeenCalled();</span></li>
                 </ul>
             </section>
+            <section>
+                <h3>Ausführliches Beispiel</h3>
+                <ul>
+                    <li>findet ihr im Branch <span class="code">Testing_Intro</span></li>
+                </ul>
+            </section>
         </section>
         <section>
             <section>
@@ -276,8 +282,9 @@
                 <h3>Aufgabe 12.3 - Testing Pipes</h3>
                 <ul>
                     <li>Branch: <span class="code">12_Testing_2</span></li>
-                    <li>Gebe die Überschrift per <span class="code">@Input()</span> in die Header Komponente</li>
-                    <li>schreibe einen Test der eine Dummy Host Komponente nutzt und der Header Komponente eine Überschrift per <span class="code">[propertyBinding]</span> übergibt</li>
+                    <li>Ihr ahnt es schon ;-)</li>
+                    <li>schreibe einen Test für die phonenumber pipe</li>
+                    <li>nutze die Nummer <span class="warn">0564410808</span> einmal ohne CountryCode und einmal mit und überprüfe die Resultate mit einer expectation</li>
                 </ul>
             </section>
             <section>
@@ -289,6 +296,155 @@
                     </li>
                 </ul>
             </section>
+        </section>
+        <section>
+            <section>
+                <h2>Testing Services</h2>
+                <ul>
+                    <li>prinzipiell kann man einen Service ohne Dependency wie eine Pipe instantiieren und dann die Logik testen</li>
+                    <li>interessant sind vor allem Services mit <span class="code">HTTP</span> calls</li>
+                    <li>Angular bietet hierfür ein MockBackend, das man im Test verwenden kann</li>
+                    <li>die Struktur basiert auf der <a href="https://fetch.spec.whatwg.org/">Fetch Specifikation</a></li>
+                    <li>das Setup ist etwas komplexer, wir werden es an Beispielen betrachten</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Dependency Injection in Tests</h3>
+                <ul>
+                    <li>kann in einem <span class="code">beforeEach</span> Block erfolgen</li>
+                    <li>erfolgt mit der <span class="code">async</span> Funktion</li>
+                    <li>diese erwartet als Parameter ein <span class="code">Array</span> der Dependencies und eine Funktion der die Instanzen übergeben werden</li>
+                    <li>Sie müssen als provider im Testmodul registriert sein</li>
+                </ul>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        beforeEach(inject([myService, MockBackend],
+                            (myService, mockBackend) => {
+                            service = myService;
+                            backend = mockBackend;
+                        }));
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Nutzen des MockBackends</h3>
+                <ul>
+                    <li>wir instantiieren den <span class="code">Http</span> Provider mit dem <span class="code">MockBackend</span> und den <span class="code">BaseRequestOptions</span></li>
+                    <li>mit <span class="code">useFactory</span> signalisieren wir, dass wir eine Factory Methode bereitstellen um den Provider zu instantiieren</li>
+                    <li>Wichtig ist das <span class="code">MockBackend</span>: es erlaubt Verbindungen darauf zu überprüfen und Mock-Antworten zurückzugeben</li>
+                </ul>
+            </section>
+            <section>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        beforeEach(() => {
+                            TestBed.configureTestingModule({
+                                imports: [HttpModule],
+                                providers: [VisitorService, MockBackend,
+                                    BaseRequestOptions,
+                                    {
+                                        provide: Http,
+                                        useFactory: (backend, defaultOptions) =>
+                                            new Http(backend, defaultOptions),
+                                        deps: [MockBackend, BaseRequestOptions]
+                                    }
+                                ]
+                            });
+                        });
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>HTTP Method und URL Assertion</h3>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        backend.connections.subscribe(connection => {
+                            expect(connection.request.url).toBe('api/visitors');
+                            expect(connection.request.method)
+                                .toEqual(RequestMethod.Get);
+                        });
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Eine Mock Antwort definieren</h3>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        backend.connections.subscribe(connection => {
+                            let responseOptions = new ResponseOptions(
+                                {
+                                    body: mockResponse
+                                }
+                            );
+                            connection.mockRespond(new Response(responseOptions));
+                        });
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>den Service aufrufen und das Ergebnis prüfen</h3>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        it('should get the Visitors as an Observable', () => {
+                            service.getAllVisitors().subscribe(visitors => {
+                                expect(visitors.length).toBe(1);
+                                expect(visitors[0].firstName).toEqual('Petra');
+                            });
+                        });
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Alles zusammen in Action</h3>
+                <ul>
+                    <li>siehe Branch <span class="code">12_Testing_4</span></li>
+                    <li>im File <span class="code">src/app/cinema/visitors/visitor.service.spec.ts</span></li>
+                    <li><span class="warn">Wichtig</span>: Generell gilt zu den Testing APIs: die meisten befinden sich im Status <span class="code">@Experimental</span></li>
+                    <li>Aus meiner Sicht gibt es noch viel Luft nach oben bzgl. der APIs</li>
+                    <li>viele Use Cases die sehr common sind könnte man einfacher abdecken</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Beispiel für eine Vereinfachung</h3>
+                <h4></h4>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        const mockedHttpProvider: FactoryProvider = {
+                            provide: Http,
+                            deps: [MockBackend, BaseRequestOptions],
+                            useFactory: (backend: MockBackend,
+                                defaultOptions: BaseRequestOptions) => {
+                                return new Http(backend, defaultOptions);
+                            }
+                        };
+                        beforeEach(() => {
+                            TestBed.configureTestingModule({
+                                imports: [HttpModule],
+                                providers: [
+                                    VisitorService,
+                                    MockBackend,
+                                    BaseRequestOptions,
+                                    mockedHttpProvider
+                                ]
+                            });
+                        });
+                    </code>
+                </pre>
+            </section>
+        </section>
+        <section>
+            <h2>Testing komplexerer Komponenten</h2>
+            <ul>
+                <li>ist nicht Bestandteil eines Grundlagen Kurses</li>
+                <li>im Branch <span class="code">12_Testing_5</span> findet ihr den <span class="code">movies.component.spec.ts</span> Test</li>
+                <li>der Test zeigt verschiedene Arten wie man Services als Dependecy einer Komponente Mocken kann</li>
+                <li>weitere Infos zum Testing findet ihr in der <a href="https://angular.io/docs/ts/latest/guide/testing.html">Dokumentation</a></li>
+            </ul>
+        </section>
+        <section>
+            <h2>Ihr habt es geschafft!</h2>
+            <h3>Vielen Dank für die Teilnahme :-)</h3>
+            <img src="../img/frodo.jpg">
         </section>
     </div>
 </div>
