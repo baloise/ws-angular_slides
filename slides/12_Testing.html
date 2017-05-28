@@ -49,14 +49,14 @@
                         describe('the pizza service', () => {
 
                             it('should have getPizze', () => {
-                                let pizzaServie = new PizzaService();
+                                let pizzaService = new PizzaService();
 
                                 expect(service.getPizze).toBeDefined();
                             });
 
                             describe('getPizze should return salami pizza', () => {
                                 it('should return some pizza', () => {
-                                    let pizzaServie = new PizzaService();
+                                    let pizzaService = new PizzaService();
                                     let salami = new Pizza('Salami');
 
                                     let pizze: Pizza[] = service.getPizze();
@@ -314,7 +314,7 @@
                     <li>kann in einem <span class="code">beforeEach</span> Block erfolgen</li>
                     <li>erfolgt mit der <span class="code">async</span> Funktion</li>
                     <li>diese erwartet als Parameter ein <span class="code">Array</span> der Dependencies und eine Funktion der die Instanzen übergeben werden</li>
-                    <li>Sie müssen als provider im Testmodul registriert sein</li>
+                    <li>Sie müssen als Provider im Testmodul registriert sein</li>
                 </ul>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
