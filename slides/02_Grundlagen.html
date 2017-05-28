@@ -27,19 +27,19 @@
         <section class="deck-slide" data-background="#E5F3F9">
             <h1>Grundlagen - Ökosystem</h1>
         </section>
-        <section>
-            <section>
+        <section data-background="#E5F3F9">
+            <section data-background="#E5F3F9">
                 <h2>ES5 / ES6 / TS</h2>
                 <img src="../img/js_history.png">
             </section>
-            <section>
+            <section data-background="#E5F3F9">
                 <h2>ES5</h2>
                 <ul>
                     <li>JavaScript das alle modernen Browser unterstützen</li>
                     <li>neuere Versionen werden meist nach ES5 kompiliert / transpiliert</li>
                 </ul>
             </section>
-            <section>
+            <section data-background="#E5F3F9">
                 <h2>ES6 / ES2015</h2>
                 <ul>
                     <li>Neuere Version aus dem Jahr 2015</li>
@@ -47,7 +47,7 @@
                     <li>Klassen, Arrow Funktionen, Block scoped let und const, Module, Multiline Strings...</li>
                 </ul>
             </section>
-            <section>
+            <section data-background="#E5F3F9">
                 <h2>TypeScript</h2>
                 <ul>
                     <li>Von Microsoft entwickelte Erweiterung</li>
@@ -59,7 +59,7 @@
         <section class="deck-slide" data-background="#E5F3F9">
             <h1>ES6 & Funktionen</h1>
         </section>
-        <section>
+        <section data-background="#E5F3F9">
             <h2>ES6 Neuerungen</h2>
             <h3>Fat arrow functions</h3>
             <pre>
@@ -77,8 +77,8 @@
 				</code>
             </pre>
         </section>
-        <section>
-            <section>
+        <section data-background="#E5F3F9">
+            <section data-background="#E5F3F9">
                 <h3>Block scoped let</h3>
                 <pre>
                     <code class="hljs javascript" data-trim contenteditable data-noescape>
@@ -98,7 +98,7 @@
                     </code>
             </pre>
             </section>
-            <section>
+            <section data-background="#E5F3F9">
                 <h3>var vs. let vs. const</h3>
                 <ul>
                     <li>var ist function scoped</li>
@@ -109,7 +109,7 @@
                 </ul>
             </section>
         </section>
-        <section>
+        <section data-background="#E5F3F9">
             <h3>Objekt Literale</h3>
             <pre>
                  <code class="hljs javascript" data-trim contenteditable>
@@ -127,7 +127,7 @@
 				 </code>
             </pre>
         </section>
-        <section>
+        <section data-background="#E5F3F9">
             <h3>Template Strings</h3>
             <h4>Werden mit dem Backtick ` erzeugt</h4>
             <pre>
@@ -142,8 +142,8 @@
 				 </code>
             </pre>
         </section>
-        <section>
-            <section>
+        <section data-background="#E5F3F9">
+            <section data-background="#E5F3F9">
                 <h3>Rest & Spreading</h3>
                 <h4>Rest Parameter</h4>
                 <pre>
@@ -165,7 +165,7 @@
                      </code>
                 </pre>
             </section>
-            <section>
+            <section data-background="#E5F3F9">
                 <h4>Spread Operator</h4>
                 <pre>
                      <code class="hljs javascript" data-trim contenteditable data-noescape>
@@ -189,7 +189,7 @@
                 </pre>
             </section>
         </section>
-        <section>
+        <section data-background="#E5F3F9">
             <h3>Default Parameter</h3>
             <h4>Wenn Parameter nicht übergeben werden oder undefined sind</h4>
             <pre>
@@ -201,8 +201,8 @@
 				 </code>
             </pre>
         </section>
-        <section>
-            <section>
+        <section data-background="#E5F3F9">
+            <section data-background="#E5F3F9">
                 <h3>Destructuring</h3>
                 <h4>Daten aus Arrays extrahieren</h4>
                 <pre>
@@ -221,7 +221,7 @@
                      </code>
                  </pre>
             </section>
-            <section>
+            <section data-background="#E5F3F9">
                 <h4>Daten aus Objekten extrahieren</h4>
                 <pre>
                      <code class="hljs javascript" data-trim contenteditable data-noescape>
@@ -242,8 +242,8 @@
                  </pre>
             </section>
         </section>
-        <section>
-            <section>
+        <section data-background="#E5F3F9">
+            <section data-background="#E5F3F9">
                 <h3>Funktionen als First Class Objekte</h3>
                 <h4>Zuweisung</h4>
                 <pre>
@@ -265,7 +265,7 @@
                      </code>
                  </pre>
             </section>
-            <section>
+            <section data-background="#E5F3F9">
                 <h4>Zuweisung (2)</h4>
                 <pre>
                      <code class="hljs javascript" data-trim contenteditable data-noescape>
@@ -275,7 +275,7 @@
                      </code>
                  </pre>
             </section>
-            <section>
+            <section data-background="#E5F3F9">
                 <h4>Funktionen als Return value</h4>
                 <pre>
                      <code class="hljs javascript" data-trim contenteditable data-noescape>
@@ -291,10 +291,13 @@
                             };
                          };
                          console.log(addThreeOld(1)(4)(3)); // 8
+
+                         // Ohne Klammern ;-)
+                         let addThree = a => b => c => a + b + c;
                      </code>
                  </pre>
             </section>
-            <section>
+            <section data-background="#E5F3F9">
                 <h4>Funktionen als Parameter</h4>
                 <pre>
                      <code class="hljs javascript" data-trim contenteditable data-noescape>
@@ -317,8 +320,8 @@
                  </pre>
             </section>
         </section>
-        <section>
-            <section>
+        <section data-background="#E5F3F9">
+            <section data-background="#E5F3F9">
                 <h2>JS Besonderheiten</h2>
                 <h3>Truthy und Falsy</h3>
                 <ul>
@@ -330,7 +333,7 @@
                     <li>NaN</li>
                 </ul>
             </section>
-            <section>
+            <section data-background="#E5F3F9">
                 <h3>Null checks & Triple equals</h3>
                 <pre>
                  <code class="hljs typescript" data-trim contenteditable data-noescape>
@@ -349,8 +352,8 @@
         <section class="deck-slide" data-background="#E5F3F9">
             <h1>TypeScript Features</h1>
         </section>
-        <section>
-            <section>
+        <section data-background="#E5F3F9">
+            <section data-background="#E5F3F9">
             <h2>Klassen</h2>
             <h3>Constructor / shorthand</h3>
             <pre>
@@ -366,7 +369,7 @@
                  </code>
              </pre>
             </section>
-            <section>
+            <section data-background="#E5F3F9">
                 <h3>Getter / Setter Syntax</h3>
                 <pre>
                      <code class="hljs typescript" data-trim contenteditable data-noescape>
@@ -391,7 +394,7 @@
                  </pre>
             </section>
         </section>
-        <section>
+        <section data-background="#E5F3F9">
             <h2>Typen</h2>
             <table>
                 <tr>
@@ -424,8 +427,8 @@
                 </tr>
             </table>
         </section>
-        <section>
-            <section>
+        <section data-background="#E5F3F9">
+            <section data-background="#E5F3F9">
                 <h2>Typisierung - Interfaces</h2>
                 <pre>
                      <code class="hljs typescript" data-trim contenteditable data-noescape>
@@ -446,7 +449,7 @@
                      </code>
                  </pre>
             </section>
-            <section>
+            <section data-background="#E5F3F9">
                 <h3>optional properties</h3>
                 <pre>
                      <code class="hljs typescript" data-trim contenteditable data-noescape>
@@ -468,7 +471,7 @@
                      </code>
                  </pre>
             </section>
-            <section>
+            <section data-background="#E5F3F9">
                 <h3>Funktionen in Interfaces</h3>
                 <pre>
                      <code class="hljs typescript" data-trim contenteditable data-noescape>
@@ -487,7 +490,7 @@
                      </code>
                  </pre>
             </section>
-            <section>
+            <section data-background="#E5F3F9">
                 <h3>Union Types</h3>
                 <pre>
                      <code class="hljs typescript" data-trim contenteditable data-noescape>
@@ -505,7 +508,7 @@
                  </pre>
             </section>
         </section>
-        <section>
+        <section data-background="#E5F3F9">
             <h2>Type Inference</h2>
             <pre>
                  <code class="hljs typescript" data-trim contenteditable data-noescape>
@@ -527,8 +530,8 @@
                  </code>
              </pre>
         </section>
-        <section>
-            <section>
+        <section data-background="#E5F3F9">
+            <section data-background="#E5F3F9">
                 <h2>Module</h2>
                 <h3>Export</h3>
                 <pre>
@@ -548,7 +551,7 @@
                      </code>
                  </pre>
             </section>
-            <section>
+            <section data-background="#E5F3F9">
                 <h3>Import</h3>
                 <pre>
                      <code class="hljs typescript" data-trim contenteditable data-noescape>
@@ -570,7 +573,7 @@
                  </pre>
             </section>
         </section>
-        <section>
+        <section data-background="#E5F3F9">
             <h2>Nützliche Links</h2>
             <ul>
                 <li><a href="http://www.typescriptlang.org/play/index.html">TypeScript Playground - Online Editor</a>
