@@ -187,7 +187,7 @@
                     <li>Events von Standard-Komponenten wie <span class="code">Buttons</span> oder <span class="code">Inputs</span>
                         kennen wir bereits
                     </li>
-                    <li>Events für eigene Koponenten verhalten sich genau gleich</li>
+                    <li>Events für eigene Komponenten verhalten sich genau gleich</li>
                     <li>sie definieren zusammen mit den <span class="code">Inputs</span> das Interface einer Komponente
                     </li>
                 </ul>
@@ -199,15 +199,15 @@
                         import {.., Output, EventEmitter} from '@angular/core';
                         export class PizzaComponent {
                             @Output()
-                            selecPizza: EventEmitter&ltPizza> = new EventEmitter();
+                            selectPizza: EventEmitter&ltPizza> = new EventEmitter();
                         }
                     </code>
                     <code class="hljs html" data-trim contenteditable>
-                        <button (click)="selecPizza.emit(pizza)">Kaufen</button>
+                        <button (click)="selectPizza.emit(pizza)">Kaufen</button>
                     </code>
                     <code class="hljs html" data-trim contenteditable>
                         <!-- Outer component -->
-                        &ltpizza (selecPizza)="onPizzaSelected($event)"></pizza>
+                        &ltpizza (selectPizza)="onPizzaSelected($event)"></pizza>
                     </code>
                     <code class="hljs typescript" data-trim contenteditable>
                         onPizzaSelected(pizza: Pizza) { console.log(pizza); }
