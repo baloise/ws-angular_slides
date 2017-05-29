@@ -355,15 +355,15 @@
                                 if(!count) {
                                     return word;
                                 }
-                                if(word.length <= number) {
+                                if(word.length <= count) {
                                     return word
                                 }
-                                return word.substring(0, number) + '...';
+                                return word.substring(0, count) + '...';
                             }
                         }
                     </code>
                     <code class="hljs html" data-trim contenteditable>
-                        {{Lorem ipsum dolor | ellipsis:10}}
+                        {{'Lorem ipsum dolor' | ellipsis:10}}
                         <!-- Lorem ipsu...-->
                     </code>
                 </pre>
