@@ -158,7 +158,7 @@
                     <code class="hljs html" data-trim contenteditable>
                         &ltselect [(ngModel)]="pizza.zutat"
                                 name="zutat" #select>
-                            &ltoption ngFor="let zutat of zutaten"
+                            &ltoption *ngFor="let zutat of zutaten"
                                     [value]="zutat"
                                     [selected]="zutat === select.value">
                                 {{zutat}}
