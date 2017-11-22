@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>reveal.js</title>
+    <title>Angular Workshop | 09 Services</title>
 
     <link rel="stylesheet" href="../css/reveal.css">
     <link rel="stylesheet" href="../css/theme/baloise.css">
@@ -63,6 +63,23 @@
                             getPizze: () => { return []; }
                         };
                         [{ provide: PizzaService, useValue: myService }]
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Providers</h3>
+                <h4>Verwendung in Komponente</h4>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        Component({
+                            selector: 'pizza'
+                        })
+                        export class PizzaComponent {
+
+                            // Service im Konstruktor angeben um zu injecten
+                            constructor(private pizzaService: PizzaService) {
+                            }
+                        }
                     </code>
                 </pre>
             </section>
@@ -166,7 +183,7 @@
                 </ul>
             </section>
             <section>
-                <h4>Promises - im Vergleich im JDK</h4>
+                <h4>Promises – im Vergleich zum JDK</h4>
                 <ul>
                     <li>ähnlich wie ein Future</li>
                     <li>genauer: Seit Java8 ein <span class="code">CompletableFuture&ltT></span></li>
@@ -262,9 +279,10 @@
             <h2>Observables und Angular</h2>
             <ul>
                 <li>Angular ist intern als reaktives System aufgebaut</li>
-                <li>Um die funktionale reaktive Programmierung zu unterstützen arbeitet Angular intern mit <span class="code">Observables</span></li>
+                <li>Um die funktionale, reaktive Programmierung zu unterstützen, arbeitet Angular intern mit <span class="code">Observables</span></li>
                 <li>das <span class="code">valueChanges</span> Observable property auf einem Control ist von Angular</li>
-                <li>der HTTP Service von Angular returned <span class="code">Observables</span> statt <span class="code">Promises</span></li>
+                <li>der HTTP Service von Angular gibt <span class="code">Observables</span>, keine <span class="code">Promises</span>
+                    (wie <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">fetch</a>) zurück</li>
             </ul>
         </section>
         <section>
@@ -273,36 +291,56 @@
                 <ul>
                     <li>wird meist im Constructor eines Service injected</li>
                     <li>bietet alle gängigen HTTP Methoden: <span class="code">get</span>, <span class="code">post</span>, <span class="code">put</span>, <span class="code">delete</span>, <span class="code">patch</span>, <span class="code">head</span> und <span class="code">options</span></li>
-                    <li>jede Methode gibt ein <span class="code">Observable&ltResponse></span> zurück</li>
-                    <li>eine Response hat einige Properties, die wichtigsten: <span class="code">status - der HTTP Status Code</span> und <span class="code">json()</span> zum Auslesen des Bodies</li>
+                    <li>Standardmässig wird eine JSON-Response vom angegebenen Typ erwartet &rarr; <span class="code">http.get&lt;Pizza[]></span></li>
+                    <li>Error-Handling wird beim subscriben gemacht.</li>
+                    <li>Sehr mächtiges Interface: <a href="https://angular.io/guide/http" target="_blank">Offizielle Dokumentation</a></li>
                 </ul>
             </section>
             <section>
                 <h3>Erstes Beispiel</h3>
+                <p><span class="code">HttpClient</span> im Module hinzufügen</p>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
-                        import {Injectable} from "@angular/core";
-                        import {Http} from "@angular/http";
-                        import {Observable} from "rxjs";
-                        import {Pizza} from "./pizza.model";
-                        import 'rxjs/add/operator/map'
+                        //...
+                        import {HttpClientModule} from "@angular/common/http";
+                        //...
 
-                        @Injectable()
-                        export class PizzaService {
 
-                            constructor(private http: Http) {
-                            }
-
-                            gimmePizza(): Observable&ltPizza[]> {
-                                return this.http.get('api/pizze')
-                                    .map(res => res.json());
-                            }
+                        @NgModule({
+                            //...
+                            imports: [..., HttpClientModule],
+                            //...
+                        })
+                        export class AppModule {
                         }
                     </code>
                 </pre>
             </section>
             <section>
                 <h3>Erstes Beispiel (2)</h3>
+                <p>Funktion im Service erstellen, der GET-Request ausführt.</p>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        import {Injectable} from "@angular/core";
+                        import {HttpClient} from "@angular/common/http";
+                        import {Observable} from "rxjs";
+                        import {Pizza} from "./pizza.model";
+
+                        @Injectable()
+                        export class PizzaService {
+
+                            constructor(private http: HttpClient) { }
+
+                            gimmePizza(): Observable&lt;Pizza[]> {
+                                return this.http.get&lt;Pizza[]>('api/pizze');
+                            }
+                        }
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Erstes Beispiel (3)</h3>
+                <p>Service-Funktion in Komponente aufrufen und auf <span class="code">Observable</span> subscriben.</p>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
                         export class PizzeComponent implements OnInit {
@@ -326,7 +364,7 @@
                     <li>Branch: <span class="code">09_ServicesHTTP_1</span></li>
                     <li>Hole die Movies mit einem GET Request vom Backend, anstelle des hardcodierten Arrays</li>
                     <li>Starte das Backend in einer neuen Konsole: <span class="code">npm run api</span></li>
-                    <li>Der REST-Endpoint für alle movies ist <span class="code">api/movies</span></li>
+                    <li>Der REST-Endpoint um alle Movies zu laden, lautet <span class="code">/api/movies</span></li>
                     <li>Test ob die API läuft: <a href="http://localhost:3000/api/movies">Zeige Movies JSON</a></li>
                 </ul>
             </section>
@@ -366,6 +404,17 @@
             </section>
             <section>
                 <h3>Die Async Pipe - | async</h3>
+                <ul>
+                    <li>Erleichtert den Umgang mit <span class="code">Observables</span> &amp; <span class="code">Promises</span></li>
+                    <li>Hilft mögliche Memory-Leaks zu verhindern, in dem sie Observables automatisch unsubscribed</li>
+                    <li>Verkürzt den eigenen Code (kein Reagieren auf Änderungen)</li>
+                    <li>Einen guten Artikel zum Thema findest Du
+                        <a href="https://blog.thoughtram.io/angular/2017/02/27/three-things-you-didnt-know-about-the-async-pipe.html" target="_blank">hier</a>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3>Die Async Pipe - | async (2)</h3>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
                         movies: Observable&ltMovie[]>;
@@ -388,10 +437,10 @@
             <section>
                 <h3>Moderne reaktive Architektur</h3>
                 <ul>
-                    <li>wie eingangs erwähnt unterstützt Angular die reakive Programmierung</li>
+                    <li>wie eingangs erwähnt unterstützt Angular die reaktive Programmierung</li>
                     <li>diese wird häufig mit einem Uni-Directional Data Flow umgesetzt</li>
                     <li>hier bietet sich das Redux-Pattern an</li>
-                    <li>eine sehr gute Library ist ngrx/store</li>
+                    <li>eine sehr gute Library ist <a href="https://github.com/ngrx/platform" target="_blank">ngrx/store</a></li>
                 </ul>
             </section>
             <section>

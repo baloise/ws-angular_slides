@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>reveal.js</title>
+    <title>Angular Workshop | 07 Templates Erweitert</title>
 
     <link rel="stylesheet" href="../css/reveal.css">
     <link rel="stylesheet" href="../css/theme/baloise.css">
@@ -151,8 +151,8 @@
                 <ul>
                     <li>eigene Angular Syntax</li>
                     <li>der mit <span class="code">*ngFor</span> versehene Block wird wiederholt</li>
-                    <li>Nimmt jedes Item im Items Array und weist es der variable item zu. Erzeugt pro Iteration ein <span class="code">li</span> Element.</li>
-                    <li>Die sogenannte <span class="code">Template Input Variable</span> <span class="code">let</span> ist nur im Element und dessen Kindern gültig.</li>
+                    <li>Nimmt jedes Item im Items Array und weist es der Variable <span class="code">item</span> zu.. Erzeugt pro Iteration ein <span class="code">li</span> Element.</li>
+                    <li>Die sogenannte <span class="code">Template Input Variable</span> ist nur im Element und dessen Kindern gültig.</li>
                 </ul>
             </section>
             <section>
@@ -284,7 +284,7 @@
             <section>
                 <h2>ngStyle</h2>
                 <h3>für dynamische Inline Styles</h3>
-                <p>für einzelne Klassen - ein <span class="code">Style Binding</span> benutzen</p>
+                <p>für einzelne Styles ein <span class="code">Style Binding</span> benutzen</p>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
                         &ltspan
@@ -292,7 +292,7 @@
                         &lt/span>
                     </code>
                 </pre>
-                <p>für mehrere Styles - die <span class="code">ngStyle Directive</span></p>
+                <p>für mehrere Styles die <span class="code">ngStyle Directive</span></p>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
                         &ltspan [ngStyle]="{
@@ -308,7 +308,8 @@
                     <li>ich nutze <span class="warn">NIE</span> Inline Styles</li>
                     <li>Alle Styles gehören aus meiner Sicht in die Stylesheet Dateien</li>
                     <li>Inline Styles sind nicht wiederverwendbar</li>
-                    <li>Inline Styles verringern die Wartbarkeit - durch das Ersetzen der Stylesheets, bspw. bei einem Redesign sind Inline Styles davon nicht betroffen</li>
+                    <li>Inline Styles verringern die Wartbarkeit - durch das Ersetzen der Stylesheets, bspw. bei einem Redesign, sind Inline Styles davon nicht betroffen</li>
+                    <li>CSS Klassen sind <a href="https://jsperf.com/inline-style-vs-css-class/23" target="_blank">performanter</a> als Inline-Styles</li>
                 </ul>
             </section>
         </section>
@@ -317,9 +318,9 @@
                 <h2>Pipes</h2>
                 <h3>für Transformationen von Werten</h3>
                 <ul>
-                    <li>wird mit einem Strich <span class="code">|</span> gestartet, dann folgt die Operation, z.B. <span class="code">| uppercase</span></li>
+                    <li>wird mit einer Pipe <span class="code">|</span> gestartet, dann folgt die Operation, z.B. <span class="code">| uppercase</span></li>
                     <li>viele eingebaute Pipes, z. B. <span class="code">lowercase</span>, <span class="code">uppercase</span>, <span class="code">date</span>, <span class="code">currency</span> uvm.</li>
-                    <li>Pipes könnten Parameter erhalten: <span class="code">{{birthday | date:"MM/dd/yy"}}</span></li>
+                    <li>Pipes können Parameter erhalten: <span class="code">{{birthday | date:"MM/dd/yy"}}</span></li>
                     <li>Eigene Pipes: <span class="code">PipeTransform</span> Interface implementieren und mit <span class="code">@Pipe({name: 'name'})</span> annotieren</li>
                 </ul>
             </section>

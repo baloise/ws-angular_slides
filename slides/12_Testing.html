@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>reveal.js</title>
+    <title>Angular Workshop | 12 Testing</title>
 
     <link rel="stylesheet" href="../css/reveal.css">
     <link rel="stylesheet" href="../css/theme/baloise.css">
@@ -134,7 +134,7 @@
             <section>
                 <h3>Angular Testing Utils: createComponent</h3>
                 <ul>
-                    <li><span class="code">TestBed.createComponent</span> instantiiert die Komponente die getestet werden soll</li>
+                    <li><span class="code">TestBed.createComponent</span> instanziiert die Komponente die getestet werden soll</li>
                     <li>Nach dem Erstellen der Komponente darf die TestBed Konfiguration nicht mehr verändert werden</li>
                     <li>die Methode gibt eine <span class="code">ComponentFixture</span> zurück</li>
                     <li>über diese Fixture hat man Zugriff auf die Instanz der Komponente, <span class="code">fixture.componentInstance</span></li>
@@ -261,7 +261,7 @@
                 <h2>Testing Pipes</h2>
                 <ul>
                     <li>... ist so einfach wie es nur geht ;-)</li>
-                    <li>die Pipe im Test mit <span class="code">new</span> instantiieren und die <span class="code">transform</span> Funktion aufrufen</li>
+                    <li>die Pipe im Test mit <span class="code">new</span> instanziieren und die <span class="code">transform</span> Funktion aufrufen</li>
                 </ul>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
@@ -301,13 +301,16 @@
             <section>
                 <h2>Testing Services</h2>
                 <ul>
-                    <li>prinzipiell kann man einen Service ohne Dependency wie eine Pipe instantiieren und dann die Logik testen</li>
+                    <li>prinzipiell kann man einen Service ohne Dependency wie eine Pipe instanziieren und dann die Logik testen</li>
                     <li>interessant sind vor allem Services mit <span class="code">HTTP</span> calls</li>
-                    <li>Angular bietet hierfür ein MockBackend, das man im Test verwenden kann</li>
-                    <li>die Struktur basiert auf der <a href="https://fetch.spec.whatwg.org/">Fetch Specifikation</a></li>
-                    <li>das Setup ist etwas komplexer, wir werden es an Beispielen betrachten</li>
+                    <li>Angular bietet hierfür das sog. <span class="code">in-memory-web-api-module</span> an.</li>
+                    <li>Ganz neu und daher leider noch relativ schlechte Doku.</li>
+                    <li>Urspüngliche <span class="code">MockBackend</span> Methode wurde deprecated.</li>
                 </ul>
             </section>
+
+            <!-- TODO Change examples from MockBackend to In-Memory-Web-API -->
+
             <section>
                 <h3>Dependency Injection in Tests</h3>
                 <ul>

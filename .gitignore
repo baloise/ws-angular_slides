@@ -19,3 +19,4 @@ js/reveal.min.js
 .idea/libraries/
 .idea/artifacts/
 *.log
+.idea

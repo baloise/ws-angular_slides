@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>reveal.js</title>
+    <title>Angular Workshop | 10 Routing</title>
 
     <link rel="stylesheet" href="../css/reveal.css">
     <link rel="stylesheet" href="../css/theme/baloise.css">
@@ -115,7 +115,7 @@
             <section>
                 <h3>RouterLinkActive Direktive</h3>
                 <ul>
-                    <li><span class="code">routerLinkActive</span>fügt dem HTML Element eine Klasse hinzu wenn der <span class="code">routerLink</span> aktiv ist</li>
+                    <li><span class="code">routerLinkActive</span>fügt dem HTML Element eine CSS Klasse hinzu wenn der <span class="code">routerLink</span> aktiv ist</li>
                     <li>Zum Hervorheben des aktiven Menüpunktes</li>
                 </ul>
                 <pre>
@@ -126,6 +126,23 @@
                                     routerLinkActive="active">Pizze&lt/a>&lt/li>
                             &lt/ul>
                         &lt/nav>
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Angabe des Basis-Pfads</h3>
+                <ul>
+                    <li>Dient dazu, dem Router mitzuteilen unter welchem Pfad die Applikation gehostet ist</li>
+                    <li>Wird im <span class="code">&lt;head></span> des <span class="code">index.html</span> als erstes Kind eingefügt.</li>
+                </ul>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable>
+                        &lt;html>
+                            &lt;head>
+                                &lt;base href="/">
+                            &lt;/head>
+                            ...
+                        &lt;/html>
                     </code>
                 </pre>
             </section>
@@ -154,7 +171,7 @@
                     <li>Branch: <span class="code">10_Routing_1</span></li>
                     <li>Diese Übung ist eine Wiederholung bestehender Konzepte</li>
                     <li>Baue analog zu den Movies eine neue Seite für Visitors</li>
-                    <li>die Daten kannst du ebenfalls per REST vom <span class="code">api/visitors</span> Endpoint beziehen</li>
+                    <li>die Daten kannst du ebenfalls per REST vom <span class="code">/api/visitors</span> Endpoint beziehen</li>
                     <li>Stelle Besucher und einige Felder tabellarisch dar</li>
                     <li>Es soll möglich sein zur Seite zu navigieren</li>
                 </ul>
