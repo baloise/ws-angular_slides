@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>reveal.js</title>
+    <title>Angular Workshop | 02 Grundlagen</title>
 
     <link rel="stylesheet" href="../css/reveal.css">
     <link rel="stylesheet" href="../css/theme/baloise.css">
@@ -354,9 +354,9 @@
         </section>
         <section>
             <section>
-            <h2>Klassen</h2>
-            <h3>Constructor / shorthand</h3>
-            <pre>
+                <h2>Klassen</h2>
+                <h3>Constructor / shorthand</h3>
+                <pre>
                  <code class="hljs typescript" data-trim contenteditable data-noescape>
                      class CustomerComponent {
                         constructor(private service: Service) {
@@ -414,7 +414,7 @@
                     <td>boolean</td>
                 </tr>
                 <tr>
-                    <td>integer, long, short...</td>
+                    <td>int, long, short...</td>
                     <td>number</td>
                 </tr>
                 <tr>
@@ -423,7 +423,7 @@
                 </tr>
                 <tr>
                     <td>Type[]</td>
-                    <td>Type[]</td>
+                    <td>Type[] / Array&lt;Type></td>
                 </tr>
             </table>
         </section>
@@ -516,13 +516,13 @@
                         private url = "/api";
 
                         createFullUrl(endpoint: number) {
-                        //Type 'number' is not assignable to type 'string'
+                            //Type 'number' is not assignable to type 'string'
                             this.url = endpoint;
                             return 'localhost' + this.url;
                         }
 
                         getCustomerUrl() {
-                            // Argument of type '"customer"' is not
+                            // Argument of type 'string' is not
                             // assignable to parameter of type 'number'.
                             return this.createFullUrl('customer');
                         }

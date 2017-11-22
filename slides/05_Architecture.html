@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>reveal.js</title>
+    <title>Angular Workshop | 05 Architecture</title>
 
     <link rel="stylesheet" href="../css/reveal.css">
     <link rel="stylesheet" href="../css/theme/baloise.css">
@@ -34,7 +34,7 @@
         <section>
             <section>
                 <h2>Module</h2>
-                <h3>Jede Applikation besitzt min. 1 Modul</h3>
+                <h3>Jede Applikation besitzt mindestens ein Modul</h3>
                 <pre>
                      <code class="hljs typescript" data-trim contenteditable data-noescape>
                         import {NgModule} from "@angular/core";
@@ -48,7 +48,6 @@
                             bootstrap: [AppComponent]
                         })
                         export class AppModule {}
-
                      </code>
                  </pre>
             </section>
@@ -69,14 +68,31 @@
             </section>
         </section>
         <section>
-            <h2>Services</h2>
-            <ul>
-                <li>werden mittels Dependency Injection zur Verfügung gestellt</li>
-                <li>Sind einfach TypeScript Klassen</li>
-                <li>werden über den Typ injected</li>
-                <li>Benötigen den Decorator <span class="code">@Injectable()</span></li>
-                <li>Sind im Normalfall Singletons (wenn sie auf dem Modul registriert werden)</li>
-            </ul>
+            <section>
+                <h2>Services</h2>
+                <ul>
+                    <li>werden mittels Dependency Injection zur Verfügung gestellt</li>
+                    <li>Sind einfach TypeScript Klassen</li>
+                    <li>werden über den Typ injected</li>
+                    <li>Benötigen den Decorator <span class="code">@Injectable()</span></li>
+                    <li>Sind im Normalfall Singletons (wenn sie auf dem Modul registriert werden)</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Einfachster Aufbau eines Services</h2>
+                <pre>
+                     <code class="hljs typescript" data-trim contenteditable data-noescape>
+                        import { Injectable } from '@angular/core';
+
+                        @Injectable()
+                        export class MyAwesomeService {
+
+                          constructor() { }
+
+                        }
+                     </code>
+                 </pre>
+            </section>
         </section>
         <section>
             <h2>Components</h2>
@@ -129,7 +145,7 @@
         <section>
             <h2>Weitere Features</h2>
             <ul>
-                <li>Change Detection (wann muss der View neu gerendert werden)</li>
+                <li>Change Detection (wann muss die View neu gerendert werden)</li>
                 <li>Animationen</li>
                 <li>Formulare & Pipes</li>
                 <li>HTTP Kommunikation</li>

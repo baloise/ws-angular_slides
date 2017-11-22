@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>reveal.js</title>
+    <title>Angular Workshop | 04 Components</title>
 
     <link rel="stylesheet" href="../css/reveal.css">
     <link rel="stylesheet" href="../css/theme/baloise.css">
@@ -86,7 +86,7 @@
                  </pre>
             </section>
             <section>
-                <h3>Aufgabe 1</h3>
+                <h3>Aufgabe 4.1</h3>
                 <ul>
                     <li>Baue die bestehende Komponente auf Inline um</li>
                     <li>Nutze ein inline Template mit einer H1-Überschrift</li>
@@ -102,11 +102,11 @@
 
                         @Component({
                             selector: 'app-root',
-                            template: `<h1>Schöne Farbe</h1>`,
+                            template: `<h1>{{title}}</h1>`,
                             styles: [`h1 {color: #FF00FF;}`]
                         })
                         export class AppComponent {
-                            title = 'app works!';
+                            title = 'Schöner Titel';
                         }
                      </code>
                  </pre>

@@ -49,6 +49,19 @@
             </ul>
         </section>
         <section>
+            <h2>tsconfig.json</h2>
+            <ul>
+                <li>Konfiguration für den TypeScript compiler</li>
+                <li>Wo liegen Typ-Definitionen</li>
+                <li>Welche JavaScript Version soll als Kompilatsoutput verwendet werden?</li>
+                <li><a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html">tsconfig.json Doku</a>
+                </li>
+                <li><a href="https://www.typescriptlang.org/docs/handbook/compiler-options.html">Liste möglicher
+                    Optionen</a></li>
+                <li>Kann pro Modul noch verfeinert / geändert werden</li>
+            </ul>
+        </section>
+        <section>
             <h2>README.md</h2>
             <ul>
                 <li>
@@ -63,6 +76,19 @@
                 <li>
                     <a href="http://dillinger.io/">Dillinger - Sehr guter Online Editor</a>
                 </li>
+            </ul>
+        </section>
+        <section>
+            <h2>protractor.conf.js</h2>
+            <ul>
+                <li><a href="http://www.protractortest.org/" target="_blank">Protractor</a> ist ein Tool für E2E Tests in Angular</li>
+                <li>Konfiguration für Tests</li>
+                <li>z.B.</li>
+                <ul>
+                    <li>Namens-Pattern der Tests die ausgeführt werden sollen</li>
+                    <li>Browser der verwendet wird</li>
+                    <li>URLs</li>
+                </ul>
             </ul>
         </section>
         <section>
@@ -117,19 +143,17 @@
                 <img src="../img/semantic.jpg">
             </section>
             <section>
-                <h3>Versionen in Dependencies</h3>
+                <h3>package-lock.json</h3>
                 <ul>
-                    <li>betrifft nur direkte Abhängigkeiten</li>
-                    <li>indirekte Abhängigkeiten oft ungenau</li>
-                    <li>Abhilfe schaffen Tools wie <a href="https://yarnpkg.com/lang/en/">Yarn</a> oder <a
-                            href="https://docs.npmjs.com/cli/shrinkwrap">NPM Shrinkwrap</a></li>
+                    <li>Speichert indirekte Abhängigkeiten</li>
+                    <li>Stellt sicher, dass bei einer erneuten Installation (CI, Arbeitskollege) exakt die gleichen Abhängigkeiten verwendet werden.</li>
                 </ul>
             </section>
             <section>
                 <h3>Installation von Dependencies</h3>
                 <ul>
                     <li>Installation über Konsole: npm install jquery --save-exact</li>
-                    <li>Zeile in package.json einfügen</li>
+                    <li>Zeile in package.json einfügen & npm install ausführen</li>
                 </ul>
                 <pre>
                     <code class="hljs json" data-trim contenteditable>
@@ -157,17 +181,18 @@
                     <li>das lokale Projekt-Repo ist im "node_modules" Ordner</li>
                     <li>Bei Problemen: Ordner löschen und neu installieren hilft oftmals</li>
                     <li>Sämtliche Abhängigkeiten befinden sich im "node_modules" Ordner</li>
+                    <li>Wird nicht ins Repository eingecheckt!</li>
                 </ul>
             </section>
             <section>
                 <h3>Globale Installation</h3>
-                <h4>NICHTS global installieren!</h4>
+                <h4>Keine Projektabhängigkeiten global installieren!</h4>
                 <ul>
                     <li>
                         Zugriff auf lokale Pakete einfach möglich
                     </li>
                     <li>
-                        in der "scripts" section ist "node_modules/bin" verfügbar
+                        in der "scripts" section ist "node_modules/.bin" verfügbar
                     </li>
                 </ul>
             </section>
@@ -199,6 +224,13 @@
             </ul>
         </section>
         <section>
+            <h2>.editorconfig</h2>
+            <ul>
+                <li>Editorunabhängige Konfiguration für Codestyles</li>
+                <li>Mehr Infos unter <a href="http://editorconfig.org/" target="_blank">editorconfig.org</a></li>
+            </ul>
+        </section>
+        <section>
             <h2>angular-cli.json</h2>
             <ul>
                 <li>Konfiguration für das Angular CLI</li>
@@ -212,13 +244,16 @@
             <h3>Von unten nach oben ;-)</h3>
         </section>
         <section>
-            <h2>tsconfig.json</h2>
+            <h2>typings.d.ts</h2>
             <ul>
-                <li>Konfiguration für den TypeScript compiler</li>
-                <li>Wo liegen Typ-Definitionen</li>
-                <li>Welche JavaScript Version soll als Kompilatsoutput verwendet werden?</li>
-                <li><a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html">tsconfig.json Doku</a></li>
-                <li><a href="https://www.typescriptlang.org/docs/handbook/compiler-options.html">Liste möglicher Optionen</a></li>
+                <li>Zusätzliche Typdefinitionen für TypeScript</li>
+            </ul>
+        </section>
+        <section>
+            <h2>tsconfig.*.json</h2>
+            <ul>
+                <li>app &rarr; Modulspezifische TypeScript-Compiler-Konfiguration</li>
+                <li>spec &rarr; TypeScript-Compiler-Konfiguration für Tests</li>
             </ul>
         </section>
         <section>
@@ -263,8 +298,7 @@
             <h2>index.html</h2>
             <ul>
                 <li>Einstiegs HTML Seite</li>
-                <li>JavaScript und CSS-Dateien werdem im Build Prozess automatisch hinzugefügt</li>
-                <li><span class="warn">Keine</span> JS oder CSS-Dateien selbst hinzufügen!</li>
+                <li>JavaScript und CSS-Dateien werden im Build Prozess automatisch hinzugefügt<br>&rarr;<span class="warn">Keine</span> JS oder CSS-Dateien selbst hinzufügen!</li>
                 <li>Unsere App-Komponente wird hier inkludiert</li>
             </ul>
         </section>
