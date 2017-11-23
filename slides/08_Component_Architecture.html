@@ -199,7 +199,7 @@
                         import {.., Output, EventEmitter} from '@angular/core';
                         export class PizzaComponent {
                             @Output()
-                            selectPizza: EventEmitter&ltPizza> = new EventEmitter();
+                            selectPizza: EventEmitter&lt;Pizza> = new EventEmitter();
                         }
                     </code>
                     <code class="hljs html" data-trim contenteditable>
@@ -207,7 +207,7 @@
                     </code>
                     <code class="hljs html" data-trim contenteditable>
                         <!-- Outer component -->
-                        &ltpizza (selectPizza)="onPizzaSelected($event)"></pizza>
+                        &lt;pizza (selectPizza)="onPizzaSelected($event)"></pizza>
                     </code>
                     <code class="hljs typescript" data-trim contenteditable>
                         onPizzaSelected(pizza: Pizza) { console.log(pizza); }

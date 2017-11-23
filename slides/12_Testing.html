@@ -164,7 +164,7 @@
                     <code class="hljs typescript" data-trim contenteditable>
                         describe('MyComp', () => {
                             let component: MyComp;
-                            let fixture: ComponentFixture&ltMyComp>;
+                            let fixture: ComponentFixture&lt;MyComp>;
                             beforeEach(() => {
                                 TestBed.configureTestingModule({
                                     declarations: [MyComp]
@@ -219,12 +219,12 @@
                         describe('Header Component with a host component', () => {
 
                             @Component({
-                                template: `&ltcomp [prop]="'dummy value'">&lt/comp>`
+                                template: `&lt;comp [prop]="'dummy value'">&lt;/comp>`
                             })
                             class HostComponent {
                             }
 
-                            let fixture: ComponentFixture&ltHostComponent>;
+                            let fixture: ComponentFixture&lt;HostComponent>;
 
                             beforeEach(() => {
                                 TestBed.configureTestingModule({

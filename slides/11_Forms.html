@@ -61,15 +61,15 @@
             <section>
                 <h2>Form Basics</h2>
                 <ul>
-                    <li>Forms sind innerhalb des HTML <span class="code">&ltform></span> tags</li>
+                    <li>Forms sind innerhalb des HTML <span class="code">&lt;form></span> tags</li>
                     <li>Zugriff auf die Angular Form Properties sind mit einer Referenz Variable möglich</li>
                     <li>mit <span class="code">formVariable.value</span> kann man sich den Status des Forms zeigen lassen</li>
                 </ul>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
-                        &ltform #pizzaForm="ngForm">
+                        &lt;form #pizzaForm="ngForm">
                             {{pizzaForm.value | json}}
-                        &lt/form>
+                        &lt;/form>
                     </code>
                 </pre>
             </section>
@@ -81,11 +81,11 @@
                 </ul>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
-                        &ltform (ngSubmit)="machWas()">
-                            &ltinput type="text" class="form-control"
+                        &lt;form (ngSubmit)="machWas()">
+                            &lt;input type="text" class="form-control"
                                [(ngModel)]="pizza.name" name="pizzaName">
-                            &ltbutton type="submit">Los!&lt/button>
-                        &lt/form>
+                            &lt;button type="submit">Los!&lt;/button>
+                        &lt;/form>
                     </code>
                 </pre>
             </section>
@@ -98,16 +98,16 @@
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
                         <!-- Aktuelle Werte als JSON -->
-                        &ltp>Value: {{pizzaForm.value | json}}&lt/p>
+                        &lt;p>Value: {{pizzaForm.value | json}}&lt;/p>
                         <!-- Validity -->
-                        &ltp>Invalid: {{pizzaForm.invalid}}&lt/p>
-                        &ltp>Valid: {{pizzaForm.valid}}&lt/p>
+                        &lt;p>Invalid: {{pizzaForm.invalid}}&lt;/p>
+                        &lt;p>Valid: {{pizzaForm.valid}}&lt;/p>
                         <!-- User has touched -->
-                        &ltp>Touched: {{pizzaForm.touched}}&lt/p>
-                        &ltp>Untouched: {{pizzaForm.untouched}}&lt/p>
+                        &lt;p>Touched: {{pizzaForm.touched}}&lt;/p>
+                        &lt;p>Untouched: {{pizzaForm.untouched}}&lt;/p>
                         <!-- Values have changed -->
-                        &ltp>Pristine: {{pizzaForm.pristine}}&lt/p>
-                        &ltp>Dirty: {{pizzaForm.dirty}}&lt/p>
+                        &lt;p>Pristine: {{pizzaForm.pristine}}&lt;/p>
+                        &lt;p>Dirty: {{pizzaForm.dirty}}&lt;/p>
                     </code>
                 </pre>
             </section>
@@ -119,11 +119,11 @@
                 </ul>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
-                        &ltform (ngSubmit)="machWas()">
-                            &ltinput type="text" class="form-control"
+                        &lt;form (ngSubmit)="machWas()">
+                            &lt;input type="text" class="form-control"
                                [(ngModel)]="pizza.name" name="pizzaName">
-                            &ltbutton type="submit">Los!&lt/button>
-                        &lt/form>
+                            &lt;button type="submit">Los!&lt;/button>
+                        &lt;/form>
                     </code>
                 </pre>
             </section>
@@ -156,14 +156,14 @@
                 </ul>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
-                        &ltselect [(ngModel)]="pizza.zutat"
+                        &lt;select [(ngModel)]="pizza.zutat"
                                 name="zutat" #select>
-                            &ltoption *ngFor="let zutat of zutaten"
+                            &lt;option *ngFor="let zutat of zutaten"
                                     [value]="zutat"
                                     [selected]="zutat === select.value">
                                 {{zutat}}
-                            &lt/option>
-                        &ltselect>
+                            &lt;/option>
+                        &lt;select>
                     </code>
                 </pre>
             </section>
@@ -196,7 +196,7 @@
                 </ul>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
-                        &ltinput type="text" required minlength="2" maxlength="24">
+                        &lt;input type="text" required minlength="2" maxlength="24">
                     </code>
                 </pre>
             </section>

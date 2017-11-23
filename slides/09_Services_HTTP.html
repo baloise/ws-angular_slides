@@ -186,7 +186,7 @@
                 <h4>Promises – im Vergleich zum JDK</h4>
                 <ul>
                     <li>ähnlich wie ein Future</li>
-                    <li>genauer: Seit Java8 ein <span class="code">CompletableFuture&ltT></span></li>
+                    <li>genauer: Seit Java8 ein <span class="code">CompletableFuture&lt;T></span></li>
                 </ul>
                  <pre>
                     <code class="hljs java" data-trim contenteditable>
@@ -234,7 +234,7 @@
                 <h4>RxJS Cancellation</h4>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
-                        const src: Observable&ltnumber> = Observable.of(1, 2, 3);
+                        const src: Observable&lt;number> = Observable.of(1, 2, 3);
                         const sub: Subscription = src
                             .subscribe(x => console.log(x));
                         sub.unsubscribe();
@@ -243,7 +243,7 @@
                 <h4>Observables sind lazy</h4>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
-                        const src: Observable&ltnumber> = fetchNumbers();
+                        const src: Observable&lt;number> = fetchNumbers();
                         // ... nothing happens ;-)
 
                         src.subscribe(nr => console.log(nr));
@@ -417,7 +417,7 @@
                 <h3>Die Async Pipe - | async (2)</h3>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
-                        movies: Observable&ltMovie[]>;
+                        movies: Observable&lt;Movie[]>;
 
                         constructor(private movieService: MovieService) {
                         }
@@ -427,10 +427,10 @@
                         }
                     </code>
                     <code class="hljs html" data-trim contenteditable>
-                        &ltmovie *ngFor="let movie of movies | async"
+                        &lt;movie *ngFor="let movie of movies | async"
                                [movie]="movie"
                                (removeMovie)="onRemoveMovie($event)">
-                        &lt/movie>
+                        &lt;/movie>
                     </code>
                 </pre>
             </section>
