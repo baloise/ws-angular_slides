@@ -265,7 +265,7 @@
                          <postal-address (customEvent)="machWas()"></postal-address>
                      </code>
                     <code class="hljs html" data-trim contenteditable>
-                         <people (deletePerson)="delete($event)"></people>
+                         &lt;people (deletePerson)="delete($event)"></people>
                      </code>
                  </pre>
             </section>
@@ -423,7 +423,7 @@
                        }
                     </code>
                     <code class="hljs html" data-trim contenteditable>
-                        &ltinput [(ngModel)]="name">
+                        &lt;input [(ngModel)]="name">
                     </code>
                 </pre>
                 <ul>
@@ -479,7 +479,7 @@
                 <h3>Aufgabe 6.6 - Mögliche Lösung (2)</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
-                         &lttextarea [(ngModel)]="note"></textarea>
+                         &lt;textarea [(ngModel)]="note"></textarea>
                          <p>{{note}}</p>
                          <button (click)="reset()">Reset</button>
                      </code>
@@ -498,7 +498,7 @@
                 <h3>Syntax im HTML - mit #name</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
-                         &ltinput #note>
+                         &lt;input #note>
                          <button (click)="print(note.value)">Print value</button>
                      </code>
                      <code class="hljs typescript" data-trim contenteditable>

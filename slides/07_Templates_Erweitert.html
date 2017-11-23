@@ -46,9 +46,9 @@
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
                          <input type="text" [value]="search">
-                         &ltdiv *ngIf="search.length > 1"&gt
+                         &lt;div *ngIf="search.length > 1"&gt;
                             <result-table></result-table>
-                         &lt/div&gt
+                         &lt;/div&gt;
                     </code>
                 </pre>
                 <pre>
@@ -61,9 +61,9 @@
                 <h3>sehr nützlich als Guard für null checks</h3>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
-                         &ltdiv *ngIf="person"&gt
+                         &lt;div *ngIf="person"&gt;
                             <p>{{person.firstName}}</p>
-                         &lt/div&gt
+                         &lt;/div&gt;
                     </code>
                 </pre>
                 <span class="warn">Wichtig:</span> Es ist ein grosser Unterschied ob ein Element mit CSS versteckt wird,
@@ -89,17 +89,17 @@
                 <h3>Aufgabe 7.1 - Mögliche Lösung</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
-                        &ltinput type="radio" name="set"
+                        &lt;input type="radio" name="set"
                            [(ngModel)]="setting" value="Einfach">Einfach
-                        &ltinput type="radio" name="set"
+                        &lt;input type="radio" name="set"
                            [(ngModel)]="setting" value="Erweitert">Erweitert
-                        &ltdiv *ngIf="setting === 'Erweitert'">
-                            &ltinput type="text" [value]="val"
+                        &lt;div *ngIf="setting === 'Erweitert'">
+                            &lt;input type="text" [value]="val"
                                 (input)="val=$event.target.value">
-                            &ltdiv *ngIf="val.length >= 2">
-                                &ltp>Wert: {{val}}</p>
-                         &lt/div>
-                        &lt/div>
+                            &lt;div *ngIf="val.length >= 2">
+                                &lt;p>Wert: {{val}}</p>
+                         &lt;/div>
+                        &lt;/div>
                      </code>
                     <code class="hljs typescript" data-trim contenteditable>
                          val: string = "";
@@ -112,17 +112,17 @@
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
                          <input type="text" [value]="search">
-                         &ltdiv *ngIf="search.length > 1"&gt
+                         &lt;div *ngIf="search.length > 1"&gt;
                             <result-table></result-table>
-                         &lt/div&gt
+                         &lt;/div&gt;
                     </code>
                     <code class="hljs html" data-trim contenteditable>
                         <input type="text" [value]="search">
-                        &lttemplate [ngIf]="search.length > 1">
+                        &lt;template [ngIf]="search.length > 1">
                             <div>
                               <result-table></result-table>
                             </div>
-                        &lt/template>
+                        &lt;/template>
                     </code>
                 </pre>
             </section>
@@ -134,15 +134,15 @@
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
                         <ul>
-                            &ltli *ngFor="let customer of customers">
+                            &lt;li *ngFor="let customer of customers">
                                 {{ customer.name}}
-                            &lt/li>
+                            &lt;/li>
                         </ul>
                     </code>
                     <code class="hljs html" data-trim contenteditable>
-                        &ltdiv *ngFor="let item of items; let idx = index;">
+                        &lt;div *ngFor="let item of items; let idx = index;">
                             <my-item-view [item]="item"></my-item-view>
-                        &lt/div>
+                        &lt;/div>
                     </code>
                 </pre>
             </section>
@@ -167,10 +167,10 @@
                 <h3>Aufgabe 7.2 - Mögliche Lösung</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
-                        &ltdiv *ngFor="let todo of todos">
-                            &lth2>{{todo.title}}&lt/h2>
-                            &ltp>{{todo.desc}}&lt/p>
-                        &lt/div>
+                        &lt;div *ngFor="let todo of todos">
+                            &lt;h2>{{todo.title}}&lt;/h2>
+                            &lt;p>{{todo.desc}}&lt;/p>
+                        &lt;/div>
                      </code>
                     <code class="hljs typescript" data-trim contenteditable>
                             todos: any[]= [{
@@ -188,7 +188,7 @@
                 <p>Helper boolean Variablen für <span class="code">odd</span>, <span class="code">even</span>, <span class="code">first</span> und <span class="code">last</span> und die Index-Variable <span class="code">index</span></p>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
-                        &ltdiv *ngFor="let todo of todos; let idx = index;
+                        &lt;div *ngFor="let todo of todos; let idx = index;
                             let first = first; let last = last;
                             let even = even; let odd = odd;">
                             {{idx}} // 0
@@ -196,7 +196,7 @@
                             {{last}} // true
                             {{even}} // true
                             {{odd}} // false
-                        &lt/div>
+                        &lt;/div>
                     </code>
                 </pre>
             </section>
@@ -205,8 +205,8 @@
                 <p>Object Identity wird für Änderungen an der Liste genutzt um die Anpassungen im DOM verfügbar zu machen. Mit einer eigenen <span class="code">trackBy</span> Funktion kann dies gesteuert werden. Default ist object identity <span class="code">===</span></p>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
-                        &ltdiv *ngFor="let todo of todos; trackBy: myTrackFunc">
-                        &lt/div>
+                        &lt;div *ngFor="let todo of todos; trackBy: myTrackFunc">
+                        &lt;/div>
                     </code>
                     <code class="hljs typescript" data-trim contenteditable>
                         myTrackFunc(index, todo) {
@@ -219,17 +219,17 @@
                 <h3>*ngFor - kurze vs. lange Syntax</h3>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
-                        &ltdiv *ngFor="let item of items; let idx = index;">
+                        &lt;div *ngFor="let item of items; let idx = index;">
                             <my-item-view [item]="item"></my-item-view>
-                        &lt/div>
+                        &lt;/div>
                     </code>
                     <code class="hljs html" data-trim contenteditable>
-                        &lttemplate ngFor let--item let-idx="index"
+                        &lt;template ngFor let--item let-idx="index"
                             [ngForOf]="items">
-                            &ltdiv>
+                            &lt;div>
                                 <my-item-view [item]="item"></my-item-view>
-                            &lt/div>
-                        &lt/template>
+                            &lt;/div>
+                        &lt;/template>
                     </code>
                 </pre>
             </section>
@@ -247,16 +247,16 @@
                 <h3>Beispiel</h3>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
-                        &ltdiv [ngSwitch]="selectedFruit">
-                            &ltapple-view *ngSwitchCase="Fruit.APPLE">
-                                &lt/apple-view>
+                        &lt;div [ngSwitch]="selectedFruit">
+                            &lt;apple-view *ngSwitchCase="Fruit.APPLE">
+                                &lt;/apple-view>
 
-                            &ltorange-view *ngSwitchCase="Fruit.ORANGE">
-                                &lt/orange-view>
+                            &lt;orange-view *ngSwitchCase="Fruit.ORANGE">
+                                &lt;/orange-view>
 
-                            &ltno-fruit-selected *ngSwitchDefault>
-                                &lt/no-fruit-selected>
-                        &lt/div>
+                            &lt;no-fruit-selected *ngSwitchDefault>
+                                &lt;/no-fruit-selected>
+                        &lt;/div>
                     </code>
                 </pre>
             </section>
@@ -273,10 +273,10 @@
             <p>für mehrere Klassen - die <span class="code">ngClass Directive</span></p>
             <pre>
                 <code class="hljs html" data-trim contenteditable>
-                    &ltdiv [ngClass]="{
+                    &lt;div [ngClass]="{
                       'active': customer.active,
                       'inactive': !customer.active}">
-                    &lt/div>
+                    &lt;/div>
                 </code>
             </pre>
         </section>
@@ -287,18 +287,18 @@
                 <p>für einzelne Styles ein <span class="code">Style Binding</span> benutzen</p>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
-                        &ltspan
+                        &lt;span
                             [style.font-weight]="pers.isVip ? 'bold' : 'normal'">
-                        &lt/span>
+                        &lt;/span>
                     </code>
                 </pre>
                 <p>für mehrere Styles die <span class="code">ngStyle Directive</span></p>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
-                        &ltspan [ngStyle]="{
+                        &lt;span [ngStyle]="{
                           'font-size': pers.isVip ? 'bold' : 'normal'
                           'color': pers.isVip ? 'red' : 'blue'}">
-                        &lt/span>
+                        &lt;/span>
                     </code>
                 </pre>
             </section>
