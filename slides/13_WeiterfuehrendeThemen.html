@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Angular Workshop | 13 Weiterfuehrende Themen</title>
+
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/baloise.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../lib/css/atom-one-dark.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../css/print/pdf.css' : '../css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section class="deck-slide">
+            <h1>Weiterführende Themen</h1>
+        </section>
+        <section>
+            <h2>Internationalization (i18n)</h2>
+            <ul>
+                <li>Einserseits bereits in Angular integriert &rarr;
+                    Siehe <a href="https://angular.io/guide/i18n" target="_blank">hier</a></li>
+                <li>Anderseits auch sehr gute Zusatzbibliotheken wie
+                    <a href="http://www.ngx-translate.com" target="_blank">ngx-translate</a></li>
+                <li>Entscheidung nach persönlichen Vorlieben ;-)</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Redux</h2>
+            <ul>
+                <li>&laquo;Predictable state container for JS Apps&raquo;</li>
+                <li>Ganzer Applikations-State in einem gemeinsamen Store</li>
+                <li>Somit sehr einfach zu speichern (local storage) und sehr gut zum debuggen.</li>
+                <li>Kein &laquo;Durchreichen&raquo; von Daten</li>
+                <li>Gute Angular Implementation: <a href="https://github.com/ngrx/platform" target="_blank">ngrx</a>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <section>
+                <h2>Wie gliedere ich meine App?</h2>
+                <h3>Naming</h3>
+                <ul>
+                    <li>Gutes Pattern: Nenne Dinge danach, was sie tun!</li>
+                    <li>Z.B.:
+                        <ul>
+                            <li>visitor.<span class="warn">component</span>.ts</li>
+                            <li>visitor.<span class="warn">service</span>.ts</li>
+                            <li>visitor.<span class="warn">model</span>.ts</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>Wie gliedere ich meine App?</h2>
+                <h3>Ordnerstruktor</h3>
+                <ul>
+                    <li>Keine klaren Vorgaben wie bei Java (Packages)</li>
+                    <li>Deshalb gilt: Einfach beginnen!</li>
+                    <li>Erst komplexere Strukturen resp. Module aufbauen, wenn man sie wirklich braucht &rarr;
+                        YAGNI-Prinzip
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>Wie gliedere ich meine App?</h2>
+                <h3>Ort der Tests</h3>
+                <ul>
+                    <li>Auch da: Keine klaren Vorgaben wie bei Java (<span class="code">main</span> / <span
+                            class="code">test</span>)
+                    </li>
+                    <li>Es hat sich aber bewährt, die Tests dirket bei der Klasse anzulegen.</li>
+                    <li>Trenne nicht, was zusammen gehört.</li>
+                    <li>Macht es einfacher, Komponenten wiederzuverwenden</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Wie gliedere ich meine App?</h2>
+                <h3>Styling</h3>
+                <ul>
+                    <li>Globale Stylings sollten im <span class="code">styles.(s)css</span> im <span
+                            class="code">/src</span> Verzeichnis hinterlegt werden.
+                    </li>
+                    <li>Stlings die nur eine Komponente betreffen (z.B. Button) werden in der jeweiligen Komponente
+                        abgelegt &rarr; Wiederverwendung!
+                    </li>
+                </ul>
+            </section>
+        </section>
+    </div>
+</div>
+<script src="../lib/js/head.min.js"></script>
+<script src="../js/reveal.js"></script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            {src: '../plugin/markdown/marked.js'},
+            {src: '../plugin/markdown/markdown.js'},
+            {src: '../plugin/notes/notes.js', async: true},
+            {
+                src: '../plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }
+        ]
+    });
+</script>
+</body>
+</html>

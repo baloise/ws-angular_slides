@@ -39,19 +39,19 @@
         </section>
         <section>
             <section>
-                <h2>Die Komponente</h2>
+                <h2>Aufbau einer Angular-Komponente</h2>
                 <h3>Die Klasse</h3>
                 <pre>
                      <code class="hljs typescript" data-trim contenteditable data-noescape>
-                        import {Component} from "@angular/core";
+                        import {Component} from '@angular/core';
 
                         @Component({
-                            selector: 'bv-app',
+                            selector: 'app-root',
+                            templateUrl: './app.component.html',
                             styleUrls: ['./app.component.scss']
-                            templateUrl: './app.component.html'
                         })
                         export class AppComponent {
-                            title = "Hallo Welt";
+                            title = 'Hallo Welt';
                         }
 
                      </code>
@@ -75,7 +75,7 @@
                 <pre>
                      <code class="hljs typescript" data-trim contenteditable>
                         @Component({
-                            selector: 'bv-app',
+                            selector: 'app-root',
                             styles: [`.h1 {
                                 font-size: 1.2 rem;
                             }`]
@@ -90,7 +90,7 @@
                 <ul>
                     <li>Baue die bestehende Komponente auf Inline um</li>
                     <li>Nutze ein inline Template mit einer H1-Überschrift</li>
-                    <li>Style die Überschrift in einer <span style="color: #FF00FF;">schönen Farbe #FF00FF</span></li>
+                    <li>Style die Überschrift in einer <span style="color: #FF00FF;">schönen Farbe, z.B. #FF00FF</span></li>
                     <li>Denke an die Backticks und die Propertynamen</li>
                 </ul>
             </section>

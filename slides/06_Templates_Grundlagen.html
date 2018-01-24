@@ -36,9 +36,10 @@
                          <h1>{{title}}</h1>
                          <h2>Verschachtelt: {{customer.name}}</h2>
                          <h2>Funktionsaufruf: {{20 + add(2, 5)}}</h2>
-                         <a href="/customer/{{customer.name}}">Hans</a>
+                         <a href="/customer/{{customer.id}}">{{customer.name}}</a>
 
                          customer = {
+                            id: "abc",
                             name: "Hans Muster",
                          };
 
@@ -81,20 +82,23 @@
                 <h3>Aufgabe 6.1 - Mögliche Lösung</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
-                         adresse = {
-                            strasse: "Haupstrasse",
-                            nr: "12",
-                            plz: 4002,
-                            ort: "Basel"
+                        address = {
+                            street: 'Musterstrasse',
+                            number: '42',
+                            zip: '3000',
+                            city: 'Bern'
                          };
-                         createAdresse() {
-                            return this.adresse.strasse + " " + this.adresse.nr;
+
+                        renderAddress() {
+                            return `${this.address.street} ${this.address.number},
+                                ${this.address.zip} ${this.address.city}`
                          }
 
                          <ul>
                              <li>{{adresse.strasse}}</li>
+                            ...
                          </ul>
-                         <p>{{createAddresse()}}</p>
+                        <p>{{renderAddress()}}</p>
                      </code>
                  </pre>
             </section>
@@ -280,11 +284,11 @@
                 <h3>Aufgabe 6.3 - Mögliche Lösung</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
-                         <button (click)="hallo()">Klick</button>
+                         <button (click)="logHello()">Klick mich!</button>
                      </code>
                      <code class="hljs typescript" data-trim contenteditable>
-                         hallo() {
-                            console.log("Hallo Welt");
+                         logHello() {
+                            console.log("Hello");
                          }
                      </code>
                 </pre>
@@ -338,7 +342,7 @@
                 <h3>Aufgabe 6.4 - Event mit Wert</h3>
                 <ul>
                     <li>Fuege ein <span class="code">Input</span> Element hinzu.</li>
-                    <li>Gib jeden Wert, der mit dem Buchstaben "S" oder "s" beginnt auf der Konsole aus.</li>
+                    <li>Gib jeden neuen Wert auf der Konsole aus, wenn dieser mit dem Buchstaben 's' beginnt.</li>
                 </ul>
             </section>
             <section>
@@ -479,14 +483,15 @@
                 <h3>Aufgabe 6.6 - Mögliche Lösung (2)</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
-                         &lt;textarea [(ngModel)]="note"></textarea>
+                        &lt;textarea [(ngModel)]="note"
+                                   placeholder="Notiz..."></textarea>
                          <p>{{note}}</p>
-                         <button (click)="reset()">Reset</button>
+                         <button (click)="resetNote()">Reset</button>
                      </code>
                      <code class="hljs typescript" data-trim contenteditable>
-                         note = "Notiz";
-                         reset() {
-                             this.note = "Platzhalter";
+                         note = '';
+                         resetNote() {
+                             this.note = '';
                          }
                      </code>
                 </pre>
