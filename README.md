@@ -22,4 +22,5 @@
 - [10 Routing](https://baloise.github.io/ws-angular_slides/slides/10_Routing.html)
 - [11 Forms](https://baloise.github.io/ws-angular_slides/slides/11_Forms.html)
 - [12 Testing](https://baloise.github.io/ws-angular_slides/slides/12_Testing.html)
+- [13 Weiteres](https://baloise.github.io/ws-angular_slides/slides/13_WeiterfuehrendeThemen.html)
 
