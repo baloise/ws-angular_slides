@@ -8,19 +8,46 @@
 // ---------------------------------------------
 @import url(//fonts.googleapis.com/css?family=Open+Sans:300,400,800,700,600);
 
-$mainFont: 'Open Sans', sans-serif;
+@font-face {
+  font-family: "MetaPro";
+  src: url("font/MetaPro-Normal.eot?") format("eot"),
+  url("../font/MetaPro-Normal.woff") format("woff"),
+  url("../font/MetaPro-Normal.ttf") format("truetype")
+}
+$bal_brand_blue: #003399;
+$bal_rollover_blue: #002b82;
+$bal_link-cta_blue: #009ee7;
+$bal_rollover_link-cta_blue: #0290d0;
+
+$bal_bg_light_blue: #f0fbff;
+$bal_bg_grey: #fafafa;
+$bal_bg_white: #ffffff;
+$bal_line_blue: #d3dbeb;
+$bal_tile_shadow_blue: transparentize(#002162, .85);
+
+$bal_text_darkgrey: #222222;
+$bal_text_white: #ffffff;
+$bal_text_light_blue: #7188b8;
+$bal_light_text_neg: #99add6;
+
+$bal_success_green: #67d3a1;
+$bal_notification_orange: #ff9900;
+$bal_error_red: #ff3366;
+$bal_info_blue: $bal_link-cta_blue;
+
+$mainFont: 'MetaPro', sans-serif;
 $mainFontSize: 36px;
-$mainColor: #444444;
-$headingFont: 'Open Sans', sans-serif;
+$mainColor: $bal_text_darkgrey;
+$headingFont: 'MetaPro', sans-serif;
 $headingColor: #008AC9;
 $heading1Size: 3.5em;
-$heading2Size: 1.7em;
-$heading3Size: 1.25em;
+$heading2Size: 1.6em;
+$heading3Size: 1.2em;
 $heading4Size: 1em;
 $headingTextShadow: none;
 $headingTextTransform: none;
-$backgroundColor: #fff;
-$linkColor: #FF8304;
+$backgroundColor: $bal_bg_light_blue;
+$linkColor: $bal_notification_orange;
 $linkColorHover: lighten($linkColor, 20%);
 $selectionBackgroundColor: rgba(0, 0, 0, 0.99);
 
@@ -87,7 +114,7 @@ img {
     }
 
     .keyword {
-      color: #B38335;
+      color: $bal_notification_orange;
     }
 
     .tag, .literal,
@@ -169,7 +196,7 @@ img {
   }
 
   .warn {
-    color: #e06c75;
+    color: $bal_error_red;
   }
   .code {
     background: rgba(236, 239, 241, 0.56);
