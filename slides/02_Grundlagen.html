@@ -144,7 +144,16 @@
         </section>
         <section>
             <section>
-                <h3>Rest & Spreading</h3>
+                <h3>Advanced Features</h3>
+                <h4>Für die Schulung nicht notwendig</h4>
+                <ul>
+                    <li>Rest & Spreading</li>
+                    <li>Destructuring</li>
+                    <li>Funktionen als Parameter und Return Value</li>
+                </ul>
+            </section>
+            <section>
+                <h3>...Rest & [... Spreading]</h3>
                 <h4>Rest Parameter</h4>
                 <pre>
                      <code class="hljs javascript" data-trim contenteditable data-noescape>
@@ -188,20 +197,6 @@
                      </code>
                 </pre>
             </section>
-        </section>
-        <section>
-            <h3>Default Parameter</h3>
-            <h4>Wenn Parameter nicht übergeben werden oder undefined sind</h4>
-            <pre>
-                 <code class="hljs javascript" data-trim contenteditable>
-                     function fullName(first = "Hans", last = "Muster") {
-                        return first + ' ' + last;
-                     }
-                     console.log(fullName("Peter")); // "Peter Muster"
-				 </code>
-            </pre>
-        </section>
-        <section>
             <section>
                 <h3>Destructuring</h3>
                 <h4>Daten aus Arrays extrahieren</h4>
@@ -241,8 +236,6 @@
                      </code>
                  </pre>
             </section>
-        </section>
-        <section>
             <section>
                 <h3>Funktionen als First Class Objekte</h3>
                 <h4>Zuweisung</h4>
@@ -319,6 +312,18 @@
                      </code>
                  </pre>
             </section>
+        </section>
+        <section>
+            <h3>Default Parameter</h3>
+            <h4>Wenn Parameter nicht übergeben werden oder undefined sind</h4>
+            <pre>
+                 <code class="hljs javascript" data-trim contenteditable>
+                     function fullName(first = "Hans", last = "Muster") {
+                        return first + ' ' + last;
+                     }
+                     console.log(fullName("Peter")); // "Peter Muster"
+				 </code>
+            </pre>
         </section>
         <section>
             <section>
