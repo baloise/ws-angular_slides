@@ -97,7 +97,7 @@
                         &lt;div *ngIf="mode === 'extended'">
                             &lt;input type="text" [value]="extendedValue"
                                    (input)="extendedValue=$event.target.value">
-                            &lt;p *ngIf="extendedValue.length >= 2">
+                            &lt;p *ngIf="extendedValue.length > 2">
                                 Wert: {{extendedValue}}
                             &lt;/p>
                         &lt;/div>
