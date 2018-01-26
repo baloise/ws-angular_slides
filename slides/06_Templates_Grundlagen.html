@@ -365,7 +365,7 @@
                     <li>Erstelle ein selbst kreiertes Two-way Data Binding für ein <span class="code">Input</span> Feld.
                     </li>
                     <li>Erstelle ein Input Feld mit einem Binding für einen String, z. B. "name"</li>
-                    <li>Erstelle einen Textblock <span class="code">"p-Tag"</span> der den Wert aus dem Eingabefeld
+                    <li>Erstelle einen Textblock (<span class="code">&lt;p&gt;</span>-Tag) der den Wert aus dem Eingabefeld
                         anzeigt.
                     </li>
                     <li>Nutze ein <span class="code">Property</span>-Binding, ein <span class="code">Event</span>-Binding
@@ -454,32 +454,14 @@
                             class="code">Textarea</span> zum Anzeigen einer Notiz <span class="code">note</span>.
                     </li>
                     <li>Nutze die kurze "Bananenschachtel" Syntax.</li>
-                    <li>Erstelle ein <span class="code">p-tag</span> und gebe dort den Text der Variablen <span
+                    <li>Erstelle ein <span class="code">&lt;p&gt;</span>-Tag und gebe dort den Text der Variablen <span
                             class="code">note</span> aus.
                     </li>
                     <li>Erstelle einen Button um den Text der Notiz auf "Platzhalter" zurück zu setzen.</li>
                 </ul>
             </section>
             <section>
-                <h3>Aufgabe 6.6 - Mögliche Lösung (1)</h3>
-                <p>Benötigten Import im Module hinzufügen:</p>
-                <pre>
-                     <code class="hljs typescript" data-trim contenteditable>
-                         import { FormsModule } from '@angular/forms';
-
-                         @NgModule({
-                            ...
-                            imports: [
-                                BrowserModule,
-                                FormsModule
-                            ],
-                            ...
-                         })
-                     </code>
-                </pre>
-            </section>
-            <section>
-                <h3>Aufgabe 6.6 - Mögliche Lösung (2)</h3>
+                <h3>Aufgabe 6.6 - Mögliche Lösung</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
                         &lt;textarea [(ngModel)]="note"
