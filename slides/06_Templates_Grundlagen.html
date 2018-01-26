@@ -65,7 +65,7 @@
             <section>
                 <h3>Aufgabe 6.1 - Interpolation</h3>
                 <ul>
-                    <li>Erzeuge eine Adresse als Objekt-Literal. Nutze Felder wie Strasse, Nr, Ort, PLZ</li>
+                    <li>Erzeuge eine Adresse als Objekt-Literal. Nutze Felder wie Strasse, Ort, PLZ</li>
                     <li>Zeige die einzelnen Felder in einer Liste an</li>
                     <li>Schreibe eine Funktion die die komplette Adresse rendert und stelle diese dar</li>
                     <li>Hint: Ungeordnete Listen sehen so aus</li>
@@ -84,18 +84,17 @@
                      <code class="hljs html" data-trim contenteditable>
                         address = {
                             street: 'Musterstrasse',
-                            number: '42',
                             zip: '3000',
                             city: 'Bern'
                          };
 
                         renderAddress() {
-                            return `${this.address.street} ${this.address.number},
+                            return `${this.address.street},
                                 ${this.address.zip} ${this.address.city}`
                          }
 
                          <ul>
-                             <li>{{adresse.strasse}}</li>
+                             <li>{{adresse.street}}</li>
                             ...
                          </ul>
                         <p>{{renderAddress()}}</p>

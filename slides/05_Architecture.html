@@ -25,10 +25,10 @@
 <div class="reveal">
     <div class="slides">
         <section class="deck-slide">
-            <h1>Architektur</h1>
+            <h1>Architektur - High Level</h1>
         </section>
         <section>
-            <h2>Überblick</h2>
+            <h2>Angular im Überblick</h2>
             <img src="../img/architecture.png">
         </section>
         <section>
@@ -89,6 +89,10 @@
 
                           constructor() { }
 
+                          sayHello() {
+                              console.log('Hello');
+                          }
+
                         }
                      </code>
                  </pre>
@@ -129,7 +133,7 @@
                 <ul>
                     <li>Interpolation: <span class="code">{{person.name}}</span> - zeigt den Wert des person.name properties an</li>
                     <li>Property Binding: <span class="code">[person]</span> - übergibt den Wert von "selectedPerson" an die Person Komponente</li>
-                    <li>Event Binding: <span class="code">(click)</span> - ruft selectPerson()</li>
+                    <li>Event Binding: <span class="code">(click)</span> - ruft bei jedem click-Event selectPerson() auf</li>
                 </ul>
             </section>
         </section>
