@@ -79,7 +79,7 @@
                     <li>Falls im <span class="code">Input</span> Feld mehr als 2 Zeichen stehen, gebe den Text darunter
                         aus.
                     </li>
-                    <li>Hint: es gibt einen Typ "radio" auf dem <span class="code">Input</span></li>
+                    <li>Hint: es gibt einen Typ "radio" auf dem <span class="code">Input</span>, denke an das <span class="code">value</span> Property und nutze <span class="code">[(ngModel)]</span></li>
                     <li>Hint: Eine Radiogroup erhält man, indem man den <span class="code">Inputs</span> den selben Wert
                         für das name-Property zuweist
                     </li>
@@ -89,12 +89,12 @@
                 <h3>Aufgabe 7.1 - Mögliche Lösung</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
-                        &lt;input type="radio" name="mode"
-                               [(ngModel)]="mode" value="simple">Einfach
-                        &lt;input type="radio" name="mode"
-                               [(ngModel)]="mode" value="extended">Erweitert
+                        &lt;input type="radio" name="myName"
+                               [(ngModel)]="setting" value="simple">Einfach
+                        &lt;input type="radio" name="myName"
+                               [(ngModel)]="setting" value="extended">Erweitert
 
-                        &lt;div *ngIf="mode === 'extended'">
+                        &lt;div *ngIf="setting === 'extended'">
                             &lt;input type="text" [value]="extendedValue"
                                    (input)="extendedValue=$event.target.value">
                             &lt;p *ngIf="extendedValue.length > 2">
@@ -104,7 +104,7 @@
                      </code>
                     <code class="hljs typescript" data-trim contenteditable>
                          val: string = "";
-                         setting: string = "Einfach";
+                         setting: string = "simple";
                     </code>
                  </pre>
             </section>
