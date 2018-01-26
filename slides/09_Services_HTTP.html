@@ -291,32 +291,12 @@
                     <li>wird meist im Constructor eines Service injected</li>
                     <li>bietet alle gängigen HTTP Methoden: <span class="code">get</span>, <span class="code">post</span>, <span class="code">put</span>, <span class="code">delete</span>, <span class="code">patch</span>, <span class="code">head</span> und <span class="code">options</span></li>
                     <li>Standardmässig wird eine JSON-Response vom angegebenen Typ erwartet <span>&#10230;</span> <span class="code">http.get&lt;Pizza[]></span></li>
-                    <li>Error-Handling wird beim subscriben gemacht.</li>
+                    <li>Error-Handling wie bei Promises mit einem <span class="code">catch()</span>Block</li>
                     <li>Sehr mächtiges Interface: <a href="https://angular.io/guide/http" target="_blank">Offizielle Dokumentation</a></li>
                 </ul>
             </section>
             <section>
                 <h3>Erstes Beispiel</h3>
-                <p><span class="code">HttpClient</span> im Module hinzufügen</p>
-                <pre>
-                    <code class="hljs typescript" data-trim contenteditable>
-                        //...
-                        import {HttpClientModule} from "@angular/common/http";
-                        //...
-
-
-                        @NgModule({
-                            //...
-                            imports: [..., HttpClientModule],
-                            //...
-                        })
-                        export class AppModule {
-                        }
-                    </code>
-                </pre>
-            </section>
-            <section>
-                <h3>Erstes Beispiel (2)</h3>
                 <p>Funktion im Service erstellen, der GET-Request ausführt.</p>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
@@ -338,7 +318,7 @@
                 </pre>
             </section>
             <section>
-                <h3>Erstes Beispiel (3)</h3>
+                <h3>Erstes Beispiel (2)</h3>
                 <p>Service-Funktion in Komponente aufrufen und auf <span class="code">Observable</span> subscriben.</p>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
