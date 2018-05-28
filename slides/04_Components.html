@@ -31,16 +31,16 @@
             <h2>Components!</h2>
             <img src="../img/components.png">
             <p>Navigation, Search, Logo, Board-List, Board...</p>
-            <p>Board-Page (umfassende Komponente)</p>
+            <p>Board-Page (outer component)</p>
         </section>
         <section>
-            <h2>Die App - ein Baum von Komponenten</h2>
+            <h2>the app - a tree of components</h2>
             <img src="../img/component_tree.png">
         </section>
         <section>
             <section>
-                <h2>Aufbau einer Angular-Komponente</h2>
-                <h3>Die Klasse</h3>
+                <h2>setup of an angular component</h2>
+                <h3>the class</h3>
                 <pre>
                      <code class="hljs typescript" data-trim contenteditable data-noescape>
                         import {Component} from '@angular/core';
@@ -51,26 +51,26 @@
                             styleUrls: ['./app.component.scss']
                         })
                         export class AppComponent {
-                            title = 'Hallo Welt';
+                            title = 'Hello World';
                         }
 
                      </code>
                  </pre>
             </section>
             <section>
-                <h3>Metadaten</h3>
+                <h3>metadata</h3>
                 <ul>
-                    <li>mit Decoratorn (Annotations)</li>
-                    <li>diese sind einfache Funktionen @Component()</li>
-                    <li>Konfiguration als Objekt mit properties</li>
+                    <li>with Decorators (Annotations)</li>
+                    <li>those are simple functions @Component()</li>
+                    <li>configuration object with properties as param</li>
                     <li>{ selector: 'blubb'}</li>
                 </ul>
             </section>
             <section>
                 <h3>@Component</h3>
                 <ul>
-                    <li>muss zwingend vorhanden sein</li>
-                    <li>statt einer templateUrl kann auch ein Template Inline mit Backtips ` verwendet werden</li>
+                    <li>is mandatory</li>
+                    <li>instead of an external template with templateUrl, an inline Template with backtips ` can be used</li>
                 </ul>
                 <pre>
                      <code class="hljs typescript" data-trim contenteditable>
@@ -79,23 +79,23 @@
                             styles: [`h1 {
                                 font-size: 1.2 rem;
                             }`],
-                            template: `<h1>Ich bin ein Titel</h1>`
+                            template: `<h1>I am a title</h1>`
                         })
                         export class AppComponent {}
                      </code>
                  </pre>
             </section>
             <section>
-                <h3>Aufgabe 4.1</h3>
+                <h3>Task 4.1</h3>
                 <ul>
-                    <li>Baue die bestehende Komponente auf Inline um</li>
-                    <li>Nutze ein inline Template mit einer H1-Überschrift</li>
-                    <li>Style die Überschrift in einer <span style="color: #FF00FF;">schönen Farbe, z.B. #FF00FF</span></li>
-                    <li>Denke an die Backticks und die Propertynamen</li>
+                    <li>Change the existing component to use an inline template</li>
+                    <li>Use a h1 heading in your inline template</li>
+                    <li>use a style for the heading with<span style="color: #FF00FF;"> a beautfiul color, e.g. #FF00FF</span></li>
+                    <li>Remember the backticks and the property names</li>
                 </ul>
             </section>
             <section>
-                <h3>Mögliche Lösung</h3>
+                <h3>Possible solution</h3>
                 <pre>
                      <code class="hljs typescript" data-trim contenteditable>
                         import {Component} from '@angular/core';
@@ -106,14 +106,14 @@
                             styles: [`h1 {color: #FF00FF;}`]
                         })
                         export class AppComponent {
-                            title = 'Schöner Titel';
+                            title = 'Beautiful title';
                         }
                      </code>
                  </pre>
             </section>
         </section>
         <section>
-            <h2>Noch etwas unklar?</h2>
+            <h2>Questions so far?</h2>
             <img src="../img/questions_less_than_a_minute_ag.jpg" width="60%">
         </section>
     </div>
