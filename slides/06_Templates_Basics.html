@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Angular Workshop | 06 Templates Grundlagen</title>
+    <title>Angular Workshop | 06 Templates Basics</title>
 
     <link rel="stylesheet" href="../css/reveal.css">
     <link rel="stylesheet" href="../css/theme/baloise.css">
@@ -25,17 +25,17 @@
 <div class="reveal">
     <div class="slides">
         <section class="deck-slide">
-            <h1>Templates - Grundlagen</h1>
+            <h1>Templates - Basics</h1>
         </section>
         <section>
             <section>
                 <h2>Interpolation</h2>
-                <h3>doppelte geschweifte Klammern: {{}}</h3>
+                <h3>double curly braces: {{}}</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
                          <h1>{{title}}</h1>
-                         <h2>Verschachtelt: {{customer.name}}</h2>
-                         <h2>Funktionsaufruf: {{20 + add(2, 5)}}</h2>
+                         <h2>nested: {{customer.name}}</h2>
+                         <h2>functon call: {{20 + add(2, 5)}}</h2>
                          <a href="/customer/{{customer.id}}">{{customer.name}}</a>
 
                          customer = {
@@ -50,25 +50,24 @@
                  </pre>
             </section>
             <section>
-                <h3>Interpolation im Detail</h3>
+                <h3>Interpolation in Detail</h3>
                 <ul>
-                    <li>nutzt Properties oder Methoden der Komponente</li>
-                    <li>die Interpolation wird durch den Wert ersetzt</li>
-                    <li>wie der Aufruf der <span class="code">add</span> Funktion zeigt: zwischen den Klammern steht
-                        eine <span class="code">Template Expression</span>
+                    <li>uses the components properties or methods</li>
+                    <li>interpolation is being replaced by the actual value</li>
+                    <li>as the call of the <span class="code">add</span> function shows: there is a
+                         <span class="code">Template Expression</span> between the parentheses
                     </li>
-                    <li>die Expression wird zuerst evaluiert, in einen String konvertiert und mit anderen Strings
-                        verbunden. Zuletzt wird der Wert dem Element zugewiesen.
+                    <li>the expression is evaluated first, converted to a string and concatenaed with other strings. Last, the value is assigned to the element.
                     </li>
                 </ul>
             </section>
             <section>
-                <h3>Aufgabe 6.1 - Interpolation</h3>
+                <h3>Task 6.1 - Interpolation</h3>
                 <ul>
-                    <li>Erzeuge eine Adresse als Objekt-Literal. Nutze Felder wie Strasse, Ort, PLZ</li>
-                    <li>Zeige die einzelnen Felder in einer Liste an</li>
-                    <li>Schreibe eine Funktion die die komplette Adresse rendert und stelle diese dar</li>
-                    <li>Hint: Ungeordnete Listen sehen so aus</li>
+                    <li>Create an address as an object literal. Use the fields street, town, zip code</li>
+                    <li>show the fields in a list</li>
+                    <li>write a function </li>
+                    <li>Hint: unordered lists look like this</li>
                 </ul>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
@@ -79,7 +78,7 @@
                  </pre>
             </section>
             <section>
-                <h3>Aufgabe 6.1 - Mögliche Lösung</h3>
+                <h3>Task 6.1 - Possible Solution</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
                         address = {
@@ -94,7 +93,7 @@
                          }
 
                          <ul>
-                             <li>{{adresse.street}}</li>
+                             <li>{{address.street}}</li>
                             ...
                          </ul>
                         <p>{{renderAddress()}}</p>
@@ -106,19 +105,19 @@
             <section>
                 <h3>Template Expressions</h3>
                 <ul>
-                    <li>in den Interpolationsklammern befindet sich eine Template Expression, z.B. <span class="code">{{1 + 1}}</span>
+                    <li>between the interpolation parentheses, there is a so called expression <span class="code">{{1 + 1}}</span>
                     </li>
-                    <li>ein reduziertes Set von JavaScript</li>
-                    <li>keine Assigmnents (=, +=, *=, ...) erlaubt</li>
-                    <li>kein <span class="code">new</span></li>
-                    <li>keine Seiteneffekte wie <span class="code">++</span> (Idempotenz, pure Functions)</li>
+                    <li>a reduced set of JavaScript</li>
+                    <li>no assignemtns allowed (=, +=, *=, ...) erlaubt</li>
+                    <li>no <span class="code">new</span></li>
+                    <li>no side effects, as <span class="code">++</span> (idempotency, pure Functions)</li>
                 </ul>
             </section>
             <section>
                 <h3>Template Statements</h3>
                 <ul>
-                    <li>Ausführen von Seiteneffekten</li>
-                    <li>reagieren auf Events (Benutzer Aktionen)</li>
+                    <li>execution of side effects</li>
+                    <li>react to events (user actions)</li>
                 </ul>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
@@ -132,17 +131,17 @@
         <section>
             <section>
                 <h2>Bindings</h2>
-                <h3>Übersicht (1)</h3>
+                <h3>Overview (1)</h3>
                 <table>
                     <tr>
-                        <th>Richtung</th>
+                        <th>Direction</th>
                         <th>Syntax</th>
                         <th>Name</th>
                     </tr>
                     <tr>
                         <td>
                             One-way,
-                            Komponente zur View
+                            Component to View
                         </td>
                         <td>
                             <pre>
@@ -152,22 +151,22 @@
                                  </code>
                              </pre>
                         </td>
-                        <td>Property, Attribut, Style...</td>
+                        <td>Property, Attribute, Style...</td>
                     </tr>
                 </table>
             </section>
             <section>
-                <h3>Übersicht (2)</h3>
+                <h3>Overview (2)</h3>
                 <table>
                     <tr>
-                        <th>Richtung</th>
+                        <th>Direction</th>
                         <th>Syntax</th>
                         <th>Name</th>
                     </tr>
                     <tr>
                         <td>
                             One-way,
-                            View zur Komponente
+                            View to Component
                         </td>
                         <td>
                             <pre>
@@ -197,10 +196,10 @@
         <section>
             <section>
                 <h2>Property Binding - [property]</h2>
-                <h3>Beispiele</h3>
+                <h3>Examples</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
-                         <a [href]="url">Klick mich</a>
+                         <a [href]="url">Click me</a>
                      </code>
                     <code class="hljs html" data-trim contenteditable>
                          <button [disabled]="bool">Disabled: {{bool}}</button>
@@ -211,46 +210,46 @@
                  </pre>
             </section>
             <section>
-                <h3>Aufgabe 6.2 - Property Binding</h3>
+                <h3>Task 6.2 - Property Binding</h3>
                 <ul>
-                    <li>Füge ein <span class="code">input</span> Element hinzu</li>
-                    <li>Binde den Wert der Strasse an das Value-Property des Input Feldes</li>
+                    <li>Add an <span class="code">input</span> element</li>
+                    <li>Bind the value of the street to the value-property of the input field</li>
                 </ul>
             </section>
             <section>
-                <h3>Aufgabe 6.2 - Mögliche Lösung</h3>
+                <h3>Task 6.2 - Possible Solution</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
-                         <input [value]="adresse.strasse"/>
+                         <input [value]="adress.street"/>
                      </code>
                 </pre>
-                <p>... oder die Canonical Form mit dem bind-Präfix</p>
+                <p>... or use the canonical form with the bind-prefix</p>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
-                         <input bind-value="adresse.strasse"/>
+                         <input bind-value="adress.street"/>
                      </code>
                  </pre>
-                <p>Ich präferiere die obere (kürzere) Variante und werde ausschliesslich diese verwenden.</p>
+                <p>I prefer the first (shorter) variant and i will exclusively use this one.</p>
             </section>
         </section>
         <section>
             <section>
-                <h2>HTML und DOM</h2>
+                <h2>HTML and DOM</h2>
                 <ul>
-                    <li>DOM ist nicht wirklich ein Model, sondern die Schnittstelle zum Zugriff auf HTML</li>
-                    <li>HTML kennt Attribute (z. B. <span class="code">value</span>)</li>
-                    <li>DOM kennt Properties (z. B. <span class="code">value</span>)</li>
-                    <li>HTML <span class="code">value</span> ist der initale Wert</li>
-                    <li>DOM <span class="code">value</span> ist der aktuelle Wert</li>
+                    <li>DOM is not really a model it is more or less an API to access HTML</li>
+                    <li>HTML knows attributes (e.g. <span class="code">value</span>)</li>
+                    <li>DOM knows properties (e.g. <span class="code">value</span>)</li>
+                    <li>HTML <span class="code">value</span> is the inital value</li>
+                    <li>DOM <span class="code">value</span> is the current value</li>
                 </ul>
             </section>
             <section>
-                <h3>Attribute vs. Properties</h3>
+                <h3>Attributes vs. Properties</h3>
                 <ul>
-                    <li>HTML Attribute initialisieren lediglich DOM Properties</li>
-                    <li>DOM Properties können sich ändern, Attribute nicht</li>
-                    <li>Die Bindings in Angular arbeiten ausschliesslich mit DOM Properties und Events, <span
-                            class="warn">NICHT</span> mit HTML
+                    <li>HTML Attribute initialize DOM Properties</li>
+                    <li>DOM Properties can change, attributes can not</li>
+                    <li>bindings in angular only work with DOM properteis and event, <span
+                            class="warn">NOT</span> with HTML
                         Attributen
                     </li>
                 </ul>
@@ -259,13 +258,13 @@
         <section>
             <section>
                 <h2>Event binding - (event)</h2>
-                <h3>Beispiele</h3>
+                <h3>Examples</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
-                         <button (click)="createPerson()">Neue Person</button>
+                         <button (click)="createPerson()">New Person</button>
                      </code>
                     <code class="hljs html" data-trim contenteditable>
-                         <postal-address (customEvent)="machWas()"></postal-address>
+                         <postal-address (customEvent)="doSth()"></postal-address>
                      </code>
                     <code class="hljs html" data-trim contenteditable>
                          &lt;people (deletePerson)="delete($event)"></people>
@@ -273,17 +272,17 @@
                  </pre>
             </section>
             <section>
-                <h3>Aufgabe 6.3 - Event Binding</h3>
+                <h3>Task 6.3 - Event Binding</h3>
                 <ul>
-                    <li>Füge einen <span class="code">Button</span> hinzu.</li>
-                    <li>Rufe beim Klick eine Methode auf, die etwas auf der Konsole ausgibt.</li>
+                    <li>Add a <span class="code">Button</span></li>
+                    <li>Once clicked, call a method that prints sth. on the javascript console</li>
                 </ul>
             </section>
             <section>
-                <h3>Aufgabe 6.3 - Mögliche Lösung</h3>
+                <h3>Task 6.3 - Possible Solution</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
-                         <button (click)="logHello()">Klick mich!</button>
+                         <button (click)="logHello()">click me!</button>
                      </code>
                      <code class="hljs typescript" data-trim contenteditable>
                          logHello() {
@@ -291,16 +290,16 @@
                          }
                      </code>
                 </pre>
-                <p>... oder die Canonical Form mit dem on-Präfix</p>
+                <p>... or the canonical variant with the on-prefix</p>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
-                         <button on-click="hallo()">Klick</button>
+                         <button on-click="logHello()">Click</button>
                      </code>
                  </pre>
             </section>
             <section>
                 <h3>$event</h3>
-                <h4>Werte per Event übergeben</h4>
+                <h4>hand over values with events</h4>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
                          <input (input)="print($event.target.value)">
@@ -309,7 +308,7 @@
                          }
                      </code>
                 </pre>
-                <p>... oder den Wert in der Methode auslesen</p>
+                <p>... or read the value in the method</p>
                 <pre>
                       <code class="hljs html" data-trim contenteditable>
                          <input (input)="printEvent($event)">
@@ -320,32 +319,31 @@
                  </pre>
             </section>
             <section>
-                <h3>Zugriff auf Werte</h3>
+                <h3>access to values</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
                          <input (input)="print($event.target.value)">
                      </code>
                  </pre>
                 <ul>
-                    <li>Events sind vom Typ <span class="code">KeyboardEvent</span>, <span
+                    <li>Events have a type, e.g. <span class="code">KeyboardEvent</span>, <span
                             class="code">MouseEvent</span>, <span class="code">FocusEvent</span>, <span class="code">InputEvent</span>...
-                        oder auch eigene Events
+                        or also custom events
                     </li>
-                    <li>Das <span class="code">target</span> property ist eine Referenz auf das Element, welches das
-                        Event ausgelöst hat
+                    <li>The <span class="code">target</span> property is a reference to the element that triggered the event
                     </li>
-                    <li>mit <span class="code">.value</span> kann auf den Wert zugegriffen werden</li>
+                    <li>the value can be accessed with <span class="code">.value</span</li>
                 </ul>
             </section>
             <section>
-                <h3>Aufgabe 6.4 - Event mit Wert</h3>
+                <h3>Task 6.4 - Event with a value</h3>
                 <ul>
-                    <li>Fuege ein <span class="code">Input</span> Element hinzu.</li>
-                    <li>Gib jeden neuen Wert auf der Konsole aus, wenn dieser mit dem Buchstaben 's' beginnt.</li>
+                    <li>Add a <span class="code">Input</span> element.</li>
+                    <li>Print any new value on the console that starts with the letter 's'.</li>
                 </ul>
             </section>
             <section>
-                <h3>Aufgabe 6.4 - Mögliche Lösung</h3>
+                <h3>Task 6.4 - Possible Solution</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
                          <input (input)="printSValues($event.target.value)">
@@ -360,21 +358,20 @@
                  </pre>
             </section>
             <section>
-                <h3>Aufgabe 6.5 - Two-way data binding</h3>
+                <h3>Task 6.5 - Two-way data binding</h3>
                 <ul>
-                    <li>Erstelle ein selbst kreiertes Two-way Data Binding für ein <span class="code">Input</span> Feld.
+                    <li>Create a self-created two-way data binding for a <span class="code">Input</span> field.
                     </li>
-                    <li>Erstelle ein Input Feld mit einem Binding für einen String, z. B. "name"</li>
-                    <li>Erstelle einen Textblock (<span class="code">&lt;p&gt;</span>-Tag) der den Wert aus dem Eingabefeld
-                        anzeigt.
+                    <li>Create an input field with a binding for a string, e.g. "name".</li>
+                    <li>Create a text block (<span class="code">&lt;p&gt;</span>-Tag) containing the value from the input field.
                     </li>
-                    <li>Nutze ein <span class="code">Property</span>-Binding, ein <span class="code">Event</span>-Binding
-                        und eine Variable in der Komponente.
+                    <li>Use a <span class="code">Property</span> binding, an <span class="code">Event</span> binding
+                        and a variable in the component.
                     </li>
                 </ul>
             </section>
             <section>
-                <h3>Aufgabe 6.5 - Mögliche Lösungen</h3>
+                <h3>Task 6.5 - Possible Solutionen</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
                          <input [value]="name" (input)="name=$event.target.value">
@@ -384,7 +381,7 @@
                          name = "Hans";
                      </code>
                 </pre>
-                <p>Oder mit einer Funktion in der Komponente:</p>
+                <p>Or with a function in the component:</p>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
                          <input [value]="name" (input)="fun($event.target.value)">
@@ -407,12 +404,12 @@
                     </code>
                 </pre>
                 <ul>
-                    <li>schauen wir später für eigene Bindings im Kapitel Formulare genauer an</li>
-                    <li>intern nur ein <span class="code">Property</span> Binding und ein <span class="code">Event</span> Binding</li>
+                    <li>we will take a closer look at creating own bindings in the form chapter</li>
+                    <li>internally only a <span class="code">Property</span> binding and an <span class="code">Event</span> Binding</li>
                 </ul>
             </section>
             <section>
-                <h3>Two-way Binding mit NgModel</h3>
+                <h3>Two-way Binding with NgModel</h3>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
                        &lt;input [ngModel]="name"
@@ -430,43 +427,43 @@
                     </code>
                 </pre>
                 <ul>
-                    <li><span class="code">[property]</span>Binding mit einem <span class="code">(propertyChange)</span>
+                    <li><span class="code">[property]</span>Binding with an <span class="code">(propertyChange)</span>
                         Event
                     </li>
                 </ul>
             </section>
             <section>
-                <h3>NgModel in Detail</h3>
+                <h3>NgModel in detail</h3>
                 <ul>
-                    <li>benötigt das Modul <span class="code">FormsModule</span></li>
-                    <li>ist eine Kombination aus <span class="code">[ngModel]</span> und <span class="code">(ngModelChange)</span>
+                    <li>requires the module <span class="code">FormsModule</span></li>
+                    <li>is a combination of <span class="code">[ngModel]</span> and <span class="code">(ngModelChange)</span>
                     </li>
-                    <li>Der Wert steht direkt in der <span class="code">$event</span>-Variable</li>
-                    <li>Angular kapselt den Zugriff auf den DOM. Welches Event? Welches Property?</li>
-                    <li>Für eigene Komponenten: <span class="code">ControlValueAccessor</span> Interface implementieren
+                    <li>The value is directly in the <span class="code">$event</span>-variable</li>
+                    <li>Angular encapsulates access to the DOM. What event? What property?</li>
+                    <li>for own components: implement <span class="code">ControlValueAccessor</span> Interface
                     </li>
                 </ul>
             </section>
             <section>
-                <h3>Aufgabe 6.6 - NgModel</h3>
+                <h3>Task 6.6 - NgModel</h3>
                 <ul>
-                    <li>Erstelle ein Two-way data binding mit <span class="code">ngModel</span> für eine <span
-                            class="code">Textarea</span> zum Anzeigen einer Notiz <span class="code">note</span>.
+                    <li>Create a Two-way data binding with <span class="code">ngModel</span> for a <span
+                            class="code">Textarea</span> in order to display the note <span class="code">note</span>.
                     </li>
-                    <li>Nutze die kurze "Bananenschachtel" Syntax.</li>
-                    <li>Erstelle ein <span class="code">&lt;p&gt;</span>-Tag und gebe dort den Text der Variablen <span
-                            class="code">note</span> aus.
+                    <li>Use the short "banana-in-a-box" syntax.</li>
+                    <li>Create a <span class="code">&lt;p&gt;</span>-Tag and display the value of the <span
+                            class="code">note</span> variable.
                     </li>
-                    <li>Nutze einen <span class="code">placeholder</span></li>
-                    <li>Erstelle einen Button um den Text der Notiz zurück zu setzen.</li>
+                    <li>Use a  <span class="code">placeholder</span></li>
+                    <li>Create a button to reset the text of the note.</li>
                 </ul>
             </section>
             <section>
-                <h3>Aufgabe 6.6 - Mögliche Lösung</h3>
+                <h3>Task 6.6 - Possible Solution</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
                         &lt;textarea [(ngModel)]="note"
-                                   placeholder="Notiz..."></textarea>
+                                   placeholder="Note..."></textarea>
                          <p>{{note}}</p>
                          <button (click)="resetNote()">Reset</button>
                      </code>
@@ -481,8 +478,8 @@
         </section>
         <section>
             <section>
-                <h2>Template Referenz Variable - #variable</h2>
-                <h3>Syntax im HTML - mit #name</h3>
+                <h2>Template Reference Variable - #variable</h2>
+                <h3>Syntax in HTML - with #name</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
                          &lt;input #note>
@@ -496,24 +493,24 @@
             <section>
                 <h3># - behind the scenes</h3>
                 <ul>
-                    <li>Eine Referenz auf ein DOM Element, oder eine Komponente</li>
-                    <li>Im gesamten Template verfügbar</li>
-                    <li>Eine Referenz auf ein Input Element liefert das tatsächliche Element zurück, wie <span class="code">$event.target</span></li>
-                    <li>Alternative syntax: <span class="code">ref-note</span> statt <span class="code">#note</span></li>
+                    <li>A reference to a DOM element, or a component</li>
+                    <li>Available throughout the whole template</li>
+                    <li>A reference to an input element returns the actual element, such as <span class="code">$event.target</span></li>
+                    <li>Alternative syntax: <span class="code">ref-note</span> instead of <span class="code">#note</span></li>
                 </ul>
             </section>
             <section>
-                <h3>Aufgabe 6.7 - Template Ref Variable</h3>
+                <h3>Task 6.7 - Template Ref Variable</h3>
                 <ul>
-                    <li>Erstelle einen Button und eine Checkbox. Eine Checkbox ist ein <span class="code">Input</span> vom Typ <span class="code">checkbox</span></li>
-                    <li>Die Checkbox soll den Button disablen / enablen</li>
-                    <li>Benutze hierfür eine Template Referenz Variable</li>
-                    <li>Hint: ein Button hat ein disabled Property</li>
-                    <li>Hint: ein Input hat ein <span class="code">(change)</span> Event</li>
+                    <li>Create a button and a checkbox. A checkbox is a <span class="code">Input</span> of type <span class="code">checkbox</span></li>
+                    <li>the checkbox should disable / enable the button</li>
+                    <li>Use a Template Reference Variable</li>
+                    <li>Hint: a Button has a disabled Property</li>
+                    <li>Hint: an Input has a <span class="code">(change)</span> Event</li>
                 </ul>
             </section>
             <section>
-                <h3>Aufgabe 6.7 - Mögliche Lösung</h3>
+                <h3>Task 6.7 - Possible Solution</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
                          &lt;input type="checkbox"
