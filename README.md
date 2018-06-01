@@ -11,7 +11,7 @@
 
 ## Inhalt
 - [01 Intro](https://baloise.github.io/ws-angular_slides/slides/01_Intro.html)
-- [02 Basiscs](https://baloise.github.io/ws-angular_slides/slides/02_Basics.html)
+- [02 Basics](https://baloise.github.io/ws-angular_slides/slides/02_Basics.html)
 - [03 Project Setup](https://baloise.github.io/ws-angular_slides/slides/03_ProjectSetup.html)
 - [04 Components](https://baloise.github.io/ws-angular_slides/slides/04_Components.html)
 - [05 Architecture](https://baloise.github.io/ws-angular_slides/slides/05_Architecture.html)
