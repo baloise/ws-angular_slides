@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Angular Workshop | 13 Weiterfuehrende Themen</title>
+    <title>Angular Workshop | 13 Additional Topics</title>
 
     <link rel="stylesheet" href="../css/reveal.css">
     <link rel="stylesheet" href="../css/theme/baloise.css">
@@ -25,36 +25,35 @@
 <div class="reveal">
     <div class="slides">
         <section class="deck-slide">
-            <h1>Weiterführende Themen</h1>
+            <h1>Additional Topics</h1>
         </section>
         <section>
             <h2>Internationalization (i18n)</h2>
             <ul>
-                <li>Einserseits bereits in Angular integriert <span>&#10230;</span>
-                    Siehe <a href="https://angular.io/guide/i18n" target="_blank">hier</a></li>
-                <li>Anderseits auch sehr gute Zusatzbibliotheken wie
+                <li>built in <span>&#10230;</span>
+                    See <a href="https://angular.io/guide/i18n" target="_blank">here</a></li>
+                <li>There are also excellent libraries:
                     <a href="http://www.ngx-translate.com" target="_blank">ngx-translate</a></li>
-                <li>Entscheidung nach persönlichen Vorlieben ;-)</li>
+                <li>You can decide ;-)</li>
             </ul>
         </section>
         <section>
             <h2>Redux</h2>
             <ul>
                 <li>&laquo;Predictable state container for JS Apps&raquo;</li>
-                <li>Ganzer Applikations-State in einem gemeinsamen Store</li>
-                <li>Somit sehr einfach zu speichern (local storage) und sehr gut zum debuggen.</li>
-                <li>Kein &laquo;Durchreichen&raquo; von Daten</li>
-                <li>Gute Angular Implementation: <a href="https://github.com/ngrx/platform" target="_blank">ngrx</a>
+                <li>whole application state in one single store</li>
+                <li>easy to persist (local storage) and also very easy to debug.</li>
+                <li>excellent Angular implementation: <a href="https://github.com/ngrx/platform" target="_blank">ngrx</a>
                 </li>
             </ul>
         </section>
         <section>
             <section>
-                <h2>Wie gliedere ich meine App?</h2>
+                <h2>How to structure my app?</h2>
                 <h3>Naming</h3>
                 <ul>
-                    <li>Gutes Pattern: Nenne Dinge danach, was sie tun!</li>
-                    <li>Z.B.:
+                    <li>good pattern: name things after a term that describes what they do!</li>
+                    <li>e.g.:
                         <ul>
                             <li>visitor.<span class="warn">component</span>.ts</li>
                             <li>visitor.<span class="warn">service</span>.ts</li>
@@ -64,37 +63,36 @@
                 </ul>
             </section>
             <section>
-                <h2>Wie gliedere ich meine App?</h2>
-                <h3>Ordnerstruktor</h3>
+                <h2>How to structure my app? (2)</h2>
+                <h3>folder structure</h3>
                 <ul>
-                    <li>Keine klaren Vorgaben wie bei Java (Packages)</li>
-                    <li>Deshalb gilt: Einfach beginnen!</li>
-                    <li>Erst komplexere Strukturen resp. Module aufbauen, wenn man sie wirklich braucht <span>&#10230;</span>
-                        YAGNI-Prinzip
+                    <li>no clear concepts as for example in Java</li>
+                    <li>Start very easily!</li>
+                    <li>only build complex structures or many modules if you need them! <span>&#10230;</span>
+                        YAGNI-principle
                     </li>
                 </ul>
             </section>
             <section>
-                <h2>Wie gliedere ich meine App?</h2>
-                <h3>Ort der Tests</h3>
+                <h2>How to structure my app? (3)</h2>
+                <h3>where to place test files</h3>
                 <ul>
-                    <li>Auch da: Keine klaren Vorgaben wie bei Java (<span class="code">main</span> / <span
+                    <li>same as before: no clear concepts compared to Java (<span class="code">main</span> / <span
                             class="code">test</span>)
                     </li>
-                    <li>Es hat sich aber bewährt, die Tests dirket bei der Klasse anzulegen.</li>
-                    <li>Trenne nicht, was zusammen gehört.</li>
-                    <li>Macht es einfacher, Komponenten wiederzuverwenden</li>
+                    <li>kind of the standard nowadays: put your test files next to your files under test</li>
+                    <li>do not separate what belongs together</li>
+                    <li>easier to find things, to move things around</li>
                 </ul>
             </section>
             <section>
-                <h2>Wie gliedere ich meine App?</h2>
+                <h2>How to structure my app? (4)</h2>
                 <h3>Styling</h3>
                 <ul>
-                    <li>Globale Stylings sollten im <span class="code">styles.(s)css</span> im <span
-                            class="code">/src</span> Verzeichnis hinterlegt werden.
+                    <li>put global styles in <span class="code">styles.(s)css</span> in the <span
+                            class="code">/src</span> folder.
                     </li>
-                    <li>Stlings die nur eine Komponente betreffen (z.B. Button) werden in der jeweiligen Komponente
-                        abgelegt <span>&#10230;</span> Wiederverwendung!
+                    <li>styles that are only relevant for a single component (e.g. a button) should be put in the corresponding stylesheet of the component<span>&#10230;</span> reusability!
                     </li>
                 </ul>
             </section>

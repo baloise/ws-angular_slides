@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Angular Workshop | 07 Templates Erweitert</title>
+    <title>Angular Workshop | 07 Templates Advanced</title>
 
     <link rel="stylesheet" href="../css/reveal.css">
     <link rel="stylesheet" href="../css/theme/baloise.css">
@@ -25,24 +25,24 @@
 <div class="reveal">
     <div class="slides">
         <section class="deck-slide">
-            <h1>Templates - Erweitert</h1>
+            <h1>Templates - Advanced</h1>
         </section>
         <section>
             <h2>Structural Directives</h2>
-            <h3>Kurze Info zum Asterisk (*)</h3>
+            <h3>short info about the asterisk (*)</h3>
             <ul>
-                <li>ein <span class="code">*</span> signalisiert eine structural Directive</li>
-                <li>der Stern ersetzt eine kompliziertere Syntax durch die Kurzform</li>
-                <li>dies gilt für <span class="code">*ngIf</span>, <span class="code">*ngFor</span> und <span
+                <li>a <span class="code">*</span> is the signal for a structural Directive</li>
+                <li>the asterisk replaces a more complicated syntax with a short version</li>
+                <li>it is used for <span class="code">*ngIf</span>, <span class="code">*ngFor</span> and <span
                         class="code">*ngSwitch</span></li>
-                <li>Ein Beispiel wird die Unterschiede zeigen</li>
+                <li>An example will show the differences</li>
             </ul>
         </section>
         <section>
             <section>
                 <h2>*ngIf</h2>
-                <h3>zum Ein- und Ausblenden von Inhalten</h3>
-                <h4>Entfernt das Host-Element aus dem DOM</h4>
+                <h3>to show and hide content</h3>
+                <h4>removes the host element from the DOM</h4>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
                          <input type="text" [value]="search">
@@ -58,7 +58,7 @@
                 </pre>
             </section>
             <section>
-                <h3>sehr nützlich als Guard für null checks</h3>
+                <h3>pretty useful as a guard for null checks</h3>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
                          &lt;div *ngIf="person"&gt;
@@ -66,39 +66,35 @@
                          &lt;/div&gt;
                     </code>
                 </pre>
-                <span class="warn">Wichtig:</span> Es ist ein grosser Unterschied ob ein Element mit CSS versteckt wird,
-                oder mit <span class="code">*ngIf</span> aus dem DOM entfernt wird. Beim Verstecken bleibt das Element
-                im DOM und benötigt sowohl Speicher als auch weitere Resourcen. <span class="code">*ngIf</span> ist
-                meist die bessere Lösung.</span>
+                <span class="warn">Important:</span> There is a huge difference between hiding an element with css and removing it with <span class="code">*ngIf</span> from the DOM. When hidden with css, the element still
+                uses resources such as memory. <span class="code">*ngIf</span> is most of the time the better approach.</span>
             </section>
             <section>
-                <h3>Aufgabe 7.1 - *ngIf</h3>
+                <h3>Task 7.1 - *ngIf</h3>
                 <ul>
-                    <li>Nutze einen Radio Button mit den Werten "Einfach" und "Erweitert"</li>
-                    <li>Zeige bei Erweitert ein <span class="codeq">Input</span> Feld an</li>
-                    <li>Falls im <span class="code">Input</span> Feld mehr als 2 Zeichen stehen, gebe den Text darunter
-                        aus.
+                    <li>Use a radio button with the values "simple" and "advanced"</li>
+                    <li>when advanced is selected, show an <span class="code">Input</span> field</li>
+                    <li>if the <span class="code">Input</span> contains more than 2 characters, display the input text under the field
                     </li>
-                    <li>Hint: es gibt einen Typ "radio" auf dem <span class="code">Input</span>, denke an das <span class="code">value</span> Property und nutze <span class="code">[(ngModel)]</span></li>
-                    <li>Hint: Eine Radiogroup erhält man, indem man den <span class="code">Inputs</span> den selben Wert
-                        für das name-Property zuweist
+                    <li>Hint: there is a type "radio" on the <span class="code">Input</span> field, remember the <span class="code">value</span> property and use <span class="code">[(ngModel)]</span></li>
+                    <li>Hint: a radio group can be created, when the <span class="code">input</span> elements have the same value for the name-property
                     </li>
                 </ul>
             </section>
             <section>
-                <h3>Aufgabe 7.1 - Mögliche Lösung</h3>
+                <h3>Task 7.1 - Possible Solution</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
                         &lt;input type="radio" name="myName"
-                               [(ngModel)]="setting" value="simple">Einfach
+                               [(ngModel)]="setting" value="simple">Simple
                         &lt;input type="radio" name="myName"
-                               [(ngModel)]="setting" value="extended">Erweitert
+                               [(ngModel)]="setting" value="extended">Advanced
 
                         &lt;div *ngIf="setting === 'extended'">
                             &lt;input type="text" [value]="extendedValue"
                                    (input)="extendedValue=$event.target.value">
                             &lt;p *ngIf="extendedValue.length > 2">
-                                Wert: {{extendedValue}}
+                                Value: {{extendedValue}}
                             &lt;/p>
                         &lt;/div>
                      </code>
@@ -109,7 +105,7 @@
                  </pre>
             </section>
             <section>
-                <h3>*ngIf - kurze vs. lange Syntax</h3>
+                <h3>*ngIf - short vs. long syntax</h3>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
                          <input type="text" [value]="search">
@@ -131,7 +127,7 @@
         <section>
             <section>
                 <h2>*ngFor</h2>
-                <h3>zum Iterieren über Collections</h3>
+                <h3>to iterate over collections</h3>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
                         <ul>
@@ -150,23 +146,23 @@
             <section>
                 <h3>*ngFor - Syntax</h3>
                 <ul>
-                    <li>eigene Angular Syntax</li>
-                    <li>der mit <span class="code">*ngFor</span> versehene Block wird wiederholt</li>
-                    <li>Nimmt jedes Item im Items Array und weist es der Variable <span class="code">item</span> zu. Erzeugt pro Iteration ein <span class="code">li</span> Element.</li>
-                    <li>Die sogenannte <span class="code">Template Input Variable</span> ist nur im Element und dessen Kindern gültig.</li>
+                    <li>custom Angular Syntax</li>
+                    <li>the block with <span class="code">*ngFor</span> is repeated</li>
+                    <li>takes ever element of the array and assigns it to <span class="code">item</span>. A <span class="code">li</span> element is created for every iteration.</li>
+                    <li>the so called <span class="code">template input variable</span> is only valid in the scope of the element and its children</li>
                 </ul>
             </section>
             <section>
-                <h3>Aufgabe 7.2 - *ngFor</h3>
+                <h3>Task 7.2 - *ngFor</h3>
                 <ul>
-                    <li>Erstelle ein Array von Todos</li>
+                    <li>create an array of todo's</li>
                     <li>Hint: <span class="code">todos = [{title: 'A'}, {title: 'B'}];</span></li>
-                    <li>Jedes Todo sollte mindestens 2 Properties (Titel, Beschreibung) haben</li>
-                    <li>Rendere jedes Todo mit einer <span class="code">h2</span> - Überschrift für den Titel und normale Paragraphs für weitere Attribute</li>
+                    <li>every todo should have at least 2 properties (title, description)</li>
+                    <li>render every single todo with a <span class="code">h2</span> - a heading for the title and a paragraph for other properties</li>
                 </ul>
             </section>
             <section>
-                <h3>Aufgabe 7.2 - Mögliche Lösung</h3>
+                <h3>Task 7.2 - Possible Solution</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
                         &lt;div *ngFor="let todo of todos">
@@ -177,17 +173,17 @@
                     <code class="hljs typescript" data-trim contenteditable>
                             todos: any[]= [{
                                 title: "*ngFor",
-                                desc: "Lösung finden"
+                                desc: "find solution"
                             }, {
                                 title: "*ngSwitch",
-                                desc: "Folien erstellen"
+                                desc: "take a nap"
                             }];
                     </code>
                  </pre>
             </section>
             <section>
-                <h3>*ngFor Advanced - Helper Variablen</h3>
-                <p>Helper boolean Variablen für <span class="code">odd</span>, <span class="code">even</span>, <span class="code">first</span> und <span class="code">last</span> und die Index-Variable <span class="code">index</span></p>
+                <h3>*ngFor Advanced - helper variables</h3>
+                <p>helper boolean variables for <span class="code">odd</span>, <span class="code">even</span>, <span class="code">first</span> and <span class="code">last</span> and the <span class="code">index</span> variable</p>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
                         &lt;div *ngFor="let todo of todos; let idx = index;
@@ -203,8 +199,8 @@
                 </pre>
             </section>
             <section>
-                <h3>*ngFor Advanced - Custom trackBy</h3>
-                <p>Object Identity wird für Änderungen an der Liste genutzt um die Anpassungen im DOM verfügbar zu machen. Mit einer eigenen <span class="code">trackBy</span> Funktion kann dies gesteuert werden. Default ist object identity <span class="code">===</span></p>
+                <h3>*ngFor Advanced - custom trackBy</h3>
+                <p>Object identity is used to make changes in collections available in the dom. The behaviour can be controlled with a custom <span class="code">trackBy</span> function. Default is object identity <span class="code">===</span></p>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
                         &lt;div *ngFor="let todo of todos; trackBy: myTrackFunc">
@@ -218,7 +214,7 @@
                 </pre>
             </section>
             <section>
-                <h3>*ngFor - kurze vs. lange Syntax</h3>
+                <h3>*ngFor - short vs. long syntax</h3>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
                         &lt;div *ngFor="let item of items; let idx = index;">
@@ -240,13 +236,13 @@
             <section>
                 <h2>*ngSwitch</h2>
                 <ul>
-                    <li><span class="code">[ngSwitch]="expression"</span> ist die Direktive mit dem Switch Wert</li>
-                    <li><span class="code">*ngSwitchCase="value"</span> ist die Direktive mit einem Case Wert, ist dieser gleich dem Switch Wert, wird das Element dem DOM hinzugefügt</li>
-                    <li><span class="code">*ngSwitchDefault</span> fügt das Element dem DOM hinzu wenn keiner der Cases greift</li>
+                    <li><span class="code">[ngSwitch]="expression"</span> is the directive with the switch value</li>
+                    <li><span class="code">*ngSwitchCase="value"</span> is the directive with the case value, if it's equal to the switch value, the element will be attached to the dom</li>
+                    <li><span class="code">*ngSwitchDefault</span> attaches the element to the DOM if none of the cases matches</li>
                 </ul>
             </section>
             <section>
-                <h3>Beispiel</h3>
+                <h3>example</h3>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
                         &lt;div [ngSwitch]="selectedFruit">
@@ -265,14 +261,14 @@
         </section>
         <section>
             <h2>ngClass</h2>
-            <h3>für dynamische CSS Klassen</h3>
-            <p>für einzelne Klassen - ein <span class="code">Class Binding</span> benutzen</p>
+            <h3>for dynamic css classes</h3>
+            <p>for single classes - use a <span class="code">class binding</span></p>
             <pre>
                 <code class="hljs html" data-trim contenteditable>
                     <div [class.active]="customer.active"></div>
                 </code>
             </pre>
-            <p>für mehrere Klassen - die <span class="code">ngClass Directive</span></p>
+            <p>for multiple classes: ise <span class="code">ngClass directive</span></p>
             <pre>
                 <code class="hljs html" data-trim contenteditable>
                     &lt;div [ngClass]="{
@@ -285,8 +281,8 @@
         <section>
             <section>
                 <h2>ngStyle</h2>
-                <h3>für dynamische Inline Styles</h3>
-                <p>für einzelne Styles ein <span class="code">Style Binding</span> benutzen</p>
+                <h3>for dynamic inline styles</h3>
+                <p>for single styles:use a <span class="code">style binding</span></p>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
                         &lt;span
@@ -294,7 +290,7 @@
                         &lt;/span>
                     </code>
                 </pre>
-                <p>für mehrere Styles die <span class="code">ngStyle Directive</span></p>
+                <p>for multiple styles: <span class="code">ngStyle directive</span></p>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
                         &lt;span [ngStyle]="{
@@ -305,44 +301,44 @@
                 </pre>
             </section>
             <section>
-                <h3>Inline Styles vs. Klassen</h3>
+                <h3>Inline styles vs. classes</h3>
                 <ul>
-                    <li>ich nutze <span class="warn">NIE</span> Inline Styles</li>
-                    <li>Alle Styles gehören aus meiner Sicht in die Stylesheet Dateien</li>
-                    <li>Inline Styles sind nicht wiederverwendbar</li>
-                    <li>Inline Styles verringern die Wartbarkeit - durch das Ersetzen der Stylesheets, bspw. bei einem Redesign, sind Inline Styles davon nicht betroffen</li>
-                    <li>CSS Klassen sind <a href="https://jsperf.com/inline-style-vs-css-class/23" target="_blank">performanter</a> als Inline-Styles</li>
+                    <li>I  <span class="warn">NEVER</span> use inline styles</li>
+                    <li>In my opinion, all styles belong into the corresponding stylesheets</li>
+                    <li>inline styles are not reusable</li>
+                    <li>inline styles reduce maintainability - they are not effected by a redesign when css files are being replaced or color variables change</li>
+                    <li>css classes are way more <a href="https://jsperf.com/inline-style-vs-css-class/23" target="_blank">performant</a> than inline styles</li>
                 </ul>
             </section>
         </section>
         <section>
             <section>
                 <h2>Pipes</h2>
-                <h3>für Transformationen von Werten</h3>
+                <h3>for the transformation of values</h3>
                 <ul>
-                    <li>wird mit einer Pipe <span class="code">|</span> gestartet, dann folgt die Operation, z.B. <span class="code">| uppercase</span></li>
-                    <li>viele eingebaute Pipes, z. B. <span class="code">lowercase</span>, <span class="code">uppercase</span>, <span class="code">date</span>, <span class="code">currency</span> uvm.</li>
-                    <li>Pipes können Parameter erhalten: <span class="code">{{birthday | date:"MM/dd/yy"}}</span></li>
-                    <li>Eigene Pipes: <span class="code">PipeTransform</span> Interface implementieren und mit <span class="code">@Pipe({name: 'name'})</span> annotieren</li>
+                    <li>they start with the UNIX pipe sign <span class="code">|</span>, followed by the name of the operation e.g. <span class="code">| uppercase</span></li>
+                    <li>many built in pipes, e.g.  <span class="code">lowercase</span>, <span class="code">uppercase</span>, <span class="code">date</span>, <span class="code">currency</span> and many more</li>
+                    <li>pipes can have params <span class="code">{{birthday | date:"MM/dd/yy"}}</span></li>
+                    <li>Custom pipes: implement <span class="code">PipeTransform</span> interface and use the <span class="code">@Pipe({name: 'name'})</span> annotation on the typescript class</li>
                 </ul>
             </section>
             <section>
-                <h3>Beispiele</h3>
+                <h3>Examples</h3>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
                         {{birthday | date:'MM/dd/yy'}}
 
-                        <!-- super zum Debuggen, rendert ein Objekt-->
+                        <!-- easier to debug, renders object as json-->
                         {{customer | json}}
 
-                        <!-- mit mehreren Parametern-->
-                        {{kontostand | currency:'CHF':false}}
+                        <!-- with multiple params -->
+                        {{balance | currency:'CHF':false}}
 
-                        <!-- Chaining, von links nach rechts -->
-                        {{titel | lowercase | uppercase}}
+                        <!-- Chaining, from left to the right -->
+                        {{title | lowercase | uppercase}}
 
                         <!-- custom pipe -->
-                        {{rechnungsNr | invoiceNr}}
+                        {{invoice.nr | invoiceNr}}
                     </code>
                 </pre>
             </section>
@@ -372,17 +368,17 @@
                 </pre>
             </section>
             <section>
-                <h3>Aufgabe 7.3 - Pipes</h3>
+                <h3>Task 7.3 - Pipes</h3>
                 <ul>
-                    <li>Erstelle eine eigene Pipe <span class="code">phonenumber</span></li>
-                    <li>Formatiere die Nummer 0564410808 (string)</li>
-                    <li>Die Nummer soll folgendermassen formatiert werden können</li>
+                    <li>create a custom pipe <span class="code">phonenumber</span></li>
+                    <li>format the phonenumber 0564410808 (string)</li>
+                    <li>it should be formatted as follows</li>
                     <li>Default: <span class="code">056 441 08 08</span></li>
-                    <li>mit Parameter 41: <span class="code">+41 56 441 08 08</span></li>
+                    <li>with param 41: <span class="code">+41 56 441 08 08</span></li>
                 </ul>
             </section>
             <section>
-                <h3>Aufgabe 7.3 - Mögliche Lösung</h3>
+                <h3>Task 7.3 - Possible Solution</h3>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
                         import {Pipe, PipeTransform} from '@angular/core';
@@ -406,11 +402,11 @@
         </section>
         <section>
             <h2>Safe Navigation Operator</h2>
-            <h3>Zum Vermeiden von NullPointern ;-)</h3>
+            <h3>to avoid NullPointers ;-)</h3>
             <ul>
-                <li>wird mit <span class="code">?.</span> benutzt</li>
-                <li>Der Wert wird erst gerendert, wenn alle Properties aufgelöst werden können</li>
-                <li>leichtgewichtige Alternative zu chained <span class="code">*ngIf</span> oder chained null checks mit <span class="code">&&</span></li>
+                <li>used with <span class="code">?.</span></li>
+                <li>the value is only rendered when all properties can be accessed</li>
+                <li>lightweight alternative to chained <span class="code">*ngIf</span> or chained null checks with <span class="code">&&</span></li>
             </ul>
             <pre>
                 <code class="hljs html" data-trim contenteditable>
@@ -420,7 +416,7 @@
             </pre>
         </section>
         <section>
-            <h2>Noch etwas offen?</h2>
+            <h2>Any questions?</h2>
             <img src="../img/noquestions.jpg">
         </section>
     </div>
@@ -441,8 +437,8 @@
             {src: '../plugin/notes/notes.js', async: true},
             {
                 src: '../plugin/highlight/highlight.js', async: true, callback: function () {
-                hljs.initHighlightingOnLoad();
-            }
+                    hljs.initHighlightingOnLoad();
+                }
             }
         ]
     });
