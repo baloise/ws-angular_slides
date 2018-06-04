@@ -42,7 +42,7 @@
             <section>
                 <h2>*ngIf</h2>
                 <h3>to show and hide content</h3>
-                <h4>renoves the host element from the DOM</h4>
+                <h4>removes the host element from the DOM</h4>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
                          <input type="text" [value]="search">
@@ -73,11 +73,11 @@
                 <h3>Task 7.1 - *ngIf</h3>
                 <ul>
                     <li>Use a radio button with the values "simple" and "advanced"</li>
-                    <li>when advanced is selected, show an <span class="codeq">Input</span> field</li>
+                    <li>when advanced is selected, show an <span class="code">Input</span> field</li>
                     <li>if the <span class="code">Input</span> contains more than 2 characters, display the input text under the field
                     </li>
                     <li>Hint: there is a type "radio" on the <span class="code">Input</span> field, remember the <span class="code">value</span> property and use <span class="code">[(ngModel)]</span></li>
-                    <li>Hint: a radiogroup can be created, when the <span class="code">input</span> elements have the same value for the name-property
+                    <li>Hint: a radio group can be created, when the <span class="code">input</span> elements have the same value for the name-property
                     </li>
                 </ul>
             </section>
@@ -94,7 +94,7 @@
                             &lt;input type="text" [value]="extendedValue"
                                    (input)="extendedValue=$event.target.value">
                             &lt;p *ngIf="extendedValue.length > 2">
-                                Wert: {{extendedValue}}
+                                Value: {{extendedValue}}
                             &lt;/p>
                         &lt;/div>
                      </code>
@@ -155,9 +155,9 @@
             <section>
                 <h3>Task 7.2 - *ngFor</h3>
                 <ul>
-                    <li>create an array of todos</li>
+                    <li>create an array of todo's</li>
                     <li>Hint: <span class="code">todos = [{title: 'A'}, {title: 'B'}];</span></li>
-                    <li>ever todo should have at least 2 properties (title, description) haben</li>
+                    <li>every todo should have at least 2 properties (title, description)</li>
                     <li>render every single todo with a <span class="code">h2</span> - a heading for the title and a paragraph for other properties</li>
                 </ul>
             </section>
@@ -200,7 +200,7 @@
             </section>
             <section>
                 <h3>*ngFor Advanced - custom trackBy</h3>
-                <p>Object identity is used to make changes in collections available in the dom. The behaviour can be contolled with a custom <span class="code">trackBy</span> function. Default is object identity <span class="code">===</span></p>
+                <p>Object identity is used to make changes in collections available in the dom. The behaviour can be controlled with a custom <span class="code">trackBy</span> function. Default is object identity <span class="code">===</span></p>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
                         &lt;div *ngFor="let todo of todos; trackBy: myTrackFunc">
@@ -237,7 +237,7 @@
                 <h2>*ngSwitch</h2>
                 <ul>
                     <li><span class="code">[ngSwitch]="expression"</span> is the directive with the switch value</li>
-                    <li><span class="code">*ngSwitchCase="value"</span> is the diretive with the case value, if its euqal to the switch value, the element will be attached to the dom</li>
+                    <li><span class="code">*ngSwitchCase="value"</span> is the directive with the case value, if it's equal to the switch value, the element will be attached to the dom</li>
                     <li><span class="code">*ngSwitchDefault</span> attaches the element to the DOM if none of the cases matches</li>
                 </ul>
             </section>
@@ -262,7 +262,7 @@
         <section>
             <h2>ngClass</h2>
             <h3>for dynamic css classes</h3>
-            <p>for single classes - use a <span class="code">class cinding</span></p>
+            <p>for single classes - use a <span class="code">class binding</span></p>
             <pre>
                 <code class="hljs html" data-trim contenteditable>
                     <div [class.active]="customer.active"></div>
@@ -281,7 +281,7 @@
         <section>
             <section>
                 <h2>ngStyle</h2>
-                <h3>for dynamic inine styles</h3>
+                <h3>for dynamic inline styles</h3>
                 <p>for single styles:use a <span class="code">style binding</span></p>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
@@ -363,7 +363,7 @@
                     </code>
                     <code class="hljs html" data-trim contenteditable>
                         {{'Lorem ipsum dolor' | ellipsis:10}}
-                        <!-- Lorem ipsu...-->
+                        <!-- Lorem ipsum...-->
                     </code>
                 </pre>
             </section>
@@ -406,7 +406,7 @@
             <ul>
                 <li>used with <span class="code">?.</span></li>
                 <li>the value is only rendered when all properties can be accessed</li>
-                <li>leightweight alternative to chained <span class="code">*ngIf</span> or chained null checks with <span class="code">&&</span></li>
+                <li>lightweight alternative to chained <span class="code">*ngIf</span> or chained null checks with <span class="code">&&</span></li>
             </ul>
             <pre>
                 <code class="hljs html" data-trim contenteditable>

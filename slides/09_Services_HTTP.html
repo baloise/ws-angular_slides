@@ -42,7 +42,7 @@
                 <h3>Dependency Injection</h3>
                 <ul>
                     <li><span class="code">Injectables</span> have to be registered in the AppModule in the <span class="code">providers</span> array</li>
-                    <li>in theory, they can be registered for a component and its childs only - this is only necessary in very rare cased, only if a component needs a dedicated instance</li>
+                    <li>in theory, they can be registered for a component and its children only - this is only necessary in very rare cased, only if a component needs a dedicated instance</li>
                 </ul>
             </section>
             <section>
@@ -149,7 +149,7 @@
             <section>
                 <h3>Callbacks (2)</h3>
                 <ul>
-                    <li>are for dealing with asynchrounousy</li>
+                    <li>are for dealing with asynchronous behaviour</li>
                     <li>a <span class="code">callback</span> function is handed as a function parameter und might be called later on, e.g. when data is available, an error occurs</li>
                     <li>a huge disadvantage is the so called callback hell - see the slide before</li>
                     <li>asynchronous callback code tends to get unreadable</li>
@@ -170,18 +170,19 @@
                                 });
                         }
                     </code>
+                </pre>
             </section>
             <section>
                 <h3>Promises</h3>
                 <ul>
                     <li>can be chained - a promise can return another promise</li>
-                    <li>are the future result of an asynchronouse operation <span class="warn">(*ouch*)</span></li>
+                    <li>are the future result of an asynchronous operation <span class="warn">(*ouch*)</span></li>
                     <li>readability is often better than with callbacks: <span class="code">api().then(result => api2()).then(handleResult)</span></li>
-                    <li>a promise resolves once and ist not (easyily) retryable</li>
+                    <li>a promise resolves once and is not (easily) repeatable</li>
                 </ul>
             </section>
             <section>
-                <h4>Promises – compared to the JDK/h4>
+                <h4>Promises – compared to the JDK</h4>
                 <ul>
                     <li>like a Future</li>
                     <li>more exactly: since Java 8 a <span class="code">CompletableFuture&lt;T></span></li>
@@ -290,7 +291,7 @@
                     <li>most of the time: injected in a service constructor</li>
                     <li>offers the known HTTP methods: <span class="code">get</span>, <span class="code">post</span>, <span class="code">put</span>, <span class="code">delete</span>, <span class="code">patch</span>, <span class="code">head</span> and <span class="code">options</span></li>
                     <li>the client expects a JSON response in the specified structure <span>&#10230;</span> <span class="code">http.get&lt;Pizza[]></span></li>
-                    <li>handling erros is done with a  <span class="code">catch()</span> block</li>
+                    <li>handling errors is done with a  <span class="code">catch()</span> block</li>
                     <li>very powerful interface: <a href="https://angular.io/guide/http" target="_blank">official documentation</a></li>
                 </ul>
             </section>
@@ -415,7 +416,7 @@
                 <h3>modern reactive architecture</h3>
                 <ul>
                     <li>as said before, Angular encourages the usage of a reactive architecture</li>
-                    <li>it is often implemented using a unidirectional dataflow</li>
+                    <li>it is often implemented using a unidirectional data flow</li>
                     <li>a well established pattern is Redux</li>
                     <li>an excellent library for angular is <a href="https://github.com/ngrx/platform" target="_blank">ngrx/store</a></li>
                 </ul>
@@ -429,7 +430,7 @@
                     <li>the reactive architecture plays well together with other established concepts</li>
                     <li>Smart Components have access to the store</li>
                     <li>Smart Components can dispatch actions</li>
-                    <li>Smart Components hand data down to childs using the async pipe</li>
+                    <li>Smart Components hand data down to children using the async pipe</li>
                     <li>Dumb Components only get data and throw events</li>
                 </ul>
             </section>

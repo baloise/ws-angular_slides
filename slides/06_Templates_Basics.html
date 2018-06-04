@@ -35,7 +35,7 @@
                      <code class="hljs html" data-trim contenteditable>
                          <h1>{{title}}</h1>
                          <h2>nested: {{customer.name}}</h2>
-                         <h2>functon call: {{20 + add(2, 5)}}</h2>
+                         <h2>function call: {{20 + add(2, 5)}}</h2>
                          <a href="/customer/{{customer.id}}">{{customer.name}}</a>
 
                          customer = {
@@ -57,7 +57,7 @@
                     <li>as the call of the <span class="code">add</span> function shows: there is a
                          <span class="code">Template Expression</span> between the parentheses
                     </li>
-                    <li>the expression is evaluated first, converted to a string and concatenaed with other strings. Last, the value is assigned to the element.
+                    <li>the expression is evaluated first, converted to a string and concatenated with other strings. Last, the value is assigned to the element.
                     </li>
                 </ul>
             </section>
@@ -108,7 +108,7 @@
                     <li>between the interpolation parentheses, there is a so called expression <span class="code">{{1 + 1}}</span>
                     </li>
                     <li>a reduced set of JavaScript</li>
-                    <li>no assignemtns allowed (=, +=, *=, ...) erlaubt</li>
+                    <li>no assignments allowed (=, +=, *=, ...)</li>
                     <li>no <span class="code">new</span></li>
                     <li>no side effects, as <span class="code">++</span> (idempotency, pure Functions)</li>
                 </ul>
@@ -220,13 +220,13 @@
                 <h3>Task 6.2 - Possible Solution</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
-                         <input [value]="adress.street"/>
+                         <input [value]="address.street"/>
                      </code>
                 </pre>
                 <p>... or use the canonical form with the bind-prefix</p>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
-                         <input bind-value="adress.street"/>
+                         <input bind-value="address.street"/>
                      </code>
                  </pre>
                 <p>I prefer the first (shorter) variant and i will exclusively use this one.</p>
@@ -248,9 +248,9 @@
                 <ul>
                     <li>HTML Attribute initialize DOM Properties</li>
                     <li>DOM Properties can change, attributes can not</li>
-                    <li>bindings in angular only work with DOM properteis and event, <span
+                    <li>bindings in angular only work with DOM properties and events, <span
                             class="warn">NOT</span> with HTML
-                        Attributen
+                        attributes
                     </li>
                 </ul>
             </section>
@@ -332,7 +332,7 @@
                     </li>
                     <li>The <span class="code">target</span> property is a reference to the element that triggered the event
                     </li>
-                    <li>the value can be accessed with <span class="code">.value</span</li>
+                    <li>the value can be accessed with <span class="code">.value</span></li>
                 </ul>
             </section>
             <section>
@@ -371,7 +371,7 @@
                 </ul>
             </section>
             <section>
-                <h3>Task 6.5 - Possible Solutionen</h3>
+                <h3>Task 6.5 - Possible Solutions</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
                          <input [value]="name" (input)="name=$event.target.value">
@@ -397,7 +397,7 @@
         <section>
             <section>
                 <h2>Two-way data binding - [()]</h2>
-                <h3>&laquo;banana-in-a-box | Bananenkiste&raquo;</h3>
+                <h3>&laquo;banana-in-a-box | Banana in a box&raquo;</h3>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
                         <address [(street)]="street"></address>
