@@ -110,7 +110,7 @@
             </section>
         </section>
         <section>
-            <h3>Objekt literals</h3>
+            <h3>Object literals</h3>
             <pre>
                  <code class="hljs javascript" data-trim contenteditable>
                      let lastName = "Muster";
@@ -138,7 +138,7 @@
                         how are you?`
                      console.log(templString); // Hello
                                                // Hans,
-                                               // whow are you?
+                                               // how are you?
 				 </code>
             </pre>
         </section>
@@ -149,7 +149,7 @@
                 <ul>
                     <li>Rest & Spreading</li>
                     <li>Destructuring</li>
-                    <li>functons as parameters and as a return value</li>
+                    <li>Functions as parameters and as a return value</li>
                 </ul>
             </section>
             <section>
@@ -232,7 +232,6 @@
 
                          let {firstName: vorname} = obj;
                          console.log(vorname); // "Hans"
-                         </span>
                      </code>
                  </pre>
             </section>
@@ -262,7 +261,7 @@
                 <h4>allocation (2)</h4>
                 <pre>
                      <code class="hljs javascript" data-trim contenteditable data-noescape>
-                        // when having a single parameter, parantheses can be omitted
+                        // when having a single parameter, parentheses can be omitted
                         let power = n => n * n;
                         console.log(power(4)); // 16
                      </code>
@@ -275,7 +274,7 @@
                          let addThree = (a) => (b) => (c) => a + b + c;
                          console.log(addThree(1)(4)(3)); // 8
 
-                         // oder in ES5
+                         // or in ES5
                          var addThreeOld = function addThreeOld(a) {
                             return function(b) {
                                 return function (c) {
@@ -285,7 +284,7 @@
                          };
                          console.log(addThreeOld(1)(4)(3)); // 8
 
-                         // without parantheses ;-)
+                         // without parentheses ;-)
                          let addThree = a => b => c => a + b + c;
                      </code>
                  </pre>
@@ -327,7 +326,7 @@
         </section>
         <section>
             <section>
-                <h2>JS Specialitites</h2>
+                <h2>JS Quirks</h2>
                 <h3>Truthy and Falsy</h3>
                 <ul>
                     <li>false</li>
@@ -400,11 +399,11 @@
             </section>
         </section>
         <section>
-            <h2>Typen</h2>
+            <h2>Types</h2>
             <table>
                 <tr>
-                    <th>Typ Java</th>
-                    <th>Typ TypeScript</th>
+                    <th>Types Java</th>
+                    <th>Types TypeScript</th>
                 </tr>
                 <tr>
                     <td>Object</td>
@@ -434,7 +433,7 @@
         </section>
         <section>
             <section>
-                <h2>Typisierung - Interfaces</h2>
+                <h2>Typing - Interfaces</h2>
                 <pre>
                      <code class="hljs typescript" data-trim contenteditable data-noescape>
                          interface Customer {
@@ -477,7 +476,7 @@
                  </pre>
             </section>
             <section>
-                <h3>functons in intrfaces</h3>
+                <h3>Functions in Interfaces</h3>
                 <pre>
                      <code class="hljs typescript" data-trim contenteditable data-noescape>
                          interface Customer {
