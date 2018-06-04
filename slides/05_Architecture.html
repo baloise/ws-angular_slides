@@ -25,16 +25,16 @@
 <div class="reveal">
     <div class="slides">
         <section class="deck-slide">
-            <h1>Architektur - High Level</h1>
+            <h1>Architecture - High Level</h1>
         </section>
         <section>
-            <h2>Angular im Überblick</h2>
+            <h2>Angular - an overview</h2>
             <img src="../img/architecture.png">
         </section>
         <section>
             <section>
                 <h2>Module</h2>
-                <h3>Jede Applikation besitzt mindestens ein Modul</h3>
+                <h3>Every application has at least one module</h3>
                 <pre>
                      <code class="hljs typescript" data-trim contenteditable data-noescape>
                         import {NgModule} from "@angular/core";
@@ -53,16 +53,14 @@
             </section>
             <section>
                 <h3>@NgModule Decorator</h3>
-                <h4>Eine Funktion die ein Objekt als Argument erwartet</h4>
+                <h4>A function that expects an object as argument</h4>
                 <ul>
-                    <li><span class="code">declarations</span> - ALLE Komponenten, Direktiven und Pipes dieses Moduls
+                    <li><span class="code">declarations</span> - ALL components, pipes and directives of this module
                     </li>
-                    <li><span class="code">exports</span> - ein Subset der Declarations, das von anderen Modulen benutzt
-                        werden darf
+                    <li><span class="code">exports</span> - a subset of the declarations, that can be used by other modules that import this module
                     </li>
-                    <li><span class="code">imports</span> - andere Module die wir benötigen</li>
-                    <li><span class="code">providers</span> - global verfügbare Services die das Modul der Dependency
-                        Injection bereitstellt
+                    <li><span class="code">imports</span> - other modules we use</li>
+                    <li><span class="code">providers</span> - globally available services and injectables that should be available for the dependency injector
                     </li>
                 </ul>
             </section>
@@ -71,15 +69,15 @@
             <section>
                 <h2>Services</h2>
                 <ul>
-                    <li>werden mittels Dependency Injection zur Verfügung gestellt</li>
-                    <li>Sind einfach TypeScript Klassen</li>
-                    <li>werden über den Typ injected</li>
-                    <li>Benötigen den Decorator <span class="code">@Injectable()</span></li>
-                    <li>Sind im Normalfall Singletons (wenn sie auf dem Modul registriert werden)</li>
+                    <li>are provided with the dependency injection</li>
+                    <li>are simple TypeScript classes</li>
+                    <li>are injected by their Type</li>
+                    <li>need the decorator <span class="code">@Injectable()</span></li>
+                    <li>are normally singletons (when they are provided on the module level)</li>
                 </ul>
             </section>
             <section>
-                <h2>Einfachster Aufbau eines Services</h2>
+                <h2>A simple service example</h2>
                 <pre>
                      <code class="hljs typescript" data-trim contenteditable data-noescape>
                         import { Injectable } from '@angular/core';
@@ -101,19 +99,19 @@
         <section>
             <h2>Components</h2>
             <ul>
-                <li>sind das Grundgerüst der Applikation</li>
-                <li>die zentrale "Komponente" in Angular</li>
-                <li>die Logik wird innerhalb einer TypeScript Klasse definiert</li>
-                <li>Services können injected werden</li>
+                <li>are the basis of our application</li>
+                <li>are the central concept in Angular</li>
+                <li>the logic is inside of the TypeScript class</li>
+                <li>Services can be injected</li>
             </ul>
         </section>
         <section>
             <h2>Templates</h2>
             <ul>
-                <li>HTML - beschreibt wie Komponenten dargestellt werden</li>
-                <li>Kann Inline oder als eigenes File definiert werden</li>
-                <li>kann weitere Komponenten enthalten</li>
-                <li>enthält Angular spezifische Template Syntax</li>
+                <li>HTML - describes how the component should look like</li>
+                <li>can be defined either inline or in an html file</li>
+                <li>can contain multiple other components</li>
+                <li>contains angular specific template syntax</li>
             </ul>
         </section>
         <section>
@@ -131,34 +129,34 @@
                  </code>
                </pre>
                 <ul>
-                    <li>Interpolation: <span class="code">{{person.name}}</span> - zeigt den Wert des person.name properties an</li>
-                    <li>Property Binding: <span class="code">[person]</span> - übergibt den Wert von "selectedPerson" an die Person Komponente</li>
-                    <li>Event Binding: <span class="code">(click)</span> - ruft bei jedem click-Event selectPerson() auf</li>
+                    <li>Interpolation: <span class="code">{{person.name}}</span> - shows the value of the person.name property</li>
+                    <li>Property Binding: <span class="code">[person]</span> - hands over the value of "selectedPerson" to the person component</li>
+                    <li>Event Binding: <span class="code">(click)</span> - for each click, calls selectPerson()</li>
                 </ul>
             </section>
         </section>
         <section>
-            <h2>Direktiven</h2>
+            <h2>Directives</h2>
             <ul>
-                <li>3 Arten von Direktiven</li>
-                <li><span class="code">Components</span> - Direktiven mit einer View</li>
-                <li><span class="code">Strukturelle Direktiven</span> - Verändern die Struktur des DOM, z.B. *ngIf</li>
-                <li><span class="code">Attribut Direktiven</span> - Ändern das Verhalten oder Aussehen eines DOM Elements, z.B. ngStyle</li>
+                <li>3 types of directives</li>
+                <li><span class="code">Components</span> - directives with a view</li>
+                <li><span class="code">structural directives</span> - change the structure of the DOM, e.g. *ngIf</li>
+                <li><span class="code">attribute directives</span> - change the behaviour or the look and feel of a dom element, e.g. ngStyle</li>
             </ul>
         </section>
         <section>
-            <h2>Weitere Features</h2>
+            <h2>Additional features</h2>
             <ul>
-                <li>Change Detection (wann muss die View neu gerendert werden)</li>
-                <li>Animationen</li>
-                <li>Formulare & Pipes</li>
-                <li>HTTP Kommunikation</li>
+                <li>Change Detection (when the view needs to re-render)</li>
+                <li>Animations</li>
+                <li>Forms & Pipes</li>
+                <li>HTTP Communication</li>
                 <li>Router</li>
                 <li>Testing</li>
             </ul>
         </section>
         <section>
-            <h2>Alles klar?</h2>
+            <h2>Any questions?</h2>
             <img src="../img/asking-questions-during-presentations.jpg" width="60%">
         </section>
     </div>

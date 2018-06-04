@@ -29,100 +29,97 @@
         </section>
         <section>
             <section>
-                <h2>Eigene Komponenten</h2>
-                <h3>Eine Komponente integrieren</h3>
+                <h2>Your own components</h2>
+                <h3>integrate components</h3>
                 <ul>
-                    <li>wie in der Index.html: einfach mit dem Selektor als HTML Element einbinden</li>
-                    <li>Komponenten können beliebig verschachtelt werden</li>
+                    <li>Same as in index.html: simply include with its selector as an html element</li>
+                    <li>components can be nested unlimitedly - common sense applies ;-)</li>
                 </ul>
             </section>
             <section>
-                <h3>Aufgabe 8.1 - weitere Komponente</h3>
+                <h3>Task 8.1 - another component</h3>
                 <ul>
                     <li>Branch: <span class="code">08_ComponentArchitecture_0</span></li>
-                    <li>Erstelle in <span class="code">src/app</span> einen Unterordner <span class="code">cinema</span>
+                    <li>create a subfolder in <span class="code">src/app</span>, name it <span class="code">cinema</span>
                     </li>
-                    <li>Erstelle eine <span class="code">cinema.component.ts</span> mit einem <span class="code">cinema.component.html</span>
-                        Template
+                    <li>create a <span class="code">cinema.component.ts</span> typescript class with a <span class="code">cinema.component.html</span>
+                        template
                     </li>
-                    <li>Das Template enthält eine <span class="code">h1</span> Überschrift "Cinema"</li>
-                    <li>Die <span class="code">app.component</span> soll nur noch unsere Cinema Komponente enthalten
+                    <li>the template should contain a <span class="code">h1</span> heading "Cinema"</li>
+                    <li>the <span class="code">app.component</span> should only contain the new cinema component
                     </li>
-                    <li>Denke daran, die neue Komponente im <span class="code">app.module.ts</span> in Declarations
-                        hinzuzufügen
+                    <li>Do not forget to add the component in <span class="code">app.module.ts</span> to declarations
                     </li>
                 </ul>
             </section>
             <section>
-                <h3>Aufgabe 8.1 - Allgemeines</h3>
+                <h3>Task 8.1 - General</h3>
                 <ul>
-                    <li>Das UI startest Du mit <span class="code">npm start</span></li>
-                    <li>Du findest eine Übersicht der Befehle auch im README.MD im root des Projekts</li>
+                    <li>you start the dev server with <span class="code">npm start</span></li>
+                    <li>you can find an overview of the available commands the README.md in the root of the project</li>
                 </ul>
             </section>
             <section>
-                <h3>Aufgabe 8.1 - Mögliche Lösung</h3>
-                <ul>
-                    <li>Branch: <span class="code">08_ComponentArchitecture_1</span></li>
-                    <li>Die Lösungen bauen nun aufeinander auf</li>
-                    <li>Wenn alles funktioniert kannst du immer weiter mit deinem Code arbeiten ohne den Branch wechseln zu müssen</li>
-                    <li>Der Lösungsbranch ist immer die Grundlage für die nächste Aufgabe</li>
-                    <li>Wenn du deine Änderungen <span class="warn">verwerfen</span> möchtest und direkt zur Lösung
-                        willst: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_1</span>
-                    </li>
-                </ul>
-            </section>
-            <section>
-                <h3>Aufgabe 8.2 - Daten anzeigen</h3>
+                <h3>Task 8.1 - Possible Solution</h3>
                 <ul>
                     <li>Branch: <span class="code">08_ComponentArchitecture_1</span></li>
-                    <li>Erstelle ein Interface <span class="code">movie</span> (siehe backend/db.json)</li>
-                    <li>Erstelle eine neue <span class="code">movies</span> Komponente. Sie hat eine Liste von Movies
-                        (aus backend/db.json kopieren)
+                    <li>The solutions now depend on the previous task</li>
+                    <li>if you do not encounter any problems you can continue working with your own solution without switching branches</li>
+                    <li>the solution branch is always the starting point for the next task</li>
+                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_1</span>
                     </li>
-                    <li>Rendere die Movies im HTML und gib alle Properties aus - die Bild-URL als <span
+                </ul>
+            </section>
+            <section>
+                <h3>Task 8.2 - display data</h3>
+                <ul>
+                    <li>Branch: <span class="code">08_ComponentArchitecture_1</span></li>
+                    <li>create an interface <span class="code">movie</span> (see: backend/db.json)</li>
+                    <li>create a new <span class="code">movies</span> component. It has an array of movies
+                        (copy over from backend/db.json)
+                    </li>
+                    <li>render the movies in HTML and display all properties - the image url as <span
                             class="code">img</span></li>
-                    <li>Hint: ein <span class="code">img</span> hat ein <span class="code">src</span>-Property</li>
+                    <li>Hint: an <span class="code">img</span> has a <span class="code">src</span>-property</li>
                 </ul>
             </section>
             <section>
-                <h3>Aufgabe 8.2 - Mögliche Lösung</h3>
+                <h3>Task 8.2 - Possible Solution</h3>
                 <ul>
                     <li>Branch: <span class="code">08_ComponentArchitecture_2</span></li>
-                    <li>Wenn du deine Änderungen <span class="warn">verwerfen</span> möchtest und direkt zur Lösung
-                        willst: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_2</span>
+                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_2</span>
                     </li>
                 </ul>
             </section>
         </section>
         <section>
             <section>
-                <h2>@Input - Daten übergeben</h2>
-                <h3>Binding: Quelle vs. Ziel</h3>
+                <h2>@Input - transfer data</h2>
+                <h3>Binding: source vs. target</h3>
                 <ul>
-                    <li>es gibt immer eine Quelle und ein Ziel bei Bindings</li>
-                    <li>das Ziel steht <span class="warn">links</span> vom <span class="code">=</span>, die Quelle <span
-                            class="warn">rechts</span></li>
-                    <li>Das Ziel ist ein Property oder ein Event in Klammern: <span class="code">[prop]</span>, <span
+                    <li>there is always a source and a target for bindings</li>
+                    <li>the target is on the <span class="warn">left</span> side of the <span class="code">=</span>, the source on the <span
+                            class="warn">right</span></li>
+                    <li>the target is a property or event in square brackets: <span class="code">[prop]</span>, <span
                             class="code">(event)</span></li>
-                    <li>Die Quelle steht in <span class="code">"quelle"</span> oder in <span
-                            class="code">{{quelle}}</span></li>
+                    <li>the source is in <span class="code">"source"</span> or <span
+                            class="code">{{source}}</span></li>
                 </ul>
             </section>
             <section>
-                <h3>Instanzvariablen vs. Input & Output</h3>
+                <h3>instance variables vs. Input & Output</h3>
                 <ul>
-                    <li><span class="code">@Input()</span> und <span class="code">@Output()</span> definieren das
-                        Interface von Direktiven (und Komponenten)
+                    <li><span class="code">@Input()</span> and <span class="code">@Output()</span> define the
+                        interface of directives (and components)
                     </li>
-                    <li>Sie sind das Ziel der Bindings</li>
-                    <li>Die Quelle von Bindings sind alle <span class="code">Instanzvariablen</span> von Direktiven (und
-                        Komponenten)
+                    <li>are the target of bindings</li>
+                    <li>the source of bindings are all <span class="code">instance variables</span> of directives (and
+                        components)
                     </li>
                 </ul>
             </section>
             <section>
-                <h3>@Input() - Beispiel</h3>
+                <h3>@Input() - Examples</h3>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
                         import {Component, Input} from '@angular/core';
@@ -137,20 +134,20 @@
                     </code>
                     <code class="hljs html" data-trim contenteditable>
                         <!-- Outer component -->
-                        <pizza [pizza]="meinePizza"></pizza>
+                        <pizza [pizza]="myPizza"></pizza>
                     </code>
                     <code class="hljs typescript" data-trim contenteditable>
-                        private meinePizza: Pizza;
+                        private myPizza: Pizza;
                     </code>
                  </pre>
             </section>
             <section>
-                <h3>@Input() - Beispiel 2</h3>
+                <h3>@Input() - Examples 2</h3>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
                         @Component({
                             selector: 'pizza'
-                            inputs: ['pizza', 'zutaten']
+                            inputs: ['pizza', 'ingredients']
                         )}
                         export class PizzaComponent {
                         }
@@ -158,51 +155,48 @@
                     <code class="hljs html" data-trim contenteditable>
                         <!-- Outer component -->
                         <pizza
-                                [pizza]="meinePizza"
-                                [zutaten]="zutaten"
+                                [pizza]="myPizza"
+                                [ingredients]="ingredients"
                         ></pizza>
                     </code>
                     <code class="hljs typescript" data-trim contenteditable>
-                        private meinePizza: Pizza;
-                        private zutaten: Zutat[];
+                        private myPizza: Pizza;
+                        private ingredients: Ingredient[];
                     </code>
                  </pre>
             </section>
             <section>
-                <h3>Aufgabe 8.3 - @Input()</h3>
+                <h3>Task 8.3 - @Input()</h3>
                 <ul>
                     <li>Branch: <span class="code">08_ComponentArchitecture_2</span></li>
-                    <li>Erstelle eine neue <span class="code">movie</span> Komponente die einen einzelnen Film
-                        darstellt.
+                    <li>create a new <span class="code">movie</span> component that displays a single movie.
                     </li>
-                    <li>Übergebe den Film mit einem Binding an die neue Komponente.</li>
-                    <li>Hint: Du kannst eine Komponente anhand ihres Selektors in anderen Komponenten einbinden.</li>
+                    <li>transfer the movie to the new component using a binding</li>
+                    <li>Hint: you can use components in other components by using their selector as a tag</li>
                 </ul>
             </section>
             <section>
-                <h3>Aufgabe 8.3 - Mögliche Lösung</h3>
+                <h3>Task 8.3 - Possible Solution</h3>
                 <ul>
                     <li>Branch: <span class="code">08_ComponentArchitecture_3</span></li>
-                    <li>Wenn du deine Änderungen <span class="warn">verwerfen</span> möchtest und direkt zur Lösung
-                        willst: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_3</span>
+                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_3</span>
                     </li>
                 </ul>
             </section>
         </section>
         <section>
             <section>
-                <h2>@Output - auf Events reagieren</h2>
+                <h2>@Output - react to events</h2>
                 <ul>
-                    <li>Events von Standard-Komponenten wie <span class="code">Buttons</span> oder <span class="code">Inputs</span>
-                        kennen wir bereits
+                    <li>we already know events of standard components such as <span class="code">buttons</span> or <span class="code">inputs</span>
                     </li>
-                    <li>Events für eigene Komponenten verhalten sich genau gleich</li>
-                    <li>sie definieren zusammen mit den <span class="code">Inputs</span> das Interface einer Komponente
+                    <li>custom events of our own components are exactly the same</li>
+                    <li>they define together with <span class="code">Inputs</span> the interface of a component
                     </li>
                 </ul>
             </section>
             <section>
-                <h3>@Output() - Beispiel</h3>
+                <h3>@Output() - Example</h3>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
                         import {.., Output, EventEmitter} from '@angular/core';
@@ -212,7 +206,7 @@
                         }
                     </code>
                     <code class="hljs html" data-trim contenteditable>
-                        <button (click)="selectPizza.emit(pizza)">Kaufen</button>
+                        <button (click)="selectPizza.emit(pizza)">Buy</button>
                     </code>
                     <code class="hljs html" data-trim contenteditable>
                         <!-- Outer component -->
@@ -224,23 +218,21 @@
                  </pre>
             </section>
             <section>
-                <h3>Aufgabe 8.4 - @Output()</h3>
+                <h3>Task 8.4 - @Output()</h3>
                 <ul>
                     <li>Branch: <span class="code">08_ComponentArchitecture_3</span></li>
-                    <li>Erstelle einen <span class="code">Button</span> zum Entfernen eines Films</li>
-                    <li>Jeder Film soll einen eigenen Button haben</li>
-                    <li>Bei einem Klick soll die Komponente ein Event werfen - die äussere Komponente soll dann darauf
-                        reagieren und den Film aus der Liste entfernen
+                    <li>create a  <span class="code">Button</span> to remove a movie</li>
+                    <li>every movie should have its own button</li>
+                    <li>the component should throw an event when the user clicks the button - the outer component should handle the event and remove the movie from the list
                     </li>
-                    <li>Hint: Ein Array kann man <a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">filtern</a>.</li>
+                    <li>Hint: you can <a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">filter</a> an array.</li>
                 </ul>
             </section>
             <section>
-                <h3>Aufgabe 8.4 - Mögliche Lösung</h3>
+                <h3>Task 8.4 - Possible Solution</h3>
                 <ul>
                     <li>Branch: <span class="code">08_ComponentArchitecture_4</span></li>
-                    <li>Wenn du deine Änderungen <span class="warn">verwerfen</span> möchtest und direkt zur Lösung
-                        willst: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_4</span>
+                    <<li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_4</span>
                     </li>
                 </ul>
             </section>
@@ -253,49 +245,49 @@
             <section>
                 <h3>Smart / Container Components</h3>
                 <ul>
-                    <li>haben Zugriff auf Services / den Applikations State</li>
-                    <li>reagieren auf Events ihrer Childs</li>
-                    <li>geben Daten von Services an die Childs weiter</li>
-                    <li>besitzen keine Anzeigelogik - sie sind lediglich ein Container für eine Vielzahl dummer
-                        Komponenten
+                    <li>can access services / the application state</li>
+                    <li>handle events of their child</li>
+                    <li>pass data from services / state down to their children</li>
+                    <li>do not contain any display logic - simply a container for a couple of dumb components
                     </li>
                 </ul>
             </section>
             <section>
                 <h3>Dumb / Presentation / Stateless Components</h3>
                 <ul>
-                    <li>haben <span class="warn">keinen</span> Zugriff auf Services / den Applikations State</li>
-                    <li>bekommen Daten von aussen per <span class="code">@Input</span></li>
-                    <li>geben Events per <span class="code">@Output</span> nach draussen</li>
-                    <li>enthalten die Anzeigelogik</li>
-                    <li>sind sehr einfach reusable</li>
+                    <li>do  <span class="warn">not</span> have access to services / the application state</li>
+                    <li>data gets passed with <span class="code">@Input</span></li>
+                    <li>throw events with <span class="code">@Output</span></li>
+                    <li>contain display logic</li>
+                    <li>are easily reusable</li>
                 </ul>
             </section>
             <section>
-                <h3>Wann nutze ich was?</h3>
+                <h3>when to use which one?</h3>
                 <ul>
-                    <li>generell sollte pro Seite die Komponente, die die gesamte Seite umspannt, smart sein</li>
-                    <li>wenn eine Komponente direkt per Route (URL) erreichbar ist, so muss sie smart sein</li>
-                    <li>Immer &laquo;dumm&raquo; beginnen und nur wenn nicht anders möglich &laquo;smart&raquo; werden.</li>
+                    <li>in general, the most outer component of a page should be smart</li>
+                    <li>if a component is directly reachable by the router (URL), it has to be smart</li>
+                    <li>if a component is routable, is accessible directly by url, it has to be smart</li>
+                    <li>start &laquo;dumb&raquo; only use &laquo;smart&raquo; if there is no root component on that page</li>
                 </ul>
             </section>
             <section>
-                <h3>Wie schneide ich Komponenten</h3>
+                <h3>how to cut components</h3>
                 <ul>
-                    <li>ähnlich wie bei Klassen: Single Responsibility</li>
-                    <li>wird eine Komponente zu gross, dann in mehrere kleine aufteilen</li>
-                    <li>wenn deine Komponente 2 Dinge machen muss...</li>
-                    <li>... dann mach 3 Komponenten daraus ;-)</li>
-                    <li>Eine die das Feature wrapped, und für jeden Teil eine weitere Komponente</li>
+                    <li>same as with a class: Single Responsibility</li>
+                    <li>is a component too big, split it into multiple smaller components</li>
+                    <li>if your component does 2 things...</li>
+                    <li>... create 3 components ;-)</li>
+                    <li>one component as a wrapper, and 2 more components one for each responsibility</li>
                 </ul>
             </section>
             <section>
-                <h3>Was sind die Vorteile dieses Konzeptes?</h3>
+                <h3>what are the advantages of this concept?</h3>
                 <ul>
-                    <li>Testbarkeit</li>
-                    <li>Wiederverwendbarkeit</li>
-                    <li>Keine Seiteneffekte - einfacher Datenfluss</li>
-                    <li>Klares Konzept</li>
+                    <li>testability</li>
+                    <li>reusability</li>
+                    <li>no side effects - easy data flow</li>
+                    <li>clear concept</li>
                 </ul>
             </section>
         </section>
@@ -307,15 +299,15 @@
             <section>
                 <h3>OnInit</h3>
                 <ul>
-                    <li>die Hook-Methode heisst <span class="code">ngOnInit()</span></li>
-                    <li>die Komponente sollte das Interface <span class="code">OnInit</span> implementieren</li>
-                    <li>wird einmalig nach dem Konstruktor aufgerufen</li>
-                    <li>für komplexere Initialisierungen, HTTP Calls etc.</li>
-                    <li><span class="code">Inputs</span> sind bereits initialisiert</li>
+                    <li>the hook method is named <span class="code">ngOnInit()</span></li>
+                    <li>the component should implement the <span class="code">OnInit</span> interface</li>
+                    <li>is called once after the constructor</li>
+                    <li>for initialization logic, HTTP Calls etc.</li>
+                    <li><span class="code">Inputs</span> are already initialized</li>
                 </ul>
             </section>
             <section>
-                <h3>OnInit - Beispiel</h3>
+                <h3>OnInit - example</h3>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
                         import {Component, OnInit} from "@angular/core";
@@ -336,20 +328,19 @@
                 </pre>
             </section>
             <section>
-                <h3>Aufgabe 8.5 - OnInit</h3>
+                <h3>Task 8.5 - OnInit</h3>
                 <ul>
                     <li>Branch: <span class="code">08_ComponentArchitecture_4</span></li>
-                    <li>Identifiziere eine Smart und eine Dumb Komponente</li>
-                    <li>Füge in der Smart Komponente einen <span class="code">OnInit</span> Hook hinzu</li>
-                    <li>Führe dort aus, was aus deiner Sicht Sinn ergibt ;-)</li>
+                    <li>identify a smart and a dumb component</li>
+                    <li>add an  <span class="code">OnInit</span> life cycle hook in the smart component</li>
+                    <li>move that part of the code to ngOnInit that makes sense for you ;-)</li>
                 </ul>
             </section>
             <section>
-                <h3>Aufgabe 8.5 - Mögliche Lösung</h3>
+                <h3>Task 8.5 - Possible Solution</h3>
                 <ul>
                     <li>Branch: <span class="code">08_ComponentArchitecture_5</span></li>
-                    <li>Wenn du deine Änderungen <span class="warn">verwerfen</span> möchtest und direkt zur Lösung
-                        willst: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_5</span>
+                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_5</span>
                     </li>
                     <li>Smart Component: MoviesComponent</li>
                     <li>Dumb Component: MovieComponent</li>
@@ -357,7 +348,7 @@
             </section>
         </section>
         <section>
-            <h2>Zeit für Fragen</h2>
+            <h2>Questions?</h2>
             <img src="../img/homer.jpg">
         </section>
     </div>
