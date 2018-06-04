@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Angular Workshop | 03 Porject Setup</title>
+    <title>Angular Workshop | 03 Project Setup</title>
 
     <link rel="stylesheet" href="../css/reveal.css">
     <link rel="stylesheet" href="../css/theme/baloise.css">
@@ -122,7 +122,7 @@
                 </pre>
             </section>
             <section>
-                <h3>Versionen</h3>
+                <h3>Versioning</h3>
                 <ul>
                     <li>
                         Many libraries use <a href="http://semver.org/">Semantic Versioning</a>
@@ -140,7 +140,7 @@
                         1.2.x: same as ~ (Bugfixes)
                     </li>
                     <li>
-                        *: alle versions
+                        *: all versions
                     </li>
                 </ul>
             </section>
@@ -152,15 +152,15 @@
             <section>
                 <h3>package-lock.json</h3>
                 <ul>
-                    <li>breaks down and locks indirect dependenies</li>
-                    <li>Ensures that the exact same dependencies are used when installed mzltiple times (CI, coworker).</li>
+                    <li>breaks down and locks indirect dependencies</li>
+                    <li>Ensures that the exact same dependencies are used when installed multiple times (CI, coworker).</li>
                 </ul>
             </section>
             <section>
                 <h3>Installation of Dependencies</h3>
                 <ul>
                     <li>With your console / terminal: npm install jquery --save-exact</li>
-                    <li>add a row to your packge.json & run npm install</li>
+                    <li>add a row to your package.json & run npm install</li>
                 </ul>
                 <pre>
                     <code class="hljs json" data-trim contenteditable>
@@ -191,7 +191,7 @@
                 </ul>
             </section>
             <section>
-                <h3>Global Installati</h3>
+                <h3>Global Installation</h3>
                 <h4>Do NOT install project dependencies globally!</h4>
                 <ul>
                     <li>
@@ -203,7 +203,7 @@
                 </ul>
             </section>
             <section>
-                <h3>Lokale Module</h3>
+                <h3>Local Module</h3>
                 <pre>
                     <code class="hljs json" data-trim contenteditable>
                         "devDependencies": {
@@ -279,7 +279,7 @@
         <section>
             <h2>polyfills.ts</h2>
             <ul>
-                <li>compensates browser specifig JS implementations</li>
+                <li>compensates browser specific JS implementations</li>
                 <li>Depending on the browsers that are used, different libs are needed</li>
                 <li>the libs are loaded here, they need to be installed before -> npm</li>
             </ul>

@@ -188,7 +188,7 @@
             <section>
                 <h2>@Output - react to events</h2>
                 <ul>
-                    <li>we already know evnets of standard components such as <span class="code">buttons</span> or <span class="code">inputs</span>
+                    <li>we already know events of standard components such as <span class="code">buttons</span> or <span class="code">inputs</span>
                     </li>
                     <li>custom events of our own components are exactly the same</li>
                     <li>they define together with <span class="code">Inputs</span> the interface of a component
@@ -206,7 +206,7 @@
                         }
                     </code>
                     <code class="hljs html" data-trim contenteditable>
-                        <button (click)="selectPizza.emit(pizza)">Kaufen</button>
+                        <button (click)="selectPizza.emit(pizza)">Buy</button>
                     </code>
                     <code class="hljs html" data-trim contenteditable>
                         <!-- Outer component -->
@@ -247,8 +247,8 @@
                 <ul>
                     <li>can access services / the application state</li>
                     <li>handle events of their child</li>
-                    <li>pass data from services / state down to their childs</li>
-                    <li>do not contain any disply logic - simply a container for a couple of dumb components
+                    <li>pass data from services / state down to their children</li>
+                    <li>do not contain any display logic - simply a container for a couple of dumb components
                     </li>
                 </ul>
             </section>
@@ -266,7 +266,7 @@
                 <h3>when to use which one?</h3>
                 <ul>
                     <li>in general, the most outer component of a page should be smart</li>
-                    <li>wenn eine Komponente direkt per Route (URL) erreichbar ist, so muss sie smart sein</li>
+                    <li>if a component is directly reachable by the router (URL), it has to be smart</li>
                     <li>if a component is routable, is accessible directly by url, it has to be smart</li>
                     <li>start &laquo;dumb&raquo; only use &laquo;smart&raquo; if there is no root component on that page</li>
                 </ul>
@@ -285,7 +285,7 @@
                 <h3>what are the advantages of this concept?</h3>
                 <ul>
                     <li>testability</li>
-                    <li>reusabilit</li>
+                    <li>reusability</li>
                     <li>no side effects - easy data flow</li>
                     <li>clear concept</li>
                 </ul>
