@@ -2,12 +2,12 @@
 
 - The presentation is created with [reveal.js](http://lab.hakim.se/reveal-js/).
 - You can find the documentation here: [Doku](https://github.com/hakimel/reveal.js) 
-- THe slides are navigatable with the arrows on your keyboard
+- The slides are navigatable with the arrows on your keyboard
 - Google Chrome offers the best user experience
 - "F" jumps to fullscreen mode, exit with ESC
 - "O" shows an overview of all slides, exit with ESC
 - CTRL + P offers a view which is perfect for printing. You can also print those as pdfs, but you need to have the dev server running locally to use this feature
-- You found an error or have a question? Open a pull request of fill an issue
+- You found an error or have a question? Open a pull request or file an issue
 
 ## Inhalt
 - [01 Intro](https://joachimprinzbach.github.io/ws-angular_slides/slides/01_Intro.html)
