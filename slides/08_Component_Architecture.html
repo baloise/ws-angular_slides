@@ -223,7 +223,7 @@
                     <li>Branch: <span class="code">08_ComponentArchitecture_3</span></li>
                     <li>create a  <span class="code">Button</span> to remove a movie</li>
                     <li>every movie should have its own button</li>
-                    <li>the component should throw an event when the user clicks the button - the outer component should handle the event and remove the movie from the list
+                    <li>the component should emit an event when the user clicks the button - the outer component should handle the event and remove the movie from the list
                     </li>
                     <li>Hint: you can <a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">filter</a> an array.</li>
                 </ul>
@@ -232,7 +232,7 @@
                 <h3>Task 8.4 - Possible Solution</h3>
                 <ul>
                     <li>Branch: <span class="code">08_ComponentArchitecture_4</span></li>
-                    <<li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_4</span>
+                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_4</span>
                     </li>
                 </ul>
             </section>
@@ -266,6 +266,7 @@
                 <h3>when to use which one?</h3>
                 <ul>
                     <li>in general, the most outer component of a page should be smart</li>
+                    <!-- TODO: point 2 and 3 are the same?-->
                     <li>if a component is directly reachable by the router (URL), it has to be smart</li>
                     <li>if a component is routable, is accessible directly by url, it has to be smart</li>
                     <li>start &laquo;dumb&raquo; only use &laquo;smart&raquo; if there is no root component on that page</li>

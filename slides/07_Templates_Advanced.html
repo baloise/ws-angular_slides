@@ -148,7 +148,7 @@
                 <ul>
                     <li>custom Angular Syntax</li>
                     <li>the block with <span class="code">*ngFor</span> is repeated</li>
-                    <li>takes ever element of the array and assigns it to <span class="code">item</span>. A <span class="code">li</span> element is created for every iteration.</li>
+                    <li>takes every element of the array and assigns it to <span class="code">item</span>. A <span class="code">li</span> element is created for every iteration.</li>
                     <li>the so called <span class="code">template input variable</span> is only valid in the scope of the element and its children</li>
                 </ul>
             </section>
@@ -200,7 +200,7 @@
             </section>
             <section>
                 <h3>*ngFor Advanced - custom trackBy</h3>
-                <p>Object identity is used to make changes in collections available in the dom. The behaviour can be controlled with a custom <span class="code">trackBy</span> function. Default is object identity <span class="code">===</span></p>
+                <p>Object identity is used to make changes in collections available in the DOM. The behaviour can be controlled with a custom <span class="code">trackBy</span> function. Default is object identity <span class="code">===</span></p>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
                         &lt;div *ngFor="let todo of todos; trackBy: myTrackFunc">
@@ -237,7 +237,7 @@
                 <h2>*ngSwitch</h2>
                 <ul>
                     <li><span class="code">[ngSwitch]="expression"</span> is the directive with the switch value</li>
-                    <li><span class="code">*ngSwitchCase="value"</span> is the directive with the case value, if it's equal to the switch value, the element will be attached to the dom</li>
+                    <li><span class="code">*ngSwitchCase="value"</span> is the directive with the case value, if it's equal to the switch value, the element will be attached to the DOM</li>
                     <li><span class="code">*ngSwitchDefault</span> attaches the element to the DOM if none of the cases matches</li>
                 </ul>
             </section>
@@ -261,14 +261,14 @@
         </section>
         <section>
             <h2>ngClass</h2>
-            <h3>for dynamic css classes</h3>
+            <h3>for dynamic CSS classes</h3>
             <p>for single classes - use a <span class="code">class binding</span></p>
             <pre>
                 <code class="hljs html" data-trim contenteditable>
                     <div [class.active]="customer.active"></div>
                 </code>
             </pre>
-            <p>for multiple classes: ise <span class="code">ngClass directive</span></p>
+            <p>for multiple classes: use <span class="code">ngClass directive</span></p>
             <pre>
                 <code class="hljs html" data-trim contenteditable>
                     &lt;div [ngClass]="{
