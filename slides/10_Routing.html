@@ -80,12 +80,12 @@
             <section>
                 <h3>Router Outlet - the place where the component is going to be displayed</h3>
                 <ul>
-                    <li>die Komponente wird direkt unter <span class="code">&lt;router-outlet>&lt;/router-outlet></span> angezeigt</li>
-                    <li>Router Outlet ist eine Direktive aus dem Angular Router Modul</li>
+                    <li>the component is displayed where <span class="code">&lt;router-outlet>&lt;/router-outlet></span> is located</li>
+                    <li>router-outlet is a directive from the router module</li>
                 </ul>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
-                        &lt;h1>Willkommen&lt;/h1>
+                        &lt;h1>Welcome&lt;/h1>
                         &lt;navigation-bar>&lt;/navigation-bar>
                         &lt;router-outlet>&lt;/router-outlet>
                     </code>
@@ -94,16 +94,16 @@
             <section>
                 <h3>Router Links - Navigation</h3>
                 <ul>
-                    <li>klickt der User auf einen Link soll navigiert werden</li>
-                    <li>Alternativ kann der User natürlich die URL auch manuell eingeben ;-)</li>
-                    <li>die <span class="code">routerLink</span> Direktive wird mit einem Binding ausgehend vom root versehen</li>
+                    <li>when the user clicks a link, navigation should kick in</li>
+                    <li>another option would be to enter the URL manually ;-)</li>
+                    <li>the <span class="code">routerLink</span> directive needs a binding relative to the root of the app's url</li>
                 </ul>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
                         &lt;nav>
                             &lt;ul>
                                 &lt;li>&lt;a routerLink="/pizze">Pizze&lt;/a>&lt;/li>
-                                &lt;li>&lt;a routerLink="/order">Bestellungen&lt;/a>&lt;/li>
+                                &lt;li>&lt;a routerLink="/order">Orders&lt;/a>&lt;/li>
                             &lt;/ul>
                         &lt;/nav>
                     </code>
@@ -112,8 +112,8 @@
             <section>
                 <h3>RouterLinkActive Direktive</h3>
                 <ul>
-                    <li><span class="code">routerLinkActive</span>fügt dem HTML Element eine CSS Klasse hinzu wenn der <span class="code">routerLink</span> aktiv ist</li>
-                    <li>Zum Hervorheben des aktiven Menüpunktes</li>
+                    <li><span class="code">routerLinkActive</span> adds a css class to the element if <span class="code">routerLink</span> is active</li>
+                    <li>too highlight the current active menu entry</li>
                 </ul>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
@@ -127,10 +127,10 @@
                 </pre>
             </section>
             <section>
-                <h3>Angabe des Basis-Pfads</h3>
+                <h3>router base path</h3>
                 <ul>
-                    <li>Dient dazu, dem Router mitzuteilen unter welchem Pfad die Applikation gehostet ist</li>
-                    <li>Wird im <span class="code">&lt;head></span> des <span class="code">index.html</span> als erstes Kind eingefügt.</li>
+                    <li>to tell the router what the base path of the application is</li>
+                    <li>is the first child in the  <span class="code">&lt;head></span> of <span class="code">index.html</span></li>
                 </ul>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
@@ -147,18 +147,18 @@
                 <h3>Task 10.1 - Routing</h3>
                 <ul>
                     <li>Branch: <span class="code">09_ServicesHTTP_2</span></li>
-                    <li>Erstelle eine neue Home Komponente die das Cinema Bild aus dem <span class="code">assets</span> Ordner anzeigt</li>
-                    <li>Füge in die Cinema Komponente eine Navigation ein und darunter den Platz für die gewählte Route</li>
+                    <li>create a new home component that displays the cinema image from the <span class="code">assets</span> folder</li>
+                    <li>add a navigation to the cinema component, and above the place for the active route</li>
                     <li>Erstelle eine Konfiguration für den Router, er soll die Pfade <span class="code">home</span> und <span class="code">movies</span> kennen</li>
-                    <li>Im Falle des leeren Root Pfades soll zur Home Komponente navigiert werden</li>
+                    <li>create a config for the router, it should contain the <span class="code">home</span> and <span class="code">movies</span> paths</li>
+                    <li>if the path is empty, the app should navigate to the home component</li>
                 </ul>
             </section>
             <section>
                 <h3>Task 10.1 - Possible Solution</h3>
                 <ul>
                     <li>Branch: <span class="code">10_Routing_1</span></li>
-                    <li>Wenn du deine Änderungen <span class="warn">verwerfen</span> möchtest und direkt zur Lösung
-                        willst: <span class="code">git reset --hard && git checkout 10_Routing_1</span>
+                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 10_Routing_1</span>
                     </li>
                 </ul>
             </section>
@@ -166,30 +166,29 @@
                 <h3>Task 10.2 - Visitors</h3>
                 <ul>
                     <li>Branch: <span class="code">10_Routing_1</span></li>
-                    <li>Diese Übung ist eine Wiederholung bestehender Konzepte</li>
-                    <li>Baue analog zu den Movies eine neue Seite für Visitors</li>
-                    <li>die Daten kannst du ebenfalls per REST vom <span class="code">/api/visitors</span> Endpoint beziehen</li>
-                    <li>Stelle Besucher und einige Felder tabellarisch dar</li>
-                    <li>Es soll möglich sein zur Seite zu navigieren</li>
+                    <li>this task is a repetition of already covered concepts</li>
+                    <li>build a new page for visitors, like the one for movies</li>
+                    <li>you can get the data from the <span class="code">/api/visitors</span> Endpoint</li>
+                    <li>display visitors with some properties in a table</li>
+                    <li>it should be possible to navigate to the visitors page</li>
                 </ul>
             </section>
             <section>
                 <h3>Task 10.2 - Possible Solution</h3>
                 <ul>
                     <li>Branch: <span class="code">10_Routing_2</span></li>
-                    <li>Wenn du deine Änderungen <span class="warn">verwerfen</span> möchtest und direkt zur Lösung
-                        willst: <span class="code">git reset --hard && git checkout 10_Routing_2</span>
+                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 10_Routing_2</span>
                     </li>
                 </ul>
             </section>
         </section>
         <section>
-            <h2>Weitere Router Features</h2>
+            <h2>Additional Router Features</h2>
             <ul>
-                <li>der Router ist sehr mächtig</li>
-                <li>dementsprechend umfangreich ist das API</li>
-                <li>Route Parameter, Animationen, Child Routes, mehrere Routen und named Outlets, secondary Routes, Route Guards, Lazy Loading...</li>
-                <li><a href="https://angular.io/docs/ts/latest/guide/router.html#">Offizielle Router Dokumentation</a></li>
+                <li>the router is really powerful</li>
+                <li>the API is pretty etensive</li>
+                <li>Route Params, Animations, Child Routes, multiple routes and named Outlets, secondary Routes, Route Guards, Lazy Loading...</li>
+                <li><a href="https://angular.io/docs/ts/latest/guide/router.html#">Official Router Documentation</a></li>
             </ul>
         </section>
         <section>
