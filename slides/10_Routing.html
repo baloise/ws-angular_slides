@@ -28,39 +28,36 @@
             <h1>Routing</h1>
         </section>
         <section>
-            <h2>Generelles zum Routing</h2>
+            <h2>routing in general</h2>
             <ul>
-                <li>wir befinden uns in einer Single Page Application (SPA)</li>
-                <li>wenn wir verschiedene Seiten darstellen wollen, so können wir entweder einen Page Reload machen oder
-                    den Router benutzen
+                <li>we build a Single Page Application (SPA)</li>
+                <li>when we want to display multiple pages, we can either do so by performing a page reload or by using the router
                 </li>
-                <li>wir schauen uns Variante zwei an ;-)</li>
+                <li>we will have a look at the second option ;-)</li>
             </ul>
         </section>
         <section>
             <section>
-                <h2>Anzeige eines Menüs</h2>
+                <h2>Display a navigation menu</h2>
                 <ul>
-                    <li>wir möchten eine kleine Navigation in unserer Applikation nutzen</li>
-                    <li>der Benutzer soll über dem Contentbereich mit Hilfe eines Menüs zu verschiedenen Seiten
-                        navigieren können
-                    </li>
+                    <li>we want to use a small navigation in our application</li>
+                    <li>the user should be able to navigate between different pages using a menu above the content area</li>
                 </ul>
             </section>
             <section>
-                <h3>das Router Modul</h3>
+                <h3>the Router module</h3>
                 <ul>
-                    <li>ist in einem eigenen Paket: <span class="code">@angular/router</span></li>
-                    <li>wird mit <span class="code">RouterModule.forRoot(routeConfig)</span> konfiguriert</li>
-                    <li>erwartet zur Konfiguration ein <span class="code">Route[]</span></li>
-                    <li>eine <span class="code">Route</span> hat Properties wie <span class="code">path</span> und <span
-                            class="code">component</span> - somit wird für einen bestimmten Pfad eine Komponente geladen
+                    <li>is in its own package: <span class="code">@angular/router</span></li>
+                    <li>is configured with <span class="code">RouterModule.forRoot(routeConfig)</span></li>
+                    <li>expects a <span class="code">Route[]</span> as param for the config</li>
+                    <li>a <span class="code">Route</span> hhas properties, such as <span class="code">path</span> and <span
+                            class="code">component</span> - for a specific path a component will be loaded
                     </li>
-                    <li>Die Reihenfolge ist wichtig! Der erste Match gewinnt</li>
+                    <li>The order matters! The first match wins!</li>
                 </ul>
             </section>
             <section>
-                <h3>ein einfaches Konfigurationsbeispiel</h3>
+                <h3>a simple example of a configuration</h3>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
                         const routeConfig: Routes = [
@@ -81,7 +78,7 @@
                 </pre>
             </section>
             <section>
-                <h3>Router Outlet - wo die Komponente angezeigt wird</h3>
+                <h3>Router Outlet - the place where the component is going to be displayed</h3>
                 <ul>
                     <li>die Komponente wird direkt unter <span class="code">&lt;router-outlet>&lt;/router-outlet></span> angezeigt</li>
                     <li>Router Outlet ist eine Direktive aus dem Angular Router Modul</li>
