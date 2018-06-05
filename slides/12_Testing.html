@@ -28,22 +28,23 @@
             <h1>Testing</h1>
         </section>
         <section>
-            <h2>Recap: Testing Pyramide</h2>
+            <h2>Recap: Testing Pyramid</h2>
             <img src="../img/testing_pyramid.png" width="75%">
         </section>
         <section>
             <section>
                 <h2>JavaScript Unit Testing</h2>
                 <ul>
-                    <li>wie eingangs erwähnt nutzt Angular Karma als Test Runner und Jasmine als Testing Framework</li>
-                    <li>Jasmine ist stark an BDD (Behavior Driven Development) angelehnt</li>
-                    <li>mit <span class="code">describe</span> beschreibt man ein Szenario</li>
-                    <li>mit <span class="code">it</span> beschreibt man einen Testfall</li>
-                    <li>die beiden können beliebig verschatelt werden</li>
+                    <li>Angular is using Karma as test runner and Jasmine as testing framework</li>
+                    <li>Jasmine is strongly oriented on BDD (Behavior Driven Development)</li>
+                    <li><span class="code">describe</span> is used to describe a scenario</li>
+                    <li><span class="code">it</span> is used to describe a test case</li>
+                    <!-- TODO REVIEW: also a typo in the german version, maybe you want to adjust that in the original?-->
+                    <li>both can be nested arbitrarily</li>
                 </ul>
             </section>
             <section>
-                <h3>Ein erstes Beispiel</h3>
+                <h3>A first example</h3>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
                         describe('the pizza service', () => {
@@ -71,7 +72,8 @@
                 <ul>
                     <li>@Test => it('should ...')</li>
                     <li>@Ignore => xdescribe, xit</li>
-                    <li>Excecute one test => fdescribe, fit</li>
+                    <!-- TODO REVIEW: also typo in german-->
+                    <li>Execute one test => fdescribe, fit</li>
                     <li>Assert => expect</li>
                     <li>@BeforeClass => beforeAll</li>
                     <li>@AfterClass => afterAll</li>
@@ -80,9 +82,9 @@
                 </ul>
             </section>
             <section>
-                <h3>Matchers und Doku</h3>
+                <h3>Matchers and Docs</h3>
                 <ul>
-                    <li><a href="https://jasmine.github.io/api/edge/global">Dokumentation mit Beispielen</a></li>
+                    <li><a href="https://jasmine.github.io/api/edge/global">Documentation with examples</a></li>
                     <li>Matcher Syntax: <span class="code">expect(object).toBe(expected)</span> => object === expected
                     </li>
                     <li><span class="code">toBeDefined()</span>, <span class="code">toBeTruthy()</span>, <span
@@ -101,63 +103,64 @@
                 </ul>
             </section>
             <section>
-                <h3>Ausführliches Beispiel</h3>
+                <h3>Elaborate Example</h3>
                 <ul>
-                    <li>findet ihr im Branch <span class="code">Testing_Intro</span></li>
+                    <li>can be found on branch <span class="code">Testing_Intro</span></li>
                 </ul>
             </section>
         </section>
         <section>
             <section>
-                <h2>Eine simple Komponente testen</h2>
+                <h2>Testing a simple component</h2>
                 <ul>
-                    <li>Es gibt verschiedene Möglichkeiten Tests in Angular auszuführen</li>
-                    <li>wir starten mit den Komponenten Tests</li>
-                    <li>Wir testen die Logik einer Komponente</li>
+                    <li>There are multiple possibilities to run tests in Angular</li>
+                    <li>we'll start with component tests</li>
+                    <li>we test the logic of a component</li>
                 </ul>
             </section>
             <section>
                 <h3>Angular Testing Utils: TestBed</h3>
                 <ul>
-                    <li><span class="code">TestBed</span> erstellt ein eigenes Angular Modul, nur für diesen Test</li>
-                    <li>die Methode <span class="code">configureTestingModule</span> erwartet eine Modulkonfiguration
-                        mit declarations, providers etc.
+                    <li><span class="code">TestBed</span> creates it's own Angular Module, just for this test</li>
+                    <li>the method <span class="code">configureTestingModule</span> expects a module configuration with declarations, providers etc.
                     </li>
-                    <li>Im Test hängt unsere Komponente nicht am GesamtModul der Applikation, sondern in diesem
-                        Testmodul
+                    <li>In this test the component isn't attached to the AppModule of the application, but to the test module instead
                     </li>
-                    <li>Mindestens die Komponente under Test muss deklariert werden</li>
+                    <!-- TODO REVIEW: typo in german-->
+                    <li>At least the component and the test have to be declared</li>
                 </ul>
             </section>
             <section>
                 <h3>Angular Testing Utils: createComponent</h3>
                 <ul>
-                    <li><span class="code">TestBed.createComponent</span> instanziiert die Komponente die getestet werden soll</li>
-                    <li>Nach dem Erstellen der Komponente darf die TestBed Konfiguration nicht mehr verändert werden</li>
-                    <li>die Methode gibt eine <span class="code">ComponentFixture</span> zurück</li>
-                    <li>über diese Fixture hat man Zugriff auf die Instanz der Komponente, <span class="code">fixture.componentInstance</span></li>
-                    <li>und auf das <span class="code">DebugElement</span>: <span class="code">fixture.debugElement</span></li>
+                    <li><span class="code">TestBed.createComponent</span> instantiates the component that should be tested</li>
+                    <li>After creating the component, the TestBed configuration may not be changed anymore</li>
+                    <li>the method returns a <span class="code">ComponentFixture</span></li>
+                    <li>the fixture allows you to access the component instance, <span class="code">fixture.componentInstance</span></li>
+                    <li>as well as the <span class="code">DebugElement</span>: <span class="code">fixture.debugElement</span></li>
                 </ul>
             </section>
             <section>
                 <h3>Angular Testing Utils: DebugElement</h3>
                 <ul>
-                    <li>Mit dem <span class="code">DebugElement</span> kann auf den DOM zugegriffen werden</li>
-                    <li>mit <span class="code">debugElement.nativeElement</span> auf ein <span class="code">HTMLElement</span></li>
-                    <li>auf einem <span class="code">HTMLElement</span> kann mit <span class="code">textContent</span> der Text ausgelesen werden</li>
-                    <li>mit <span class="code">debugElement.query(predicate) => DebugElement</span> und <span class="code">queryAll(predicate) => DebugElement[]</span> kann im DOM des Elements nach weiteren Elementen gesucht werden</li>
+                    <li>Using <span class="code">DebugElement</span> the DOM can be accessed</li>
+                    <!-- TODO REVIEW: not just any html element, but the one of the component-->
+                    <li>using <span class="code">debugElement.nativeElement</span> the component's <span class="code">HTMLElement</span> can be accessed</li>
+                    <li>on a <span class="code">HTMLElement</span> it's possible to retrieve its text using <span class="code">textContent</span></li>
+                    <li>using <span class="code">debugElement.query(predicate) => DebugElement</span> and <span class="code">queryAll(predicate) => DebugElement[]</span> the DOM of the element can be searched for further HTMLElements.</li>
                 </ul>
             </section>
             <section>
                 <h3>ComponentFixture.detectChanges()</h3>
-                <h4>Die Change Detection im Test triggern</h4>
+                <h4>trigger change detection in a test</h4>
                 <ul>
-                    <li>initial wird mit <span class="code">fixture.detectChanges()</span> das initialisieren der Bindings getriggered</li>
-                    <li>sämtliche Änderungen an der Komponente erfordern einen erneuten Aufruf - somit kann dies im Test explizit getriggert werden</li>
+                    <li>The initialization of bindings is triggered initially with <span class="code">fixture.detectChanges()</span></li>
+                    <!-- TODO REVIEW: why "kann dies getriggert werden", not "muss dies getriggert werden"?-->
+                    <li>all changes to a component require a new call of <span class="code">fixture.detectChanges()</span></li>
                 </ul>
             </section>
             <section>
-                <h3>Ein erstes Beispiel</h3>
+                <h3>A first example</h3>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
                         describe('MyComp', () => {
@@ -186,32 +189,33 @@
                 <h3>Task 12.1 - Component Testing</h3>
                 <ul>
                     <li>Branch: <span class="code">11_Forms_3</span></li>
-                    <li>Lagere die <span class="code">h1</span> Überschrift in eine eigene Komponente aus</li>
-                    <li>schreibe einen Test der überprüft, dass der Titel den korrekten Text enthält </li>
+                    <li>Extract the <span class="code">h1</span> title into its own component</li>
+                    <li>write a test that asserts, that the title contains the correct text</li>
                 </ul>
             </section>
             <section>
                 <h3>Task 12.1 - Possible Solution</h3>
                 <ul>
                     <li>Branch: <span class="code">12_Testing_1</span></li>
-                    <li>Wenn du deine Änderungen <span class="warn">verwerfen</span> möchtest und direkt zur Lösung
-                        willst: <span class="code">git reset --hard && git checkout 12_Testing_1</span>
+                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution:
+                        <span class="code">git reset --hard && git checkout 12_Testing_1</span>
                     </li>
                 </ul>
             </section>
             <section>
-                <h3>Test Host Komponenten verwenden</h3>
+                <!-- TODO REVIEW: could we change the title to "Using dummy parent components" or similar? -->
+                <h3>Using Test Host Components</h3>
                 <ul>
-                    <li>verwendet man <span class="code">@Input()</span> und <span class="code">@Output()</span> so kann man Komponenten sehr gut mit einem Dummy Parent testen</li>
-                    <li>Im Test inline eine Komponente erstellen</li>
-                    <li>diese bindet die zu testende Komponente ein</li>
-                    <li>beide müssen im declarations Array sein</li>
-                    <li>queries wie gewohnt per CSS</li>
-                    <li>die Dummy Host Komponente muss kreiert werden</li>
+                    <li>if you're using <span class="code">@Input()</span> and <span class="code">@Output()</span> it's very easy to test the component with a dummy parent</li>
+                    <li>create an inline component inside of the test</li>
+                    <li>this component mounts the component that is to be tested</li>
+                    <li>both have to be present in the declarations array</li>
+                    <li>queries as usual via CSS</li>
+                    <li>the dummy host component has to be created</li>
                 </ul>
             </section>
             <section>
-                <h3>Test Host Komponenten verwenden</h3>
+                <h3>Using Test Host Components</h3>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
                         describe('Header Component with a host component', () => {
@@ -231,7 +235,7 @@
                                 fixture = TestBed.createComponent(HostComponent);
                             });
                             // ....
-                            // eigentlicher Test Code
+                            // actual Test Code
                         });
                     </code>
                 </pre>
@@ -240,16 +244,16 @@
                 <h3>Task 12.2 - Host Component Testing</h3>
                 <ul>
                     <li>Branch: <span class="code">12_Testing_1</span></li>
-                    <li>Gebe die Überschrift per <span class="code">@Input()</span> in die Header Komponente</li>
-                    <li>schreibe einen Test der eine Dummy Host Komponente nutzt und der Header Komponente eine Überschrift per <span class="code">[propertyBinding]</span> übergibt</li>
+                    <li>Pass the title via <span class="code">@Input()</span> to the header component</li>
+                    <li>write a test that uses a dummy host component and passes a title to the header component via <span class="code">[propertyBinding]</span></li>
                 </ul>
             </section>
             <section>
                 <h3>Task 12.2 - Possible Solution</h3>
                 <ul>
                     <li>Branch: <span class="code">12_Testing_2</span></li>
-                    <li>Wenn du deine Änderungen <span class="warn">verwerfen</span> möchtest und direkt zur Lösung
-                        willst: <span class="code">git reset --hard && git checkout 12_Testing_2</span>
+                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution:
+                        <span class="code">git reset --hard && git checkout 12_Testing_2</span>
                     </li>
                 </ul>
             </section>
@@ -258,8 +262,8 @@
             <section>
                 <h2>Testing Pipes</h2>
                 <ul>
-                    <li>... ist so einfach wie es nur geht ;-)</li>
-                    <li>die Pipe im Test mit <span class="code">new</span> instanziieren und die <span class="code">transform</span> Funktion aufrufen</li>
+                    <li>... is as easy as it gets ;-)</li>
+                    <li>instantiate the pipe inside of the test with <span class="code">new</span> and call the <span class="code">transform</span> function</li>
                 </ul>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
@@ -280,17 +284,17 @@
                 <h3>Task 12.3 - Testing Pipes</h3>
                 <ul>
                     <li>Branch: <span class="code">12_Testing_2</span></li>
-                    <li>Ihr ahnt es schon ;-)</li>
-                    <li>schreibe einen Test für die phonenumber pipe</li>
-                    <li>nutze die Nummer <span class="warn">0564410808</span> einmal ohne CountryCode und einmal mit und überprüfe die Resultate mit einer expectation</li>
+                    <li>you are guessing it ;-)</li>
+                    <li>write a test for the phonenumber pipe</li>
+                    <li>use the number <span class="warn">0564410808</span> once without CountryCode and once with CountryCode and assert the results with an expectation</li>
                 </ul>
             </section>
             <section>
                 <h3>Task 12.3 - Possible Solution</h3>
                 <ul>
                     <li>Branch: <span class="code">12_Testing_3</span></li>
-                    <li>Wenn du deine Änderungen <span class="warn">verwerfen</span> möchtest und direkt zur Lösung
-                        willst: <span class="code">git reset --hard && git checkout 12_Testing_3</span>
+                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution:
+                        <span class="code">git reset --hard && git checkout 12_Testing_3</span>
                     </li>
                 </ul>
             </section>
@@ -299,22 +303,24 @@
             <section>
                 <h2>Testing Services</h2>
                 <ul>
-                    <li>prinzipiell kann man einen Service ohne Dependency wie eine Pipe instanziieren und dann die Logik testen</li>
-                    <li>interessant sind vor allem Services mit <span class="code">HTTP</span> calls</li>
-                    <li>Angular bietet hierfür das sog. <span class="code">in-memory-web-api-module</span> an.</li>
-                    <li>Ganz neu und daher leider noch relativ schlechte Doku.</li>
-                    <li>Urspüngliche <span class="code">MockBackend</span> Methode wurde deprecated.</li>
+                    <li>a service without dependencies can be instantiated like a pipe and then the logic can be tested</li>
+                    <li>especially services including <span class="code">HTTP</span> calls are interesting</li>
+                    <li>Angular offers the so called <span class="code">in-memory-web-api-module</span> for this</li>
+                    <!-- TODO REVIEW: still true? -->
+                    <li>Very new, hence relatively bad documentation</li>
+                    <li>Original <span class="code">MockBackend</span> method was deprecated.</li>
                 </ul>
             </section>
 
             <section>
                 <h3>Dependency Injection in Tests</h3>
                 <ul>
-                    <li>kann in einem <span class="code">beforeEach</span> Block erfolgen</li>
-                    <li>erfolgt mit der <span class="code">async</span> Funktion</li>
-                    <li>diese erwartet als Parameter ein <span class="code">Array</span> der Dependencies und eine Funktion der die Instanzen übergeben werden</li>
-                    <li>Sie müssen als Provider im Testmodul registriert sein</li>
+                    <li>can be done in a <span class="code">beforeEach</span> block</li>
+                    <li>using the <span class="code">async</span> function</li>
+                    <li>it expects as parameter an <span class="code">Array</span> of dependencies and a function to which the instances are passed</li>
+                    <li>They have to be registered as providers in the testing module</li>
                 </ul>
+                <!-- TODO REVIEW: you mention async above, but code below has no async -->
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
                         beforeEach(inject([myService, MockBackend],
@@ -326,11 +332,12 @@
                 </pre>
             </section>
             <section>
-                <h3>Nutzen des MockBackends</h3>
+                <!-- TODO REVIEW: it's a bit confusing, since you mention above that mockBackend was deprecated-->
+                <h3>Usage of the MockBackend</h3>
                 <ul>
-                    <li>wir instantiieren den <span class="code">Http</span> Provider mit dem <span class="code">MockBackend</span> und den <span class="code">BaseRequestOptions</span></li>
-                    <li>mit <span class="code">useFactory</span> signalisieren wir, dass wir eine Factory Methode bereitstellen um den Provider zu instantiieren</li>
-                    <li>Wichtig ist das <span class="code">MockBackend</span>: es erlaubt Verbindungen darauf zu überprüfen und Mock-Antworten zurückzugeben</li>
+                    <li>we instantiate the <span class="code">Http</span> provider using the <span class="code">MockBackend</span> and the <span class="code">BaseRequestOptions</span></li>
+                    <li>with <span class="code">useFactory</span> we signal, that we provide a factory method to instantiate the provider</li>
+                    <li>Important here is the <span class="code">MockBackend</span>: It allows us to check connections and reply with mocked replies</li>
                 </ul>
             </section>
             <section>
@@ -354,7 +361,7 @@
                 </pre>
             </section>
             <section>
-                <h3>HTTP Method und URL Assertion</h3>
+                <h3>HTTP Method and URL Assertion</h3>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
                         backend.connections.subscribe(connection => {
@@ -366,7 +373,7 @@
                 </pre>
             </section>
             <section>
-                <h3>Eine Mock Antwort definieren</h3>
+                <h3>Defining a Mock Reply</h3>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
                         backend.connections.subscribe(connection => {
@@ -381,7 +388,7 @@
                 </pre>
             </section>
             <section>
-                <h3>den Service aufrufen und das Ergebnis prüfen</h3>
+                <h3>calling the service and checking the result</h3>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
                         it('should get the Visitors as an Observable', () => {
@@ -394,17 +401,18 @@
                 </pre>
             </section>
             <section>
-                <h3>Alles zusammen in Action</h3>
+                <h3>Everything in Action</h3>
                 <ul>
-                    <li>siehe Branch <span class="code">12_Testing_4</span></li>
-                    <li>im File <span class="code">src/app/cinema/visitors/visitor.service.spec.ts</span></li>
-                    <li><span class="warn">Wichtig</span>: Generell gilt zu den Testing APIs: die meisten befinden sich im Status <span class="code">@Experimental</span></li>
-                    <li>Aus meiner Sicht gibt es noch viel Luft nach oben bzgl. der APIs</li>
-                    <li>viele Use Cases die sehr common sind könnte man einfacher abdecken</li>
+                    <li>See branch <span class="code">12_Testing_4</span></li>
+                    <li>in the file <span class="code">src/app/cinema/visitors/visitor.service.spec.ts</span></li>
+                    <!-- TODO REVIEW: still true? -->
+                    <li><span class="warn">Important</span>: Most of the testing API's have the status <span class="code">@Experimental</span></li>
+                    <li>From my point of view, there's still much room for improvement regarding the testing API's</li>
+                    <li>many common use cases could be covered in a simpler way</li>
                 </ul>
             </section>
             <section>
-                <h3>Beispiel für eine Vereinfachung</h3>
+                <h3>Simplification Example</h3>
                 <h4></h4>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
@@ -432,17 +440,18 @@
             </section>
         </section>
         <section>
-            <h2>Testing komplexerer Komponenten</h2>
+            <h2>Testing complex components</h2>
             <ul>
-                <li>ist nicht Bestandteil eines Grundlagen Kurses</li>
-                <li>im Branch <span class="code">12_Testing_5</span> findet ihr den <span class="code">movies.component.spec.ts</span> Test</li>
-                <li>der Test zeigt verschiedene Arten wie man Services als Dependecy einer Komponente Mocken kann</li>
-                <li>weitere Infos zum Testing findet ihr in der <a href="https://angular.io/docs/ts/latest/guide/testing.html">Dokumentation</a></li>
+                <li>is not part of a basic course</li>
+                <li>On the branch <span class="code">12_Testing_5</span> you can find the <span class="code">movies.component.spec.ts</span> test</li>
+                <li>the test shows different ways how to mock services as a dependency of a component</li>
+                <li>more info's about testing is available in the <a href="https://angular.io/docs/ts/latest/guide/testing.html">docs</a></li>
             </ul>
         </section>
         <section>
-            <h2>Ihr habt es geschafft!</h2>
-            <h3>Vielen Dank für die Teilnahme :-)</h3>
+            <h2>You've made it!</h2>
+            <h3>Thank you for your participation :-)</h3>
+            <!-- TODO REVIEW: it's it's not its :P-->
             <img src="../img/frodo.jpg">
         </section>
     </div>
