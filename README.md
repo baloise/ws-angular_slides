@@ -9,7 +9,7 @@
 - CTRL + P offers a view which is perfect for printing. You can also print those as pdfs, but you need to have the dev server running locally to use this feature
 - You found an error or have a question? Open a pull request or file an issue
 
-## Inhalt
+## Content
 - [01 Intro](https://joachimprinzbach.github.io/ws-angular_slides/slides/01_Intro.html)
 - [02 Basics](https://joachimprinzbach.github.io/ws-angular_slides/slides/02_Basics.html)
 - [03 Project Setup](https://joachimprinzbach.github.io/ws-angular_slides/slides/03_ProjectSetup.html)
