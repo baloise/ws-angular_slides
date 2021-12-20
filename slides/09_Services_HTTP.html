@@ -31,34 +31,34 @@
             <section>
                 <h2>Services & Injection</h2>
                 <ul>
-                    <li>sind simple TypeScript Klassen</li>
-                    <li>sollten mit <span class="code">@Injectable()</span> annotiert werden</li>
-                    <li>sind somit für den Angular Injector als verfügbare Dependencies markiert</li>
-                    <li>kapseln den Zugriff auf das Backend und andere APIs</li>
-                    <li>enthalten Logik die aus Komponenten ausgelagert wird</li>
+                    <li>simple TypeScript classes</li>
+                    <li>should be annotated with <span class="code">@Injectable()</span></li>
+                    <li>are marked as available for injection by the dependency injector</li>
+                    <li>encapsulate the access to the backend or other API's</li>
+                    <li>can contain logic that is moved from a component</li>
                 </ul>
             </section>
             <section>
                 <h3>Dependency Injection</h3>
                 <ul>
-                    <li><span class="code">Injectables</span> müssen im AppModule unter <span class="code">providers</span> registriert werden</li>
-                    <li>theoretisch können diese auch für eine Component (und deren Kinder) registriert werden - dies ist selten nötig; nur falls man jeweils eine eigene Instanz benötigt</li>
+                    <li><span class="code">Injectables</span> have to be registered in the AppModule in the <span class="code">providers</span> array</li>
+                    <li>in theory, they can be registered for a component and its children only - this is only necessary in very rare cases, only if a component needs a dedicated instance</li>
                 </ul>
             </section>
             <section>
                 <h3>Providers</h3>
-                <h4>Stellen zur Laufzeit eine konkrete Dep. zur Verfügung</h4>
+                <h4>provide a concrete dependency during runtime</h4>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
-                        // kurze Form
+                        // short form
                         providers: [PizzaService]
                     </code>
                     <code class="hljs typescript" data-trim contenteditable>
-                        // lange Form
+                        // long form
                         [{ provide: PizzaService, useClass: PizzaService }]
                     </code>
                     <code class="hljs typescript" data-trim contenteditable>
-                        // mit einem Objekt (gut für Tests ;-))
+                        // with an object (good for Tests ;-))
                         let myService = {
                             getPizze: () => { return []; }
                         };
@@ -68,7 +68,7 @@
             </section>
             <section>
                 <h3>Providers</h3>
-                <h4>Verwendung in Komponente</h4>
+                <h4>usage in components</h4>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
                         Component({
@@ -76,7 +76,7 @@
                         })
                         export class PizzaComponent {
 
-                            // Service im Konstruktor angeben um zu injecten
+                            // use constructor to inject services
                             constructor(private pizzaService: PizzaService) {
                             }
                         }
@@ -84,31 +84,30 @@
                 </pre>
             </section>
             <section>
-                <h3>Zusammenfassung</h3>
-                <h4>in 98% der Fälle gilt...</h4>
+                <h3>Summary</h3>
+                <h4>in 98% of the cases...</h4>
                 <ul>
-                    <li>Services mit <span class="code">@Injectable</span> annotieren</li>
-                    <li>Services bei den Providern im AppModule registrieren</li>
-                    <li>die Kurzform für die Registrierung verwenden</li>
-                    <li>Im Test einen Mock / Stub mit <span class="code">useValue</span> benutzen</li>
+                    <li>annotate services with <span class="code">@Injectable</span></li>
+                    <li>register services in the providers array in the module</li>
+                    <li>use the short form for the registration</li>
+                    <li>use a mock / stub in a test with <span class="code">useValue</span></li>
                 </ul>
 
             </section>
             <section>
-                <h3>Aufgabe 9.1 - Services</h3>
+                <h3>Task 9.1 - Services</h3>
                 <ul>
                     <li>Branch: <span class="code">08_ComponentArchitecture_5</span></li>
-                    <li>Extrahiere die Liste der movies in einen <span class="code">MovieService</span></li>
-                    <li>Stelle eine Methode <span class="code">getAllMovies</span> zur Verfügung, die das Array returned</li>
-                    <li>Nutze den Service in der <span class="code">MoviesComponent</span></li>
+                    <li>extract the list of movies to a <span class="code">MovieService</span></li>
+                    <li>provide a method <span class="code">getAllMovies</span> that return the list of movies</li>
+                    <li>use the service in the <span class="code">MoviesComponent</span></li>
                 </ul>
             </section>
             <section>
-                <h3>Aufgabe 9.1 - Mögliche Lösung</h3>
+                <h3>Task 9.1 - Possible Solution</h3>
                 <ul>
                     <li>Branch: <span class="code">09_ServicesHTTP_1</span></li>
-                    <li>Wenn du deine Änderungen <span class="warn">verwerfen</span> möchtest und direkt zur Lösung
-                        willst: <span class="code">git reset --hard && git checkout 09_ServicesHTTP_1</span>
+                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 09_ServicesHTTP_1</span>
                     </li>
                 </ul>
             </section>
@@ -118,13 +117,13 @@
                 <h2>RxJS</h2>
                 <h3>Recap</h3>
                 <ul>
-                    <li>JavaScript ist single threaded</li>
-                    <li>Viele Operationen im Web sind asynchron: Animationen, API Calls, Zeichnen vom UI u.v.m.</li>
-                    <li>Um diese Herausforderung zu meistern gibt es mehrere Konzepte: wir werden einen kurzen Blick auf Callbacks, Promises und dann RxJS und Observables werfen</li>
+                    <li>JavaScript is single threaded</li>
+                    <li>many operations in the web are asynchronous: animations, API calls, ui rendering etc.</li>
+                    <li>there are many concepts that deal with those circumstances: we will have a short look at callbacks, promises and last but not least RxJS and Observables</li>
                 </ul>
             </section>
             <section>
-                <h3>Klassische Callbacks</h3>
+                <h3>Callbacks</h3>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
                         fetchCustomerById(id, showCustomerFunc) {
@@ -148,12 +147,12 @@
                 </pre>
             </section>
             <section>
-                <h3>Klassische Callbacks</h3>
+                <h3>Callbacks (2)</h3>
                 <ul>
-                    <li>sind ein Konstrukt um mit Asynchronität umzugehen</li>
-                    <li>eine <span class="code">callback</span> Funktion wird einer Funktion als Parameter übergeben und später dann (vllt.) aufgerufen, bspw. wenn Daten verfügbar sind</li>
-                    <li>ein grosser Nachteil ist die sogenannte Callback-Hell - wie auf der Slide vorher zu sehen</li>
-                    <li>asynchroner Code wird sehr schnell unlesbar</li>
+                    <li>are for dealing with asynchronous behaviour</li>
+                    <li>a <span class="code">callback</span> function is handed as a function parameter und might be called later on, e.g. when data is available, an error occurs</li>
+                    <li>a huge disadvantage is the so called callback hell - see the slide before</li>
+                    <li>asynchronous callback code tends to get unreadable</li>
                 </ul>
             </section>
             <section>
@@ -171,21 +170,22 @@
                                 });
                         }
                     </code>
+                </pre>
             </section>
             <section>
                 <h3>Promises</h3>
                 <ul>
-                    <li>können gechained werden - ein Promise kann ein weiteres Promise zurückgeben</li>
-                    <li>sind das zukünftige Ergebnis einer asynchronen Operation <span class="warn">(*ouch*)</span></li>
-                    <li>sind oft besser lesbar als Callbacks: <span class="code">api().then(result => api2()).then(handleResult)</span></li>
-                    <li>Ein Promise resolved nur einmal und ist nicht (einfach) retryable</li>
+                    <li>can be chained - a promise can return another promise</li>
+                    <li>are the future result of an asynchronous operation <span class="warn">(*ouch*)</span></li>
+                    <li>readability is often better than with callbacks: <span class="code">api().then(result => api2()).then(handleResult)</span></li>
+                    <li>a promise resolves once and is not (easily) repeatable</li>
                 </ul>
             </section>
             <section>
-                <h4>Promises – im Vergleich zum JDK</h4>
+                <h4>Promises – compared to the JDK</h4>
                 <ul>
-                    <li>ähnlich wie ein Future</li>
-                    <li>genauer: Seit Java8 ein <span class="code">CompletableFuture&lt;T></span></li>
+                    <li>like a Future</li>
+                    <li>more exactly: since Java 8 a <span class="code">CompletableFuture&lt;T></span></li>
                 </ul>
                  <pre>
                     <code class="hljs java" data-trim contenteditable>
@@ -197,18 +197,18 @@
             </section>
             <section>
                 <h3>RxJS & Observables</h3>
-                <h4>Observables sind ein "Array over Time"</h4>
+                <h4>Observables are an "Array over Time"</h4>
                 <ul>
-                    <li>mehrere Werte können über die Zeit hinweg ankommen</li>
-                    <li>verhalten sich wie <span class="code">Streams</span> => Observer Pattern!</li>
-                    <li>können abgebrochen werden</li>
-                    <li>können wiederholt werden</li>
-                    <li>die API ist die selbe: ob für 0, 1 oder N Werte</li>
-                    <li>bieten mächtige Operatoren: <span class="code">map</span>, <span class="code">filter</span>, <span class="code">reduce</span></li>
+                    <li>multiple values can arrive over time</li>
+                    <li>behave like <span class="code">Streams</span> => Observer Pattern!</li>
+                    <li>can be aborted</li>
+                    <li>can be retried</li>
+                    <li>the API is the same: no matter if there are 0, 1 or N values</li>
+                    <li>offer powerful operators: <span class="code">map</span>, <span class="code">filter</span>, <span class="code">reduce</span></li>
                 </ul>
             </section>
             <section>
-                <h3>RxJS Beispiel</h3>
+                <h3>RxJS Example</h3>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
                         import {Observable} from "rxjs";
@@ -239,14 +239,14 @@
                         sub.unsubscribe();
                     </code>
                 </pre>
-                <h4>Observables sind lazy</h4>
+                <h4>Observables are lazy (cold)</h4>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
                         const src: Observable&lt;number> = fetchNumbers();
                         // ... nothing happens ;-)
 
                         src.subscribe(nr => console.log(nr));
-                        // jetzt wird der Request abgeschickt
+                        // now the request is sent
                     </code>
                 </pre>
             </section>
@@ -255,49 +255,49 @@
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
                           searchControl
-                              // wenn sich ein Wert ändert
+                              // if a value changes
                               .valueChanges
 
-                              // 500ms Warten nach letzter Änderung
+                              // wait for 500ms after the last change
                               .debounceTime(500)
 
-                              // nur wenn der neue Wert sich verändert hat
+                              // only if the new value differs
                               .distinctUntilChanged()
 
-                              // nur der letzte bekannte Wert
-                              // von alten wird unsubscribed
+                              // only the last known value
+                              // unsubscribe from old values
                               .switchMap(search => this.dataService.find(search))
 
-                              // gib mir Daten!
+                              // give me data!
                               .subscribe(items => this.items = items);
                     </code>
                 </pre>
             </section>
         </section>
         <section>
-            <h2>Observables und Angular</h2>
+            <h2>Observables and Angular</h2>
             <ul>
-                <li>Angular ist intern als reaktives System aufgebaut</li>
-                <li>Um die funktionale, reaktive Programmierung zu unterstützen, arbeitet Angular intern mit <span class="code">Observables</span></li>
-                <li>das <span class="code">valueChanges</span> Observable property auf einem Control ist von Angular</li>
-                <li>der HTTP Service von Angular gibt <span class="code">Observables</span>, keine <span class="code">Promises</span>
-                    (wie <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">fetch</a>) zurück</li>
+                <li>internally, Angular is built as a reactive system</li>
+                <li>in order to support functional reactive programming, Angular internals work with <span class="code">Observables</span></li>
+                <li>the <span class="code">valueChanges</span> Observable property on a control in the example before is from Angular</li>
+                <li>the new HTTP Service in Angular returns <span class="code">Observables</span>, not <span class="code">Promises</span>
+                    (as <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">fetch</a> does it)</li>
             </ul>
         </section>
         <section>
             <section>
                 <h2>Angular HTTP Client</h2>
                 <ul>
-                    <li>wird meist im Constructor eines Service injected</li>
-                    <li>bietet alle gängigen HTTP Methoden: <span class="code">get</span>, <span class="code">post</span>, <span class="code">put</span>, <span class="code">delete</span>, <span class="code">patch</span>, <span class="code">head</span> und <span class="code">options</span></li>
-                    <li>Standardmässig wird eine JSON-Response vom angegebenen Typ erwartet <span>&#10230;</span> <span class="code">http.get&lt;Pizza[]></span></li>
-                    <li>Error-Handling wie bei Promises mit einem <span class="code">catch()</span>Block</li>
-                    <li>Sehr mächtiges Interface: <a href="https://angular.io/guide/http" target="_blank">Offizielle Dokumentation</a></li>
+                    <li>most of the time: injected in a service constructor</li>
+                    <li>offers the known HTTP methods: <span class="code">get</span>, <span class="code">post</span>, <span class="code">put</span>, <span class="code">delete</span>, <span class="code">patch</span>, <span class="code">head</span> and <span class="code">options</span></li>
+                    <li>the client expects a JSON response in the specified structure <span>&#10230;</span> <span class="code">http.get&lt;Pizza[]></span></li>
+                    <li>handling errors is done with a  <span class="code">catch()</span> block</li>
+                    <li>very powerful interface: <a href="https://angular.io/guide/http" target="_blank">official documentation</a></li>
                 </ul>
             </section>
             <section>
-                <h3>Erstes Beispiel</h3>
-                <p>Funktion im Service erstellen, der GET-Request ausführt.</p>
+                <h3>first example</h3>
+                <p>function in service that executes the GET call</p>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
                         import {Injectable} from "@angular/core";
@@ -318,8 +318,8 @@
                 </pre>
             </section>
             <section>
-                <h3>Erstes Beispiel (2)</h3>
-                <p>Service-Funktion in Komponente aufrufen und auf <span class="code">Observable</span> subscriben.</p>
+                <h3>first example (2)</h3>
+                <p>call the service in the component and subscribe to the <span class="code">Observable</span>.</p>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
                         export class PizzeComponent implements OnInit {
@@ -338,28 +338,27 @@
                 </pre>
             </section>
             <section>
-                <h3>Aufgabe 9.2 - HTTP GET</h3>
+                <h3>Task 9.2 - HTTP GET</h3>
                 <ul>
                     <li>Branch: <span class="code">09_ServicesHTTP_1</span></li>
-                    <li>Hole die Movies mit einem GET Request vom Backend, anstelle des hardcodierten Arrays</li>
-                    <li>Starte das Backend in einer neuen Konsole: <span class="code">npm run api</span></li>
-                    <li>Der REST-Endpoint um alle Movies zu laden, lautet <span class="code">/api/movies</span></li>
-                    <li>Test ob die API läuft: <a href="http://localhost:3000/api/movies">Zeige Movies JSON</a></li>
+                    <li>get the movies from the backend using a GET request instead of the hardcoded array</li>
+                    <li>start the backend in a new terminal: <span class="code">npm run api</span></li>
+                    <li>the REST endpoint to retrieve all the movies is <span class="code">/api/movies</span></li>
+                    <li>test whether the api runs: <a href="http://localhost:3000/api/movies">show all movies</a></li>
                 </ul>
             </section>
             <section>
-                <h3>Aufgabe 9.2 - Mögliche Lösung</h3>
+                <h3>Task 9.2 - Possible Solution</h3>
                 <ul>
                     <li>Branch: <span class="code">09_ServicesHTTP_2</span></li>
-                    <li>Wenn du deine Änderungen <span class="warn">verwerfen</span> möchtest und direkt zur Lösung
-                        willst: <span class="code">git reset --hard && git checkout 09_ServicesHTTP_2</span>
+                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 09_ServicesHTTP_2</span>
                     </li>
                 </ul>
             </section>
         </section>
         <section>
             <section>
-                <h2>Reaktives System</h2>
+                <h2>reactive system</h2>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
                         movies: Movie[];
@@ -382,18 +381,18 @@
                 </pre>
             </section>
             <section>
-                <h3>Die Async Pipe - | async</h3>
+                <h3>the async pipe - | async</h3>
                 <ul>
-                    <li>Erleichtert den Umgang mit <span class="code">Observables</span> &amp; <span class="code">Promises</span></li>
-                    <li>Hilft mögliche Memory-Leaks zu verhindern, in dem sie Observables automatisch unsubscribed</li>
-                    <li>Verkürzt den eigenen Code (kein Reagieren auf Änderungen)</li>
-                    <li>Einen guten Artikel zum Thema findest Du
-                        <a href="https://blog.thoughtram.io/angular/2017/02/27/three-things-you-didnt-know-about-the-async-pipe.html" target="_blank">hier</a>
+                    <li>simplifies the handling of <span class="code">Observables</span> &amp; <span class="code">Promises</span></li>
+                    <li>helps to avoid memory leaks by automatically unsubscribing from Observables</li>
+                    <li>code is shorter</li>
+                    <li>a good article regarding the async pipe can be found
+                        <a href="https://blog.thoughtram.io/angular/2017/02/27/three-things-you-didnt-know-about-the-async-pipe.html" target="_blank">here</a>
                     </li>
                 </ul>
             </section>
             <section>
-                <h3>Die Async Pipe - | async (2)</h3>
+                <h3>the async pipe - | async (2)</h3>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
                         movies: Observable&lt;Movie[]>;
@@ -414,25 +413,25 @@
                 </pre>
             </section>
             <section>
-                <h3>Moderne reaktive Architektur</h3>
+                <h3>modern reactive architecture</h3>
                 <ul>
-                    <li>wie eingangs erwähnt unterstützt Angular die reaktive Programmierung</li>
-                    <li>diese wird häufig mit einem Uni-Directional Data Flow umgesetzt</li>
-                    <li>hier bietet sich das Redux-Pattern an</li>
-                    <li>eine sehr gute Library ist <a href="https://github.com/ngrx/platform" target="_blank">ngrx/store</a></li>
+                    <li>as said before, Angular encourages the usage of a reactive architecture</li>
+                    <li>it is often implemented using a unidirectional data flow</li>
+                    <li>a well established pattern is Redux</li>
+                    <li>an excellent library for Angular is <a href="https://github.com/ngrx/platform" target="_blank">ngrx/store</a></li>
                 </ul>
             </section>
             <section>
                 <img src="../img/redux.png" width="90%" >
             </section>
             <section>
-                <h3>Zusammenspiel mit anderen Konzepten</h3>
+                <h3>in interaction with other concepts</h3>
                 <ul>
-                    <li>die reaktive Architektur integriert sich sehr gut mit anderen etablierten Konzepten</li>
-                    <li>Smart Components haben Zugriff auf den Store</li>
-                    <li>Smart Components können Actions dispatchen</li>
-                    <li>Smart Components geben die Daten per async Pipe an ihre Kinder</li>
-                    <li>Dumb Components erhalten lediglich Daten und liefern Events</li>
+                    <li>the reactive architecture plays well with other established concepts</li>
+                    <li>Smart Components have access to the store</li>
+                    <li>Smart Components can dispatch actions</li>
+                    <li>Smart Components hand data down to children using the async pipe</li>
+                    <li>Dumb Components only get data and emit events</li>
                 </ul>
             </section>
         </section>

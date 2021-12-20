@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Angular Workshop | 02 Grundlagen</title>
+    <title>Angular Workshop | 02 Basics</title>
 
     <link rel="stylesheet" href="../css/reveal.css">
     <link rel="stylesheet" href="../css/theme/baloise.css">
@@ -25,7 +25,7 @@
 <div class="reveal">
     <div class="slides">
         <section class="deck-slide">
-            <h1>Grundlagen - Ökosystem</h1>
+            <h1>Basics - eco system</h1>
         </section>
         <section>
             <section>
@@ -35,32 +35,32 @@
             <section>
                 <h2>ES5</h2>
                 <ul>
-                    <li>JavaScript das alle modernen Browser unterstützen</li>
-                    <li>neuere Versionen werden meist nach ES5 kompiliert / transpiliert</li>
+                    <li>JavaScript Version that is supported by all major browsers</li>
+                    <li>newer versions are most of the time compiled / transpiled to ES5</li>
                 </ul>
             </section>
             <section>
                 <h2>ES6 / ES2015</h2>
                 <ul>
-                    <li>Neuere Version aus dem Jahr 2015</li>
-                    <li>Wird meist mit Babel oder dem Google Closure Compiler zu ES5 transpiliert</li>
-                    <li>Klassen, Arrow Funktionen, Block scoped let und const, Module, Multiline Strings...</li>
+                    <li>Newer version from 2015</li>
+                    <li>Babel or Google Closure Compiler are most of the time used to transpile to ES5</li>
+                    <li>Classes, Arrow functions, Block scoped let and const, modules, multiline strings...</li>
                 </ul>
             </section>
             <section>
                 <h2>TypeScript</h2>
                 <ul>
-                    <li>Von Microsoft entwickelte Erweiterung</li>
-                    <li>Wird mit dem TypeScript Compiler zu JavaScript kompiliert</li>
-                    <li>Typisierung, Annotationen / Decorator, Interfaces, Generics</li>
+                    <li>developed by Microsoft, a superset of JavaScript</li>
+                    <li>Uses the TypeScript compiler to compile to JavaScript</li>
+                    <li>type checking, annotations / decorators, interfaces, generics...</li>
                 </ul>
             </section>
         </section>
         <section class="deck-slide">
-            <h1>ES6 & Funktionen</h1>
+            <h1>ES6 & functions</h1>
         </section>
         <section>
-            <h2>ES6 Neuerungen</h2>
+            <h2>New in ES6</h2>
             <h3>Fat arrow functions</h3>
             <pre>
                 <code class="hljs" data-trim contenteditable data-noescape>
@@ -84,14 +84,14 @@
                     <code class="hljs javascript" data-trim contenteditable data-noescape>
                          // old way
                          for (var i = 0; i < 2; i++) {
-                            // mach etwas
+                            // do sth.
                          }
                          console.log(i);  <span class="fragment"> // 2</span>
 
                          <span class="fragment">
                          // ES6 way
                          for (let i = 0; i < 2; i++) {
-                            // mach etwas
+                            // do sth.
                          }
                          console.log(i); <span class="fragment">  // i is not defined </span>
                         </span>
@@ -101,68 +101,68 @@
             <section>
                 <h3>var vs. let vs. const</h3>
                 <ul>
-                    <li>var ist function scoped</li>
-                    <li>let und const sind block scoped</li>
+                    <li>var is function scoped</li>
+                    <li>let and const are block scoped</li>
                     <li>let ist the new var ;-)</li>
-                    <li>const ist ähnlich wie das final in Java</li>
-                    <li><span class="warn">Achtung!</span> Objekte oder Arrays können durchaus mutiert werden! (siehe final)</li>
+                    <li>const is similar to final in Java</li>
+                    <li><span class="warn">Be careful!</span> Objects and arrays are still not immutable! (see final)</li>
                 </ul>
             </section>
         </section>
         <section>
-            <h3>Objekt Literale</h3>
+            <h3>Object literals</h3>
             <pre>
                  <code class="hljs javascript" data-trim contenteditable>
                      let lastName = "Muster";
                      let obj = {
                         firstName: "Hans",
                         lastName,
-                        hobbies: ["Tennis", "Lesen"]
+                        hobbies: ["tennis", "reading"]
                      };
 
                      let obj = {};
                      obj.firstName = "Hans";
                      obj.lastName = "Muster";
-                     obj.hobbies = ["Tennis", "Lesen"];
+                     obj.hobbies = ["tennis", "reading"];
 				 </code>
             </pre>
         </section>
         <section>
             <h3>Template Strings</h3>
-            <h4>Werden mit dem Backtick ` erzeugt</h4>
+            <h4>Can be created with the backtick ` </h4>
             <pre>
                  <code class="hljs javascript" data-trim contenteditable>
                      let name = 'Hans';
-                     let templString = `Hallo
+                     let templString = `Hello
                         ${name},
-                        wie geht es dir?`
-                     console.log(templString); // Hallo
+                        how are you?`
+                     console.log(templString); // Hello
                                                // Hans,
-                                               // wie geht es dir?
+                                               // how are you?
 				 </code>
             </pre>
         </section>
         <section>
             <section>
                 <h3>Advanced Features</h3>
-                <h4>Für die Schulung nicht notwendig</h4>
+                <h4>not necessary for the training - but good to know</h4>
                 <ul>
                     <li>Rest & Spreading</li>
                     <li>Destructuring</li>
-                    <li>Funktionen als Parameter und Return Value</li>
+                    <li>Functions as parameters and as a return value</li>
                 </ul>
             </section>
             <section>
                 <h3>...Rest & [... Spreading]</h3>
-                <h4>Rest Parameter</h4>
+                <h4>Rest parameters</h4>
                 <pre>
                      <code class="hljs javascript" data-trim contenteditable data-noescape>
                          function info(name, ...hobbies) {
                             hobbies.forEach(hobby => console.log(hobby));
                          }
-                         info("Hans", "Tennis", "Squash", "Schach");
+                         info("Hans", "tennis", "soccer", "chess");
                          <span class="fragment">
-                         // "Tennis" "Squash" "Schach"
+                         // "tennis", "soccer", "chess"
                          </span>
                          function multiply(multi, ...numbers) {
                             return numbers.map(num => multi * num);
@@ -178,11 +178,11 @@
                 <h4>Spread Operator</h4>
                 <pre>
                      <code class="hljs javascript" data-trim contenteditable data-noescape>
-                         // Arrays kopieren
+                         // copy arrays
                          let arr = [1, 2]
                          let newArr = [...arr]
                          <span class="fragment">
-                         // Arrays zusammenführen
+                         // concat arrays
                          let devs = ["Hans", "Reto"];
                          let testers = ["Peter", "Nicole"];
                          let employees = ["El jefe", ...devs, ...testers];
@@ -199,7 +199,7 @@
             </section>
             <section>
                 <h3>Destructuring</h3>
-                <h4>Daten aus Arrays extrahieren</h4>
+                <h4>extract data from arrays</h4>
                 <pre>
                      <code class="hljs javascript" data-trim contenteditable data-noescape>
                          let arr = [1, 2, 3];
@@ -217,7 +217,7 @@
                  </pre>
             </section>
             <section>
-                <h4>Daten aus Objekten extrahieren</h4>
+                <h4>extract data from objects</h4>
                 <pre>
                      <code class="hljs javascript" data-trim contenteditable data-noescape>
                          let obj = {
@@ -232,24 +232,23 @@
 
                          let {firstName: vorname} = obj;
                          console.log(vorname); // "Hans"
-                         </span>
                      </code>
                  </pre>
             </section>
             <section>
-                <h3>Funktionen als First Class Objekte</h3>
-                <h4>Zuweisung</h4>
+                <h3>functions as first class citizens</h3>
+                <h4>allocation</h4>
                 <pre>
                      <code class="hljs javascript" data-trim contenteditable data-noescape>
                          let func = function() {
-                            // mach etwas
+                            // do sth.
                          }
-                         // nicht anonym - praktisch beim debuggen
+                         // not anonymous - useful for debugging
                          let func = function funcName() {
-                            // mach etwas
+                            // do sth
                          }
                         <span class="fragment">
-                        // seit ES6
+                        // since ES6
                         let es6Func = () => console.log("Hello");
                         es6Func(); // "Hello"
                         let add = (a, b) => a + b;
@@ -259,23 +258,23 @@
                  </pre>
             </section>
             <section>
-                <h4>Zuweisung (2)</h4>
+                <h4>allocation (2)</h4>
                 <pre>
                      <code class="hljs javascript" data-trim contenteditable data-noescape>
-                        // Bei einem Parameter ohne Klammern möglich
-                        let potenz = n => n * n;
-                        console.log(potenz(4)); // 16
+                        // when having a single parameter, parentheses can be omitted
+                        let power = n => n * n;
+                        console.log(power(4)); // 16
                      </code>
                  </pre>
             </section>
             <section>
-                <h4>Funktionen als Return value</h4>
+                <h4>functions as return value</h4>
                 <pre>
                      <code class="hljs javascript" data-trim contenteditable data-noescape>
                          let addThree = (a) => (b) => (c) => a + b + c;
                          console.log(addThree(1)(4)(3)); // 8
 
-                         // oder in ES5
+                         // or in ES5
                          var addThreeOld = function addThreeOld(a) {
                             return function(b) {
                                 return function (c) {
@@ -285,13 +284,13 @@
                          };
                          console.log(addThreeOld(1)(4)(3)); // 8
 
-                         // Ohne Klammern ;-)
+                         // without parentheses ;-)
                          let addThree = a => b => c => a + b + c;
                      </code>
                  </pre>
             </section>
             <section>
-                <h4>Funktionen als Parameter</h4>
+                <h4>functions as param</h4>
                 <pre>
                      <code class="hljs javascript" data-trim contenteditable data-noescape>
                          function renderCustomer(c) {
@@ -315,7 +314,7 @@
         </section>
         <section>
             <h3>Default Parameter</h3>
-            <h4>Wenn Parameter nicht übergeben werden oder undefined sind</h4>
+            <h4>when a parameter ist not provided or undefined</h4>
             <pre>
                  <code class="hljs javascript" data-trim contenteditable>
                      function fullName(first = "Hans", last = "Muster") {
@@ -327,8 +326,8 @@
         </section>
         <section>
             <section>
-                <h2>JS Besonderheiten</h2>
-                <h3>Truthy und Falsy</h3>
+                <h2>JS Quirks</h2>
+                <h3>Truthy and Falsy</h3>
                 <ul>
                     <li>false</li>
                     <li>0</li>
@@ -359,7 +358,7 @@
         </section>
         <section>
             <section>
-                <h2>Klassen</h2>
+                <h2>Classes</h2>
                 <h3>Constructor / shorthand</h3>
                 <pre>
                  <code class="hljs typescript" data-trim contenteditable data-noescape>
@@ -400,11 +399,11 @@
             </section>
         </section>
         <section>
-            <h2>Typen</h2>
+            <h2>Types</h2>
             <table>
                 <tr>
-                    <th>Typ Java</th>
-                    <th>Typ TypeScript</th>
+                    <th>Types Java</th>
+                    <th>Types TypeScript</th>
                 </tr>
                 <tr>
                     <td>Object</td>
@@ -434,14 +433,14 @@
         </section>
         <section>
             <section>
-                <h2>Typisierung - Interfaces</h2>
+                <h2>Typing - Interfaces</h2>
                 <pre>
                      <code class="hljs typescript" data-trim contenteditable data-noescape>
                          interface Customer {
                             hobbies: string[]
                          }
                          let validCus: Customer = {
-                            hobbies: ["Tennis", "Squash"]
+                            hobbies: ["tennis", "chess"]
                          }
 
                          // Type '{ hobbies: string; }' is not assignable to
@@ -449,7 +448,7 @@
                          // incompatible. Type 'string' is not assignable
                          // to type 'string[]'.
                          let compileError: Customer = {
-                            hobbies: "Tennis"
+                            hobbies: "tennis"
                          }
                      </code>
                  </pre>
@@ -477,7 +476,7 @@
                  </pre>
             </section>
             <section>
-                <h3>Funktionen in Interfaces</h3>
+                <h3>Functions in Interfaces</h3>
                 <pre>
                      <code class="hljs typescript" data-trim contenteditable data-noescape>
                          interface Customer {
@@ -560,7 +559,7 @@
                 <h3>Import</h3>
                 <pre>
                      <code class="hljs typescript" data-trim contenteditable data-noescape>
-                         // wie Destructuring ;-)
+                         // same as Destructuring ;-)
                          import {Customer, Person} from "./customer";
                          import {Component} from "@angular/core";
 
@@ -579,13 +578,13 @@
             </section>
         </section>
         <section>
-            <h2>Nützliche Links</h2>
+            <h2>Useful Links</h2>
             <ul>
                 <li><a href="http://www.typescriptlang.org/play/index.html">TypeScript Playground - Online Editor</a>
                 </li>
                 <li><a href="http://www.typescriptlang.org/docs/handbook/basic-types.html">TypeScript Handbook -
-                    Doku</a></li>
-                <li><a href="https://basarat.gitbooks.io/typescript/content/">TypeScript Deep Dive - Buch</a></li>
+                    Documentation</a></li>
+                <li><a href="https://basarat.gitbooks.io/typescript/content/">TypeScript Deep Dive - Book</a></li>
             </ul>
         </section>
         <section>

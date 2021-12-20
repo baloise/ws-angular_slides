@@ -25,35 +25,31 @@
 <div class="reveal">
     <div class="slides">
         <section class="deck-slide">
-            <h1>Formulare</h1>
+            <h1>Forms</h1>
         </section>
         <section>
             <section>
-                <h2>Formulare in Angular</h2>
+                <h2>Forms in Angular</h2>
                 <ul>
-                    <li>es gibt zwei verschiedene Ansätze: <a href="https://angular.io/guide/forms" target="_blank">
-                        Template Driven</a> und
+                    <li>there are two approaches: <a href="https://angular.io/guide/forms" target="_blank">
+                        Template Driven</a> and
                         <a href="https://angular.io/guide/reactive-forms" target="_blank">Reactive</a> Forms
                     </li>
-                    <li><span class="code">Template Driven</span> Forms sind simpler und werden nahezu ausschliesslich
-                        im
-                        HTML definiert
+                    <li><span class="code">Template Driven</span> Forms are simpler and are almost exclusively defined in the HTML.
                     </li>
-                    <li><span class="code">Reactive</span> oder <span class="code">Model Driven</span> Forms sind zu
-                        Beginn komplexer, werden zu grossen Teilen im
-                        SourceCode definiert und sind viel mächtiger
+                    <li><span class="code">Reactive</span> or <span class="code">Model Driven</span> Forms are initially more complex, are defined in large parts in the SourceCode and are way more powerful
                     </li>
-                    <li>Wir beschränken uns für die Schulung auf <span class="code">Template Driven Forms</span>.</li>
+                    <li>We limit ourselves to <span class="code">Template Driven Forms</span> for this course.</li>
                 </ul>
             </section>
             <section>
-                <h3>Aufgaben von Formularen</h3>
+                <h3>Tasks of Forms</h3>
                 <ul>
-                    <li>Controls / Inputs und Bindings</li>
-                    <li>Änderungen, Dirty State</li>
-                    <li>Input Validierungen</li>
-                    <li>Anzeige von Fehlern, Warnungen</li>
-                    <li>Absenden von eingegebenen Daten</li>
+                    <li>Controls / Inputs and Bindings</li>
+                    <li>Changes, Dirty State</li>
+                    <li>Input Validation</li>
+                    <li>Displaying errors and warnings</li>
+                    <li>Submission of entered data</li>
                 </ul>
             </section>
         </section>
@@ -61,9 +57,9 @@
             <section>
                 <h2>Form Basics</h2>
                 <ul>
-                    <li>Forms sind innerhalb des HTML <span class="code">&lt;form></span> tags</li>
-                    <li>Zugriff auf die Angular Form Properties sind mit einer Referenz Variable möglich</li>
-                    <li>mit <span class="code">formVariable.value</span> kann man sich den Status des Forms zeigen lassen</li>
+                    <li>Forms live inside of HTML <span class="code">&lt;form></span> tags</li>
+                    <li>access to Angular Form Properties are possible by using a reference variable</li>
+                    <li>with <span class="code">formVariable.value</span> you can access the status of the form</li>
                 </ul>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
@@ -76,8 +72,8 @@
             <section>
                 <h3>Form Submit</h3>
                 <ul>
-                    <li>ein Form wird abgeschickt, wenn man den Button des Typs <span class="code">submit</span> klickt</li>
-                    <li>mit dem <span class="code">ngSubmit</span> Event kann man steuern was dann passieren soll</li>
+                    <li>a form is submitted, if a button of type <span class="code">submit</span> is clicked</li>
+                    <li>the <span class="code">ngSubmit</span> event allows you to control what happens on submit</li>
                 </ul>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
@@ -92,12 +88,12 @@
             <section>
                 <h3>Form Properties</h3>
                 <ul>
-                    <li>nützliche Properties zum Formular</li>
-                    <li>Hilfreich um Speichern zu erlauben, Meldungen anzuzeigen etc.</li>
+                    <li>useful properties about the form</li>
+                    <li>useful to enable/disable saving, display messages and so on</li>
                 </ul>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
-                        <!-- Aktuelle Werte als JSON -->
+                        <!-- Current Values as JSON -->
                         &lt;p>Value: {{pizzaForm.value | json}}&lt;/p>
                         <!-- Validity -->
                         &lt;p>Invalid: {{pizzaForm.invalid}}&lt;/p>
@@ -114,8 +110,8 @@
             <section>
                 <h3>Form Bindings</h3>
                 <ul>
-                    <li>eine einfache Möglichkeit sind Two-Way Bindings mit <span class="code">[(ngModel)]</span></li>
-                    <li>Wichtig ist hierbei, dass man auf jeden Fall ein <span class="warn">unique</span> name Attribut vergibt</li>
+                    <li>a simple possibility are two-way bindings with <span class="code">[(ngModel)]</span></li>
+                    <li>It is important to assign a <span class="warn">unique</span> name attribute</li>
                 </ul>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
@@ -128,33 +124,35 @@
                 </pre>
             </section>
             <section>
-                <h3>Aufgabe 11.1 - Forms</h3>
+                <h3>Task 11.1 - Forms</h3>
                 <ul>
+                    <!-- TODO REVIEW: is it really 10_Routing_2 ? not 11?-->
                     <li>Branch: <span class="code">10_Routing_2</span></li>
-                    <li>Erstelle rechts neben der Tabelle eine <span class="code">Visitor</span> Komponente</li>
-                    <li>die Komponente soll den aktuell selektierten Visitor in einem Formular anzeigen</li>
-                    <li>Beschränke dich auf Vorname und Nachname, sowie einen Submit und einen Delete Button</li>
-                    <li>Führe das Speichern und Löschen mit dem Service und der REST API aus</li>
+                    <li>Create a <span class="code">Visitor</span> component to the right of the table</li>
+                    <li>The component should display the currently selected visitor in a form</li>
+                    <li>Limit yourself to first name and last name, as well as a submit and a delete button</li>
+                    <li>Use the service and REST API to perform save and delete operations </li>
                 </ul>
             </section>
             <section>
-                <h3>Aufgabe 11.1 - Mögliche Lösung</h3>
+                <h3>Task 11.1 - Possible Solution</h3>
                 <ul>
                     <li>Branch: <span class="code">11_Forms_1</span></li>
-                    <li>Wenn du deine Änderungen <span class="warn">verwerfen</span> möchtest und direkt zur Lösung
-                        willst: <span class="code">git reset --hard && git checkout 11_Forms_1</span>
+                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution:
+                        <span class="code">git reset --hard && git checkout 11_Forms_1</span>
                     </li>
                 </ul>
             </section>
             <section>
-                <h3>Aufgabe 11.2 - Country ComboBox</h3>
+                <h3>Task 11.2 - Country ComboBox</h3>
                 <ul>
                     <li>Branch: <span class="code">11_Forms_1</span></li>
-                    <li>Füge das Land dem Formular als ComboBox hinzu</li>
-                    <li>Du kannst alle Länder von der API holen: <span class="code">api/countries</span></li>
-                    <li>eine ComboBox besteht aus einem <span class="code">select</span> mit vielen <span class="code">options</span></li>
+                    <li>Add the country to the form as a ComboBox</li>
+                    <li>You can retrieve all countries from this API: <span class="code">api/countries</span></li>
+                    <li>a ComboBox consists of one <span class="code">select</span> with many <span class="code">options</span></li>
                 </ul>
                 <pre>
+                    <!-- TODO REVIEW: also translate the code?-->
                     <code class="hljs html" data-trim contenteditable>
                         &lt;select [(ngModel)]="pizza.zutat"
                                 name="zutat" #select>
@@ -168,11 +166,11 @@
                 </pre>
             </section>
             <section>
-                <h3>Aufgabe 11.2 - Mögliche Lösung</h3>
+                <h3>Task 11.2 - Possible Solution</h3>
                 <ul>
                     <li>Branch: <span class="code">11_Forms_2</span></li>
-                    <li>Wenn du deine Änderungen <span class="warn">verwerfen</span> möchtest und direkt zur Lösung
-                        willst: <span class="code">git reset --hard && git checkout 11_Forms_2</span>
+                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution:
+                        <span class="code">git reset --hard && git checkout 11_Forms_2</span>
                     </li>
                 </ul>
             </section>
@@ -181,18 +179,18 @@
             <section>
                 <h2>Form Validation</h2>
                 <ul>
-                    <li>ein wichtiger Punkt in Formularen ist die Validierung</li>
-                    <li>Um die User Experience zu verbessern, sollte man einfache Validierungen zusätzlich zum Backend auch direkt im Frontend implementieren</li>
-                    <li>Wichtige Validierungen sind vor allem bzgl. Mussfeldern, Feldlängen, Reguläre Ausdrücke, oder auch ganz eigene Validierungen</li>
+                    <li>an important aspect of forms is validation</li>
+                    <li>to improve the user experience, simple validations should be performed in the frontend in addition to the backend</li>
+                    <li>important validations are can be required fields, field lengths, regular expressions or even custom validations</li>
                 </ul>
             </section>
             <section>
                 <h3>HTML5 Form Validation</h3>
                 <ul>
-                    <li>Angular interpretiert die HTML5 Validierung</li>
-                    <li>Im <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/Constraint_validation">Standard</a> gibt es eine Vielzahl von Validierungen</li>
-                    <li>Diese können durch eigene Validierungen ergänzt werden</li>
-                    <li>Zusätzlich gibt es noch die Input <span class="code">type</span> <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_<input>_types">Eingrenzungen</a>:<span class="code">mail</span>, <span class="code">color</span>, <span class="code">date</span>, <span class="code">range</span>, <span class="code">file</span> und viele weitere</li>
+                    <li>Angular interprets HTML5 validations</li>
+                    <li>In the <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/Constraint_validation">validation standard</a> there is a multitude of validations.</li>
+                    <li>Those can be complemented with custom validations</li>
+                    <li>Additionally there are also input <span class="code">type</span> <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_<input>_types">restrictions</a>:<span class="code">mail</span>, <span class="code">color</span>, <span class="code">date</span>, <span class="code">range</span>, <span class="code">file</span> and many more</li>
                 </ul>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
@@ -201,26 +199,26 @@
                 </pre>
             </section>
             <section>
-                <h3>Aufgabe 11.3 - Form Validation</h3>
+                <h3>Task 11.3 - Form Validation</h3>
                 <ul>
                     <li>Branch: <span class="code">11_Forms_2</span></li>
-                    <li>Füge eine <span class="code">Mussfeld</span> Validierung für Vorname, Nachname und Land hinzu</li>
-                    <li>Füge eine <span class="code">MaximalZeichen</span> Validierung für Vorname und Nachname hinzu (16 Zeichen)</li>
-                    <li>Ist das Form nicht valid, soll der <span class="code">Submit</span> Button disabled sein (Angular Form Properties ;-))</li>
+                    <li>Add a <span class="code">mandatory field</span> validation for first name, last name and country</li>
+                    <li>Add a <span class="code">MaximumLength</span> validation for first name and last name (16 characters)</li>
+                    <li>If the form isn't valid, the <span class="code">submit</span> button should be disabled (Angular Form Properties ;-))</li>
                 </ul>
             </section>
             <section>
-                <h3>Aufgabe 11.3 - Mögliche Lösung</h3>
+                <h3>Task 11.3 - Possible Solution</h3>
                 <ul>
                     <li>Branch: <span class="code">11_Forms_3</span></li>
-                    <li>Wenn du deine Änderungen <span class="warn">verwerfen</span> möchtest und direkt zur Lösung
-                        willst: <span class="code">git reset --hard && git checkout 11_Forms_3</span>
+                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution:
+                        <span class="code">git reset --hard && git checkout 11_Forms_3</span>
                     </li>
                 </ul>
             </section>
         </section>
         <section>
-            <h2>Template Driven Forms - alles klar?</h2>
+            <h2>Template Driven Forms - everything clear?</h2>
             <img src="../img/dumb_questions.jpg">
         </section>
     </div>
