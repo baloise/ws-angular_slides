@@ -60,43 +60,14 @@
                     <ul>
                         <li>Creating, Building, Testing and Running Angular Projects</li>
                         <li>Creation of services, components, directives, etc.</li>
-                        <li><span>&#10230;</span> See <a href="https://github.com/angular/angular-cli">Angular CLI docs on GitHub</a></li>
+                        <li><span>&#10230;</span> See <a href="https://angular.io/cli">Angular CLI docs</a></li>
                     </ul>
                 </ul>
             </section>
         </section>
         <section class="deck-slide">
             <h1>Root Folder</h1>
-            <h3>From the bottom to the top ;-)</h3>
-        </section>
-        <section>
-            <h2>tslint.json</h2>
-            <ul>
-                <li>
-                    configuration of the static code analysis
-                </li>
-                <li>
-                    Uses Codelyzer - a Linting Plugin for Angular
-                </li>
-                <li>
-                    <a href="https://palantir.github.io/tslint/">TS Lint</a>
-                </li>
-                <li>
-                    <a href="http://codelyzer.com/">Codelyzer</a>
-                </li>
-            </ul>
-        </section>
-        <section>
-            <h2>tsconfig.json</h2>
-            <ul>
-                <li>Configuration for the TypeScript compiler</li>
-                <li>where are type-definitions located?</li>
-                <li>which version of JS is the output of the compile step?</li>
-                <li><a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html">tsconfig.json Docs</a>
-                </li>
-                <li><a href="https://www.typescriptlang.org/docs/handbook/compiler-options.html">List of all options</a></li>
-                <li>Can be configured for each submodule</li>
-            </ul>
+            <h3>workspace configuration files</h3>
         </section>
         <section>
             <section>
@@ -220,99 +191,28 @@
             </section>
         </section>
         <section>
-            <h2>karma.conf.js</h2>
+            <h2>Other files in root folder</h2>
             <ul>
-                <li><a href="https://karma-runner.github.io/1.0/index.html">Karma</a> a runner for unit tests</li>
-                <li>has configuration for Unit-Tests</li>
-                <li>Which Browser: Chrome, Firefox, PhantomJS</li>
-                <li>Which port?</li>
-                <li>reruns automatically when files change</li>
+                <li>See the <a href="https://angular.io/guide/file-structure#workspace-configuration-files">official docs</a></li>
             </ul>
         </section>
         <section>
-            <h2>.angular-cli.json</h2>
+            <h2>.npmrc</h2>
             <ul>
-                <li>configuration for the angular cli</li>
-                <li>Links to important files</li>
-                <li>config for build, test and static code analysis</li>
-                <li>Wrapper around the standard tools Karma, Webpack, TSLint</li>
+                <li>special configuration for baloise</li>
+                <li>where is our registry proxy located - our nexus</li>
+                <li><a href="https://docs.npmjs.com/cli/v8/configuring-npm/npmrc/">standard npm </a>configuration file</li>
             </ul>
         </section>
         <section class="deck-slide">
             <h1>src Folder</h1>
-            <h3>from the bottom to the top ;-)</h3>
+            <h3>files for a specific application</h3>
         </section>
         <section>
-            <h2>typings.d.ts</h2>
+            <h2>src</h2>
             <ul>
-                <li>additional type information for TypeScript</li>
-            </ul>
-        </section>
-        <section>
-            <h2>tsconfig.*.json</h2>
-            <ul>
-                <li>app <span>&#10230;</span> module specific TypeScript Compiler config</li>
-                <li>spec <span>&#10230;</span> TypeScript Compiler config for Tests</li>
-            </ul>
-        </section>
-        <section>
-            <h2>test.ts</h2>
-            <ul>
-                <li>config for Angular Testing</li>
-                <li>entry point Karma</li>
-                <li>where are the test specs located?</li>
-                <li>starting the angular specific test env</li>
-                <li>starts karma to run the tests</li>
-            </ul>
-        </section>
-        <section>
-            <h2>styles.scss</h2>
-            <ul>
-                <li><a href="http://www.sass-lang.com/">Sass</a> for global styles</li>
-                <li>sass is a css preprocessor</li>
-                <li>CSS extension, SCSS files are compiled to css during the build process</li>
-                <li>variables can be used</li>
-                <li>nesting is possible</li>
-                <li>Imports, Exports, operands, loops etc.</li>
-            </ul>
-        </section>
-        <section>
-            <h2>polyfills.ts</h2>
-            <ul>
-                <li>compensates browser specific JS implementations</li>
-                <li>Depending on the browsers that are used, different libs are needed</li>
-                <li>the libs are loaded here, they need to be installed before -> npm</li>
-            </ul>
-        </section>
-        <section>
-            <h2>main.ts</h2>
-            <ul>
-                <li>main entry point of the Angular App</li>
-                <li>"Platform Browser Dynamic" contains the code for the processing of angular specific stuff (components, bindings etc.)</li>
-                <li>Uses the Just-in-Time (JIT) Compiler</li>
-                <li>bootstraps our entry module</li>
-            </ul>
-        </section>
-        <section>
-            <h2>index.html</h2>
-            <ul>
-                <li>Main entry HTML page</li>
-                <li>JavaScript and CSS files are added automatically during the build process<br> <span>&#10230;</span> <span class="warn">Do NOT</span> add css or js files manually!</li>
-                <li>our main app component is included here</li>
-            </ul>
-        </section>
-        <section>
-            <h2>environments</h2>
-            <ul>
-                <li>variables for different environments</li>
-                <li>in production mode, angular outputs for example far less log messages on the javascript console</li>
-            </ul>
-        </section>
-        <section>
-            <h2>app</h2>
-            <ul>
-                <li>the folder where we are working most of the time</li>
-                <li>that's where our application lives</li>
+                <li>See the <a href="https://angular.io/guide/file-structure#application-source-files">official docs</a></li>
+                <li><span class="warn">src/app subfolder</span> - where we write code, where you work on in 99% of your time</li>
             </ul>
         </section>
         <section>
