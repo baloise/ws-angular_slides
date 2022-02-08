@@ -82,7 +82,9 @@
                      <code class="hljs typescript" data-trim contenteditable data-noescape>
                         import { Injectable } from '@angular/core';
 
-                        @Injectable()
+                        @Injectable({
+                          providedIn: 'root', // if provided in the root module. Used for tree-shaking
+                        })
                         export class MyAwesomeService {
 
                           constructor() { }
@@ -148,6 +150,7 @@
             <h2>Additional features</h2>
             <ul>
                 <li>Change Detection (when the view needs to re-render)</li>
+                <li>Observables</li>
                 <li>Animations</li>
                 <li>Forms & Pipes</li>
                 <li>HTTP Communication</li>
