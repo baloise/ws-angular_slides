@@ -82,14 +82,14 @@
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
                         address = {
-                            street: 'Musterstrasse',
-                            zip: '3000',
-                            city: 'Bern'
-                         };
+                          street: 'Example Street',
+                          zipCode: '3000',
+                          city: 'Bern'
+                        }
 
                         renderAddress() {
                             return `${this.address.street},
-                                ${this.address.zip} ${this.address.city}`
+                                ${this.address.zipCode} ${this.address.city}`
                          }
 
                          <ul>
@@ -214,6 +214,7 @@
                 <ul>
                     <li>Add an <span class="code">input</span> element</li>
                     <li>Bind the value of the street to the value-property of the input field</li>
+                    <li>Use a <a href="https://design.baloise.dev/?path=/docs/components-form-input--text-input#input">bal-input</a> element</li>
                 </ul>
             </section>
             <section>
@@ -275,6 +276,7 @@
                 <h3>Task 6.3 - Event Binding</h3>
                 <ul>
                     <li>Add a <span class="code">Button</span></li>
+                    <li>You can use the <a href="https://design.baloise.dev/?path=/docs/components-button--primary">bal-button</a></li>
                     <li>Once clicked, call a method that prints sth. on the javascript console</li>
                 </ul>
             </section>
@@ -346,14 +348,14 @@
                 <h3>Task 6.4 - Possible Solution</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
-                         <input (input)="printSValues($event.target.value)">
+                         <bal-input placeholder="Enter a text" type="text" (balInput)="printSValues($event.detail)"></bal-input>
                      </code>
                      <code class="hljs typescript" data-trim contenteditable>
-                         printSValues(val: string) {
-                            if(val.toLowerCase().startsWith("s")) {
-                                console.log(val);
-                            }
+                       printSValues(val: number | string | null) {
+                         if(typeof val === "string" && val.toLowerCase().startsWith("s")) {
+                           console.log(val);
                          }
+                       }
                      </code>
                  </pre>
             </section>
@@ -384,96 +386,13 @@
                 <p>Or with a function in the component:</p>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
-                         <input [value]="name" (input)="fun($event.target.value)">
+                         <bal-input [value]="name" (balInput)="name=$event.detail?.toString()"></bal-input>
                          <p>{{name}}</p>
                      </code>
                      <code class="hljs typescript" data-trim contenteditable>
-                         name = "Hans";
-                         fun(value: string) { this.name = value;}
+                         name: String | undefined = "Hans";
                      </code>
                  </pre>
-            </section>
-        </section>
-        <section>
-            <section>
-                <h2>Two-way data binding - [()]</h2>
-                <h3>&laquo;banana-in-a-box | Bananenkiste&raquo;</h3>
-                <pre>
-                    <code class="hljs html" data-trim contenteditable>
-                        <address [(street)]="street"></address>
-                    </code>
-                </pre>
-                <ul>
-                    <li>we will take a closer look at creating own bindings in the form chapter</li>
-                    <li>internally only a <span class="code">Property</span> binding and an <span class="code">Event</span> Binding</li>
-                </ul>
-            </section>
-            <section>
-                <h3>Two-way Binding with NgModel</h3>
-                <pre>
-                    <code class="hljs html" data-trim contenteditable>
-                       &lt;input [ngModel]="name"
-                              (ngModelChange)="handleChange($event)">
-                       &lt;input [ngModel]="name"
-                              (ngModelChange)="name=$event">
-
-                       name: string = "Hans";
-                       handleChange(newValue) {
-                            this.name = newValue;
-                       }
-                    </code>
-                    <code class="hljs html" data-trim contenteditable>
-                        &lt;input [(ngModel)]="name">
-                    </code>
-                </pre>
-                <ul>
-                    <li><span class="code">[property]</span>Binding with an <span class="code">(propertyChange)</span>
-                        Event
-                    </li>
-                </ul>
-            </section>
-            <section>
-                <h3>NgModel in detail</h3>
-                <ul>
-                    <li>requires the module <span class="code">FormsModule</span></li>
-                    <li>is a combination of <span class="code">[ngModel]</span> and <span class="code">(ngModelChange)</span>
-                    </li>
-                    <li>The value is directly in the <span class="code">$event</span>-variable</li>
-                    <li>Angular encapsulates access to the DOM. What event? What property?</li>
-                    <li>for own components: implement <span class="code">ControlValueAccessor</span> Interface
-                    </li>
-                </ul>
-            </section>
-            <section>
-                <h3>Task 6.6 - NgModel</h3>
-                <ul>
-                    <li>Create a Two-way data binding with <span class="code">ngModel</span> for a <span
-                            class="code">Textarea</span> in order to display the note <span class="code">note</span>.
-                    </li>
-                    <li>Use the short "banana-in-a-box" syntax.</li>
-                    <li>Create a <span class="code">&lt;p&gt;</span>-Tag and display the value of the <span
-                            class="code">note</span> variable.
-                    </li>
-                    <li>Use a  <span class="code">placeholder</span></li>
-                    <li>Create a button to reset the text of the note.</li>
-                </ul>
-            </section>
-            <section>
-                <h3>Task 6.6 - Possible Solution</h3>
-                <pre>
-                     <code class="hljs html" data-trim contenteditable>
-                        &lt;textarea [(ngModel)]="note"
-                                   placeholder="Note..."></textarea>
-                         <p>{{note}}</p>
-                         <button (click)="resetNote()">Reset</button>
-                     </code>
-                     <code class="hljs typescript" data-trim contenteditable>
-                         note = '';
-                         resetNote() {
-                             this.note = '';
-                         }
-                     </code>
-                </pre>
             </section>
         </section>
         <section>
@@ -500,7 +419,7 @@
                 </ul>
             </section>
             <section>
-                <h3>Task 6.7 - Template Ref Variable</h3>
+                <h3>Task 6.6 - Template Ref Variable</h3>
                 <ul>
                     <li>Create a button and a checkbox. A checkbox is a <span class="code">Input</span> of type <span class="code">checkbox</span></li>
                     <li>the checkbox should disable / enable the button</li>
@@ -510,13 +429,11 @@
                 </ul>
             </section>
             <section>
-                <h3>Task 6.7 - Possible Solution</h3>
+                <h3>Task 6.6 - Possible Solution</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
-                         &lt;input type="checkbox"
-                                (change)="btn.disabled = !btn.disabled">
-
-                         &lt;button #btn>Button</button>
+                        <bal-checkbox (balChange)="btn.disabled = !btn.disabled"></bal-checkbox>
+                        <bal-button #btn>Button</bal-button>
                      </code>
                 </pre>
             </section>
