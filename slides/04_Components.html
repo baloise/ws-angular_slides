@@ -88,26 +88,29 @@
             <section>
                 <h3>Task 4.1</h3>
                 <ul>
-                    <li>Change the existing component to use an inline template</li>
-                    <li>Use a h1 heading in your inline template</li>
-                    <li>use a style for the heading with<span style="color: #FF00FF;"> a beautiful color, e.g. #FF00FF</span></li>
+                    <li>Change the existing app.component to show your name, use a <span>bal-tag</span> element</li>
+                    <li>Add it to the template (app.component.html) where "Your application content" is mentioned</li>
+                    <li><a href="https://design.baloise.dev/?path=/docs/components-tag--basic">Design System Docs for Tag</a></li>
                     <li>Remember the backticks and the property names</li>
                 </ul>
             </section>
             <section>
                 <h3>Possible solution</h3>
                 <pre>
-                     <code class="hljs typescript" data-trim contenteditable>
-                        import {Component} from '@angular/core';
-
-                        @Component({
-                            selector: 'app-root',
-                            template: `<h1>{{title}}</h1>`,
-                            styles: [`h1 {color: #FF00FF;}`]
-                        })
-                        export class AppComponent {
-                            title = 'Beautiful title';
-                        }
+                     <code class="hljs html" data-trim contenteditable>
+                        <bal-app class="has-sticky-footer has-background">
+                          <header>
+                            <!-- Header content -->
+                          </header>
+                          <main class="container">
+                            <bal-tag color="primary">John Kerry</bal-tag>
+                            <bal-heading>Hello World!</bal-heading>
+                            <bal-button>Button</bal-button>
+                          </main>
+                          <bal-footer>
+                            <!-- Footer content -->
+                          </bal-footer>
+                        </bal-app>
                      </code>
                  </pre>
             </section>
