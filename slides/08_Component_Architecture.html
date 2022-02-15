@@ -47,7 +47,7 @@
                 </ul>
             </section>
             <section>
-                <h3>Task 4.1</h3>
+                <h3>Task 8.0</h3>
                 <ul>
                     <li>Create a component with the angular cli</li>
                     <li>use ng g c mycomponent --flat --style none --type example --skip-tests</li>
@@ -58,13 +58,13 @@
             <section>
                 <h3>Task 8.1 - another component</h3>
                 <ul>
-                    <li>Branch: <span class="code">08_ComponentArchitecture_0</span></li>
-                    <li>create a subfolder in <span class="code">src/app</span>, name it <span class="code">cinema</span>
+                    <li>Branch: <span class="code">08_ComponentArchitecture_1</span></li>
+                    <li>create a subfolder in <span class="code">src/app</span>, name it <span class="code">pizzeria</span>
                     </li>
                     <li>create a <span class="code">pizzeria.component.ts</span> typescript class with a <span class="code">pizzeria.component.html</span>
                         template
                     </li>
-                    <li>the template should contain a <span class="code">h1</span> heading "Pizzeria"</li>
+                    <li>the template should contain a <span class="code">bal-heading</span> heading "Pizzeria"</li>
                     <li>the <span class="code">app.component</span> should only contain the new pizzeria component
                     </li>
                     <li>Do not forget to add the component in <span class="code">app.module.ts</span> to declarations
@@ -81,11 +81,11 @@
             <section>
                 <h3>Task 8.1 - Possible Solution</h3>
                 <ul>
-                    <li>Branch: <span class="code">08_ComponentArchitecture_1</span></li>
+                    <li>Branch: <span class="code">08_ComponentArchitecture_1_solution</span></li>
                     <li>The solutions now depend on the previous task</li>
                     <li>if you do not encounter any problems you can continue working with your own solution without switching branches</li>
                     <li>the solution branch is always the starting point for the next task</li>
-                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_1</span>
+                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_1_solution</span>
                     </li>
                 </ul>
             </section>
@@ -93,11 +93,11 @@
                 <h3>Task 8.2 - display data</h3>
                 <ul>
                     <li>Branch: <span class="code">08_ComponentArchitecture_2</span></li>
-                    <li>create an interface <span class="code">movie</span> (see: backend/db.json)</li>
-                    <li>create a new <span class="code">movies</span> component. It has an array of movies
-                        (copy over from backend/db.json)
+                    <li>There is an existing interface <span class="code">Order</span> (see: src/app/types/order.types.ts)</li>
+                    <li>create a new <span class="code">pizza-order</span> component. It has an array of pizzas
+                        (copy over from src/assets/data.json)
                     </li>
-                    <li>render the movies in HTML and display all properties - the image url as <span
+                    <li>render the pizzas in HTML and display all properties - the image url as <span
                             class="code">img</span></li>
                     <li>Hint: an <span class="code">img</span> has a <span class="code">src</span>-property</li>
                 </ul>
@@ -105,7 +105,7 @@
             <section>
                 <h3>Task 8.2 - Possible Solution</h3>
                 <ul>
-                    <li>Branch: <span class="code">08_ComponentArchitecture_2</span></li>
+                    <li>Branch: <span class="code">08_ComponentArchitecture_2_solution</span></li>
                     <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_2</span>
                     </li>
                 </ul>
@@ -187,18 +187,19 @@
             <section>
                 <h3>Task 8.3 - @Input()</h3>
                 <ul>
-                    <li>Branch: <span class="code">08_ComponentArchitecture_2</span></li>
-                    <li>create a new <span class="code">movie</span> component that displays a single movie.
+                    <li>Branch: <span class="code">08_ComponentArchitecture_3</span></li>
+                    <li>create a new <span class="code">pizza</span> component that displays a single pizza.
                     </li>
-                    <li>transfer the movie to the new component using a binding</li>
+                    <li>transfer the pizza to the new component using a binding</li>
                     <li>Hint: you can use components in other components by using their selector as a tag</li>
+                    <li>Hint: you can use balCurrency pipe from '@baloise/web-app-pipes-angular' package</li>
                 </ul>
             </section>
             <section>
                 <h3>Task 8.3 - Possible Solution</h3>
                 <ul>
-                    <li>Branch: <span class="code">08_ComponentArchitecture_3</span></li>
-                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_3</span>
+                    <li>Branch: <span class="code">08_ComponentArchitecture_3_solution</span></li>
+                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_3_solution</span>
                     </li>
                 </ul>
             </section>
