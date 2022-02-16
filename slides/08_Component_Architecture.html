@@ -58,7 +58,7 @@
             <section>
                 <h3>Task 8.1 - another component</h3>
                 <ul>
-                    <li>Branch: <span class="code">08_ComponentArchitecture_1</span></li>
+                    <li>Base branch: <span class="code">master</span></li>
                     <li>create a subfolder in <span class="code">src/app</span>, name it <span class="code">pizzeria</span>
                     </li>
                     <li>create a <span class="code">pizzeria.component.ts</span> typescript class with a <span class="code">pizzeria.component.html</span>
@@ -92,7 +92,7 @@
             <section>
                 <h3>Task 8.2 - display data</h3>
                 <ul>
-                    <li>Branch: <span class="code">08_ComponentArchitecture_2</span></li>
+                    <li>Base branch: <span class="code">08_ComponentArchitecture_1_solution</span></li>
                     <li>There is an existing interface <span class="code">Order</span> (see: src/app/types/order.types.ts)</li>
                     <li>create a new <span class="code">pizza-order</span> component. It has an array of pizzas
                         (copy over from src/assets/data.json)
@@ -187,7 +187,7 @@
             <section>
                 <h3>Task 8.3 - @Input()</h3>
                 <ul>
-                    <li>Branch: <span class="code">08_ComponentArchitecture_3</span></li>
+                    <li>Base branch: <span class="code">08_ComponentArchitecture_2_solution</span></li>
                     <li>create a new <span class="code">pizza</span> component that displays a single pizza.
                     </li>
                     <li>transfer the pizza to the new component using a binding</li>
@@ -222,7 +222,7 @@
                         import {.., Output, EventEmitter} from '@angular/core';
                         export class PizzaComponent {
                             @Output()
-                            selectPizza: EventEmitter&lt;Pizza> = new EventEmitter();
+                            selectPizza: EventEmitter&lt;Pizza> = new EventEmitter&lt;Pizza>();
                         }
                     </code>
                     <code class="hljs html" data-trim contenteditable>
@@ -240,19 +240,19 @@
             <section>
                 <h3>Task 8.4 - @Output()</h3>
                 <ul>
-                    <li>Branch: <span class="code">08_ComponentArchitecture_3</span></li>
-                    <li>create a  <span class="code">Button</span> to remove a movie</li>
-                    <li>every movie should have its own button</li>
-                    <li>the component should emit an event when the user clicks the button - the outer component should handle the event and remove the movie from the list
+                    <li>Base branch: <span class="code">08_ComponentArchitecture_3_solution</span></li>
+                    <li>create a  <span class="code">Button</span> to add a pizza to cart</li>
+                    <li>every pizza should have its own button</li>
+                    <li>the component should emit an event when the user clicks the button - the outer component should handle the event and add the pizza to the cart
                     </li>
-                    <li>Hint: you can <a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">filter</a> an array.</li>
+                    <li>Hint: you can <a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/push">push</a> to an array.</li>
                 </ul>
             </section>
             <section>
                 <h3>Task 8.4 - Possible Solution</h3>
                 <ul>
-                    <li>Branch: <span class="code">08_ComponentArchitecture_4</span></li>
-                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_4</span>
+                    <li>Branch: <span class="code">08_ComponentArchitecture_4_solution</span></li>
+                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_4_solution</span>
                     </li>
                 </ul>
             </section>
@@ -351,7 +351,7 @@
             <section>
                 <h3>Task 8.5 - OnInit</h3>
                 <ul>
-                    <li>Branch: <span class="code">08_ComponentArchitecture_4</span></li>
+                    <li>Base branch: <span class="code">08_ComponentArchitecture_4_solution</span></li>
                     <li>identify a smart and a dumb component</li>
                     <li>add an  <span class="code">OnInit</span> life cycle hook in the smart component</li>
                     <li>move that part of the code to ngOnInit that makes sense for you ;-)</li>
@@ -360,11 +360,11 @@
             <section>
                 <h3>Task 8.5 - Possible Solution</h3>
                 <ul>
-                    <li>Branch: <span class="code">08_ComponentArchitecture_5</span></li>
-                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_5</span>
+                    <li>Branch: <span class="code">08_ComponentArchitecture_5_solution</span></li>
+                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_5_solution</span>
                     </li>
-                    <li>Smart Component: MoviesComponent</li>
-                    <li>Dumb Component: MovieComponent</li>
+                    <li>Smart Component: PizzaOrderComponent</li>
+                    <li>Dumb Component: PizzaComponent</li>
                 </ul>
             </section>
         </section>
