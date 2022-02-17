@@ -243,7 +243,7 @@
                 <h3>Task 8.4 - @Output()</h3>
                 <ul>
                     <li>Base branch: <span class="code">08_ComponentArchitecture_3_solution</span></li>
-                    <li>replace heading in pizza.component to a<span class="code">Button</span> in order to add a pizza to cart</li>
+                    <li>replace heading in pizza.component with a<span class="code">Button</span> in order to add a pizza to cart</li>
                     <li>every pizza should have its own button</li>
                     <li>the component should emit an event when the user clicks the button - the outer component should handle the event and add the pizza to the cart
                     </li>
@@ -358,6 +358,9 @@
                     <li>identify a smart and a dumb component</li>
                     <li>add an  <span class="code">OnInit</span> life cycle hook in the smart component</li>
                     <li>move that part of the code to ngOnInit that makes sense for you ;-)</li>
+                    <li>Hint: move fetching pizzas to private method of class <span class="code">PizzaOrderComponent</span> which will be replaced with service coverd in next chapter</li>
+                    <li>make CartComponent to nicely represent results</li>
+                    <li>Hint: you can use <a target="_blank" href="https://design.baloise.dev/?path=/docs/components-list--native">list</a> to nicely show pizzas in cart</li>
                 </ul>
             </section>
             <section>
@@ -368,6 +371,7 @@
                     </li>
                     <li>Smart Component: PizzaOrderComponent</li>
                     <li>Dumb Component: PizzaComponent</li>
+                    <li>Dumb Component: CartComponent</li>
                 </ul>
             </section>
         </section>
