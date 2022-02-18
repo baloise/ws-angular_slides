@@ -32,8 +32,9 @@
                 <h2>Services & Injection</h2>
                 <ul>
                     <li>simple TypeScript classes</li>
-                    <li>should be annotated with <span class="code">@Injectable()</span></li>
-                    <li>are marked as available for injection by the dependency injector</li>
+                    <li>should be annotated with <span class="code">@Injectable({providedIn?:})<</span></li>
+                    <li>marked with <span class="code">@Injectable</span> marks a class as available to be provided and injected as a dependency and to be used by dependency injector</li>
+                    <li>ensures that compiler will generate the necessary metadata to create the class's dependencies when the class is injected.</li>
                     <li>encapsulate the access to the backend or other API's</li>
                     <li>can contain logic that is moved from a component</li>
                 </ul>
@@ -41,8 +42,17 @@
             <section>
                 <h3>Dependency Injection</h3>
                 <ul>
-                    <li><span class="code">Injectables</span> have to be registered in the AppModule in the <span class="code">providers</span> array</li>
+                    <li><span class="code">@Injectable({providedIn: 'root'})</span> is recommended way of providing service to the angular application. On this way we specify that Angular should provide the service in the root injector on the whole application level and this will enable tree-shaking.</li>
+                    <li><span class="code">{'platform'}</span> provides service in special singleton platform injector shared by all applications on the page.</li>
+                    <li><span class="code">{providedIn: 'any'}</span> provides a unique instance in each lazy loaded module while all eagerly loaded modules share one instance.</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Dependency Injection</h3>
+                <ul>
+                    <li><span class="code">{providedIn: 'null' | undefined}</span> injectable is not provided in any scope automatically and must be added to a <span class="code">providers</span> array of an @NgModule(for example in AppModule), @Component or @Directive</li>
                     <li>in theory, they can be registered for a component and its children only - this is only necessary in very rare cases, only if a component needs a dedicated instance</li>
+                    <li>You should always provide your service in the root injector unless there is a case where you want the service to be available only if the consumer imports a particular @NgModule.</li>
                 </ul>
             </section>
             <section>
@@ -87,12 +97,9 @@
                 <h3>Summary</h3>
                 <h4>in 98% of the cases...</h4>
                 <ul>
-                    <li>annotate services with <span class="code">@Injectable</span></li>
-                    <li>register services in the providers array in the module</li>
-                    <li>use the short form for the registration</li>
+                    <li>annotate services with <span class="code">@Injectable({providedIn: 'root'})</span></li>
                     <li>use a mock / stub in a test with <span class="code">useValue</span></li>
                 </ul>
-
             </section>
             <section>
                 <h3>Task 9.1 - Services</h3>
