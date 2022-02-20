@@ -39,7 +39,8 @@
                     </li>
                     <li><span class="code">Reactive</span> or <span class="code">Model Driven</span> Forms are initially more complex, are defined in large parts in the SourceCode and are way more powerful
                     </li>
-                    <li>We limit ourselves to <span class="code">Template Driven Forms</span> for this course.</li>
+                    <li>For difference see <a href="https://angular.io/guide/forms-overview" target="_blank"> this</a></li>
+                    <li>We limit ourselves to <span class="code">Reactive Forms</span> for this course.</li>
                 </ul>
             </section>
             <section>
@@ -54,19 +55,58 @@
             </section>
         </section>
         <section>
+            <h2>Usage of reactive forms</h2>
+            <ul>
+                <li>There are three steps to using form controls:</li>
+                <ol>
+                    <li>Register the reactive forms module in your application. This module declares the reactive-form directives that you need to use reactive forms.</li>
+                    <li>Generate a new FormControl instance and save it in the component.</li>
+                    <li>Register the FormControl in the template.</li>
+                </ol>
+            </ul>
+        </section>
+        <section>
+            <h2>Grouping of controls</h2>
+            <ul>
+                <li>Forms typically contain several related controls. Reactive forms provide two ways of grouping multiple related controls into a single input form:</li>
+                <ol>
+                    <li>A form group defines a form with a fixed set of controls that you can manage together. Form group basics are discussed in this section. You can also nest form groups to create more complex forms.</li>
+                    <li>A form array defines a dynamic form, where you can add and remove controls at run time. You can also nest form arrays to create more complex forms. For more about this option, see Creating dynamic forms.</li>
+                </ol>
+            </ul>
+        </section>
+        <section>
             <section>
                 <h2>Form Basics</h2>
                 <ul>
                     <li>Forms live inside of HTML <span class="code">&lt;form></span> tags</li>
-                    <li>access to Angular Form Properties are possible by using a reference variable</li>
-                    <li>with <span class="code">formVariable.value</span> you can access the status of the form</li>
+                    <li>Associate the FormGroup model and view in html:</li>
                 </ul>
                 <pre>
-                    <code class="hljs html" data-trim contenteditable>
-                        &lt;form #pizzaForm="ngForm">
-                            {{pizzaForm.value | json}}
-                        &lt;/form>
-                    </code>
+                    <code class="hljs html" data-trim><script type="text/template">
+<form [formGroup]="profileForm">
+  <label for="first-name">First Name: </label>
+  <input id="first-name" type="text" formControlName="firstName">
+  <label for="last-name">Last Name: </label>
+  <input id="last-name" type="text" formControlName="lastName">
+</form>
+</script></code></pre>
+            </section>
+            <section>
+                <h2>Form Basics</h2>
+                <ul>
+                    <li>access to Angular Form Properties are possible by using reference variables defined in the component</li>
+                    <li>with <span class="code">formVariable.value</span> you can access the status(value) of the form</li>
+                    <li>For the profile form, add two form control instances with the names firstName and lastName.</li>
+                </ul>
+                <pre>
+                <code class="hljs ts" data-trim>
+profileForm = new FormGroup({
+  firstName: new FormControl(''),
+  lastName: new FormControl(''),
+});
+console.log(profileFrom.get('firstName').value);
+                </code>
                 </pre>
             </section>
             <section>
