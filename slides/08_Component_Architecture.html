@@ -47,7 +47,7 @@
                 </ul>
             </section>
             <section>
-                <h3>Task 4.1</h3>
+                <h3>Task 8.0</h3>
                 <ul>
                     <li>Create a component with the angular cli</li>
                     <li>use ng g c mycomponent --flat --style none --type example --skip-tests</li>
@@ -58,14 +58,16 @@
             <section>
                 <h3>Task 8.1 - another component</h3>
                 <ul>
-                    <li>Branch: <span class="code">08_ComponentArchitecture_0</span></li>
-                    <li>create a subfolder in <span class="code">src/app</span>, name it <span class="code">cinema</span>
+                    <li>Base branch: <span class="code">master</span></li>
+                    <li>create a subfolder in <span class="code">src/app</span>, name it <span class="code">pizzeria</span>
                     </li>
                     <li>create a <span class="code">pizzeria.component.ts</span> typescript class with a <span class="code">pizzeria.component.html</span>
                         template
                     </li>
-                    <li>the template should contain a <span class="code">h1</span> heading "Pizzeria"</li>
-                    <li>the <span class="code">app.component</span> should only contain the new pizzeria component
+                    <li>the template should contain a<a href="https://design.baloise.dev/?path=/story/components-heading--basic" target="_blank"> <span class="code">bal-heading</span> </a>
+                        from design system heading "Pizzeria"</li>
+                    <li>the <a target="_blank" href="https://design.baloise.dev/?path=/story/design-page-layout--page">main</a> section of the
+                        <span class="code">app.component</span> should only contain the new pizzeria component
                     </li>
                     <li>Do not forget to add the component in <span class="code">app.module.ts</span> to declarations
                     </li>
@@ -81,23 +83,23 @@
             <section>
                 <h3>Task 8.1 - Possible Solution</h3>
                 <ul>
-                    <li>Branch: <span class="code">08_ComponentArchitecture_1</span></li>
+                    <li>Branch: <span class="code">08_ComponentArchitecture_1_solution</span></li>
                     <li>The solutions now depend on the previous task</li>
                     <li>if you do not encounter any problems you can continue working with your own solution without switching branches</li>
                     <li>the solution branch is always the starting point for the next task</li>
-                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_1</span>
+                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_1_solution</span>
                     </li>
                 </ul>
             </section>
             <section>
                 <h3>Task 8.2 - display data</h3>
                 <ul>
-                    <li>Branch: <span class="code">08_ComponentArchitecture_2</span></li>
-                    <li>create an interface <span class="code">movie</span> (see: backend/db.json)</li>
-                    <li>create a new <span class="code">movies</span> component. It has an array of movies
-                        (copy over from backend/db.json)
+                    <li>Base branch: <span class="code">08_ComponentArchitecture_1_solution</span></li>
+                    <li>There is an existing interface <span class="code">Order</span> (see: src/app/types/order.types.ts)</li>
+                    <li>create a new <span class="code">pizza-order</span> component. It has an array of pizzas
+                        (copy over from src/assets/data.json)
                     </li>
-                    <li>render the movies in HTML and display all properties - the image url as <span
+                    <li>render the pizzas in HTML and display all properties - the image url as <span
                             class="code">img</span></li>
                     <li>Hint: an <span class="code">img</span> has a <span class="code">src</span>-property</li>
                 </ul>
@@ -105,7 +107,7 @@
             <section>
                 <h3>Task 8.2 - Possible Solution</h3>
                 <ul>
-                    <li>Branch: <span class="code">08_ComponentArchitecture_2</span></li>
+                    <li>Branch: <span class="code">08_ComponentArchitecture_2_solution</span></li>
                     <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_2</span>
                     </li>
                 </ul>
@@ -187,18 +189,19 @@
             <section>
                 <h3>Task 8.3 - @Input()</h3>
                 <ul>
-                    <li>Branch: <span class="code">08_ComponentArchitecture_2</span></li>
-                    <li>create a new <span class="code">movie</span> component that displays a single movie.
+                    <li>Base branch: <span class="code">08_ComponentArchitecture_2_solution</span></li>
+                    <li>create a new <span class="code">pizza</span> component that displays a single pizza.
                     </li>
-                    <li>transfer the movie to the new component using a binding</li>
+                    <li>transfer the pizza to the new component using a binding</li>
                     <li>Hint: you can use components in other components by using their selector as a tag</li>
+                    <li>Hint: you can use balCurrency pipe from '@baloise/web-app-pipes-angular' package but do not forget to import <span class="code">BaloisePipeModule</span> in <span class="code">app.module.ts</span> </li>
                 </ul>
             </section>
             <section>
                 <h3>Task 8.3 - Possible Solution</h3>
                 <ul>
-                    <li>Branch: <span class="code">08_ComponentArchitecture_3</span></li>
-                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_3</span>
+                    <li>Branch: <span class="code">08_ComponentArchitecture_3_solution</span></li>
+                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_3_solution</span>
                     </li>
                 </ul>
             </section>
@@ -221,7 +224,7 @@
                         import {.., Output, EventEmitter} from '@angular/core';
                         export class PizzaComponent {
                             @Output()
-                            selectPizza: EventEmitter&lt;Pizza> = new EventEmitter();
+                            selectPizza: EventEmitter&lt;Pizza> = new EventEmitter&lt;Pizza>();
                         }
                     </code>
                     <code class="hljs html" data-trim contenteditable>
@@ -239,19 +242,20 @@
             <section>
                 <h3>Task 8.4 - @Output()</h3>
                 <ul>
-                    <li>Branch: <span class="code">08_ComponentArchitecture_3</span></li>
-                    <li>create a  <span class="code">Button</span> to remove a movie</li>
-                    <li>every movie should have its own button</li>
-                    <li>the component should emit an event when the user clicks the button - the outer component should handle the event and remove the movie from the list
+                    <li>Base branch: <span class="code">08_ComponentArchitecture_3_solution</span></li>
+                    <li>replace heading in pizza.component with a<span class="code">Button</span> in order to add a pizza to cart</li>
+                    <li>every pizza should have its own button</li>
+                    <li>the component should emit an event when the user clicks the button - the outer component should handle the event and add the pizza to the cart
                     </li>
-                    <li>Hint: you can <a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">filter</a> an array.</li>
+                    <li>Hint: you can <a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/push">push</a> to an array.</li>
+                    <li>Hint: make dummy cart to display added pizzas (simple list), you can use <a target="_blank" href="https://angular.io/api/common/JsonPipe">JSON pipe</a> to show whole pizza object</li>
                 </ul>
             </section>
             <section>
                 <h3>Task 8.4 - Possible Solution</h3>
                 <ul>
-                    <li>Branch: <span class="code">08_ComponentArchitecture_4</span></li>
-                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_4</span>
+                    <li>Branch: <span class="code">08_ComponentArchitecture_4_solution</span></li>
+                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_4_solution</span>
                     </li>
                 </ul>
             </section>
@@ -350,20 +354,24 @@
             <section>
                 <h3>Task 8.5 - OnInit</h3>
                 <ul>
-                    <li>Branch: <span class="code">08_ComponentArchitecture_4</span></li>
+                    <li>Base branch: <span class="code">08_ComponentArchitecture_4_solution</span></li>
                     <li>identify a smart and a dumb component</li>
                     <li>add an  <span class="code">OnInit</span> life cycle hook in the smart component</li>
                     <li>move that part of the code to ngOnInit that makes sense for you ;-)</li>
+                    <li>Hint: move fetching pizzas to private method of class <span class="code">PizzaOrderComponent</span> which will be replaced with service coverd in next chapter</li>
+                    <li>make CartComponent to nicely represent results</li>
+                    <li>Hint: you can use <a target="_blank" href="https://design.baloise.dev/?path=/docs/components-list--native">list</a> to nicely show pizzas in cart</li>
                 </ul>
             </section>
             <section>
                 <h3>Task 8.5 - Possible Solution</h3>
                 <ul>
-                    <li>Branch: <span class="code">08_ComponentArchitecture_5</span></li>
-                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_5</span>
+                    <li>Branch: <span class="code">08_ComponentArchitecture_5_solution</span></li>
+                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 08_ComponentArchitecture_5_solution</span>
                     </li>
-                    <li>Smart Component: MoviesComponent</li>
-                    <li>Dumb Component: MovieComponent</li>
+                    <li>Smart Component: PizzaOrderComponent</li>
+                    <li>Dumb Component: PizzaComponent</li>
+                    <li>Dumb Component: CartComponent</li>
                 </ul>
             </section>
         </section>
