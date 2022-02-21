@@ -28,7 +28,7 @@
             <h1>Routing</h1>
         </section>
         <section>
-            <h2>routing in general</h2>
+            <h2>Routing in general</h2>
             <ul>
                 <li>we build a Single Page Application (SPA)</li>
                 <li>when we want to display multiple pages, we can either do so by performing a page reload or by using the router
@@ -109,7 +109,8 @@
                     </code>
                 </pre>
             </section>
-            <section>
+            <!-- DO WE STILL NEED THAT? -->
+            <!-- <section>
                 <h3>RouterLinkActive Direktive</h3>
                 <ul>
                     <li><span class="code">routerLinkActive</span> adds a css class to the element if <span class="code">routerLink</span> is active</li>
@@ -125,9 +126,9 @@
                         &lt;/nav>
                     </code>
                 </pre>
-            </section>
+            </section> -->
             <section>
-                <h3>router base path</h3>
+                <h3>Router base path</h3>
                 <ul>
                     <li>to tell the router what the base path of the application is</li>
                     <li>is the first child in the  <span class="code">&lt;head></span> of <span class="code">index.html</span></li>
@@ -146,37 +147,38 @@
             <section>
                 <h3>Task 10.1 - Routing</h3>
                 <ul>
-                    <li>Branch: <span class="code">09_ServicesHTTP_2</span></li>
-                    <li>create a new home component that displays the cinema image from the <span class="code">assets</span> folder</li>
-                    <li>add a navigation to the cinema component, and above the place for the active route</li>
-                    <li>create a config for the router, it should contain the <span class="code">home</span> and <span class="code">movies</span> paths</li>
+                    <li>Base branch: <span class="code">09_ServicesHTTP_2</span></li>
+                    <li>create a new home component that displays the pizzeria image from the <span class="code">assets</span> folder</li>
+                    <li>add a button to the home component which will redirect us to order view</li>
+                    <li>create a config for the router, it should contain the <span class="code">home</span> and <span class="code">order</span> paths</li>
                     <li>if the path is empty, the app should navigate to the home component</li>
+                    <li>add navigation items to AppComponent with these two paths</li>
                 </ul>
             </section>
             <section>
                 <h3>Task 10.1 - Possible Solution</h3>
                 <ul>
-                    <li>Branch: <span class="code">10_Routing_1</span></li>
-                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 10_Routing_1</span>
+                    <li>Branch: <span class="code">10_Routing_1_solution</span></li>
+                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 10_Routing_1_solution</span>
                     </li>
                 </ul>
             </section>
             <section>
-                <h3>Task 10.2 - Visitors</h3>
+                <h3>Task 10.2 - History</h3>
                 <ul>
-                    <li>Branch: <span class="code">10_Routing_1</span></li>
+                    <li>Base branch: <span class="code">10_Routing_1</span></li>
                     <li>this task is a repetition of already covered concepts</li>
-                    <li>build a new page for visitors, like the one for movies</li>
-                    <li>you can get the data from the <span class="code">/api/visitors</span> Endpoint</li>
-                    <li>display visitors with some properties in a table</li>
-                    <li>it should be possible to navigate to the visitors page</li>
+                    <li>build a new page for order history, like the one for pizzeria</li>
+                    <li>you can get the data from the <span class="code">https://pizza-data-api-test.apps.caast01.balgroupit.com/history</span> Endpoint</li>
+                    <li>display order history with properties(see: Order interface) in newly created HistoryList component</li>
+                    <li>it should be possible to navigate to the history page</li>
                 </ul>
             </section>
             <section>
                 <h3>Task 10.2 - Possible Solution</h3>
                 <ul>
-                    <li>Branch: <span class="code">10_Routing_2</span></li>
-                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 10_Routing_2</span>
+                    <li>Branch: <span class="code">10_Routing_2_solution</span></li>
+                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 10_Routing_2_solution</span>
                     </li>
                 </ul>
             </section>
