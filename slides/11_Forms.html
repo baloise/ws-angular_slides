@@ -116,14 +116,15 @@ console.log(profileFrom.get('firstName').value);
                     <li>the <span class="code">ngSubmit</span> event allows you to control what happens on submit</li>
                 </ul>
                 <pre>
-                    <code class="hljs html" data-trim contenteditable>
-                        &lt;form (ngSubmit)="machWas()">
-                            &lt;input type="text" class="form-control"
-                               [(ngModel)]="pizza.name" name="pizzaName">
-                            &lt;button type="submit">Los!&lt;/button>
-                        &lt;/form>
-                    </code>
-                </pre>
+<code class="hljs html" data-trim contenteditable><script type="text/template">
+<form [formGroup]="profileForm" (ngSubmit)="register()">
+  <label for="first-name">First Name: </label>
+  <input id="first-name" type="text" formControlName="firstName">
+  <label for="last-name">Last Name: </label>
+  <input id="last-name" type="text" formControlName="lastName">
+  <bal-button type="submit"></bal-button>
+</form>
+</script></code></pre>
             </section>
             <section>
                 <h3>Form Properties</h3>
@@ -148,69 +149,22 @@ console.log(profileFrom.get('firstName').value);
                 </pre>
             </section>
             <section>
-                <h3>Form Bindings</h3>
-                <ul>
-                    <li>a simple possibility are two-way bindings with <span class="code">[(ngModel)]</span></li>
-                    <li>It is important to assign a <span class="warn">unique</span> name attribute</li>
-                </ul>
-                <pre>
-                    <code class="hljs html" data-trim contenteditable>
-                        &lt;form (ngSubmit)="machWas()">
-                            &lt;input type="text" class="form-control"
-                               [(ngModel)]="pizza.name" name="pizzaName">
-                            &lt;button type="submit">Los!&lt;/button>
-                        &lt;/form>
-                    </code>
-                </pre>
-            </section>
-            <section>
                 <h3>Task 11.1 - Forms</h3>
                 <ul>
                     <!-- TODO REVIEW: is it really 10_Routing_2 ? not 11?-->
-                    <li>Branch: <span class="code">10_Routing_2</span></li>
-                    <li>Create a <span class="code">Visitor</span> component to the right of the table</li>
-                    <li>The component should display the currently selected visitor in a form</li>
-                    <li>Limit yourself to first name and last name, as well as a submit and a delete button</li>
-                    <li>Use the service and REST API to perform save and delete operations </li>
+                    <li>Base branch: <span class="code">10_Routing_2_solution</span></li>
+                    <li>Inside<span class="code">Cart</span> component add form to enter details about pizza order </li>
+                    <li>The component should display chosen pizzas and have input form</li>
+                    <li>Limit yourself to name and address as well as a submit button</li>
+                    <li>Use the service and REST API to perform order operation </li>
                 </ul>
             </section>
             <section>
                 <h3>Task 11.1 - Possible Solution</h3>
                 <ul>
-                    <li>Branch: <span class="code">11_Forms_1</span></li>
+                    <li>Branch: <span class="code">11_Forms_1_solution</span></li>
                     <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution:
-                        <span class="code">git reset --hard && git checkout 11_Forms_1</span>
-                    </li>
-                </ul>
-            </section>
-            <section>
-                <h3>Task 11.2 - Country ComboBox</h3>
-                <ul>
-                    <li>Branch: <span class="code">11_Forms_1</span></li>
-                    <li>Add the country to the form as a ComboBox</li>
-                    <li>You can retrieve all countries from this API: <span class="code">api/countries</span></li>
-                    <li>a ComboBox consists of one <span class="code">select</span> with many <span class="code">options</span></li>
-                </ul>
-                <pre>
-                    <!-- TODO REVIEW: also translate the code?-->
-                    <code class="hljs html" data-trim contenteditable>
-                        &lt;select [(ngModel)]="pizza.zutat"
-                                name="zutat" #select>
-                            &lt;option *ngFor="let zutat of zutaten"
-                                    [value]="zutat"
-                                    [selected]="zutat === select.value">
-                                {{zutat}}
-                            &lt;/option>
-                        &lt;select>
-                    </code>
-                </pre>
-            </section>
-            <section>
-                <h3>Task 11.2 - Possible Solution</h3>
-                <ul>
-                    <li>Branch: <span class="code">11_Forms_2</span></li>
-                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution:
-                        <span class="code">git reset --hard && git checkout 11_Forms_2</span>
+                        <span class="code">git reset --hard && git checkout 11_Forms_1_solution</span>
                     </li>
                 </ul>
             </section>
@@ -221,7 +175,7 @@ console.log(profileFrom.get('firstName').value);
                 <ul>
                     <li>an important aspect of forms is validation</li>
                     <li>to improve the user experience, simple validations should be performed in the frontend in addition to the backend</li>
-                    <li>important validations are can be required fields, field lengths, regular expressions or even custom validations</li>
+                    <li>important validations  can be required fields, field lengths, regular expressions or even custom validations</li>
                 </ul>
             </section>
             <section>
@@ -239,26 +193,27 @@ console.log(profileFrom.get('firstName').value);
                 </pre>
             </section>
             <section>
-                <h3>Task 11.3 - Form Validation</h3>
+                <h3>Task 11.2 - Form Validation</h3>
                 <ul>
-                    <li>Branch: <span class="code">11_Forms_2</span></li>
-                    <li>Add a <span class="code">mandatory field</span> validation for first name, last name and country</li>
-                    <li>Add a <span class="code">MaximumLength</span> validation for first name and last name (16 characters)</li>
+                    <li>Base branch: <span class="code">11_Forms_1_solution</span></li>
+                    <li>Add a <span class="code">mandatory field</span> validation name and adress</li>
+                    <li>Add a <span class="code">MaximumLength</span> validation for name (16 characters)</li>
                     <li>If the form isn't valid, the <span class="code">submit</span> button should be disabled (Angular Form Properties ;-))</li>
+                    <li>Hint: use BalValidators from <span class="code">@baloise/web-app-validators-angular</span></li>
                 </ul>
             </section>
             <section>
-                <h3>Task 11.3 - Possible Solution</h3>
+                <h3>Task 11.2 - Possible Solution</h3>
                 <ul>
-                    <li>Branch: <span class="code">11_Forms_3</span></li>
+                    <li>Branch: <span class="code">11_Forms_2_solution</span></li>
                     <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution:
-                        <span class="code">git reset --hard && git checkout 11_Forms_3</span>
+                        <span class="code">git reset --hard && git checkout 11_Forms_2_solution</span>
                     </li>
                 </ul>
             </section>
         </section>
         <section>
-            <h2>Template Driven Forms - everything clear?</h2>
+            <h2>Reactive Forms - everything clear?</h2>
             <img src="../img/dumb_questions.jpg">
         </section>
     </div>
