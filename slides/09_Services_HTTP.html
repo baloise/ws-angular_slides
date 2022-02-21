@@ -32,8 +32,9 @@
                 <h2>Services & Injection</h2>
                 <ul>
                     <li>simple TypeScript classes</li>
-                    <li>should be annotated with <span class="code">@Injectable()</span></li>
-                    <li>are marked as available for injection by the dependency injector</li>
+                    <li>should be annotated with <span class="code">@Injectable({providedIn?: 'root' | 'platform' | 'any' | null})</span></li>
+                    <li>marked with <span class="code">@Injectable</span> marks a class as available to be provided and injected as a dependency and to be used by dependency injector</li>
+                    <li>ensures that compiler will generate the necessary metadata to create the class's dependencies when the class is injected.</li>
                     <li>encapsulate the access to the backend or other API's</li>
                     <li>can contain logic that is moved from a component</li>
                 </ul>
@@ -41,8 +42,17 @@
             <section>
                 <h3>Dependency Injection</h3>
                 <ul>
-                    <li><span class="code">Injectables</span> have to be registered in the AppModule in the <span class="code">providers</span> array</li>
+                    <li><span class="code">@Injectable({providedIn: 'root'})</span> is recommended way of providing service to the angular application. On this way we specify that Angular should provide the service in the root injector on the whole application level and this will enable tree-shaking.</li>
+                    <li><span class="code">{'platform'}</span> provides service in special singleton platform injector shared by all applications on the page.</li>
+                    <li><span class="code">{providedIn: 'any'}</span> provides a unique instance in each lazy loaded module while all eagerly loaded modules share one instance.</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Dependency Injection</h3>
+                <ul>
+                    <li><span class="code">{providedIn: 'null' | undefined}</span> injectable is not provided in any scope automatically and must be added to a <span class="code">providers</span> array of an @NgModule(for example in AppModule), @Component or @Directive</li>
                     <li>in theory, they can be registered for a component and its children only - this is only necessary in very rare cases, only if a component needs a dedicated instance</li>
+                    <li>You should always provide your service in the root injector unless there is a case where you want the service to be available only if the consumer imports a particular @NgModule.</li>
                 </ul>
             </section>
             <section>
@@ -87,27 +97,24 @@
                 <h3>Summary</h3>
                 <h4>in 98% of the cases...</h4>
                 <ul>
-                    <li>annotate services with <span class="code">@Injectable</span></li>
-                    <li>register services in the providers array in the module</li>
-                    <li>use the short form for the registration</li>
+                    <li>annotate services with <span class="code">@Injectable({providedIn: 'root'})</span></li>
                     <li>use a mock / stub in a test with <span class="code">useValue</span></li>
                 </ul>
-
             </section>
             <section>
                 <h3>Task 9.1 - Services</h3>
                 <ul>
-                    <li>Branch: <span class="code">08_ComponentArchitecture_5</span></li>
-                    <li>extract the list of movies to a <span class="code">MovieService</span></li>
-                    <li>provide a method <span class="code">getAllMovies</span> that return the list of movies</li>
-                    <li>use the service in the <span class="code">MoviesComponent</span></li>
+                    <li>Base branch: <span class="code">08_ComponentArchitecture_5_solution</span></li>
+                    <li>extract the list of pizzas to a <span class="code">PizzaService</span></li>
+                    <li>provide a method <span class="code">fetchPizzas</span> that return the list of pizzas</li>
+                    <li>use the service in the <span class="code">PizzaOrderComponent</span></li>
                 </ul>
             </section>
             <section>
                 <h3>Task 9.1 - Possible Solution</h3>
                 <ul>
-                    <li>Branch: <span class="code">09_ServicesHTTP_1</span></li>
-                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 09_ServicesHTTP_1</span>
+                    <li>Branch: <span class="code">09_ServicesHTTP_1_solution</span></li>
+                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 09_ServicesHTTP_1_solution</span>
                     </li>
                 </ul>
             </section>
@@ -280,7 +287,7 @@
                 <li>internally, Angular is built as a reactive system</li>
                 <li>in order to support functional reactive programming, Angular internals work with <span class="code">Observables</span></li>
                 <li>the <span class="code">valueChanges</span> Observable property on a control in the example before is from Angular</li>
-                <li>the new HTTP Service in Angular returns <span class="code">Observables</span>, not <span class="code">Promises</span>
+                <li>HTTP Service in Angular returns <span class="code">Observables</span>, not <span class="code">Promises</span>
                     (as <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">fetch</a> does it)</li>
             </ul>
         </section>
@@ -340,18 +347,19 @@
             <section>
                 <h3>Task 9.2 - HTTP GET</h3>
                 <ul>
-                    <li>Branch: <span class="code">09_ServicesHTTP_1</span></li>
-                    <li>get the movies from the backend using a GET request instead of the hardcoded array</li>
-                    <li>start the backend in a new terminal: <span class="code">npm run api</span></li>
-                    <li>the REST endpoint to retrieve all the movies is <span class="code">/api/movies</span></li>
-                    <li>test whether the api runs: <a href="http://localhost:3000/api/movies">show all movies</a></li>
+                    <li>Branch: <span class="code">09_ServicesHTTP_1_solution</span></li>
+                    <li>get the pizzas from the backend using a GET request instead of the hardcoded array</li>
+                    <li>the REST endpoint to retrieve all the pizzas is <span class="code">https://pizza-data-api-test.apps.caast01.balgroupit.com/pizzas</span></li>
+                    <li>test whether the api runs: <a target="_blank" href="https://pizza-data-api-test.apps.caast01.balgroupit.com/pizzas">show all pizzas</a></li>
+                    <li>Hint: we need to import <span class="code">HttpClientModule</span> in <span class="code">AppModule</span> in order to use HttpClient service in our app</li>
+                    <li>Hint: do not forget to unsubscribe from observable in onDestroy lifecycle hook</li>
                 </ul>
             </section>
             <section>
                 <h3>Task 9.2 - Possible Solution</h3>
                 <ul>
-                    <li>Branch: <span class="code">09_ServicesHTTP_2</span></li>
-                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 09_ServicesHTTP_2</span>
+                    <li>Branch: <span class="code">09_ServicesHTTP_2_solution</span></li>
+                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 09_ServicesHTTP_2_solution</span>
                     </li>
                 </ul>
             </section>
@@ -411,6 +419,22 @@
                         &lt;/movie>
                     </code>
                 </pre>
+            </section>
+            <section>
+                <h3>Task 9.3 - Async pipe</h3>
+                <ul>
+                    <li>Branch: <span class="code">09_ServicesHTTP_2_solution</span></li>
+                    <li>use <span class="code">async</span> pipe in <span class="code">PizzaOrderComponent</span> and get rid of ngOnDestroy and subscription variable</li>
+                    <li>use template binding in order to show <a href="https://design.baloise.dev/?path=/docs/components-spinner--basic" target="_blank">spinner</a> when waiting for request to load. See <a target="_blank" href="https://angular.io/api/common/NgIf#showing-an-alternative-template-using-else">here</a> for more info.</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Task 9.3 - Possible Solution</h3>
+                <ul>
+                    <li>Branch: <span class="code">09_ServicesHTTP_3_solution</span></li>
+                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 09_ServicesHTTP_3_solution</span>
+                    </li>
+                </ul>
             </section>
             <section>
                 <h3>modern reactive architecture</h3>
