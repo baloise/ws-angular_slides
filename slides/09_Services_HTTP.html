@@ -32,25 +32,32 @@
                 <h2>Services & Injection</h2>
                 <ul>
                     <li>simple TypeScript classes</li>
-                    <li>should be annotated with <span class="code">@Injectable({providedIn?: 'root' | 'platform' | 'any' | null})</span></li>
+                    <li>should be annotated with <span class="code">@Injectable({providedIn?: Type&lt;any&gt; | 'root' | 'platform' | 'any' | null})</span></li>
                     <li>marked with <span class="code">@Injectable</span> marks a class as available to be provided and injected as a dependency and to be used by dependency injector</li>
                     <li>ensures that compiler will generate the necessary metadata to create the class's dependencies when the class is injected.</li>
                     <li>encapsulate the access to the backend or other API's</li>
-                    <li>can contain logic that is moved from a component</li>
                 </ul>
             </section>
             <section>
                 <h3>Dependency Injection</h3>
                 <ul>
-                    <li><span class="code">@Injectable({providedIn: 'root'})</span> is recommended way of providing service to the angular application. On this way we specify that Angular should provide the service in the root injector on the whole application level and this will enable tree-shaking.</li>
+                    <li>can contain logic that is moved from a component</li>
+                    <li><span class="code">@Injectable({providedIn?: Type&lt;any&gt;})</span> we specify to which module we want to provide this service to. This method is preferred because it enables tree-shaking of the service if nothing injects it.</li>
+                    <li><span class="code">@Injectable({providedIn: 'root'})</span> is recommended way of providing service to the angular application. On this way we specify that Angular should provide the service in the root injector on the whole application level and this will enable tree-shaking and ensure service is singleton.</li>
+
+                </ul>
+            </section>
+            <section>
+                <h3>Dependency Injection</h3>
+                <ul>
                     <li><span class="code">{'platform'}</span> provides service in special singleton platform injector shared by all applications on the page.</li>
                     <li><span class="code">{providedIn: 'any'}</span> provides a unique instance in each lazy loaded module while all eagerly loaded modules share one instance.</li>
+                    <li><span class="code">{providedIn: 'null' | undefined}</span> injectable is not provided in any scope automatically and must be added to a <span class="code">providers</span> array of an @NgModule(for example in AppModule), @Component or @Directive</li>
                 </ul>
             </section>
             <section>
                 <h3>Dependency Injection</h3>
                 <ul>
-                    <li><span class="code">{providedIn: 'null' | undefined}</span> injectable is not provided in any scope automatically and must be added to a <span class="code">providers</span> array of an @NgModule(for example in AppModule), @Component or @Directive</li>
                     <li>in theory, they can be registered for a component and its children only - this is only necessary in very rare cases, only if a component needs a dedicated instance</li>
                     <li>You should always provide your service in the root injector unless there is a case where you want the service to be available only if the consumer imports a particular @NgModule.</li>
                 </ul>
@@ -98,6 +105,7 @@
                 <h4>in 98% of the cases...</h4>
                 <ul>
                     <li>annotate services with <span class="code">@Injectable({providedIn: 'root'})</span></li>
+                    <li>annotate services with <span class="code"> @Injectable({providedIn: UserModule})</span> if you want to provide service in a specific module just import module and define in service itself his provider. This method is preferred because it enables <span class="code">tree-shaking</span> of the service if nothing injects it. So do not use <span class="code">providers: </span> array in ngModule but this way. For more infor check <a href="https://angular.io/guide/providers#providedin-and-ngmodules" target="_blank">here</a>.</li>
                     <li>use a mock / stub in a test with <span class="code">useValue</span></li>
                 </ul>
             </section>

@@ -28,8 +28,19 @@
             <h1>Architecture - High Level</h1>
         </section>
         <section>
-            <h2>Angular - an overview</h2>
-            <img src="../img/architecture.png">
+            <section>
+                <h2>Angular architecture</h2>
+                <ul>
+                    <li>Angular is a platform and framework for building single-page client applications using HTML and TypeScript.</li>
+                    <li>The basic building blocks of the Angular framework are Angular components that are organized into NgModules.</li>
+                    <li>Organizing your code into distinct functional modules helps in managing development of complex applications, and in designing for reusability. In addition, this technique lets you take advantage of lazy-loading</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Angular - an overview</h2>
+                <h3> Building blocks of Angular and their relation</h3>>
+                <img src="../img/architecture.png">
+            </section>
         </section>
         <section>
             <section>
@@ -73,7 +84,7 @@
                     <li>are simple TypeScript classes</li>
                     <li>are injected by their Type</li>
                     <li>need the decorator <span class="code">@Injectable()</span></li>
-                    <li>are normally singletons (when they are provided on the module level)</li>
+                    <li>are normally singletons (when they are provided on the root module level, or in a module that is only imported by the AppModule)</li>
                 </ul>
             </section>
             <section>
