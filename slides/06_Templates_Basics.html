@@ -325,6 +325,7 @@
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
                          <input (input)="print($event.target.value)">
+                         <bal-input (balInput)="print($event.detail)"></bal-input>
                      </code>
                  </pre>
                 <ul>
@@ -335,6 +336,7 @@
                     <li>The <span class="code">target</span> property is a reference to the element that triggered the event
                     </li>
                     <li>the value can be accessed with <span class="code">.value</span></li>
+                    <li>Access to custom events (Design System) <span class="code">$event.detail</span></li>
                 </ul>
             </section>
             <section>
