@@ -71,7 +71,7 @@
                 <li>Forms typically contain several related controls. Reactive forms provide two ways of grouping multiple related controls into a single input form:</li>
                 <ol>
                     <li>A form group defines a form with a fixed set of controls that you can manage together. Form group basics are discussed in this section. You can also nest form groups to create more complex forms.</li>
-                    <li>A form array defines a dynamic form, where you can add and remove controls at run time. You can also nest form arrays to create more complex forms. For more about this option, see Creating dynamic forms.</li>
+                    <li>A form array defines a dynamic form, where you can add and remove controls at run time. You can also nest form arrays to create more complex forms.</li>
                 </ol>
             </ul>
         </section>
@@ -97,7 +97,7 @@
                 <ul>
                     <li>access to Angular Form Properties are possible by using reference variables defined in the component</li>
                     <li>with <span class="code">formVariable.value</span> you can access the status(value) of the form</li>
-                    <li>For the profile form, add two form control instances with the names firstName and lastName.</li>
+                    <li>Example: for the profile form, add two form control instances with the names firstName and lastName.</li>
                 </ul>
                 <pre>
                 <code class="hljs ts" data-trim>
@@ -149,14 +149,54 @@ console.log(profileFrom.get('firstName').value);
                 </pre>
             </section>
             <section>
+                <h3>Forms with baloise design system</h3>
+                <ul>
+                    <li>
+                        In order to use Baloise layot and style we can use forms from here:
+                        <a href="https://design.baloise.dev/?path=/story/design-form--page" target="_blank">https://design.baloise.dev/?path=/story/design-form--page</a>
+                    </li>
+                </ul>
+                <pre>
+                    <code class="hljs html" data-trim><script type="text/template">
+ <form (ngSubmit)="submit()" [formGroup]="form" class="columns is-multiline mt-4">
+  <bal-field class="column is-full py-0" required>
+      <bal-field-label required>Name</bal-field-label>
+      <bal-field-control>
+        <bal-input formControlName="name" placeholder="Enter your name"></bal-input>
+      </bal-field-control>
+    </bal-field>
+</form>></script></code>
+                </pre>
+            </section>
+            <section>
+                <h2>Rxjs operators and error handling</h2>
+                <ul>
+                    <li>Error handling and handling sucess results is done with rxjs operators in angular. For more info check <a href="https://angular.io/guide/rx-library#error-handling" target="_blank">here</a></li>
+                    <li>Example: Return "response" from the API. If an error happens, return an empty array.</li>
+                </ul>
+                <pre>
+<code class="hljs ts" data-trim>
+this.http.post('/api/data', payload).pipe(
+  map((res: any) => {
+    if (!res.response) {
+      throw new Error('Value expected!');
+    }
+    return res.response;
+  }),
+  catchError(() => of([]))
+);
+</code></pre>
+            </section>
+            </section>
+            <section>
                 <h3>Task 11.1 - Forms</h3>
                 <ul>
                     <li>Base branch: <span class="code">10_Routing_2_solution</span></li>
-                    <li>Inside<span class="code">Cart</span> component add form to enter details about pizza order </li>
-                    <li>The component should display chosen pizzas and have input form</li>
-                    <li>Limit yourself to name and address as well as a submit button</li>
-                    <li>Use the service and REST API to perform order operation. Rest api: <a href="https://pizza-data-api-test.apps.caast01.balgroupit.com/history" target="_blank"> https://pizza-data-api-test.apps.caast01.balgroupit.com/history </a> </li>
-                    <li> Hint: add <span class="code">ReactiveFormsModule</span> in app module</li>
+                    <li>Inside<span class="code">Cart</span> component add form to enter details about pizza order.</li>
+                    <li>The component should display chosen pizzas and have input form. Limit yourself to name and address as well as a submit button</li>
+                    <li>Use the service and REST API to perform order operation (with <span class="code">post</span> method). Rest api: <a href="https://pizza-data-api-test.apps.caast01.balgroupit.com/history" target="_blank"> https://pizza-data-api-test.apps.caast01.balgroupit.com/history </a> </li>
+                    <li>Hint: service method can return <span class="code">Observable&lt;boolean&gt;</span>, we return true if post was successful else false</li>
+                    <li>Hint: add <span class="code">ReactiveFormsModule</span> in app module</li>
                 </ul>
             </section>
             <section>
