@@ -28,10 +28,11 @@
             <h1>Routing</h1>
         </section>
         <section>
-            <h2>routing in general</h2>
+            <h2>Routing in general</h2>
             <ul>
                 <li>we build a Single Page Application (SPA)</li>
-                <li>when we want to display multiple pages, we can either do so by performing a page reload or by using the router
+                <li>when we want to display multiple pages, we can either do so by performing a page reload or by using
+                    the router
                 </li>
                 <li>we will have a look at the second option ;-)</li>
             </ul>
@@ -41,7 +42,9 @@
                 <h2>Display a navigation menu</h2>
                 <ul>
                     <li>we want to use a small navigation in our application</li>
-                    <li>the user should be able to navigate between different pages using a menu above the content area</li>
+                    <li>the user should be able to navigate between different pages using a menu above the content
+                        area
+                    </li>
                 </ul>
             </section>
             <section>
@@ -50,8 +53,9 @@
                     <li>is in its own package: <span class="code">@angular/router</span></li>
                     <li>is configured with <span class="code">RouterModule.forRoot(routeConfig)</span></li>
                     <li>expects a <span class="code">Route[]</span> as param for the config</li>
-                    <li>a <span class="code">Route</span> has properties, such as <span class="code">path</span> and <span
-                            class="code">component</span> - for a specific path a component will be loaded
+                    <li>a <span class="code">Route</span> has properties, such as <span class="code">path</span> and
+                        <span
+                                class="code">component</span> - for a specific path a component will be loaded
                     </li>
                     <li>The order matters! The first match wins!</li>
                 </ul>
@@ -80,7 +84,9 @@
             <section>
                 <h3>Router Outlet - the place where the component is going to be displayed</h3>
                 <ul>
-                    <li>the component is displayed where <span class="code">&lt;router-outlet>&lt;/router-outlet></span> is located</li>
+                    <li>the component is displayed where <span class="code">&lt;router-outlet>&lt;/router-outlet></span>
+                        is located
+                    </li>
                     <li>router-outlet is a directive from the router module</li>
                 </ul>
                 <pre>
@@ -96,7 +102,9 @@
                 <ul>
                     <li>when the user clicks a link, navigation should kick in</li>
                     <li>another option would be to enter the URL manually ;-)</li>
-                    <li>the <span class="code">routerLink</span> directive needs a binding relative to the root of the app's url</li>
+                    <li>the <span class="code">routerLink</span> directive needs a binding relative to the root of the
+                        app's url
+                    </li>
                 </ul>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
@@ -110,27 +118,11 @@
                 </pre>
             </section>
             <section>
-                <h3>RouterLinkActive Direktive</h3>
-                <ul>
-                    <li><span class="code">routerLinkActive</span> adds a css class to the element if <span class="code">routerLink</span> is active</li>
-                    <li>to highlight the current active menu entry</li>
-                </ul>
-                <pre>
-                    <code class="hljs html" data-trim contenteditable>
-                        &lt;nav>
-                            &lt;ul>
-                                &lt;li>&lt;a routerLink="/pizze"
-                                    routerLinkActive="active">Pizze&lt;/a>&lt;/li>
-                            &lt;/ul>
-                        &lt;/nav>
-                    </code>
-                </pre>
-            </section>
-            <section>
-                <h3>router base path</h3>
+                <h3>Router base path</h3>
                 <ul>
                     <li>to tell the router what the base path of the application is</li>
-                    <li>is the first child in the  <span class="code">&lt;head></span> of <span class="code">index.html</span></li>
+                    <li>is the first child in the <span class="code">&lt;head></span> of <span
+                            class="code">index.html</span></li>
                 </ul>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
@@ -146,37 +138,48 @@
             <section>
                 <h3>Task 10.1 - Routing</h3>
                 <ul>
-                    <li>Branch: <span class="code">09_ServicesHTTP_2</span></li>
-                    <li>create a new home component that displays the cinema image from the <span class="code">assets</span> folder</li>
-                    <li>add a navigation to the cinema component, and above the place for the active route</li>
-                    <li>create a config for the router, it should contain the <span class="code">home</span> and <span class="code">movies</span> paths</li>
+                    <li>Base branch: <span class="code">09_ServicesHTTP_3_solution</span></li>
+                    <li>create a new home component that displays the pizzeria image from the <span
+                            class="code">assets</span> folder
+                    </li>
+                    <li>add a button to the home component which will redirect us to order view</li>
+                    <li>create a config for the router, it should contain the <span class="code">home</span> and <span
+                            class="code">order</span> paths
+                    </li>
                     <li>if the path is empty, the app should navigate to the home component</li>
+                    <li>add navigation items to AppComponent with these two paths</li>
+                    <li>Hint: For displaying navigation you should use <a href="https://angular.io/docs/ts/latest/guide/router.html#">Navbar component</a></li>
                 </ul>
             </section>
             <section>
                 <h3>Task 10.1 - Possible Solution</h3>
                 <ul>
-                    <li>Branch: <span class="code">10_Routing_1</span></li>
-                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 10_Routing_1</span>
+                    <li>Branch: <span class="code">10_Routing_1_solution</span></li>
+                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the
+                        solution: <span class="code">git reset --hard && git checkout 10_Routing_1_solution</span>
                     </li>
                 </ul>
             </section>
             <section>
-                <h3>Task 10.2 - Visitors</h3>
+                <h3>Task 10.2 - History</h3>
                 <ul>
-                    <li>Branch: <span class="code">10_Routing_1</span></li>
+                    <li>Base branch: <span class="code">10_Routing_1_solution</span></li>
                     <li>this task is a repetition of already covered concepts</li>
-                    <li>build a new page for visitors, like the one for movies</li>
-                    <li>you can get the data from the <span class="code">/api/visitors</span> Endpoint</li>
-                    <li>display visitors with some properties in a table</li>
-                    <li>it should be possible to navigate to the visitors page</li>
+                    <li>build a new page for order history, like the one for pizzeria</li>
+                    <li>you can get the data from the <span class="code">https://pizza-data-api-test.apps.caast01.balgroupit.com/history</span>
+                        Endpoint
+                    </li>
+                    <li>Inside the History component add HistoryList component and display order history with properties(see: Order interface)
+                    </li>
+                    <li>it should be possible to navigate to the history page</li>
                 </ul>
             </section>
             <section>
                 <h3>Task 10.2 - Possible Solution</h3>
                 <ul>
-                    <li>Branch: <span class="code">10_Routing_2</span></li>
-                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the solution: <span class="code">git reset --hard && git checkout 10_Routing_2</span>
+                    <li>Branch: <span class="code">10_Routing_2_solution</span></li>
+                    <li>if you want to throw your local changes <span class="warn">away</span> and you want to see the
+                        solution: <span class="code">git reset --hard && git checkout 10_Routing_2_solution</span>
                     </li>
                 </ul>
             </section>
@@ -186,8 +189,11 @@
             <ul>
                 <li>the router is really powerful</li>
                 <li>the API is pretty etensive</li>
-                <li>Route Params, Animations, Child Routes, multiple routes and named Outlets, secondary Routes, Route Guards, Lazy Loading...</li>
-                <li><a href="https://angular.io/docs/ts/latest/guide/router.html#">Official Router Documentation</a></li>
+                <li>Route Params, Animations, Child Routes, multiple routes and named Outlets, secondary Routes, Route
+                    Guards, Lazy Loading...
+                </li>
+                <li><a href="https://angular.io/docs/ts/latest/guide/router.html#">Official Router Documentation</a>
+                </li>
             </ul>
         </section>
         <section>
@@ -211,8 +217,8 @@
             {src: '../plugin/notes/notes.js', async: true},
             {
                 src: '../plugin/highlight/highlight.js', async: true, callback: function () {
-                hljs.initHighlightingOnLoad();
-            }
+                    hljs.initHighlightingOnLoad();
+                }
             }
         ]
     });
