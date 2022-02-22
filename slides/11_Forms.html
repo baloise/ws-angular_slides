@@ -233,12 +233,29 @@ this.http.post('/api/data', payload).pipe(
                 </pre>
             </section>
             <section>
+                <h3>Baloise form validation</h3>
+                <ul>
+                    <li>We can use default HTML5 Form validation and also baloise styled one: <a href="https://design.baloise.dev/?path=/story/getting-started-angular-usage-of-form-validation--page" target="_blank">https://design.baloise.dev/?path=/story/getting-started-angular-usage-of-form-validation--page</a></li>
+                    <li>When we use baloise styled we can make nice custom error messages and that is why it is recommended to use them</li>
+                </ul>
+                <pre><code class="hljs html" data-trim contenteditable>
+    <bal-field-control>
+      <bal-input name="email" placeholder="Enter your email" formControlName="email"></bal-input>
+    </bal-field-control>
+    <bal-field-message color="danger">
+      <bal-ng-error controlName="email" error="isRequired">This field is required</bal-ng-error>
+      <bal-ng-error controlName="email" error="isMinLength">Min length is 4</bal-ng-error>
+      <bal-ng-error controlName="email" error="isEmail">Not a valid email</bal-ng-error>
+    </bal-field-message></code></pre>
+            </section>
+            <section>
                 <h3>Task 11.2 - Form Validation</h3>
                 <ul>
                     <li>Base branch: <span class="code">11_Forms_1_solution</span></li>
-                    <li>Add a <span class="code">mandatory field</span> validation name and adress</li>
+                    <li>Add a <span class="code">mandatory field</span> validation for name and address</li>
                     <li>Add a <span class="code">MaximumLength</span> validation for name (16 characters)</li>
                     <li>If the form isn't valid, the <span class="code">submit</span> button should be disabled (Angular Form Properties ;-))</li>
+                    <li>Use <a href="https://design.baloise.dev/?path=/story/getting-started-angular-usage-of-toast-snackbars--page" target="_blank">Toast</a> for nice notification of the user for both success and error of posting order</li>
                     <li>Hint: use BalValidators from <span class="code">@baloise/web-app-validators-angular</span></li>
                 </ul>
             </section>
