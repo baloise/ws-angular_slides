@@ -221,7 +221,7 @@
                 <h3>Task 6.2 - Possible Solution</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
-                         <input [value]="address.street"/>
+                         <bal-input [value]="address.street"></bal-input>
                      </code>
                 </pre>
                 <p>... or use the canonical form with the bind-prefix</p>
@@ -284,7 +284,7 @@
                 <h3>Task 6.3 - Possible Solution</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
-                         <button (click)="logHello()">click me!</button>
+                         <bal-button (click)="logHello()">click me!</bal-button>
                      </code>
                      <code class="hljs typescript" data-trim contenteditable>
                          logHello() {
@@ -340,7 +340,7 @@
             <section>
                 <h3>Task 6.4 - Event with a value</h3>
                 <ul>
-                    <li>Add a <span class="code">Input</span> element.</li>
+                    <li>Add an <span class="code">Input</span> element.</li>
                     <li>Print any new value on the console that starts with the letter 's'.</li>
                 </ul>
             </section>
@@ -362,8 +362,7 @@
             <section>
                 <h3>Task 6.5 - Two-way data binding</h3>
                 <ul>
-                    <li>Create a self-created two-way data binding for a <span class="code">Input</span> field.
-                    </li>
+                    <li>Create a self-created two-way data binding for an <span class="code">Input</span> field.</li>
                     <li>Create an input field with a binding for a string, e.g. "name".</li>
                     <li>Create a text block (<span class="code">&lt;p&gt;</span>-Tag) containing the value from the input field.
                     </li>
@@ -421,11 +420,12 @@
             <section>
                 <h3>Task 6.6 - Template Ref Variable</h3>
                 <ul>
-                    <li>Create a button and a checkbox. A checkbox is a <span class="code">Input</span> of type <span class="code">checkbox</span></li>
+                    <li>Create a button and a checkbox.</li>
                     <li>the checkbox should disable / enable the button</li>
                     <li>Use a Template Reference Variable</li>
-                    <li>Hint: a Button has a disabled Property</li>
-                    <li>Hint: an Input has a <span class="code">(change)</span> Event</li>
+                    <li>You can use the <a href="https://design.baloise.dev/?path=/docs/components-form-checkbox--basic">bal-checkbox</a></li>
+                    <li>Hint: a Button has a <span class="code">disabled</span> Property</li>
+                    <li>Hint: The bal-checkbox has a <span class="code">(balChange)</span> Event</li>
                 </ul>
             </section>
             <section>

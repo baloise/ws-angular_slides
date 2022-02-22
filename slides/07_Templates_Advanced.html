@@ -74,10 +74,10 @@
                 <ul>
                     <li>Use a radio button with the values "simple" and "advanced"</li>
                     <li>when advanced is selected, show an <span class="code">Input</span> field</li>
-                    <li>if the <span class="code">Input</span> contains more than 2 characters, display the input text under the field
-                    </li>
-                    <li>Hint: there is a type "radio" on the <span class="code">Input</span> field, remember the <span class="code">value</span> property and use <span class="code">[(ngModel)]</span></li>
-                    <li>Hint: a radio group can be created, when the <span class="code">input</span> elements have the same value for the name-property
+                    <li>if the <span class="code">Input</span> contains more than 2 characters, display the input text under the field</li>
+                    <li>Use a <a href="https://design.baloise.dev/?path=/docs/components-form-radio--radio-group">bal-radio</a></li>
+                    <li>Use a <a href="https://design.baloise.dev/?path=/docs/components-form-input--text-input">bal-input</a></li>
+                    <li>Hint: a <span class="code">bal-radio-group</span> can be created, when the <span class="code">bal-radio</span> elements have the same value for the name-property
                     </li>
                 </ul>
             </section>
@@ -85,22 +85,25 @@
                 <h3>Task 7.1 - Possible Solution</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
-                        &lt;input type="radio" name="myName"
-                               [(ngModel)]="setting" value="simple">Simple
-                        &lt;input type="radio" name="myName"
-                               [(ngModel)]="setting" value="extended">Advanced
-
-                        &lt;div *ngIf="setting === 'extended'">
-                            &lt;input type="text" [value]="extendedValue"
-                                   (input)="extendedValue=$event.target.value">
-                            &lt;p *ngIf="extendedValue.length > 2">
-                                Value: {{extendedValue}}
+                        &lt;bal-radio-group [value]="setting" (balChange)="setting=$event.detail">
+                            &lt;bal-radio name="myRadio" value="simple">Simple&lt;/bal-radio>
+                            &lt;bal-radio name="myRadio" value="advanced">Advanced&lt;/bal-radio>
+                        &lt;/bal-radio-group>
+                          
+                        &lt;div *ngIf="setting === 'advanced'">
+                            &lt;bal-input
+                              placeholder="advanced"
+                              [value]="advancedValue"
+                              (balInput)="advancedValue=$event.detail!.toString()"
+                            >&lt;/bal-input>
+                            &lt;p *ngIf="advancedValue.length > 2">
+                              Value: {{advancedValue}}
                             &lt;/p>
                         &lt;/div>
                      </code>
                     <code class="hljs typescript" data-trim contenteditable>
-                         val: extendedValue = "";
                          setting: string = "simple";
+                         advancedValue: string = "";
                     </code>
                  </pre>
             </section>
