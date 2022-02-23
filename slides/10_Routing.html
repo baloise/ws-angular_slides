@@ -34,30 +34,26 @@
                 <li>when we want to display multiple pages, we can either do so by performing a page reload or by using
                     the router
                 </li>
-                <li>we will have a look at the second option ;-)</li>
+                <li>primary purpose of routing is to provide mechanism to navigate through application</li>
             </ul>
         </section>
         <section>
             <section>
-                <h2>Display a navigation menu</h2>
+                <h2>Router in action!</h2>
                 <ul>
-                    <li>we want to use a small navigation in our application</li>
-                    <li>the user should be able to navigate between different pages using a menu above the content
-                        area
-                    </li>
+                    <li>In order to navigate in our application we will use router, let see how router works</li>
                 </ul>
             </section>
             <section>
                 <h3>the Router module</h3>
                 <ul>
                     <li>is in its own package: <span class="code">@angular/router</span></li>
-                    <li>is configured with <span class="code">RouterModule.forRoot(routeConfig)</span></li>
+                    <li>is configured with <span class="code">RouterModule.forRoot(routeConfig)</span> or <span class="code">RouterModule.forChild(routeConfig)</span</li>
                     <li>expects a <span class="code">Route[]</span> as param for the config</li>
                     <li>a <span class="code">Route</span> has properties, such as <span class="code">path</span> and
                         <span
                                 class="code">component</span> - for a specific path a component will be loaded
                     </li>
-                    <li>The order matters! The first match wins!</li>
                 </ul>
             </section>
             <section>
@@ -82,26 +78,10 @@
                 </pre>
             </section>
             <section>
-                <h3>Router Outlet - the place where the component is going to be displayed</h3>
+                <h3>Router Links directive</h3>
                 <ul>
-                    <li>the component is displayed where <span class="code">&lt;router-outlet>&lt;/router-outlet></span>
-                        is located
-                    </li>
-                    <li>router-outlet is a directive from the router module</li>
-                </ul>
-                <pre>
-                    <code class="hljs html" data-trim contenteditable>
-                        &lt;h1>Welcome&lt;/h1>
-                        &lt;navigation-bar>&lt;/navigation-bar>
-                        &lt;router-outlet>&lt;/router-outlet>
-                    </code>
-                </pre>
-            </section>
-            <section>
-                <h3>Router Links - Navigation</h3>
-                <ul>
-                    <li>when the user clicks a link, navigation should kick in</li>
-                    <li>another option would be to enter the URL manually ;-)</li>
+                    <li><span class="code">RouterLink</span> is a directive for navigating to a different route</li>
+                    <li>when the user clicks on element which has <span class="code">routerLink</span>, navigation should kick in and change URL in browser</li>
                     <li>the <span class="code">routerLink</span> directive needs a binding relative to the root of the
                         app's url
                     </li>
@@ -118,20 +98,45 @@
                 </pre>
             </section>
             <section>
-                <h3>Router base path</h3>
+                <h3>Router Outlet - the place where the component is going to be displayed</h3>
                 <ul>
-                    <li>to tell the router what the base path of the application is</li>
-                    <li>is the first child in the <span class="code">&lt;head></span> of <span
-                            class="code">index.html</span></li>
+                    <li>the component is displayed where <span class="code">&lt;router-outlet>&lt;/router-outlet></span>
+                        is located
+                    </li>
+                    <li>router-outlet is a directive from the router module</li>
                 </ul>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
-                        &lt;html>
-                            &lt;head>
-                                &lt;base href="/">
-                            &lt;/head>
-                            ...
-                        &lt;/html>
+                        &lt;h1>Welcome&lt;/h1>
+                        &lt;navigation-bar>&lt;/navigation-bar>
+                        &lt;router-outlet>&lt;/router-outlet>
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Router basic workflow</h3>
+                <ul>
+                    <p><span class="code">routerLink</span> -> updates URL -> router sees changes -> sequentially check <span class="code">routerConfig</span> 
+                        -> selects the first match path -> load component defined for that path -> 
+                        find <span class="code">&lt;router-outlet>&lt;/router-outlet></span> directive -> display component
+                    </p>
+                </ul>
+            </section>
+            <section>
+                <h3>Route params</h3>
+                <ul>
+                    <li>required</li>
+                    <li>optional</li>
+                    <li>query param</li>
+                </ul>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        <!-- required param example -->
+                        this.route.navigate(['employee',id])
+                        <!-- required param example -->
+                        this.route.navigate(['employee',{name:'ab'}]));
+                        <!-- query param example -->
+                        this.route.navigate(['employee'],{queryParams:{name:'a'}})
                     </code>
                 </pre>
             </section>
@@ -148,7 +153,7 @@
                     </li>
                     <li>if the path is empty, the app should navigate to the home component</li>
                     <li>add navigation items to AppComponent with these two paths</li>
-                    <li>Hint: For displaying navigation you should use <a href="https://angular.io/docs/ts/latest/guide/router.html#">Navbar component</a></li>
+                    <li>Hint: For displaying navigation you should use <a href="https://design.baloise.dev/?path=/story/components-navbar--with-tabs">Navbar component</a></li>
                 </ul>
             </section>
             <section>
@@ -188,8 +193,7 @@
             <h2>Additional Router Features</h2>
             <ul>
                 <li>the router is really powerful</li>
-                <li>the API is pretty etensive</li>
-                <li>Route Params, Animations, Child Routes, multiple routes and named Outlets, secondary Routes, Route
+                <li>Animations, Child Routes, multiple routes and named Outlets, secondary Routes, Route
                     Guards, Lazy Loading...
                 </li>
                 <li><a href="https://angular.io/docs/ts/latest/guide/router.html#">Official Router Documentation</a>
