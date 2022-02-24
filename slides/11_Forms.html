@@ -141,25 +141,6 @@
 </form>></script></code>
                 </pre>
             </section>
-            <section>
-                <h2>Rxjs operators and error handling</h2>
-                <ul>
-                    <li>Error handling and handling sucess results is done with rxjs operators in angular. For more info check <a href="https://angular.io/guide/rx-library#error-handling" target="_blank">here</a></li>
-                    <li>Example: Return "response" from the API. If an error happens, return an empty array.</li>
-                </ul>
-                <pre>
-<code class="hljs ts" data-trim>
-this.http.post('/api/data', payload).pipe(
-  map((res: any) => {
-    if (!res.response) {
-      throw new Error('Value expected!');
-    }
-    return res.response;
-  }),
-  catchError(() => of([]))
-);
-</code></pre>
-            </section>
             </section>
             <section>
                 <h3>Task 11.1 - Forms</h3>
