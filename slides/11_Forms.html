@@ -83,23 +83,6 @@
 </script></code></pre>
             </section>
             <section>
-                <h2>Form Basics</h2>
-                <ul>
-                    <li>access to Angular Form Properties are possible by using reference variables defined in the component</li>
-                    <li>with <span class="code">formVariable.value</span> you can access the status(value) of the form</li>
-                    <li>Example: for the profile form, add two form control instances with the names firstName and lastName.</li>
-                </ul>
-                <pre>
-                <code class="hljs ts" data-trim>
-profileForm = new FormGroup({
-  firstName: new FormControl(''),
-  lastName: new FormControl(''),
-});
-console.log(profileFrom.get('firstName').value);
-                </code>
-                </pre>
-            </section>
-            <section>
                 <h3>Form Submit</h3>
                 <ul>
                     <li>a form is submitted, if a button of type <span class="code">submit</span> is clicked</li>
